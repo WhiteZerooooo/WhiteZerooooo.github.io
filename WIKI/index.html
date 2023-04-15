@@ -82,29 +82,23 @@
 </style>
 <head>
 	<meta charset="utf-8">
-	<title>零のQ版显示</title>
+	<title>零のSpine测试</title>
 </head>
 <body>
-<canvas id="canvas"></canvas>
-<left>
-
-<div style="color: #fff; position: fixed; top: 10; left: 10" class="container">
-
-<span><big style="color: #ffffff">飨灵选择: </big></span><select id="skeletonList"></select>
+<div style="border: 1px solid #ccc; background-color: #f2f2f2; padding: 10px; width: 370px; height:600px;margin-left: 20px;">
+<canvas id="canvas" style="border: 1px solid black;"></canvas>
+<div style="color: #fff; top: 10; left: 10; border: 1px solid black; margin-top: 10px;" class="spinecontainer">
+<span style="display: inline-block; margin-left: 10px;"><big style="color: #ffffff"><big>飨灵选择:</big></big></span><select id="skeletonList"></select>
 <br>
-<span><big style="color: #ffffff">动画: </big></span><select id="animationList"></select>  <button id="resetBtn">重置位置</button>
+<span style="display: inline-block; margin-left: 10px;"><big style="color: #ffffff"><big>动画:</big> </big></span><select id="animationList"></select>  <button id="resetBtn">重置位置</button>
 <br><br>
-<label for="speed"><big style="color: #ffffff">播放速度: </big></label>
+<label for="speed"><big style="display: inline-block; margin-left: 10px; color: #ffffff"><big>播放速度:</big> </big></label><div id="speedValueDisplay" style="color: #ffffff"></div>
 <input type="range" min="0" max="2" step="0.1" value="1.0" class="slider" id="speed">
-<div id="speedValueDisplay" style="color: #ffffff"></div>
 <br><br>
-<label for="bigsize"><big style="color: #ffffff">模型大小: </big></label>
-<input type="range" min="0.3" max="1.3" step="0.05" value="0.8" class="slider" id="bigsize">
-<div id="sizeValueDisplay" style="color: #ffffff"></div>
-
+<label for="bigsize"><big style="display: inline-block; margin-left: 10px; color: #ffffff"><big>模型大小:</big> </big></label><div id="sizeValueDisplay" style="color: #ffffff"></div>
+<input type="range" min="-0.5" max="0.5" step="0.05" value="0" class="slider" id="bigsize">
 </div>
-
-</left>
+</div>
 </body>
 <script>
 
@@ -119,7 +113,7 @@ var skeletonRenderer;
 var debugRenderer;
 var shapes;
 var skeletons = {};
-var activeSkeleton;
+var activeSkeleton = "<!--{$name}-->";
 var slider = document.getElementById("speed");
 var slidersize = document.getElementById("bigsize");
 var speedValueDisplay = document.getElementById("speedValueDisplay");
@@ -134,7 +128,7 @@ slider.oninput = function() {
 }
 slidersize.oninput = function() {
   bigsize = this.value;
-  sizename =  parseFloat(this.value) + 0.2
+  sizename =  parseFloat(this.value) + 1
   sizename = sizename.toFixed(2)
   sizename = sizename.toString()
   sizeValueDisplay.textContent = sizename + 'x';  // 添加倍速单位
@@ -145,7 +139,7 @@ speedValueDisplay.oninput = function() {
   speedValueDisplay.innerHTML = this.value;
 }
 sizeValueDisplay.innerHTML = slidersize.value; // 初始化显示滑块的值
-sizename =  parseFloat(slidersize.value) + 0.2
+sizename =  parseFloat(slidersize.value) + 1
 sizename = sizename.toFixed(2)
 sizename = sizename.toString()
 sizeValueDisplay.textContent = sizename + 'x';  // 添加倍速单位
