@@ -102,6 +102,21 @@
 </body>
 <script>
 
+
+// 获取URL中的查询字符串
+const queryString = window.location.search;
+// 创建URLSearchParams对象
+const urlParams = new URLSearchParams(queryString);
+// 获取url参数的值
+var cardname = urlParams.get('name') || "小笼包";
+var cardid = urlParams.get('id') || 200001;
+var cardname2 = urlParams.get('name');
+var cardid2 = urlParams.get('id2');
+var cardname3 = urlParams.get('name');
+var cardid3 = urlParams.get('id3');
+var cardname4 = urlParams.get('name');
+var cardid4 = urlParams.get('id4');
+
 var lastFrameTime = Date.now() / 1000;
 var canvas;
 var shader;
@@ -113,7 +128,7 @@ var skeletonRenderer;
 var debugRenderer;
 var shapes;
 var skeletons = {};
-var activeSkeleton = "<!--{$name}-->";
+var activeSkeleton = `${cardname}`;
 var slider = document.getElementById("speed");
 var slidersize = document.getElementById("bigsize");
 var speedValueDisplay = document.getElementById("speedValueDisplay");
@@ -178,48 +193,48 @@ function init () {
 	// Tell AssetManager to load the resources for each model, including the exported .json file, the .atlas file and the .png
 	// file for the atlas. We then wait until all resources are loaded in the load() method.
 
-    const textureap = "assets/avatar/<!--{$id}-->.json";
+    const textureap = `assets/avatar/${cardid}.json`;
     assetManager.loadText(textureap);
-    const texturejp = "assets/avatar/<!--{$id}-->.atlas";
+    const texturejp = `assets/avatar/${cardid}.atlas`;
     assetManager.loadText(texturejp);
      for (let i = 1; i <= 20; i++) {
       // 构建纹理路径
-      const texturePath = `assets/avatar/<!--{$id}-->_p${i}.png`;
+      const texturePath = `assets/avatar/${cardid}_p${i}.png`;
       // 加载纹理
       assetManager.loadTexture(texturePath);
      };
-   if ('<!--{$id2}-->' !== '') {
-    const textureap = "assets/avatar/<!--{$id2}-->.json";
+   if (`${cardid2}` !== nil) {
+    const textureap = `assets/avatar/${cardid2}.json`;
     assetManager.loadText(textureap);
-    const texturejp = "assets/avatar/<!--{$id2}-->.atlas";
+    const texturejp = `assets/avatar/${cardid2}.atlas`;
     assetManager.loadText(texturejp);
      for (let i = 1; i <= 20; i++) {
       // 构建纹理路径
-      const texturePath = `assets/avatar/<!--{$id2}-->_p${i}.png`;
+      const texturePath = `assets/avatar/${cardid2}_p${i}.png`;
       // 加载纹理
       assetManager.loadTexture(texturePath);
      }
    };
-   if ('<!--{$id3}-->' !== '') {
-    const textureap = "assets/avatar/<!--{$id3}-->.json";
+   if (`${cardid3}` !== nil) {
+    const textureap = `assets/avatar/${cardid3}.json`;
     assetManager.loadText(textureap);
-    const texturejp = "assets/avatar/<!--{$id3}-->.atlas";
+    const texturejp = `assets/avatar/${cardid3}.atlas`;
     assetManager.loadText(texturejp);
      for (let i = 1; i <= 20; i++) {
       // 构建纹理路径
-      const texturePath = `assets/avatar/<!--{$id3}-->_p${i}.png`;
+      const texturePath = `assets/avatar/${cardid3}_p${i}.png`;
       // 加载纹理
       assetManager.loadTexture(texturePath);
      }
    };
-   if ('<!--{$id4}-->' !== '') {
-    const textureap = "assets/avatar/<!--{$id4}-->.json";
+   if (`${cardid4}` !== nil) {
+    const textureap = `assets/avatar/${cardid4}.json`;
     assetManager.loadText(textureap);
-    const texturejp = "assets/avatar/<!--{$id4}-->.atlas";
+    const texturejp = `assets/avatar/${cardid4}.atlas`;
     assetManager.loadText(texturejp);
      for (let i = 1; i <= 20; i++) {
       // 构建纹理路径
-      const texturePath = `assets/avatar/<!--{$id4}-->_p${i}.png`;
+      const texturePath = `assets/avatar/${cardid4}_p${i}.png`;
       // 加载纹理
       assetManager.loadTexture(texturePath);
      }
@@ -230,16 +245,16 @@ function init () {
 function load () {
 	// Wait until the AssetManager has loaded all resources, then load the skeletons.
 	if (assetManager.isLoadingComplete()) {
-		skeletons["<!--{$name}-->"] = loadSkeleton("<!--{$id}-->", "静止", false, false);
+		skeletons[`${cardname}`] = loadSkeleton(`${cardid}`, "静止", false, false);
 
-      if ('<!--{$id2}-->' !== '') {
-       skeletons["<!--{$name2}-->"] = loadSkeleton("<!--{$id2}-->", "静止", false, false);
+      if (`${cardid2}` !== nil) {
+       skeletons[`${cardname}`] = loadSkeleton(`${cardid2}`, "静止", false, false);
       };
-      if ('<!--{$id3}-->' !== '') {
-       skeletons["<!--{$name3}-->"] = loadSkeleton("<!--{$id3}-->", "静止", false, false);
+      if (`${cardid3}` !== nil) {
+       skeletons[`${cardname}`] = loadSkeleton(`${cardid3}`, "静止", false, false);
       };
-      if ('<!--{$id4}-->' !== '') {
-       skeletons["<!--{$name4}-->"] = loadSkeleton("<!--{$id4}-->", "静止", false, false);
+      if (`${cardid4}` !== nil) {
+       skeletons[`${cardname}`] = loadSkeleton(`${cardid4}`, "静止", false, false);
       };
 		setupUI();
 		requestAnimationFrame(render);
