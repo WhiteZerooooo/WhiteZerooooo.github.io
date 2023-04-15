@@ -203,7 +203,7 @@ function init () {
       // 加载纹理
       assetManager.loadTexture(texturePath);
      };
-   if (`${cardid2}` !== null) {
+   if (`${cardid2}` !== "null") {
     const textureap = `assets/avatar/${cardid2}.json`;
     assetManager.loadText(textureap);
     const texturejp = `assets/avatar/${cardid2}.atlas`;
@@ -215,7 +215,7 @@ function init () {
       assetManager.loadTexture(texturePath);
      }
    };
-   if (`${cardid3}` !== null) {
+   if (`${cardid3}` !== "null") {
     const textureap = `assets/avatar/${cardid3}.json`;
     assetManager.loadText(textureap);
     const texturejp = `assets/avatar/${cardid3}.atlas`;
@@ -227,7 +227,7 @@ function init () {
       assetManager.loadTexture(texturePath);
      }
    };
-   if (`${cardid4}` !== null) {
+   if (`${cardid4}` !== "null") {
     const textureap = `assets/avatar/${cardid4}.json`;
     assetManager.loadText(textureap);
     const texturejp = `assets/avatar/${cardid4}.atlas`;
@@ -247,13 +247,13 @@ function load () {
 	if (assetManager.isLoadingComplete()) {
 		skeletons[`${cardname}`] = loadSkeleton(`${cardid}`, "静止", false, false);
 
-      if (`${cardid2}` !== null) {
+      if (`${cardid2}` !== "null") {
        skeletons[`${cardname}`] = loadSkeleton(`${cardid2}`, "静止", false, false);
       };
-      if (`${cardid3}` !== null) {
+      if (`${cardid3}` !== "null") {
        skeletons[`${cardname}`] = loadSkeleton(`${cardid3}`, "静止", false, false);
       };
-      if (`${cardid4}` !== null) {
+      if (`${cardid4}` !== "null") {
        skeletons[`${cardname}`] = loadSkeleton(`${cardid4}`, "静止", false, false);
       };
 		setupUI();
