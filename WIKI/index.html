@@ -108,8 +108,8 @@ const queryString = window.location.search;
 // 创建URLSearchParams对象
 const urlParams = new URLSearchParams(queryString);
 // 获取url参数的值
-var cardname = urlParams.get('name') || "小笼包";
-var cardid = urlParams.get('id') || 200001;
+var cardname1 = urlParams.get('name1') || "小笼包";
+var cardid1 = urlParams.get('id1') || 200001;
 var cardname2 = urlParams.get('name2') || "not exist";
 var cardid2 = urlParams.get('id2') || "not exist";;
 var cardname3 = urlParams.get('name3') || "not exist";;
@@ -128,7 +128,7 @@ var skeletonRenderer;
 var debugRenderer;
 var shapes;
 var skeletons = {};
-var activeSkeleton = `${cardname}`;
+var activeSkeleton = `${cardname1}`;
 var slider = document.getElementById("speed");
 var slidersize = document.getElementById("bigsize");
 var speedValueDisplay = document.getElementById("speedValueDisplay");
@@ -193,17 +193,17 @@ function init () {
 	// Tell AssetManager to load the resources for each model, including the exported .json file, the .atlas file and the .png
 	// file for the atlas. We then wait until all resources are loaded in the load() method.
 
-    const textureap = `assets/avatar/${cardid}.json`;
+    const textureap = `assets/avatar/${cardid1}.json`;
     assetManager.loadText(textureap);
-    const texturejp = `assets/avatar/${cardid}.atlas`;
+    const texturejp = `assets/avatar/${cardid1}.atlas`;
     assetManager.loadText(texturejp);
      for (let i = 1; i <= 20; i++) {
       // 构建纹理路径
-      const texturePath = `assets/avatar/${cardid}_p${i}.png`;
+      const texturePath = `assets/avatar/${cardid1}_p${i}.png`;
       // 加载纹理
       assetManager.loadTexture(texturePath);
      };
-   if (ardid2 !== "not exist") {
+   if (cardid2 !== "not exist") {
     const textureap = `assets/avatar/${cardid2}.json`;
     assetManager.loadText(textureap);
     const texturejp = `assets/avatar/${cardid2}.atlas`;
@@ -245,7 +245,7 @@ function init () {
 function load () {
 	// Wait until the AssetManager has loaded all resources, then load the skeletons.
 	if (assetManager.isLoadingComplete()) {
-		skeletons[`${cardname}`] = loadSkeleton(`${cardid}`, "静止", false, false);
+		skeletons[`${cardname1}`] = loadSkeleton(`${cardid1}`, "静止", false, false);
 
       if (cardid2 !== "not exist") {
        skeletons[`${cardname2}`] = loadSkeleton(`${cardid2}`, "静止", false, false);
