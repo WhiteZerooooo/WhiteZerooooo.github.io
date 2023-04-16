@@ -110,12 +110,12 @@ const urlParams = new URLSearchParams(queryString);
 // 获取url参数的值
 var cardname = urlParams.get('name') || "小笼包";
 var cardid = urlParams.get('id') || 200001;
-var cardname2 = urlParams.get('name2');
-var cardid2 = urlParams.get('id2');
-var cardname3 = urlParams.get('name3');
-var cardid3 = urlParams.get('id3');
-var cardname4 = urlParams.get('name4');
-var cardid4 = urlParams.get('id4');
+var cardname2 = urlParams.get('name2') || "not exist";
+var cardid2 = urlParams.get('id2') || "not exist";;
+var cardname3 = urlParams.get('name3') || "not exist";;
+var cardid3 = urlParams.get('id3') || "not exist";;
+var cardname4 = urlParams.get('name4') || "not exist";;
+var cardid4 = urlParams.get('id4') || "not exist";;
 
 var lastFrameTime = Date.now() / 1000;
 var canvas;
@@ -203,7 +203,7 @@ function init () {
       // 加载纹理
       assetManager.loadTexture(texturePath);
      };
-   if (typeof cardid2 !== 'undefined') {
+   if (ardid2 !== "not exist") {
     const textureap = `assets/avatar/${cardid2}.json`;
     assetManager.loadText(textureap);
     const texturejp = `assets/avatar/${cardid2}.atlas`;
@@ -215,7 +215,7 @@ function init () {
       assetManager.loadTexture(texturePath);
      }
    };
-   if (typeof cardid3 !== 'undefined') {
+   if (cardid3 !== "not exist") {
     const textureap = `assets/avatar/${cardid3}.json`;
     assetManager.loadText(textureap);
     const texturejp = `assets/avatar/${cardid3}.atlas`;
@@ -227,7 +227,7 @@ function init () {
       assetManager.loadTexture(texturePath);
      }
    };
-   if (typeof cardid4 !== 'undefined') {
+   if (cardid4 !== "not exist") {
     const textureap = `assets/avatar/${cardid4}.json`;
     assetManager.loadText(textureap);
     const texturejp = `assets/avatar/${cardid4}.atlas`;
@@ -247,14 +247,14 @@ function load () {
 	if (assetManager.isLoadingComplete()) {
 		skeletons[`${cardname}`] = loadSkeleton(`${cardid}`, "静止", false, false);
 
-      if (typeof cardid2 !== 'undefined') {
-       skeletons[`${cardname}`] = loadSkeleton(`${cardid2}`, "静止", false, false);
+      if (cardid2 !== "not exist") {
+       skeletons[`${cardname2}`] = loadSkeleton(`${cardid2}`, "静止", false, false);
       };
-      if (typeof cardid3 !== 'undefined') {
-       skeletons[`${cardname}`] = loadSkeleton(`${cardid3}`, "静止", false, false);
+      if (cardid3 !== "not exist") {
+       skeletons[`${cardname3}`] = loadSkeleton(`${cardid3}`, "静止", false, false);
       };
-      if (typeof cardid4 !== 'undefined') {
-       skeletons[`${cardname}`] = loadSkeleton(`${cardid4}`, "静止", false, false);
+      if (cardid4 !== "not exist") {
+       skeletons[`${cardname4}`] = loadSkeleton(`${cardid4}`, "静止", false, false);
       };
 		setupUI();
 		requestAnimationFrame(render);
