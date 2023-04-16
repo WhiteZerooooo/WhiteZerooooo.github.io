@@ -116,6 +116,19 @@ var cardname3 = urlParams.get('name3') || "not exist";;
 var cardid3 = urlParams.get('id3') || "not exist";;
 var cardname4 = urlParams.get('name4') || "not exist";;
 var cardid4 = urlParams.get('id4') || "not exist";;
+fetch('card.json')
+.then(response => response.json())
+.then(data => {
+  // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
+  Object.values(data).forEach(item => {
+    if (item.name === `${cardname1}`) {
+      cardid1 = item.id;
+    }
+  });
+  (function() {
+	init();
+  })();
+})
 
 var lastFrameTime = Date.now() / 1000;
 var canvas;
@@ -601,10 +614,6 @@ function resize () {
 	mvp.ortho2d(centerX - width / 2, centerY - height / 2, width, height);
 	gl.viewport(0, 0, canvas.width, canvas.height);
 }
-
-(function() {
-	init();
-})();
 
 </script>
 </html>
