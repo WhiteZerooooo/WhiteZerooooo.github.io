@@ -182,7 +182,7 @@ slidersize.oninput = function() {
   sizeValueDisplay.textContent = sizename + 'x';  // 添加倍速单位
 }
 speedValueDisplay.innerHTML = slider.value; // 初始化显示滑块的值
-speedname =  parseFloat(slider.value) + 1
+speedname =  parseFloat(slider.value)
 speedname = speedname.toFixed(2)
 speedname = speedname.toString()
 speedValueDisplay.textContent = speedname + 'x';  // 添加倍速单位
@@ -486,7 +486,7 @@ function setupUI () {
 		animationList.change(function() {
 			slider.value = defaultSpeed;
 			speed = defaultSpeed;
-			speedname =  parseFloat(defaultSpeed) + 1
+			speedname =  parseFloat(defaultSpeed)
 			speedname = speedname.toFixed(2)
             speedname = speedname.toString()
 			speedValueDisplay.textContent = speedname + 'x';
@@ -556,7 +556,7 @@ function setupUI () {
 		activeSkeleton = $("#skeletonList option:selected").text();
 		slider.value = defaultSpeed;
 		speed = defaultSpeed;
-	    speedname =  parseFloat(defaultSpeed) + 1
+	    speedname =  parseFloat(defaultSpeed)
 	    speedname = speedname.toFixed(2)
         speedname = speedname.toString()
 		speedValueDisplay.textContent = speedname + 'x';
