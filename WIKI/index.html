@@ -4,11 +4,18 @@
 <style>
 	* { margin: 0; padding: 0; }
 	body, html { height: 100% }
-	canvas { position: absolute; width: 100% ;height: 100%; background-color: transparent; opacity: 1;}
-	.container {
-      transform-origin: 0 0;
-      transform: scale(1.45);
-    }
+	canvas { 
+     width: 350px;
+     height: 350px; 
+     background-color: rgba(128, 128, 128, 0);
+   }
+	.spinecontainer {
+     transform-origin: 0 0;
+     transform: scale(0.7);
+     background-color: gray;
+     width:500px;
+     height: 300px;
+   }
 
 	#speedValueDisplay {
 	  display: inline-block;
@@ -26,7 +33,7 @@
 	  background-color: #555;
 	  border: none;
 	  color: white;
-	  padding: 10px 20px;
+	  padding: 10px 0px;
 	  text-align: center;
 	  text-decoration: none;
 	  display: inline-block;
@@ -34,6 +41,7 @@
 	  margin: 4px 2px;
 	  cursor: pointer;
 	  border-radius: 4px;
+	  margin-left: 10px;
 	}
 	#resetBtn {
 	  background-color: #555;
@@ -47,12 +55,13 @@
 	  margin: 4px 2px;
 	  cursor: pointer;
 	  border-radius: 4px;
+	  margin-left: 10px;
 	}
 	#animationList {
 	  background-color: #555;
 	  border: none;
 	  color: white;
-	  padding: 10px 20px;
+	  padding: 10px 0px;
 	  text-align: center;
 	  text-decoration: none;
 	  display: inline-block;
@@ -60,35 +69,83 @@
 	  margin: 4px 2px;
 	  cursor: pointer;
 	  border-radius: 4px;
+	  margin-left: 10px;
+   }
+   #speed {
+	  width: 200px;
+	  margin-left: 10px;
+	}
+   #bigsize {
+	  width: 200px;
+	  margin-left: 10px;
 	}
 </style>
 <head>
 	<meta charset="utf-8">
-	<title>零のQ版显示</title>
+	<title>零のSpine测试</title>
 </head>
 <body>
-<canvas id="canvas"></canvas>
-<left>
-
-<div style="color: #fff; position: fixed; top: 10; left: 10" class="container">
-
-<span><big style="color: #ffffff">飨灵选择: </big></span><select id="skeletonList"></select>
+<div style="border: 1px solid #ccc; background-color: #f2f2f2; padding: 10px; width: 370px; height:600px;margin-left: 20px;">
+<canvas id="canvas" style="border: 1px solid black;"></canvas>
+<div style="color: #fff; top: 10; left: 10; border: 1px solid black; margin-top: 10px;" class="spinecontainer">
+<span style="display: inline-block; margin-left: 10px;"><big style="color: #ffffff"><big>飨灵选择:</big></big></span><select id="skeletonList"></select>
 <br>
-<span><big style="color: #ffffff">动画: </big></span><select id="animationList"></select>  <button id="resetBtn">重置位置</button>
+<span style="display: inline-block; margin-left: 10px;"><big style="color: #ffffff"><big>动画:</big> </big></span><select id="animationList"></select>  <button id="resetBtn">重置位置</button>
 <br><br>
-<label for="speed"><big style="color: #ffffff">播放速度: </big></label>
+<label for="speed"><big style="display: inline-block; margin-left: 10px; color: #ffffff"><big>播放速度:</big> </big></label><div id="speedValueDisplay" style="color: #ffffff"></div>
 <input type="range" min="0" max="2" step="0.1" value="1.0" class="slider" id="speed">
-<div id="speedValueDisplay" style="color: #ffffff"></div>
 <br><br>
-<label for="bigsize"><big style="color: #ffffff">模型大小: </big></label>
-<input type="range" min="0.3" max="1.3" step="0.05" value="0.8" class="slider" id="bigsize">
-<div id="sizeValueDisplay" style="color: #ffffff"></div>
-
+<label for="bigsize"><big style="display: inline-block; margin-left: 10px; color: #ffffff"><big>模型大小:</big> </big></label><div id="sizeValueDisplay" style="color: #ffffff"></div>
+<input type="range" min="-0.5" max="0.5" step="0.05" value="0" class="slider" id="bigsize">
 </div>
-
-</left>
+</div>
 </body>
 <script>
+
+
+// 获取URL中的查询字符串
+const queryString = window.location.search;
+// 创建URLSearchParams对象
+const urlParams = new URLSearchParams(queryString);
+// 获取url参数的值
+var cardname1 = urlParams.get('name1') || "小笼包";
+var cardid1 = urlParams.get('id1') || 200001;
+var cardname2 = urlParams.get('name2') || "not exist";
+var cardid2 = urlParams.get('id2') || "not exist";;
+var cardname3 = urlParams.get('name3') || "not exist";;
+var cardid3 = urlParams.get('id3') || "not exist";;
+var cardname4 = urlParams.get('name4') || "not exist";;
+var cardid4 = urlParams.get('id4') || "not exist";;
+fetch('card.json')
+.then(response => response.json())
+.then(data => {
+  // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
+  Object.values(data).forEach(item => {
+    if (item.name === `${cardname1}`) {
+      cardid1 = item.id;
+    }
+  });
+  fetch('cardSkin.json')
+	.then(response => response.json())
+	.then(data => {
+	// 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
+	Object.values(data).forEach(item => {
+		if (item.name === `${cardname2}`) {
+		cardid2 = item.drawId;
+		}
+		if (item.name === `${cardname3}`) {
+		cardid3 = item.drawId;
+		}
+		if (item.name === `${cardname4}`) {
+		cardid4 = item.drawId;
+		}
+	});
+	(function() {
+		init();
+	})();
+	})
+})
+
 
 var lastFrameTime = Date.now() / 1000;
 var canvas;
@@ -101,7 +158,7 @@ var skeletonRenderer;
 var debugRenderer;
 var shapes;
 var skeletons = {};
-var activeSkeleton;
+var activeSkeleton = `${cardname1}`;
 var slider = document.getElementById("speed");
 var slidersize = document.getElementById("bigsize");
 var speedValueDisplay = document.getElementById("speedValueDisplay");
@@ -116,7 +173,7 @@ slider.oninput = function() {
 }
 slidersize.oninput = function() {
   bigsize = this.value;
-  sizename =  parseFloat(this.value) + 0.2
+  sizename =  parseFloat(this.value) + 1
   sizename = sizename.toFixed(2)
   sizename = sizename.toString()
   sizeValueDisplay.textContent = sizename + 'x';  // 添加倍速单位
@@ -127,7 +184,7 @@ speedValueDisplay.oninput = function() {
   speedValueDisplay.innerHTML = this.value;
 }
 sizeValueDisplay.innerHTML = slidersize.value; // 初始化显示滑块的值
-sizename =  parseFloat(slidersize.value) + 0.2
+sizename =  parseFloat(slidersize.value) + 1
 sizename = sizename.toFixed(2)
 sizename = sizename.toString()
 sizeValueDisplay.textContent = sizename + 'x';  // 添加倍速单位
@@ -135,62 +192,6 @@ sizeValueDisplay.oninput = function() {
   sizeValueDisplay.innerHTML = this.value;
 }
 
-
-// 获取URL中的查询字符串
-const queryString = window.location.search;
-// 创建URLSearchParams对象
-const urlParams = new URLSearchParams(queryString);
-// 获取url参数的值
-var num = urlParams.get('num') || 15;
-var cardname = urlParams.get('name') || 200001;
-var cardid = urlParams.get('id') || 200001;
-var cardfind = ''
-var cardtype = urlParams.get('type') || '';
-activeSkeleton = cardname;
-
-fetch('card.json')
-.then(response => response.json())
-.then(data => {
-  // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
-  let name = `${cardname}`; // 你要查找的名称
-  Object.values(data).forEach(item => {
-    if (item.name === name) {
-      cardid = item.id;
-      cardfind += item.id;
-      activeSkeleton = name;
-    }
-  });
-  if (cardtype === 'SP') {
-    cardid = cardfind.substr(6, 12);
-  } else if (cardtype === 'SP满破') {
-    cardid = cardfind.substr(6, 12);
-  } else {
-  	if (cardfind === '') {
-			cardid = cardid.substr(0, 6);
-		} else {
-			cardid = cardfind.substr(0, 6);
-		};
-	};
-      if (cardtype === '1') {
-			  cardid += '_7';
-			} else if (cardtype === '2') {
-			  cardid += '_8';
-			} else if (cardtype === '花嫁') {
-			  cardid += '_9';
-			} else if (cardtype === '泳装') {
-			  cardid += '_10';
-			} else if (cardtype === '童话') {
-			  cardid += '_11';
-			} else if (cardtype === '春节') {
-			  cardid += '_12';
-			} else if (cardtype === '联动') {
-			  cardid += '_20';
-			};
-      (function() {
-				init();
-			})();
-})
-.catch(error => console.error(error));
 
 
 function init () {
@@ -200,9 +201,8 @@ function init () {
 	canvas = document.getElementById("canvas");
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
-	var config = { alpha: false};
+	var config = { alpha: false };
 	gl = canvas.getContext("webgl", config) || canvas.getContext("experimental-webgl", config);	
-
 
 	// Create a simple shader, mesh, model-view-projection matrix and SkeletonRenderer.
 	shader = spine.webgl.Shader.newColoredTextured(gl);
@@ -222,30 +222,70 @@ function init () {
 
 	// Tell AssetManager to load the resources for each model, including the exported .json file, the .atlas file and the .png
 	// file for the atlas. We then wait until all resources are loaded in the load() method.
-	
-    const textureap = `assets/avatar/${cardid}.json`;
+
+    const textureap = `assets/avatar/${cardid1}.json`;
     assetManager.loadText(textureap);
-    const texturejp = `assets/avatar/${cardid}.atlas`;
-	  assetManager.loadText(texturejp);
-    // 遍历数字1到id
-    for (let i = 1; i <= num; i++) {
+    const texturejp = `assets/avatar/${cardid1}.atlas`;
+    assetManager.loadText(texturejp);
+     for (let i = 1; i <= 20; i++) {
       // 构建纹理路径
-      const texturePath = `assets/avatar/${cardid}_p${i}.png`;
-    
+      const texturePath = `assets/avatar/${cardid1}_p${i}.png`;
       // 加载纹理
       assetManager.loadTexture(texturePath);
-    }
-    requestAnimationFrame(load);
-		
+     };
+   if (cardid2 !== "not exist") {
+    const textureap = `assets/avatar/${cardid2}.json`;
+    assetManager.loadText(textureap);
+    const texturejp = `assets/avatar/${cardid2}.atlas`;
+    assetManager.loadText(texturejp);
+     for (let i = 1; i <= 20; i++) {
+      // 构建纹理路径
+      const texturePath = `assets/avatar/${cardid2}_p${i}.png`;
+      // 加载纹理
+      assetManager.loadTexture(texturePath);
+     }
+   };
+   if (cardid3 !== "not exist") {
+    const textureap = `assets/avatar/${cardid3}.json`;
+    assetManager.loadText(textureap);
+    const texturejp = `assets/avatar/${cardid3}.atlas`;
+    assetManager.loadText(texturejp);
+     for (let i = 1; i <= 20; i++) {
+      // 构建纹理路径
+      const texturePath = `assets/avatar/${cardid3}_p${i}.png`;
+      // 加载纹理
+      assetManager.loadTexture(texturePath);
+     }
+   };
+   if (cardid4 !== "not exist") {
+    const textureap = `assets/avatar/${cardid4}.json`;
+    assetManager.loadText(textureap);
+    const texturejp = `assets/avatar/${cardid4}.atlas`;
+    assetManager.loadText(texturejp);
+     for (let i = 1; i <= 20; i++) {
+      // 构建纹理路径
+      const texturePath = `assets/avatar/${cardid4}_p${i}.png`;
+      // 加载纹理
+      assetManager.loadTexture(texturePath);
+     }
+   };
+	requestAnimationFrame(load);
 }
 
 function load () {
 	// Wait until the AssetManager has loaded all resources, then load the skeletons.
 	if (assetManager.isLoadingComplete()) {
+		skeletons[`${cardname1}`] = loadSkeleton(`${cardid1}`, "静止", false, false);
 
-	  const idname = `${cardid}`;
-	  const idname2 = `${cardname}`;
-	  skeletons[idname2] = loadSkeleton(idname, "静止", false, false);
+      if (cardid2 !== "not exist") {
+       skeletons[`${cardname2}`] = loadSkeleton(`${cardid2}`, "静止", false, false);
+      };
+      if (cardid3 !== "not exist") {
+       skeletons[`${cardname3}`] = loadSkeleton(`${cardid3}`, "静止", false, false);
+      };
+      if (cardid4 !== "not exist") {
+       skeletons[`${cardname4}`] = loadSkeleton(`${cardid4}`, "静止", false, false);
+      };
 		setupUI();
 		requestAnimationFrame(render);
 	} else {
@@ -443,7 +483,7 @@ function setupUI () {
 			speedValueDisplay.textContent = defaultSpeed + 'x';
 			slidersize.value = defaultSize;
 			bigsize = defaultSize;
-			sizename =  parseFloat(defaultSize) + 0.2
+			sizename =  parseFloat(defaultSize) + 1
 			sizename = sizename.toFixed(2)
             sizename = sizename.toString()
             sizeValueDisplay.textContent = sizename + 'x';  // 添加倍速单位
@@ -510,7 +550,7 @@ function setupUI () {
 		speedValueDisplay.textContent = defaultSpeed + 'x';
 		slidersize.value = defaultSize;
 		bigsize = defaultSize;
-	    sizename =  parseFloat(defaultSize) + 0.2
+	    sizename =  parseFloat(defaultSize) + 1
 	    sizename = sizename.toFixed(2)
         sizename = sizename.toString()
         sizeValueDisplay.textContent = sizename + 'x';  // 添加倍速单位
@@ -529,9 +569,8 @@ function render () {
 	// Update the MVP matrix to adjust for canvas size changes
 	resize();
 
-	gl.clearColor(0, 0, 0, 0);
+	gl.clearColor(0.5, 0.5, 0.5, 0);
 	gl.clear(gl.COLOR_BUFFER_BIT);
-
 
 	// Apply the animation state based on the delta time.
 	var state = skeletons[activeSkeleton].state;
@@ -582,7 +621,8 @@ function resize () {
 	var scaleX = bounds.size.x / canvas.width;
 	var scaleY = bounds.size.y / canvas.height;
 	var scale = Math.max(scaleX, scaleY) * 1.2;
-	if (scale < 1) scale = (2 - bigsize);
+   scale += 1;
+	scale += -bigsize * 2;
 	var width = canvas.width * scale;
 	var height = canvas.height * scale;
 	canvas.width = width
