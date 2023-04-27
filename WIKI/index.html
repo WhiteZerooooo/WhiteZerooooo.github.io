@@ -1,104 +1,140 @@
 <html>
 <script src="build/spine-webgl.js"></script>
 <script src="build/jquery-3.1.0.min.js"></script>
-<style>
-	* { margin: 0; padding: 0; }
-	body, html { height: 100% }
-	canvas { 
-     width: 350px;
-     height: 350px; 
-     background-color: rgba(128, 128, 128, 0);
-   }
-	.spinecontainer {
-     transform-origin: 0 0;
-     transform: scale(0.7);
-     background-color: gray;
-     width:500px;
-     height: 300px;
-   }
-
-	#speedValueDisplay {
-	  display: inline-block;
-	  margin-left: 10px;
-	  font-size: 20px;
-	  line-height: 30px;
-	}
-	#sizeValueDisplay {
-	  display: inline-block;
-	  margin-left: 10px;
-	  font-size: 20px;
-	  line-height: 30px;
-	}
-	#skeletonList {
-	  background-color: #555;
-	  border: none;
-	  color: white;
-	  padding: 10px 0px;
-	  text-align: center;
-	  text-decoration: none;
-	  display: inline-block;
-	  font-size: 20px;
-	  margin: 4px 2px;
-	  cursor: pointer;
-	  border-radius: 4px;
-	  margin-left: 10px;
-	}
-	#resetBtn {
-	  background-color: #555;
-	  border: none;
-	  color: white;
-	  padding: 10px 20px;
-	  text-align: center;
-	  text-decoration: none;
-	  display: inline-block;
-	  font-size: 20px;
-	  margin: 4px 2px;
-	  cursor: pointer;
-	  border-radius: 4px;
-	  margin-left: 10px;
-	}
-	#animationList {
-	  background-color: #555;
-	  border: none;
-	  color: white;
-	  padding: 10px 0px;
-	  text-align: center;
-	  text-decoration: none;
-	  display: inline-block;
-	  font-size: 20px;
-	  margin: 4px 2px;
-	  cursor: pointer;
-	  border-radius: 4px;
-	  margin-left: 10px;
-   }
-   #speed {
-	  width: 200px;
-	  margin-left: 10px;
-	}
-   #bigsize {
-	  width: 200px;
-	  margin-left: 10px;
-	}
-</style>
 <head>
-	<meta charset="utf-8">
-	<title>零のSpine测试</title>
+  <meta charset="UTF-8">
+  <title>零のSpine测试</title>
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      margin-top: 20px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #d9d9d9;
+      background-color: #fffaf0;
+      padding: 20px;
+      width: 400px;
+      height: 700px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    canvas {
+      width: 350px;
+      height: 350px;
+      border: 1px solid #d9d9d9;
+      margin-bottom: 20px;
+    }
+
+    .spinecontainer {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		}
+
+		.spinecontainer label, .spinecontainer select, .spinecontainer button, .spinecontainer input {
+		margin: 5px;
+		}
+
+		.spinecontainer label {
+		flex-basis: 120px; /* 控制标签宽度 */
+		}
+
+		.spinecontainer select {
+		flex-grow: 1; /* 让选择框占据剩余空间 */
+		flex-basis: 70px; 
+		}
+
+		.spinecontainer button {
+		flex-basis: 350px; /* 控制按钮宽度 */
+		}
+
+		.spinecontainer input {
+		flex-grow: 1; /* 让输入框占据剩余空间 */
+		flex-basis: 70px; 
+		}
+
+    .spinecontainer {
+      transform-origin: 0 0;
+      transform: scale(1);
+      background-color: #fff;
+      width: 100%;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    select,
+    input[type="range"],
+    button {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      border: none;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 16px;
+      color: #000;
+      margin: 10px 0;
+      background-color: #fff;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    select:hover,
+    input[type="range"]:hover,
+    button:hover {
+      background-color: #f2f2f2;
+    }
+
+    #resetBtn:hover {
+      background-color: #d43524;
+	}
+
+    label {
+      display: block;
+      margin: 10px 0;
+      font-size: 16px;
+      color: #000;
+    }
+</style>
 </head>
 <body>
-<div style="border: 1px solid #ccc; background-color: #f2f2f2; padding: 10px; width: 370px; height:600px;margin-left: 20px;">
-<canvas id="canvas" style="border: 1px solid black;"></canvas>
-<div style="color: #fff; top: 10; left: 10; border: 1px solid black; margin-top: 10px;" class="spinecontainer">
-<span style="display: inline-block; margin-left: 10px;"><big style="color: #ffffff"><big>飨灵选择:</big></big></span><select id="skeletonList"></select>
-<br>
-<span style="display: inline-block; margin-left: 10px;"><big style="color: #ffffff"><big>动画:</big> </big></span><select id="animationList"></select>  <button id="resetBtn">重置位置</button>
-<br><br>
-<label for="speed"><big style="display: inline-block; margin-left: 10px; color: #ffffff"><big>播放速度:</big> </big></label><div id="speedValueDisplay" style="color: #ffffff"></div>
-<input type="range" min="0" max="2" step="0.05" value="1.0" class="slider" id="speed">
-<br><br>
-<label for="bigsize"><big style="display: inline-block; margin-left: 10px; color: #ffffff"><big>模型大小:</big> </big></label><div id="sizeValueDisplay" style="color: #ffffff"></div>
-<input type="range" min="-0.5" max="0.5" step="0.05" value="0" class="slider" id="bigsize">
+<div class="container">
+  <canvas id="canvas"></canvas>
+  <div class="spinecontainer">
+    <label for="skeletonList"><big style="color: #000000">飨灵选择:</big></label>
+    <select id="skeletonList"></select>
+    <br>
+    <label for="animationList"><big style="color: #000000">动画:</big></label>
+    <select id="animationList"></select>
+    <br><br>
+    <label for="speed"><big style="color: #000000">播放速度:</big></label>
+    <div id="speedValueDisplay" style="color: #000000"></div>
+    <input type="range" min="0" max="2" step="0.05" value="1.0" class="slider" id="speed">
+    <br><br>
+    <label for="bigsize"><big style="color: #000000">模型大小:</big></label>
+    <div id="sizeValueDisplay" style="color: #000000"></div>
+    <input type="range" min="-0.5" max="0.5" step="0.05" value="0" class="slider" id="bigsize">
+    <button id="resetBtn">重置位置</button>
+  </div>
 </div>
-</div>
+
 </body>
 <script>
 
