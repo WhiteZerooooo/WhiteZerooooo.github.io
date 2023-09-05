@@ -1,6 +1,6 @@
 <html>
-<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.4/build/spine-webgl.js"></script>
-<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.4/build/jquery-3.1.0.min.js"></script>
+<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.6/build/spine-webgl.js"></script>
+<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.6/build/jquery-3.1.0.min.js"></script>
 <style>
     * {
         margin: 0;
@@ -153,7 +153,7 @@
 <head>
     <meta charset="utf-8">
     <title>零のQ版显示</title>
-    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.4/assets/ico/spineview2.ico">
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.6/assets/ico/spineview2.ico">
 </head>
 
 <body><button id="loadBtn" style="font-size:22px; border: none; outline: none; position: absolute; top: 10px; left: 10px; background-color: #2080f0; color: white; border-radius: 3px; padding: 10px;">点击加载Q版飨灵</button>
@@ -179,7 +179,7 @@
         </div>
         <div id="myTooltip" for="anadata" class="tooltip"></div>
     </div>
-    <div style="background-image: url('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.4/assets/maps_bg_7_02.jpg/'); background-size: 100% 100%; background-position: 0px 0px, 12px 0px, 12px -12px, 0px 12px;">
+    <div style="background-image: url('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.6/assets/maps_bg_7_02.jpg/'); background-size: 100% 100%; background-position: 0px 0px, 12px 0px, 12px -12px, 0px 12px;">
         <div transform-origin: left top; transform: scale(1, 1); display: block;">
             <canvas id="canvas" style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas>
         </div>
@@ -314,7 +314,7 @@ var cardfind = ''
 var cardtype = urlParams.get('type') || '';
 activeSkeleton = cardname;
 
-fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.4/json/card.json')
+fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.6/json/card.json')
     .then(response => response.json())
     .then(data => {
         // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
@@ -390,9 +390,9 @@ function init() {
     // Tell AssetManager to load the resources for each model, including the exported .json file, the .atlas file and the .png
     // file for the atlas. We then wait until all resources are loaded in the load() method.
 
-    const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.4/assets/draw/${cardid}.json`;
+    const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.6/assets/draw/${cardid}.json`;
     assetManager.loadText(textureap);
-    const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.4/assets/draw/${cardid}.atlas`;
+    const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.6/assets/draw/${cardid}.atlas`;
     assetManager.loadText(texturejp);
     fetch(texturejp)
         .then(response => response.text())
@@ -405,7 +405,7 @@ function init() {
             // 遍历数字1到id
             for (let i = 1; i <= occurrences; i++) {
                 // 构建纹理路径
-                const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.4/assets/draw/${cardid}_p${i}.png`;
+                const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.6/assets/draw/${cardid}_p${i}.png`;
 
                 // 加载纹理
                 assetManager.loadTexture(texturePath);
@@ -434,9 +434,9 @@ function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin) 
     if (skin === undefined) skin = "default";
 
     if (isDraw === true) {
-        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.4/assets/draw/";
+        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.6/assets/draw/";
     } else {
-        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.4/assets/draw/";
+        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.0.6/assets/draw/";
     };
 
     // Load the texture atlas using name.atlas and name.png from the AssetManager.
