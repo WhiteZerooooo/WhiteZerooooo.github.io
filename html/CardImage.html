@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>零の立绘预览</title>
-    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.3/assets/ico/image2.ico">
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.4/assets/ico/image2.ico">
     <style>
     body,
     html {
@@ -25,7 +25,7 @@ var cardid = urlParams.get('id') || 200001;
 var cardfind = ''
 var CanStop = false
 var cardtype = urlParams.get('type') || '';
-fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.3/json/card.json')
+fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.4/json/card.json')
     .then(response => response.json())
     .then(data => {
         // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
@@ -46,9 +46,9 @@ fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.3/jso
                     '联动': '_20'
                 };
                 if (cardTypeSuffix.hasOwnProperty(cardtype)) { cardid += cardTypeSuffix[cardtype]; }
-                const img1 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.3/assets/card/card_draw_bg_${cardid}.jpg`;
-                const img2 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.3/assets/card/card_draw_${cardid}.png`;
-                const img3 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.3/assets/card/card_draw_fg_${cardid}.png`;
+                const img1 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.4/assets/card/card_draw_bg_${cardid}.jpg`;
+                const img2 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.4/assets/card/card_draw_${cardid}.png`;
+                const img3 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.4/assets/card/card_draw_fg_${cardid}.png`;
                 var imagesLoaded = 3;
                 var images = [];
 
@@ -114,9 +114,9 @@ fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.3/jso
                     '联动': '_20'
                 };
                 if (cardTypeSuffix.hasOwnProperty(cardtype)) { cardid += cardTypeSuffix[cardtype]; }
-                const img1 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.3/assets/card/card_draw_bg_${cardid}.jpg`;
-                const img2 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.3/assets/card/card_draw_${cardid}.png`;
-                const img3 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.3/assets/card/card_draw_fg_${cardid}.png`;
+                const img1 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.4/assets/card/card_draw_bg_${cardid}.jpg`;
+                const img2 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.4/assets/card/card_draw_${cardid}.png`;
+                const img3 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.4/assets/card/card_draw_fg_${cardid}.png`;
                 var imagesLoaded = 3;
                 var images = [];
 
