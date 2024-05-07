@@ -1,6 +1,756 @@
-<!DOCTYPE html>
 <html>
+<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/build/spine-webgl.js"></script>
+<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/build/jquery-3.1.0.min.js"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <title>零のSpine测试</title>
+    <style>
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      display: flex;
+      margin-top: 20px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #d9d9d9;
+      background-color: #fffaf0;
+      padding: 20px;
+      width: 400px;
+      height: 700px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    canvas {
+      width: 358px;
+      height: 350px;
+      border: 1px solid #d9d9d9;
+      margin-bottom: 20px;
+    }
+
+    .spinecontainer {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		}
+
+		.spinecontainer label, .spinecontainer select, .spinecontainer button, .spinecontainer input {
+		margin: 5px;
+		}
+
+		.spinecontainer label {
+		flex-basis: 120px; /* 控制标签宽度 */
+		}
+
+		.spinecontainer select {
+		flex-grow: 1; /* 让选择框占据剩余空间 */
+		flex-basis: 70px; 
+		}
+
+		.spinecontainer button {
+		flex-basis: 350px; /* 控制按钮宽度 */
+		}
+
+		.spinecontainer input {
+		flex-grow: 1; /* 让输入框占据剩余空间 */
+		flex-basis: 70px; 
+		}
+
+    .spinecontainer {
+      transform-origin: 0 0;
+      transform: scale(1);
+      background-color: #fff;
+      width: 100%;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    select,
+    input[type="range"],
+    .button {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      border: none;
+      border-radius: 4px;
+      padding: 10px;
+      font-size: 16px;
+      color: #000;
+      margin: 10px 0;
+      background-color: #fff;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    select:hover,
+    input[type="range"]:hover,
+    .button:hover {
+      background-color: #f2f2f2;
+    }
+
+    #resetBtn:hover {
+      background-color: #d43524;
+	}
+
+    label {
+      display: block;
+      margin: 10px 0;
+      font-size: 16px;
+      color: #000;
+    }
+</style>
+</head>
+
+<body><button id="loadBtn" style="font-size:22px; border: none; outline: none; position: absolute; top: 10px; left: 10px; background-color: #2080f0; color: white; border-radius: 3px; padding: 10px;">点击加载Q版飨灵</button>
+    <div class="container" id="ctn">
+        <div style="background-image: url(&quot;assets/maps_bg_7_02.jpg&quot;); background-size: 100% 100%; background-position: 0px 0px, 12px 0px, 12px -12px, 0px 12px;">
+            <div style="width: 350px; height: 350px; transform-origin: left top; transform: scale(1, 1); display: block;"><canvas id="canvas" width="350" height="350" style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas></div>
+        </div>
+        <div class="spinecontainer">
+            <label for="skeletonList"><big style="color: #000000">飨灵选择:</big></label>
+            <select id="skeletonList"></select>
+            <br>
+            <label for="animationList"><big style="color: #000000">动画:</big></label>
+            <select id="animationList"></select>
+            <br><br>
+            <label for="speed"><big style="color: #000000">播放速度:</big></label>
+            <div id="speedValueDisplay" style="color: #000000"></div>
+            <input type="range" min="0" max="2" step="0.05" value="1.0" class="slider" id="speed">
+            <br><br>
+            <label for="bigsize"><big style="color: #000000">模型大小:</big></label>
+            <div id="sizeValueDisplay" style="color: #000000"></div>
+            <input type="range" min="-0.5" max="0.5" step="0.05" value="0" class="slider" id="bigsize">
+            <button id="resetBtn" class="button">重置位置</button>
+        </div>
+    </div>
+</body>
 <script>
-window.location.href='http://www.foofan.top/html/Tools.html';
+// 获取URL中的查询字符串
+const queryString = window.location.search;
+// 创建URLSearchParams对象
+const urlParams = new URLSearchParams(queryString);
+// 获取url参数的值
+var cardname1 = urlParams.get('name1') || "小笼包";
+var cardid1 = urlParams.get('id1') || 200001;
+var cardname2 = urlParams.get('name2') || "not exist";
+var cardid2 = urlParams.get('id2') || "not exist";;
+var cardname3 = urlParams.get('name3') || "not exist";;
+var cardid3 = urlParams.get('id3') || "not exist";;
+var cardname4 = urlParams.get('name4') || "not exist";;
+var cardid4 = urlParams.get('id4') || "not exist";;
+fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/json/card.json')
+    .then(response => response.json())
+    .then(data => {
+        // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
+        Object.values(data).forEach(item => {
+            if (item.name === `${cardname1}`) {
+                cardid1 = item.id;
+            }
+        });
+        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/json/cardSkin.json')
+            .then(response => response.json())
+            .then(data => {
+                // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
+                Object.values(data).forEach(item => {
+                    if (item.name === `${cardname2}`) {
+                        cardid2 = item.drawId;
+                    }
+                    if (item.name === `${cardname3}`) {
+                        cardid3 = item.drawId;
+                    }
+                    if (item.name === `${cardname4}`) {
+                        cardid4 = item.drawId;
+                    }
+                });
+                // (function() {
+                //     init();
+                // })();
+            })
+    })
+
+
+var lastFrameTime = Date.now() / 1000;
+var canvas;
+var shader;
+var batcher;
+var gl;
+var mvp = new spine.webgl.Matrix4();
+var assetManager;
+var skeletonRenderer;
+var debugRenderer;
+var shapes;
+var skeletons = {};
+var activeSkeleton = `${cardname1}`;
+var slider = document.getElementById("speed");
+var slidersize = document.getElementById("bigsize");
+var speedValueDisplay = document.getElementById("speedValueDisplay");
+var sizeValueDisplay = document.getElementById("sizeValueDisplay");
+var loadBtn = document.getElementById("loadBtn");
+var ctn = document.getElementById("ctn");
+var speed = slider.value;
+var bigsize = slidersize.value;
+var defaultSpeed = slider.value;
+var defaultSize = slidersize.value;
+loadBtn.addEventListener("click", function() {
+  loadBtn.style.display = "none"
+  ctn.style.display = "block"
+  init()
+});
+loadBtn.addEventListener("mouseover", function() {
+    loadBtn.style.backgroundColor = "#4098fc";
+});
+loadBtn.addEventListener("mouseout", function() {
+    loadBtn.style.backgroundColor = "#2080f0";
+});
+slider.oninput = function() {
+    speed = this.value;
+    speedname = parseFloat(this.value)
+    speedname = speedname.toFixed(2)
+    speedname = speedname.toString()
+    speedValueDisplay.textContent = speedname + 'x'; // 添加倍速单位
+}
+slidersize.oninput = function() {
+    bigsize = this.value;
+    sizename = parseFloat(this.value) + 1
+    sizename = sizename.toFixed(2)
+    sizename = sizename.toString()
+    sizeValueDisplay.textContent = sizename + 'x'; // 添加倍速单位
+}
+speedValueDisplay.innerHTML = slider.value; // 初始化显示滑块的值
+speedname = parseFloat(slider.value)
+speedname = speedname.toFixed(2)
+speedname = speedname.toString()
+speedValueDisplay.textContent = speedname + 'x'; // 添加倍速单位
+speedValueDisplay.oninput = function() {
+    speedValueDisplay.innerHTML = this.value;
+}
+sizeValueDisplay.innerHTML = slidersize.value; // 初始化显示滑块的值
+sizename = parseFloat(slidersize.value) + 1
+sizename = sizename.toFixed(2)
+sizename = sizename.toString()
+sizeValueDisplay.textContent = sizename + 'x'; // 添加倍速单位
+sizeValueDisplay.oninput = function() {
+    sizeValueDisplay.innerHTML = this.value;
+}
+ctn.style.display = "none"
+
+var canvasID = document.getElementById("canvas");
+canvasID.addEventListener("wheel", function(event) {
+  event.preventDefault(); // 阻止默认的滚动行为
+  if (bigsize <= 1) {
+        bigsize = parseFloat(bigsize) + (event.deltaY > 0 ? -0.1 : 0.1);
+    } else {
+        bigsize = parseFloat(bigsize) + (event.deltaY > 0 ? -0.1 : 0);
+    }
+});
+
+
+function init() {
+
+    // Setup canvas and WebGL context. We pass alpha: false to canvas.getContext() so we don't use premultiplied alpha when
+    // loading textures. That is handled separately by PolygonBatcher.
+    canvas = document.getElementById("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    var config = { premultipliedAlpha: false, alpha: true };
+    gl = canvas.getContext("webgl", config) || canvas.getContext("experimental-webgl", config);
+
+    // Create a simple shader, mesh, model-view-projection matrix and SkeletonRenderer.
+    shader = spine.webgl.Shader.newColoredTextured(gl);
+    batcher = new spine.webgl.PolygonBatcher(gl);
+    mvp.ortho2d(0, 0, canvas.width - 1, canvas.height - 1);
+    skeletonRenderer = new spine.webgl.SkeletonRenderer(gl);
+    debugRenderer = new spine.webgl.SkeletonDebugRenderer(gl);
+    debugRenderer.drawBones = false;
+    debugRenderer.drawRegionAttachments = false;
+    debugRenderer.drawBoundingBoxes = false;
+    debugRenderer.drawMeshHull = false;
+    debugRenderer.drawMeshTriangles = false;
+    debugRenderer.drawPaths = false;
+    debugShader = spine.webgl.Shader.newColored(gl);
+    shapes = new spine.webgl.ShapeRenderer(gl);
+    assetManager = new spine.webgl.AssetManager(gl);
+
+    // Tell AssetManager to load the resources for each model, including the exported .json file, the .atlas file and the .png
+    // file for the atlas. We then wait until all resources are loaded in the load() method.
+
+    const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/assets/avatar/${cardid1}.json`;
+    assetManager.loadText(textureap);
+    const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/assets/avatar/${cardid1}.atlas`;
+    assetManager.loadText(texturejp);
+    fetch(texturejp)
+        .then(response => response.text())
+        .then(text => {
+            const occurrences = text
+                .split(' ')
+                .filter(word => word.includes('png'))
+                .length;
+            // console.log(`'png' 出现了 ${occurrences} 次`);
+            // 遍历数字1到id
+            for (let i = 1; i <= occurrences; i++) {
+                // 构建纹理路径
+                const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/assets/avatar/${cardid1}_p${i}.png`;
+                // 加载纹理
+                assetManager.loadTexture(texturePath);
+            };
+            if (cardid2 === "not exist") {
+            		requestAnimationFrame(load);
+            }
+        });
+    if (cardid2 !== "not exist") {
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/assets/avatar/${cardid2}.json`;
+        assetManager.loadText(textureap);
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/assets/avatar/${cardid2}.atlas`;
+        assetManager.loadText(texturejp);
+        fetch(texturejp)
+            .then(response => response.text())
+            .then(text => {
+                const occurrences = text
+                    .split(' ')
+                    .filter(word => word.includes('png'))
+                    .length;
+                // console.log(`'png' 出现了 ${occurrences} 次`);
+                // 遍历数字1到id
+                for (let i = 1; i <= occurrences; i++) {
+                    // 构建纹理路径
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/assets/avatar/${cardid2}_p${i}.png`;
+                    // 加载纹理
+                    assetManager.loadTexture(texturePath);
+                };
+		            if (cardid3 === "not exist") {
+		            		requestAnimationFrame(load);
+		            }
+            });
+    };
+    if (cardid3 !== "not exist") {
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/WIKI/avatar/${cardid3}.json`;
+        assetManager.loadText(textureap);
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/WIKI/avatar/${cardid3}.atlas`;
+        assetManager.loadText(texturejp);
+        fetch(texturejp)
+            .then(response => response.text())
+            .then(text => {
+                const occurrences = text
+                    .split(' ')
+                    .filter(word => word.includes('png'))
+                    .length;
+                // console.log(`'png' 出现了 ${occurrences} 次`);
+                // 遍历数字1到id
+                for (let i = 1; i <= occurrences; i++) {
+                    // 构建纹理路径
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/assets/avatar/${cardid3}_p${i}.png`;
+                    // 加载纹理
+                    assetManager.loadTexture(texturePath);
+                };
+		            if (cardid4 === "not exist") {
+		            		requestAnimationFrame(load);
+		            }
+            });
+    };
+    if (cardid4 !== "not exist") {
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/WIKI/avatar/${cardid4}.json`;
+        assetManager.loadText(textureap);
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/WIKI/avatar/${cardid4}.atlas`;
+        assetManager.loadText(texturejp);
+        fetch(texturejp)
+            .then(response => response.text())
+            .then(text => {
+                const occurrences = text
+                    .split(' ')
+                    .filter(word => word.includes('png'))
+                    .length;
+                // console.log(`'png' 出现了 ${occurrences} 次`);
+                // 遍历数字1到id
+                for (let i = 1; i <= occurrences; i++) {
+                    // 构建纹理路径
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/assets/avatar/${cardid4}_p${i}.png`;
+                    // 加载纹理
+                    assetManager.loadTexture(texturePath);
+                };
+		            requestAnimationFrame(load);
+            });
+    };
+}
+
+function load() {
+    // Wait until the AssetManager has loaded all resources, then load the skeletons.
+    if (assetManager.isLoadingComplete()) {
+        skeletons[`${cardname1}`] = loadSkeleton(`${cardid1}`, "静止", false, false);
+
+        if (cardid2 !== "not exist") {
+            skeletons[`${cardname2}`] = loadSkeleton(`${cardid2}`, "静止", false, false);
+        };
+        if (cardid3 !== "not exist") {
+            skeletons[`${cardname3}`] = loadSkeleton(`${cardid3}`, "静止", false, false);
+        };
+        if (cardid4 !== "not exist") {
+            skeletons[`${cardname4}`] = loadSkeleton(`${cardid4}`, "静止", false, false);
+        };
+        setupUI();
+        requestAnimationFrame(render);
+    } else {
+        requestAnimationFrame(load);
+    }
+}
+
+function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin) {
+    if (skin === undefined) skin = "default";
+
+    if (isDraw === true) {
+        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/assets/draw/";
+    } else {
+        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.5/assets/avatar/";
+    };
+
+    // Load the texture atlas using name.atlas and name.png from the AssetManager.
+    // The function passed to TextureAtlas is used to resolve relative paths.
+    atlas = new spine.TextureAtlas(assetManager.get(prefix + name + ".atlas"), function(path) {
+        return assetManager.get(prefix + path);
+    });
+
+    // Create a TextureAtlasAttachmentLoader that resolves region, mesh, boundingbox and path attachments
+    atlasLoader = new spine.TextureAtlasAttachmentLoader(atlas);
+
+    // Create a SkeletonJson instance for parsing the .json file.
+    var skeletonJson = new spine.SkeletonJson(atlasLoader);
+
+    // Set the scale to apply during parsing, parse the file, and create a new skeleton.	
+    var skeletonData = skeletonJson.readSkeletonData(assetManager.get(prefix + name + ".json"));
+    var skeleton = new spine.Skeleton(skeletonData);
+
+    var resetBtn = document.getElementById("resetBtn");
+    resetBtn.addEventListener("click", function() {
+        skeleton.x = 0;
+        skeleton.y = 0;
+    });
+
+
+    // 鼠标按下标记
+    var isMouseDown = false;
+
+    var lastX = 0; // 声明并初始化 lastX 变量
+    var lastY = 0; // 声明并初始化 lastY 变量
+
+    canvas.addEventListener("mousedown", function(e) {
+        isMouseDown = true;
+        lastX = e.clientX / canvas.offsetWidth * canvas.width;
+        lastY = (canvas.offsetHeight - e.clientY) / canvas.offsetHeight * canvas.height;
+        e.preventDefault();
+    });
+    canvas.addEventListener("touchstart", function(e) {
+        isMouseDown = true;
+        lastX = e.touches[0].clientX / canvas.offsetWidth * canvas.width;
+        lastY = (canvas.offsetHeight - e.touches[0].clientY) / canvas.offsetHeight * canvas.height;
+        e.preventDefault();
+    });
+
+    canvas.addEventListener("mousemove", function(e) {
+        if (!isMouseDown) return;
+
+        var x = e.clientX / canvas.offsetWidth * canvas.width;
+        var y = (canvas.offsetHeight - e.clientY) / canvas.offsetHeight * canvas.height;
+        // 计算相对位移
+        var deltaX = x - lastX;
+        var deltaY = y - lastY;
+        lastX = x;
+        lastY = y;
+        // 将位移加到骨骼的当前位置
+        skeleton.x += deltaX;
+        skeleton.y += deltaY;
+        e.preventDefault();
+    });
+    canvas.addEventListener("touchmove", function(e) {
+        if (!isMouseDown) return;
+
+        var x = e.touches[0].clientX / canvas.offsetWidth * canvas.width;
+        var y = (canvas.offsetHeight - e.touches[0].clientY) / canvas.offsetHeight * canvas.height;
+        // 计算相对位移
+        var deltaX = x - lastX;
+        var deltaY = y - lastY;
+        lastX = x;
+        lastY = y;
+        // 将位移加到骨骼的当前位置
+        skeleton.x += deltaX;
+        skeleton.y += deltaY;
+        e.preventDefault();
+    });
+
+    canvas.addEventListener("mouseup", function(e) {
+        isMouseDown = false;
+    });
+    canvas.addEventListener("touchend", function(e) {
+        isMouseDown = false;
+    });
+
+    skeleton.setSkinByName(skin);
+    var bounds = calculateBounds(skeleton);
+
+    // Create an AnimationState, and set the initial animation in looping mode.
+    var animationState = new spine.AnimationState(new spine.AnimationStateData(skeleton.data));
+    if (initialAnimation === "攻击") {
+        initialAnimation = "attack";
+    };
+    if (initialAnimation === "静止") {
+        initialAnimation = "idle";
+    };
+    animationState.setAnimation(0, initialAnimation, true);
+    if (initialAnimation === "attack") {
+        initialAnimation = "攻击";
+    };
+    if (initialAnimation === "idle") {
+        initialAnimation = "静止";
+    };
+    animationState.addListener({
+        event: function(trackIndex, event) {
+            // console.log("Event on track " + trackIndex + ": " + JSON.stringify(event));
+        },
+        complete: function(trackIndex, loopCount) {
+            // console.log("Animation on track " + trackIndex + " completed, loop count: " + loopCount);
+        },
+        start: function(trackIndex) {
+            // console.log("Animation on track " + trackIndex + " started");
+        },
+        end: function(trackIndex) {
+            // console.log("Animation on track " + trackIndex + " ended");
+        }
+    })
+
+    // Pack everything up and return to caller.
+    return { skeleton: skeleton, state: animationState, bounds: bounds, premultipliedAlpha: premultipliedAlpha };
+}
+
+function calculateBounds(skeleton) {
+    skeleton.setToSetupPose();
+    skeleton.updateWorldTransform();
+    var offset = new spine.Vector2();
+    var size = new spine.Vector2();
+    skeleton.getBounds(offset, size);
+    return { offset: offset, size: size };
+}
+
+function setupUI() {
+    var skeletonList = $("#skeletonList");
+    for (var skeletonName in skeletons) {
+        var option = $("<option></option>");
+        option.attr("value", skeletonName).text(skeletonName);
+        if (skeletonName === activeSkeleton) option.attr("selected", "selected");
+        skeletonList.append(option);
+    }
+    var setupAnimationUI = function() {
+        var animationList = $("#animationList");
+        animationList.empty();
+        var skeleton = skeletons[activeSkeleton].skeleton;
+        var state = skeletons[activeSkeleton].state;
+        var activeAnimation = state.tracks[0].animation.name;
+        for (var i = 0; i < skeleton.data.animations.length; i++) {
+            var name = skeleton.data.animations[i].name;
+            if (name === "idle") {
+                name = "静止";
+            };
+            if (name === "attack") {
+                name = "攻击";
+            };
+            if (name === "attacked") {
+                name = "受伤";
+            };
+            if (name === "die") {
+                name = "死亡";
+            };
+            if (name === "run") {
+                name = "移动";
+            };
+            if (name === "skill1") {
+                name = "基础技";
+            };
+            if (name === "skill2") {
+                name = "能量技";
+            };
+            if (name === "win") {
+                name = "胜利";
+            };
+            if (name === "idle1") {
+                name = "透明";
+            }
+            var option = $("<option></option>");
+            option.attr("value", name).text(name);
+            if (name === "静止") option.attr("selected", "selected");
+            animationList.append(option);
+        }
+
+        animationList.change(function() {
+            slider.value = defaultSpeed;
+            speed = defaultSpeed;
+            speedname = parseFloat(defaultSpeed)
+            speedname = speedname.toFixed(2)
+            speedname = speedname.toString()
+            speedValueDisplay.textContent = speedname + 'x';
+            slidersize.value = defaultSize;
+            bigsize = defaultSize;
+            sizename = parseFloat(defaultSize) + 1
+            sizename = sizename.toFixed(2)
+            sizename = sizename.toString()
+            sizeValueDisplay.textContent = sizename + 'x'; // 添加倍速单位
+            var state = skeletons[activeSkeleton].state;
+            var skeleton = skeletons[activeSkeleton].skeleton;
+            var animationName = $("#animationList option:selected").text();
+            if (animationName === "静止") {
+                animationName = "idle";
+            };
+            if (animationName === "攻击") {
+                animationName = "attack";
+            };
+            if (animationName === "受伤") {
+                animationName = "attacked";
+            };
+            if (animationName === "死亡") {
+                animationName = "die";
+            };
+            if (animationName === "移动") {
+                animationName = "run";
+            };
+            if (animationName === "基础技") {
+                animationName = "skill1";
+            };
+            if (animationName === "能量技") {
+                animationName = "skill2";
+            };
+            if (animationName === "胜利") {
+                animationName = "win";
+            };
+            if (animationName === "透明") {
+                animationName = "idle1";
+            }
+            skeleton.setToSetupPose();
+            state.setAnimation(0, animationName, true);
+        })
+    }
+
+    var setupSkinUI = function() {
+        var skinList = $("#skinList");
+        skinList.empty();
+        var skeleton = skeletons[activeSkeleton].skeleton;
+        var activeSkin = skeleton.skin == null ? "default" : skeleton.skin.name;
+        for (var i = 0; i < skeleton.data.skins.length; i++) {
+            var name = skeleton.data.skins[i].name;
+            var option = $("<option></option>");
+            option.attr("value", name).text(name);
+            if (name === activeSkin) option.attr("selected", "selected");
+            skinList.append(option);
+        }
+
+        skinList.change(function() {
+            var skeleton = skeletons[activeSkeleton].skeleton;
+            var skinName = $("#skinList option:selected").text();
+            skeleton.setSkinByName(skinName);
+            skeleton.setSlotsToSetupPose();
+        })
+    }
+
+    skeletonList.change(function() {
+        activeSkeleton = $("#skeletonList option:selected").text();
+        slider.value = defaultSpeed;
+        speed = defaultSpeed;
+        speedname = parseFloat(defaultSpeed)
+        speedname = speedname.toFixed(2)
+        speedname = speedname.toString()
+        speedValueDisplay.textContent = speedname + 'x';
+        slidersize.value = defaultSize;
+        bigsize = defaultSize;
+        sizename = parseFloat(defaultSize) + 1
+        sizename = sizename.toFixed(2)
+        sizename = sizename.toString()
+        sizeValueDisplay.textContent = sizename + 'x'; // 添加倍速单位
+        setupAnimationUI();
+        setupSkinUI();
+    })
+    setupAnimationUI();
+    setupSkinUI();
+}
+
+function render() {
+    var now = Date.now() / 1000;
+    var delta = now - lastFrameTime;
+    lastFrameTime = now;
+
+    // Update the MVP matrix to adjust for canvas size changes
+    resize();
+
+    // gl.clearColor(0.5, 0.5, 0.5, 0);
+    // gl.clear(gl.COLOR_BUFFER_BIT);
+
+    // Apply the animation state based on the delta time.
+    var state = skeletons[activeSkeleton].state;
+    var skeleton = skeletons[activeSkeleton].skeleton;
+    var premultipliedAlpha = skeletons[activeSkeleton].premultipliedAlpha;
+    state.timeScale = speed;
+    state.update(delta);
+    state.apply(skeleton);
+    skeleton.updateWorldTransform();
+
+    // Bind the shader and set the texture and model-view-projection matrix.
+    shader.bind();
+    shader.setUniformi(spine.webgl.Shader.SAMPLER, 0);
+    shader.setUniform4x4f(spine.webgl.Shader.MVP_MATRIX, mvp.values);
+
+    // Start the batch and tell the SkeletonRenderer to render the active skeleton.
+    batcher.begin(shader);
+    skeletonRenderer.premultipliedAlpha = premultipliedAlpha;
+    skeletonRenderer.draw(batcher, skeleton);
+    batcher.end();
+
+    shader.unbind();
+
+    // draw debug information
+    debugShader.bind();
+    debugShader.setUniform4x4f(spine.webgl.Shader.MVP_MATRIX, mvp.values);
+    debugRenderer.premultipliedAlpha = premultipliedAlpha;
+    shapes.begin(debugShader);
+    debugRenderer.draw(shapes, skeleton);
+    shapes.end();
+    debugShader.unbind();
+
+    requestAnimationFrame(render);
+}
+
+function resize() {
+    var w = canvas.clientWidth;
+    var h = canvas.clientHeight;
+    var bounds = skeletons[activeSkeleton].bounds;
+    if (canvas.width != w || canvas.height != h) {
+        canvas.width = w;
+        canvas.height = h;
+    }
+
+    // magic
+    var centerX = bounds.offset.x + bounds.size.x / 2;
+    var centerY = bounds.offset.y + bounds.size.y / 2;
+    var scaleX = bounds.size.x / canvas.width;
+    var scaleY = bounds.size.y / canvas.height;
+    var scale = Math.max(scaleX, scaleY) * 1.2;
+    scale += 1;
+    scale += -bigsize * 2;
+    var width = canvas.width * scale;
+    var height = canvas.height * scale;
+    canvas.width = width
+    canvas.height = height
+
+    mvp.ortho2d(centerX - width / 2, centerY - height / 2, width, height);
+    gl.viewport(0, 0, canvas.width, canvas.height);
+}
 </script>
+
 </html>
