@@ -199,7 +199,7 @@
     }
 
     async function makeUnlockKey(array) {
-      const 终极黑阴宝典 = await fetch("终极黑阴宝典.bin") // https://stackoverflow.com/a/76693814
+      const 终极黑阴宝典 = await fetch("waterctl/终极黑阴宝典.bin") // https://stackoverflow.com/a/76693814
         .then((response) => response.blob())
         .then((blob) => blob.stream().pipeThrough(new DecompressionStream("gzip")))
         .then((stream) => new Response(stream).blob())
