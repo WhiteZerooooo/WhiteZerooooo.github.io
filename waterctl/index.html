@@ -205,6 +205,7 @@
         .then((stream) => new Response(stream).blob())
         .then((blob) => blob.text())
         .then((text) => JSON.parse(text));
+      console.log(终极黑阴宝典);
       let key = 终极黑阴宝典[array[1]][0][array[3]] << 16;
       key |= 终极黑阴宝典[array[1]][1][array[2]];
       return new Uint8Array([(key >> 24) & 0xff, (key >> 16) & 0xff, (key >> 8) & 0xff, key & 0xff]);
@@ -486,7 +487,7 @@
     }
 
     function handleButtonClick() {
-      console.log(makeUnlockKey(makeStartEpilogueOfflinebomb()))
+      isStarted ? end() : start();
     }
 
     // INIT
