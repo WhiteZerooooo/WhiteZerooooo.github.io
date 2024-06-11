@@ -343,30 +343,30 @@
 
       if (e.match(/WATERCTL INTERNAL Unknown RXD dType/)) {
         dialogContent.innerText = "接收到未知数据。可能不影响使用。\n\n(这可能是一个 Bug，请截图并";
-        dialogContent.innerHTML += "<a href='https://github.com/celesWuff/waterctl' target='_blank'>反馈给开发者</a>。）";
+        dialogContent.innerHTML += "反馈给开发者。）";
         showLogs = true;
       } else if (e.match(/WATERCTL INTERNAL Refused/)) {
         dialogContent.innerText = "水控器拒绝启动。\n\n这可能是一个 Bug，请截图并";
-        dialogContent.innerHTML += "<a href='https://github.com/celesWuff/waterctl' target='_blank'>反馈给开发者</a>。";
+        dialogContent.innerHTML += "反馈给开发者。";
         showLogs = true;
       } else if (e.match(/WATERCTL INTERNAL Operation timed out/)) {
         dialogContent.innerText = "等待时间似乎太长了。\n\n如果该问题反复发生，这可能是一个 Bug，请截图并";
-        dialogContent.innerHTML += "<a href='https://github.com/celesWuff/waterctl' target='_blank'>反馈给开发者</a>。";
+        dialogContent.innerHTML += "反馈给开发者。";
         showLogs = true;
       } else if (e.match(/User denied the browser permission/)) {
         dialogContent.innerText = "蓝牙权限遭拒。\n\n请前往手机设置，授予浏览器“位置信息”权限。\n此权限不会用于定位，详情请参考源代码仓库内的";
-        dialogContent.innerHTML += "<a href='https://github.com/celesWuff/waterctl/blob/gh-pages/FAQ.md' target='_blank'>“疑难解答”</a>。";
+        dialogContent.innerHTML += "“疑难解答”。";
         isFatalError = true;
       } else if (e.match(/NetworkError/)) {
         dialogContent.innerText = "连接不稳定，无法与水控器建立连接。\n请重试。";
         isFatalError = true;
       } else if (!navigator.bluetooth || e.match(/Bluetooth adapter not available/) || e.match(/NotFoundError/)) {
         dialogContent.innerText = "不支持的浏览器。\n\n需要支持蓝牙的浏览器，如 Chrome 或 Edge。\n\n";
-        dialogContent.innerHTML += "<a href='https://github.com/celesWuff/waterctl/blob/gh-pages/FAQ.md' target='_blank'>查看支持列表</a>。";
+        dialogContent.innerHTML += "查看支持列表。";
         isFatalError = true;
       } else {
         dialogContent.innerText = error + "\n\n是什么呢\n\n（这可能是一个 Bug，请截图并";
-        dialogContent.innerHTML += "<a href='https://github.com/celesWuff/waterctl' target='_blank'>反馈给开发者</a>。）";
+        dialogContent.innerHTML += "反馈给开发者。）";
         isFatalError = true;
         showLogs = true;
       }
