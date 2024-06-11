@@ -205,7 +205,6 @@
         .then((stream) => new Response(stream).blob())
         .then((blob) => blob.text())
         .then((text) => JSON.parse(text));
-      console.log(终极黑阴宝典);
       let key = 终极黑阴宝典[array[1]][0][array[3]] << 16;
       key |= 终极黑阴宝典[array[1]][1][array[2]];
       return new Uint8Array([(key >> 24) & 0xff, (key >> 16) & 0xff, (key >> 8) & 0xff, key & 0xff]);
@@ -453,11 +452,8 @@
     async function start() {
       try {
         bluetoothDevice = await navigator.bluetooth.requestDevice({
-          // https://github.com/WebBluetoothCG/web-bluetooth/issues/234
-          filters: Array.from("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
-            .map((c) => ({ namePrefix: c }))
-            .concat({ name: "" }),
-          optionalServices: [window.navigator.userAgent.match(/Bluefy/) ? "generic_access" : 0xf1f0], // workaround for Bluefy
+            filters: [{ namePrefix: "Water" }],
+            optionalServices: [window.navigator.userAgent.match(/Bluefy/) ? "generic_access" : 0xF1F0]
         });
 
         updateUi("pending");
