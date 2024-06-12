@@ -429,6 +429,8 @@
           case 0xBC: // see offlinebombFix
             await txdCharacteristic.writeValue(offlinebombFix);
             break;
+          case 0xAA:
+            break;
           case 0xC8: // start epilogue (B2) is refused
             throw new Error("WATERCTL INTERNAL Refused");
             break;
