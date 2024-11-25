@@ -152,7 +152,7 @@ var cardname3 = urlParams.get('name3') || "not exist";;
 var cardid3 = urlParams.get('id3') || "not exist";;
 var cardname4 = urlParams.get('name4') || "not exist";;
 var cardid4 = urlParams.get('id4') || "not exist";;
-fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/json/card.json')
+fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/json/card.json')
     .then(response => response.json())
     .then(data => {
         // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
@@ -161,7 +161,7 @@ fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/jso
                 cardid1 = item.id;
             }
         });
-        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/json/cardSkin.json')
+        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/json/cardSkin.json')
             .then(response => response.json())
             .then(data => {
                 // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
