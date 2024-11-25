@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>皮肤券帮帮</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            margin-top: 20px;
+            color: #007bff;
+            font-size: 2rem;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        input[type="text"] {
+            width: 95%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            form {
+                padding: 15px;
+            }
+            input[type="text"] {
+                padding: 10px;
+                font-size: 14px;
+            }
+            button {
+                padding: 10px;
+                font-size: 16px;
+            }
+            .modal-content {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>皮肤券帮帮</h1>
+    <form id="simulateClickForm">
+        <label for="url">请输入皮肤券地址:</label>
+        <input type="text" id="url" name="url" placeholder="例如：http://p0.fantanggame.com/Recommend/set/100506" required>
+        <button type="submit">提交</button>
+    </form>
+
+    <!-- The Modal -->
+    <div id="responseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="responseMessage">操作成功</p>
+        </div>
+    </div>
+
+    <script>
+        // Get modal elements
+        var modal = document.getElementById("responseModal");
+        var span = document.getElementsByClassName("close")[0];
+        var responseMessage = document.getElementById("responseMessage");
+
+        document.getElementById('simulateClickForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var xhr = new XMLHttpRequest();
+            var url = document.getElementById('url').value;
+
+            xhr.open('POST', 'http://124.222.15.110:3000/simulate-click', true);
+            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        responseMessage.textContent = "成功帮帮一次";
+                        modal.style.display = "flex";
+                    } else {
+                        responseMessage.textContent = "帮帮失败，请检查URL";
+                        modal.style.display = "flex";
+                    }
+                }
+            };
+
+            xhr.send(JSON.stringify({ url: url }));
+        });
+
+        // Close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
