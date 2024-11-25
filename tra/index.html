@@ -1,6 +1,6 @@
 <html>
-<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/build/spine-webgl.js"></script>
-<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/build/jquery-3.1.0.min.js"></script>
+<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/build/spine-webgl.js"></script>
+<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/build/jquery-3.1.0.min.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -30,7 +30,7 @@ var cardname3 = urlParams.get('name3') || "not exist";;
 var cardid3 = urlParams.get('id3') || "not exist";;
 var cardname4 = urlParams.get('name4') || "not exist";;
 var cardid4 = urlParams.get('id4') || "not exist";;
-fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/json/card.json')
+fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/json/card.json')
     .then(response => response.json())
     .then(data => {
         // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
@@ -39,7 +39,7 @@ fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/jso
                 cardid1 = item.id;
             }
         });
-        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/json/cardSkin.json')
+        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/json/cardSkin.json')
             .then(response => response.json())
             .then(data => {
                 // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
@@ -103,9 +103,9 @@ function init() {
     // Tell AssetManager to load the resources for each model, including the exported .json file, the .atlas file and the .png
     // file for the atlas. We then wait until all resources are loaded in the load() method.
 
-    const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/${cardid1}.json`;
+    const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/${cardid1}.json`;
     assetManager.loadText(textureap);
-    const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/${cardid1}.atlas`;
+    const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/${cardid1}.atlas`;
     assetManager.loadText(texturejp);
     fetch(texturejp)
         .then(response => response.text())
@@ -118,7 +118,7 @@ function init() {
             // 遍历数字1到id
             for (let i = 1; i <= occurrences; i++) {
                 // 构建纹理路径
-                const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/${cardid1}_p${i}.png`;
+                const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/${cardid1}_p${i}.png`;
                 // 加载纹理
                 assetManager.loadTexture(texturePath);
             };
@@ -127,9 +127,9 @@ function init() {
             }
         });
     if (cardid2 !== "not exist") {
-        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/${cardid2}.json`;
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/${cardid2}.json`;
         assetManager.loadText(textureap);
-        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/${cardid2}.atlas`;
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/${cardid2}.atlas`;
         assetManager.loadText(texturejp);
         fetch(texturejp)
             .then(response => response.text())
@@ -142,7 +142,7 @@ function init() {
                 // 遍历数字1到id
                 for (let i = 1; i <= occurrences; i++) {
                     // 构建纹理路径
-                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/${cardid2}_p${i}.png`;
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/${cardid2}_p${i}.png`;
                     // 加载纹理
                     assetManager.loadTexture(texturePath);
                 };
@@ -152,9 +152,9 @@ function init() {
             });
     };
     if (cardid3 !== "not exist") {
-        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/${cardid3}.json`;
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/${cardid3}.json`;
         assetManager.loadText(textureap);
-        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/${cardid3}.atlas`;
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/${cardid3}.atlas`;
         assetManager.loadText(texturejp);
         fetch(texturejp)
             .then(response => response.text())
@@ -167,7 +167,7 @@ function init() {
                 // 遍历数字1到id
                 for (let i = 1; i <= occurrences; i++) {
                     // 构建纹理路径
-                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/${cardid3}_p${i}.png`;
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/${cardid3}_p${i}.png`;
                     // 加载纹理
                     assetManager.loadTexture(texturePath);
                 };
@@ -177,9 +177,9 @@ function init() {
             });
     };
     if (cardid4 !== "not exist") {
-        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/${cardid4}.json`;
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/${cardid4}.json`;
         assetManager.loadText(textureap);
-        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/${cardid4}.atlas`;
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/${cardid4}.atlas`;
         assetManager.loadText(texturejp);
         fetch(texturejp)
             .then(response => response.text())
@@ -192,7 +192,7 @@ function init() {
                 // 遍历数字1到id
                 for (let i = 1; i <= occurrences; i++) {
                     // 构建纹理路径
-                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/${cardid4}_p${i}.png`;
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/${cardid4}_p${i}.png`;
                     // 加载纹理
                     assetManager.loadTexture(texturePath);
                 };
@@ -226,9 +226,9 @@ function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin) 
     if (skin === undefined) skin = "default";
 
     if (isDraw === true) {
-        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/draw/";
+        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/draw/";
     } else {
-        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@1.1.6/assets/avatar/";
+        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.0/assets/cards/spine/avatar/";
     };
 
     // Load the texture atlas using name.atlas and name.png from the AssetManager.
