@@ -72,7 +72,7 @@
 
     <script>
         // API URL
-        const apiUrl = 'https://tangmen8.haoyuexyj.top/wp-json/wp/v2/posts?per_page=100&orderby=date&order=desc&page=1';
+        const apiUrl = `https://tangmen8.haoyuexyj.top/wp-json/wp/v2/posts?per_page=100&orderby=date&order=desc&page=1&t=${new Date().getTime()}`;
 
         // 获取数据并更新页面
         fetch(apiUrl)
@@ -110,7 +110,7 @@
 
         // 加载文章内容
         function loadArticle(postId) {
-            const articleUrl = `https://tangmen8.haoyuexyj.top/wp-json/wp/v2/posts/${postId}`;
+            const articleUrl = `https://tangmen8.haoyuexyj.top/wp-json/wp/v2/posts/${postId}?t=${new Date().getTime()}`;
             fetch(articleUrl)
                 .then(response => response.json())
                 .then(post => {
