@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>远程API数据展示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .post {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+        .post h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .post p {
+            color: #555;
+        }
+        .post a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .post a:hover {
+            text-decoration: underline;
+        }
+        #loading {
+            font-size: 1.2rem;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="posts-container">
+        <h1>最新文章</h1>
+        <div id="loading">加载中...</div>
+    </div>
+
+    <script>
+        // API URL
+        const apiUrl = 'https://tangmen8.haoyuexyj.top/wp-json/wp/v2/posts?per_page=100&orderby=date&order=desc&page=1';
+
+        // 获取数据并更新页面
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(posts => {
+                const postsContainer = document.getElementById('posts-container');
+                const loadingIndicator = document.getElementById('loading');
+
+                // 清除加载中的提示
+                loadingIndicator.style.display = 'none';
+
+                // 创建文章列表
+                posts.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('post');
+
+                    const title = document.createElement('h2');
+                    const link = document.createElement('a');
+                    link.href = post.link;  // API中返回的link字段
+                    link.target = "_blank";  // 让链接在新标签页打开
+                    link.textContent = post.title.rendered;  // API中返回的title.rendered字段
+
+                    const excerpt = document.createElement('p');
+                    excerpt.innerHTML = post.excerpt.rendered;  // API中返回的excerpt.rendered字段
+
+                    title.appendChild(link);
+                    postElement.appendChild(title);
+                    postElement.appendChild(excerpt);
+
+                    postsContainer.appendChild(postElement);
+                });
+            })
+            .catch(error => {
+                console.error('获取数据失败:', error);
+                document.getElementById('loading').textContent = '数据加载失败，请重试。';
+            });
+    </script>
+
+</body>
+</html>
