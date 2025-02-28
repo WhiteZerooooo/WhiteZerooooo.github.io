@@ -143,7 +143,7 @@
             event.preventDefault();
 
             var url = document.getElementById('url').value;
-            var totalRequests = 7;
+            var totalRequests = 10;
             var successCount = 0;
             var failureCount = 0;
             var currentRequest = 0;
@@ -151,17 +151,15 @@
             var remoteUrl = 'https://careful-matilda-whitezero3-4deae38a.koyeb.app/simulate-click';
             var LocalUrl = 'http://127.0.0.1:3000/simulate-click';
 
-            var modal = document.getElementById('modal'); // 弹窗元素
-            var responseMessage = document.getElementById('responseMessage'); // 弹窗中的消息元素
-
             function sendRequest() {
-                if (currentRequest >= totalRequests) {
-                    responseMessage.textContent = `成功 ${successCount} 次，失败 ${failureCount} 次`;
+                if (currentRequest >= totalRequests || successCount >= 5) {
+                    responseMessage.innerHTML = `帮帮结束<br>成功 ${successCount} 次，失败 ${failureCount} 次`;
                     modal.style.display = "flex";
                     return;
                 }
 
-                responseMessage.textContent = "帮帮中......";
+                currentRequest++;
+                responseMessage.innerHTML = `正在帮帮第 ${currentRequest} 次<br>成功 ${successCount} 次，失败 ${failureCount} 次`;
                 modal.style.display = "flex";
 
                 var xhr = new XMLHttpRequest();
@@ -175,7 +173,6 @@
                         } else {
                             failureCount++;
                         }
-                        currentRequest++;
                         sendRequest(); // 继续发送下一个请求
                     }
                 };
