@@ -145,7 +145,11 @@
             var xhr = new XMLHttpRequest();
             var url = document.getElementById('url').value;
 
-            xhr.open('POST', 'https://careful-matilda-whitezero3-4deae38a.koyeb.app/simulate-click', true);
+            var uuu = 'https://careful-matilda-whitezero3-4deae38a.koyeb.app/simulate-click'
+            var fff = 'http://127.0.0.1:3000/simulate-click'
+
+
+            xhr.open('POST', uuu, true);
             xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
 
             xhr.onreadystatechange = function () {
