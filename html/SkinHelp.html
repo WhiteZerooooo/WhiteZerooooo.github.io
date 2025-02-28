@@ -142,29 +142,48 @@
         document.getElementById('simulateClickForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            var xhr = new XMLHttpRequest();
             var url = document.getElementById('url').value;
+            var totalRequests = 7;
+            var successCount = 0;
+            var failureCount = 0;
+            var currentRequest = 0;
 
-            var uuu = 'https://careful-matilda-whitezero3-4deae38a.koyeb.app/simulate-click'
-            var fff = 'http://127.0.0.1:3000/simulate-click'
+            var remoteUrl = 'https://careful-matilda-whitezero3-4deae38a.koyeb.app/simulate-click';
+            var LocalUrl = 'http://127.0.0.1:3000/simulate-click';
 
+            var modal = document.getElementById('modal'); // 弹窗元素
+            var responseMessage = document.getElementById('responseMessage'); // 弹窗中的消息元素
 
-            xhr.open('POST', uuu, true);
-            xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        responseMessage.textContent = "成功帮帮一次";
-                        modal.style.display = "flex";
-                    } else {
-                        responseMessage.textContent = "帮帮失败，请检查URL";
-                        modal.style.display = "flex";
-                    }
+            function sendRequest() {
+                if (currentRequest >= totalRequests) {
+                    responseMessage.textContent = `成功 ${successCount} 次，失败 ${failureCount} 次`;
+                    modal.style.display = "flex";
+                    return;
                 }
-            };
 
-            xhr.send(JSON.stringify({ url: url }));
+                responseMessage.textContent = "帮帮中......";
+                modal.style.display = "flex";
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', remoteUrl, true);
+                xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            successCount++;
+                        } else {
+                            failureCount++;
+                        }
+                        currentRequest++;
+                        sendRequest(); // 继续发送下一个请求
+                    }
+                };
+                xhr.send(JSON.stringify({ url: url }));
+            }
+
+            // 开始发送第一个请求
+            sendRequest();
         });
 
         // Close the modal
