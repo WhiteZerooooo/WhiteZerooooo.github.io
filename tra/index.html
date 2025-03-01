@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>零のSpine测试</title>
+    <title>FoodFantasySpineShow_Alpha</title>
     <style>
         canvas {
           width: 300px;
@@ -33,7 +33,6 @@ var cardid4 = urlParams.get('id4') || "not exist";;
 fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/json/card.json')
     .then(response => response.json())
     .then(data => {
-        // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
         Object.values(data).forEach(item => {
             if (item.name === `${cardname1}`) {
                 cardid1 = item.id;
@@ -42,7 +41,6 @@ fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/ass
         fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/json/cardSkin.json')
             .then(response => response.json())
             .then(data => {
-                // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
                 Object.values(data).forEach(item => {
                     if (item.name === `${cardname2}`) {
                         cardid2 = item.drawId;
@@ -76,15 +74,12 @@ var activeSkeleton = `${cardname1}`;
 
 function init() {
 
-    // Setup canvas and WebGL context. We pass alpha: false to canvas.getContext() so we don't use premultiplied alpha when
-    // loading textures. That is handled separately by PolygonBatcher.
     canvas = document.getElementById("canvas");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     var config = { premultipliedAlpha: false, alpha: true };
     gl = canvas.getContext("webgl", config) || canvas.getContext("experimental-webgl", config);
 
-    // Create a simple shader, mesh, model-view-projection matrix and SkeletonRenderer.
     shader = spine.webgl.Shader.newColoredTextured(gl);
     batcher = new spine.webgl.PolygonBatcher(gl);
     mvp.ortho2d(0, 0, canvas.width - 1, canvas.height - 1);
@@ -100,9 +95,6 @@ function init() {
     shapes = new spine.webgl.ShapeRenderer(gl);
     assetManager = new spine.webgl.AssetManager(gl);
 
-    // Tell AssetManager to load the resources for each model, including the exported .json file, the .atlas file and the .png
-    // file for the atlas. We then wait until all resources are loaded in the load() method.
-
     const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid1}.json`;
     assetManager.loadText(textureap);
     const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid1}.atlas`;
@@ -110,20 +102,13 @@ function init() {
     fetch(texturejp)
         .then(response => response.text())
         .then(text => {
-            const occurrences = text
-                .split(' ')
-                .filter(word => word.includes('png'))
-                .length;
-            // console.log(`'png' 出现了 ${occurrences} 次`);
-            // 遍历数字1到id
+            const occurrences = text.split(' ').filter(word => word.includes('png')).length;
             for (let i = 1; i <= occurrences; i++) {
-                // 构建纹理路径
                 const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid1}_p${i}.png`;
-                // 加载纹理
                 assetManager.loadTexture(texturePath);
             };
             if (cardid2 === "not exist") {
-                    requestAnimationFrame(load);
+                requestAnimationFrame(load);
             }
         });
     if (cardid2 !== "not exist") {
@@ -134,21 +119,14 @@ function init() {
         fetch(texturejp)
             .then(response => response.text())
             .then(text => {
-                const occurrences = text
-                    .split(' ')
-                    .filter(word => word.includes('png'))
-                    .length;
-                // console.log(`'png' 出现了 ${occurrences} 次`);
-                // 遍历数字1到id
+                const occurrences = text.split(' ').filter(word => word.includes('png')).length;
                 for (let i = 1; i <= occurrences; i++) {
-                    // 构建纹理路径
                     const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid2}_p${i}.png`;
-                    // 加载纹理
                     assetManager.loadTexture(texturePath);
                 };
-                    if (cardid3 === "not exist") {
-                        requestAnimationFrame(load);
-                    }
+                if (cardid3 === "not exist") {
+                    requestAnimationFrame(load);
+                }
             });
     };
     if (cardid3 !== "not exist") {
@@ -159,21 +137,14 @@ function init() {
         fetch(texturejp)
             .then(response => response.text())
             .then(text => {
-                const occurrences = text
-                    .split(' ')
-                    .filter(word => word.includes('png'))
-                    .length;
-                // console.log(`'png' 出现了 ${occurrences} 次`);
-                // 遍历数字1到id
+                const occurrences = text.split(' ').filter(word => word.includes('png')).length;
                 for (let i = 1; i <= occurrences; i++) {
-                    // 构建纹理路径
                     const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid3}_p${i}.png`;
-                    // 加载纹理
                     assetManager.loadTexture(texturePath);
                 };
-                    if (cardid4 === "not exist") {
-                            requestAnimationFrame(load);
-                    }
+                if (cardid4 === "not exist") {
+                    requestAnimationFrame(load);
+                }
             });
     };
     if (cardid4 !== "not exist") {
@@ -184,25 +155,19 @@ function init() {
         fetch(texturejp)
             .then(response => response.text())
             .then(text => {
-                const occurrences = text
-                    .split(' ')
-                    .filter(word => word.includes('png'))
-                    .length;
-                // console.log(`'png' 出现了 ${occurrences} 次`);
-                // 遍历数字1到id
+                const occurrences = text.split(' ').filter(word => word.includes('png')).length;
                 for (let i = 1; i <= occurrences; i++) {
                     // 构建纹理路径
                     const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid4}_p${i}.png`;
                     // 加载纹理
                     assetManager.loadTexture(texturePath);
                 };
-                    requestAnimationFrame(load);
+                requestAnimationFrame(load);
             });
     };
 }
 
 function load() {
-    // Wait until the AssetManager has loaded all resources, then load the skeletons.
     if (assetManager.isLoadingComplete()) {
         skeletons[`${cardname1}`] = loadSkeleton(`${cardid1}`, "静止", false, false);
 
@@ -231,25 +196,16 @@ function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin) 
         prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/";
     };
 
-    // Load the texture atlas using name.atlas and name.png from the AssetManager.
-    // The function passed to TextureAtlas is used to resolve relative paths.
     atlas = new spine.TextureAtlas(assetManager.get(prefix + name + ".atlas"), function(path) {
         return assetManager.get(prefix + path);
     });
 
-    // Create a TextureAtlasAttachmentLoader that resolves region, mesh, boundingbox and path attachments
     atlasLoader = new spine.TextureAtlasAttachmentLoader(atlas);
-
-    // Create a SkeletonJson instance for parsing the .json file.
-    var skeletonJson = new spine.SkeletonJson(atlasLoader);
-
-    // Set the scale to apply during parsing, parse the file, and create a new skeleton.    
+    var skeletonJson = new spine.SkeletonJson(atlasLoader);   
     var skeletonData = skeletonJson.readSkeletonData(assetManager.get(prefix + name + ".json"));
     var skeleton = new spine.Skeleton(skeletonData);
 
-    // 鼠标按下标记
     var isMouseDown = false;
-
     var lastX = 0; // 声明并初始化 lastX 变量
     var lastY = 0; // 声明并初始化 lastY 变量
 
@@ -271,12 +227,10 @@ function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin) 
 
         var x = e.clientX / canvas.offsetWidth * canvas.width;
         var y = (canvas.offsetHeight - e.clientY) / canvas.offsetHeight * canvas.height;
-        // 计算相对位移
         var deltaX = x - lastX;
         var deltaY = y - lastY;
         lastX = x;
         lastY = y;
-        // 将位移加到骨骼的当前位置
         skeleton.x += deltaX;
         skeleton.y += deltaY;
         e.preventDefault();
@@ -286,12 +240,10 @@ function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin) 
 
         var x = e.touches[0].clientX / canvas.offsetWidth * canvas.width;
         var y = (canvas.offsetHeight - e.touches[0].clientY) / canvas.offsetHeight * canvas.height;
-        // 计算相对位移
         var deltaX = x - lastX;
         var deltaY = y - lastY;
         lastX = x;
         lastY = y;
-        // 将位移加到骨骼的当前位置
         skeleton.x += deltaX;
         skeleton.y += deltaY;
         e.preventDefault();
@@ -307,7 +259,6 @@ function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin) 
     skeleton.setSkinByName(skin);
     var bounds = calculateBounds(skeleton);
 
-    // Create an AnimationState, and set the initial animation in looping mode.
     var animationState = new spine.AnimationState(new spine.AnimationStateData(skeleton.data));
     if (initialAnimation === "攻击") {
         initialAnimation = "attack";
