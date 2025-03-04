@@ -105,6 +105,8 @@
             const y = (maxHeight - img.height) / 2;
             context.drawImage(img, x, y);
         }
+
+        canvas.classList.add('loaded');
     }
 
     document.getElementById('canvas').addEventListener('touchstart', () => {
