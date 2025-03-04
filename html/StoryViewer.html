@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title id="title1">故事</title>
-    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/other/ico/storyviewer.ico">
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/build/jquery-3.1.0.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/other/ico/storyviewer.ico">
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/build/jquery-3.1.0.min.js"></script>
     <!-- Live2DCubismCore -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/build/live2dcubismcore.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/build/live2dcubismcore.min.js"></script>
     <!-- Include Pixi. -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/build/pixi.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/build/pixi.min.js"></script>
     <!-- Include Cubism Components. -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/build/live2dcubismframework.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/build/live2dcubismpixi.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/build/live2dcubismframework.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/build/live2dcubismpixi.js"></script>
     <!-- User's Script -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/build/l2d.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/build/main.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/build/l2d.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/build/main.js"></script>
     <style type="text/css">
         body {
             font-family: 'Open Sans', sans-serif;
@@ -163,7 +163,7 @@
         </div>
         <p>相关飨灵&nbsp;&nbsp;&nbsp;</p>
         <div class="avatar">
-            <!-- <img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/head/card_icon_200260.png" alt="头像"> -->
+            <!-- <img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/head/card_icon_200260.png" alt="头像"> -->
         </div>
         <hr>
         <div class="row">
@@ -180,7 +180,7 @@
             height: 400, /* 窗口高度最大值 */
             right: '0px',
             bottom: '0px',
-            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/other/Live2dView',
+            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/other/Live2dView',
             role: 'l2d200132_11',
             background: '',
             opacity: 0,
@@ -200,7 +200,7 @@
         title1.textContent = `${urltitle}`
         title2.textContent = `${urltitle}`
         let persons = urlperson
-        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/json/story.json')
+        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/json/story.json')
             .then(response => response.json())
             .then(datast => {
                 // 循环遍历每个人物名称并查找对应的 ID
@@ -209,7 +209,7 @@
                         persons = datar.person
                         const personArray = persons.split('、');
                         console.log(persons)
-                        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/json/card.json')
+                        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/json/card.json')
                             .then(response => response.json())
                             .then(data => {
                                 // 循环遍历每个人物名称并查找对应的 ID
@@ -220,7 +220,7 @@
                                             // 创建新的 img 元素
                                             const newAvatar = document.createElement('img');
                                             newAvatar.id = `${personName}`
-                                            newAvatar.src = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/head/card_icon_${item.id}.png`;
+                                            newAvatar.src = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/head/card_icon_${item.id}.png`;
                                             newAvatar.alt = '头像';
                                             if (avatar) {
                                                 avatar.appendChild(newAvatar);
@@ -263,7 +263,7 @@
 
         // 使用jQuery的AJAX方法读取文件
         $.ajax({
-            url: `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/story/${urltitle}.txt`,
+            url: `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/story/${urltitle}.txt`,
             dataType: "text",
             success: function (data) {
                 // 将读取的文本显示在页面上

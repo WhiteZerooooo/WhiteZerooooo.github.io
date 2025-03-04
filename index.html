@@ -1,6 +1,6 @@
 <html>
-<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/build/spine-webgl.js"></script>
-<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/build/jquery-3.1.0.min.js"></script>
+<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/build/spine-webgl.js"></script>
+<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/build/jquery-3.1.0.min.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -117,7 +117,7 @@
 
 <body><button id="loadBtn" style="font-size:22px; border: none; outline: none; position: absolute; top: 10px; left: 10px; background-color: #2080f0; color: white; border-radius: 3px; padding: 10px;">点击加载Q版飨灵</button>
     <div class="container" id="ctn">
-        <div style="background-image: url(&quot;https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/other/maps_bg_7_02.jpg&quot;); background-size: 100% 100%; background-position: 0px 0px, 12px 0px, 12px -12px, 0px 12px;">
+        <div style="background-image: url(&quot;https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/other/maps_bg_7_02.jpg&quot;); background-size: 100% 100%; background-position: 0px 0px, 12px 0px, 12px -12px, 0px 12px;">
             <div style="width: 350px; height: 350px; transform-origin: left top; transform: scale(1, 1); display: block;"><canvas id="canvas" width="350" height="350" style="touch-action: none; user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></canvas></div>
         </div>
         <div class="spinecontainer">
@@ -152,7 +152,7 @@ var cardname3 = urlParams.get('name3') || "not exist";;
 var cardid3 = urlParams.get('id3') || "not exist";;
 var cardname4 = urlParams.get('name4') || "not exist";;
 var cardid4 = urlParams.get('id4') || "not exist";;
-fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/json/card.json')
+fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/json/card.json')
     .then(response => response.json())
     .then(data => {
         // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
@@ -161,7 +161,7 @@ fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/ass
                 cardid1 = item.id;
             }
         });
-        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/json/cardSkin.json')
+        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/json/cardSkin.json')
             .then(response => response.json())
             .then(data => {
                 // 遍历 JSON 数据，查找与提供的名称匹配的条目，并返回其 ID
@@ -288,9 +288,9 @@ function init() {
     // Tell AssetManager to load the resources for each model, including the exported .json file, the .atlas file and the .png
     // file for the atlas. We then wait until all resources are loaded in the load() method.
 
-    const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid1}.json`;
+    const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/${cardid1}.json`;
     assetManager.loadText(textureap);
-    const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid1}.atlas`;
+    const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/${cardid1}.atlas`;
     assetManager.loadText(texturejp);
     fetch(texturejp)
         .then(response => response.text())
@@ -303,7 +303,7 @@ function init() {
             // 遍历数字1到id
             for (let i = 1; i <= occurrences; i++) {
                 // 构建纹理路径
-                const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid1}_p${i}.png`;
+                const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/${cardid1}_p${i}.png`;
                 // 加载纹理
                 assetManager.loadTexture(texturePath);
             };
@@ -312,9 +312,9 @@ function init() {
             }
         });
     if (cardid2 !== "not exist") {
-        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid2}.json`;
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/${cardid2}.json`;
         assetManager.loadText(textureap);
-        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid2}.atlas`;
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/${cardid2}.atlas`;
         assetManager.loadText(texturejp);
         fetch(texturejp)
             .then(response => response.text())
@@ -327,7 +327,7 @@ function init() {
                 // 遍历数字1到id
                 for (let i = 1; i <= occurrences; i++) {
                     // 构建纹理路径
-                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid2}_p${i}.png`;
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/${cardid2}_p${i}.png`;
                     // 加载纹理
                     assetManager.loadTexture(texturePath);
                 };
@@ -337,9 +337,9 @@ function init() {
             });
     };
     if (cardid3 !== "not exist") {
-        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid3}.json`;
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/${cardid3}.json`;
         assetManager.loadText(textureap);
-        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid3}.atlas`;
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/${cardid3}.atlas`;
         assetManager.loadText(texturejp);
         fetch(texturejp)
             .then(response => response.text())
@@ -352,7 +352,7 @@ function init() {
                 // 遍历数字1到id
                 for (let i = 1; i <= occurrences; i++) {
                     // 构建纹理路径
-                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid3}_p${i}.png`;
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/${cardid3}_p${i}.png`;
                     // 加载纹理
                     assetManager.loadTexture(texturePath);
                 };
@@ -362,9 +362,9 @@ function init() {
             });
     };
     if (cardid4 !== "not exist") {
-        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid4}.json`;
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/${cardid4}.json`;
         assetManager.loadText(textureap);
-        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid4}.atlas`;
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/${cardid4}.atlas`;
         assetManager.loadText(texturejp);
         fetch(texturejp)
             .then(response => response.text())
@@ -377,7 +377,7 @@ function init() {
                 // 遍历数字1到id
                 for (let i = 1; i <= occurrences; i++) {
                     // 构建纹理路径
-                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/${cardid4}_p${i}.png`;
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/${cardid4}_p${i}.png`;
                     // 加载纹理
                     assetManager.loadTexture(texturePath);
                 };
@@ -411,9 +411,9 @@ function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin) 
     if (skin === undefined) skin = "default";
 
     if (isDraw === true) {
-        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/draw/";
+        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/draw/";
     } else {
-        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/cards/spine/avatar/";
+        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.7/assets/cards/spine/avatar/";
     };
 
     // Load the texture atlas using name.atlas and name.png from the AssetManager.
