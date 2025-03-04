@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>万相之王展示页</title>
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/other/ico/WangXiangWatch.ico">
+    <title>万相之王</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -24,57 +25,54 @@
             border-bottom: 1px solid #ddd;
             padding-bottom: 20px;
         }
-        .post h2 {
+        .post-title {
             margin: 0;
             font-size: 1.5rem;
         }
-        .post p {
+        .post-excerpt {
             color: #555;
         }
-        .post a {
+        .post-link {
             color: #0066cc;
             text-decoration: none;
             cursor: pointer;
         }
-        .post a:hover {
+        .post-link:hover {
             text-decoration: underline;
         }
-        #loading {
+        .loading {
             font-size: 1.2rem;
             color: #999;
         }
-        #article-container {
+        .article-container {
             display: none;
         }
-        #back-to-list {
+        .back-to-list {
             display: none;
             margin-bottom: 20px;
             color: #0066cc;
             cursor: pointer;
         }
-        #back-to-list:hover {
+        .back-to-list:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    
     <div class="container" id="posts-container">
         <h1>最新文章</h1>
-        <div id="loading">加载中...</div>
+        <div class="loading" id="loading">加载中...</div>
     </div>
 
-    <div class="container" id="article-container">
-        <div id="back-to-list" onclick="showPostList()">← 返回目录</div>
+    <div class="container article-container" id="article-container">
+        <div class="back-to-list" id="back-to-list" onclick="showPostList()">← 返回目录</div>
         <h1 id="article-title"></h1>
         <div id="article-content"></div>
     </div>
 
     <script>
-        // API URL
         const apiUrl = `https://tangmen8.haoyuexyj.top/wp-json/wp/v2/posts?per_page=100&orderby=date&order=desc&page=1&t=${new Date().getTime()}`;
 
-        // 获取数据并更新页面
         fetch(apiUrl)
             .then(response => response.json())
             .then(posts => {
@@ -88,12 +86,16 @@
                     postElement.classList.add('post');
 
                     const title = document.createElement('h2');
+                    title.classList.add('post-title');
+
                     const link = document.createElement('a');
+                    link.classList.add('post-link');
                     link.href = '#';
                     link.textContent = post.title.rendered;
                     link.onclick = () => loadArticle(post.id);
 
                     const excerpt = document.createElement('p');
+                    excerpt.classList.add('post-excerpt');
                     excerpt.innerHTML = post.excerpt.rendered;
 
                     title.appendChild(link);
@@ -103,39 +105,30 @@
                     postsContainer.appendChild(postElement);
                 });
             })
-            .catch(error => {
-                console.error('获取数据失败:', error);
+            .catch(() => {
                 document.getElementById('loading').textContent = '数据加载失败，请重试。';
             });
 
-        // 加载文章内容
         function loadArticle(postId) {
             const articleUrl = `https://tangmen8.haoyuexyj.top/wp-json/wp/v2/posts/${postId}?t=${new Date().getTime()}`;
             fetch(articleUrl)
                 .then(response => response.json())
                 .then(post => {
-                    // 隐藏文章列表，显示文章内容和返回按钮
                     document.getElementById('posts-container').style.display = 'none';
                     document.getElementById('article-container').style.display = 'block';
                     document.getElementById('back-to-list').style.display = 'block';
-
-                    // 填充文章内容
-                    // document.getElementById('article-title').textContent = post.title.rendered;
                     document.getElementById('article-content').innerHTML = post.content.rendered;
                 })
-                .catch(error => {
-                    console.error('获取文章内容失败:', error);
+                .catch(() => {
+                    console.error('获取文章内容失败');
                 });
         }
 
-        // 返回目录
         function showPostList() {
-            // 隐藏文章内容，显示文章列表
             document.getElementById('posts-container').style.display = 'block';
             document.getElementById('article-container').style.display = 'none';
             document.getElementById('back-to-list').style.display = 'none';
         }
     </script>
-
 </body>
 </html>

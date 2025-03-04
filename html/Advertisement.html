@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.6/assets/other/ico/Advertisement.ico">
   <title>广告位招租</title>
   <style>
     body {
@@ -10,13 +12,13 @@
       margin: 0;
       padding: 20px;
     }
-    
+
     h1 {
       color: #333;
       text-align: center;
     }
-    
-    .ad-container {
+
+    .ad-banner {
       width: 300px;
       height: 250px;
       background-color: #aaaaaa;
@@ -27,30 +29,39 @@
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       transition: transform 0.3s;
     }
-    
-    .ad-container:hover {
+
+    .ad-banner:hover {
       transform: scale(1.05);
     }
-    
-    .ad-container a {
+
+    .ad-link {
       color: #fff;
       font-weight: bold;
       text-decoration: none;
       transition: color 0.3s;
     }
-    
-    .ad-container a:hover {
+
+    .ad-link:hover {
       color: #e6e6e6;
+    }
+
+    .ad-contact {
+      text-align: center;
+      color: #555;
     }
   </style>
 </head>
 <body>
-  <h1>广告位招租</h1>
+  <header>
+    <h1>广告位招租</h1>
+  </header>
   
-  <div class="ad-container">
-    <a href="#">您的广告在这里</a>
-  </div>
-  
-  <p style="text-align: center;">如果您有兴趣在我们的网站上展示您的广告，请(不要)联系我。</p>
+  <main>
+    <div class="ad-banner">
+      <a href="#" class="ad-link">您的广告在这里</a>
+    </div>
+    
+    <p class="ad-contact">如果您有兴趣在我的网站上展示您的广告，请(不要)联系我。</p>
+  </main>
 </body>
 </html>
