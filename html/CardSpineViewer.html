@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>FoodFantasy Q版展示</title>
     <link rel="icon" type="image/x-icon"
-        href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/other/ico/CardSpineViewer.ico">
+        href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/other/ico/CardSpineViewer.ico">
     <style>
         * {
             margin: 0;
@@ -149,9 +149,9 @@
             color: white;
         }
     </style>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/build/spine-webgl.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/build/spine-webgl.js"></script>
     <script
-        src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/build/jquery-3.1.0.min.js"></script>
+        src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/build/jquery-3.1.0.min.js"></script>
 </head>
 
 
@@ -159,7 +159,7 @@
     <button id="loadBtn">点击加载Q版飨灵</button>
     <div class="container" id="ctn">
         <div
-            style="background-image: url('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/other/maps_bg_7_02.jpg/'); background-size: 100% 100%; background-position: 0px 0px, 12px 0px, 12px -12px, 0px 12px;">
+            style="background-image: url('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/other/maps_bg_7_02.jpg/'); background-size: 100% 100%; background-position: 0px 0px, 12px 0px, 12px -12px, 0px 12px;">
             <canvas id="canvas"></canvas>
         </div>
         <div class="spine-container">
@@ -271,7 +271,7 @@
     let cardType = urlParams.get('type') || '';
     activeSkeleton = cardName;
 
-    fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/json/card.json')
+    fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/json/card.json')
         .then(response => response.json())
         .then(data => {
             if (cardType === 'SP' || cardType === 'SP满破') cardName = `${cardName}(SP)`;
@@ -316,9 +316,9 @@
         shapes = new spine.webgl.ShapeRenderer(gl);
         assetManager = new spine.webgl.AssetManager(gl);
 
-        assetManager.loadText(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/avatar/${cardId}.json`);
-        assetManager.loadText(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/avatar/${cardId}.atlas`);
-        fetch(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/avatar/${cardId}.atlas`)
+        assetManager.loadText(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/avatar/${cardId}.json`);
+        assetManager.loadText(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/avatar/${cardId}.atlas`);
+        fetch(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/avatar/${cardId}.atlas`)
             .then(response => response.text())
             .then(text => {
                 const pngCount = text.split(' ').filter(word => word.includes('png')).length;
@@ -326,19 +326,19 @@
                 for (let i = 1; i <= pngCount; i++) {
                     var texturePath;
                     if (cardId === "500648_1") {
-                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/avatar/${cardId}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/avatar/${cardId}.png`;
                     } else if (cardId === "500649_1") {
-                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/avatar/${cardId}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/avatar/${cardId}.png`;
                     } else if (cardId === "500650_1") {
-                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/avatar/${cardId}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/avatar/${cardId}.png`;
                     } else if (cardId === "500651_1") {
-                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/avatar/${cardId}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/avatar/${cardId}.png`;
                     } else if (cardId === "500652_1") {
-                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/avatar/${cardId}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/avatar/${cardId}.png`;
                     } else if (cardId === "500660_1") {
-                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/avatar/${cardId}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/avatar/${cardId}.png`;
                     } else {
-                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/avatar/${cardId}_p${i}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/avatar/${cardId}_p${i}.png`;
                     }
                     assetManager.loadTexture(texturePath);
                 }
@@ -373,7 +373,7 @@
     }
 
     function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin = "default") {
-        const prefix = isDraw ? "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/draw/" : "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/avatar/";
+        const prefix = isDraw ? "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/draw/" : "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/avatar/";
         const atlas = new spine.TextureAtlas(assetManager.get(`${prefix}${name}.atlas`), path => assetManager.get(`${prefix}${path}`));
         var atlasLoader = new CustomTextureAtlasAttachmentLoader(atlas);
         var skeletonJson = new spine.SkeletonJson(atlasLoader);
@@ -616,13 +616,14 @@
         var delta = now - lastFrameTime;
         lastFrameTime = now;
 
-        // Update the MVP matrix to adjust for canvas size changes
         resize();
 
-        // gl.clearColor(1, 1, 1, 0);
-        // gl.clear(gl.COLOR_BUFFER_BIT);
+        gl.clearColor(1, 1, 1, 0);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-        // Apply the animation state based on the delta time.
+        gl.enable(gl.BLEND);
+        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
         var state = skeletons[activeSkeleton].state;
         var skeleton = skeletons[activeSkeleton].skeleton;
         var premultipliedAlpha = skeletons[activeSkeleton].premultipliedAlpha;
@@ -631,12 +632,10 @@
         state.apply(skeleton);
         skeleton.updateWorldTransform();
 
-        // Bind the shader and set the texture and model-view-projection matrix.
         shader.bind();
         shader.setUniformi(spine.webgl.Shader.SAMPLER, 0);
         shader.setUniform4x4f(spine.webgl.Shader.MVP_MATRIX, mvp.values);
 
-        // Start the batch and tell the SkeletonRenderer to render the active skeleton.
         batcher.begin(shader);
         skeletonRenderer.premultipliedAlpha = premultipliedAlpha;
         skeletonRenderer.draw(batcher, skeleton);
@@ -644,7 +643,6 @@
 
         shader.unbind();
 
-        // draw debug information
         debugShader.bind();
         debugShader.setUniform4x4f(spine.webgl.Shader.MVP_MATRIX, mvp.values);
         debugRenderer.premultipliedAlpha = premultipliedAlpha;
@@ -665,7 +663,6 @@
             canvas.height = h;
         }
 
-        // magic
         var centerX = bounds.offset.x + bounds.size.x / 2;
         var centerY = bounds.offset.y + bounds.size.y / 2;
         var scaleX = bounds.size.x / canvas.width;

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>FoodFantasy 头像框搭配展示</title>
     <link rel="icon" type="image/x-icon"
-        href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/other/ico/FrameView.ico">
+        href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/other/ico/FrameView.ico">
     <style>
         * {
             margin: 0;
@@ -148,9 +148,9 @@
             color: white;
         }
     </style>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/build/spine-webgl.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/build/spine-webgl.js"></script>
     <script
-        src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/build/jquery-3.1.0.min.js"></script>
+        src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/build/jquery-3.1.0.min.js"></script>
 </head>
 
 
@@ -158,7 +158,7 @@
     <button id="loadBtn">点击加载Q版飨灵</button>
     <div class="container" id="ctn">
         <div
-            style="background-image: url('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/other/maps_bg_7_02.jpg/'); background-size: 100% 100%; background-position: 0px 0px, 12px 0px, 12px -12px, 0px 12px;">
+            style="background-image: url('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/other/maps_bg_7_02.jpg/'); background-size: 100% 100%; background-position: 0px 0px, 12px 0px, 12px -12px, 0px 12px;">
             <div
                 style="width: 350px; height: 350px; transform-origin: left top; transform: scale(1, 1); display: block; position: relative">
                 <canvas id="canvas2" width="350" height="350"
@@ -256,7 +256,7 @@
     var FrameIsSpine = false;
     activeSkeleton = cardName;
 
-    fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/json/achieveReward.json')
+    fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/json/achieveReward.json')
         .then(response => response.json())
         .then(data => {
             let name = `${cardName}`;
@@ -310,9 +310,9 @@
         shapes = new spine.webgl.ShapeRenderer(gl);
         assetManager = new spine.webgl.AssetManager(gl);
 
-        const img1 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/ui/head/create_roles_head_down_default.png`;
-        const img2 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/ui/head/avator_icon_${cardId2}.png`;
-        const img3 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/ui/head/avator_frame_${cardId1}.png`;
+        const img1 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/ui/head/create_roles_head_down_default.png`;
+        const img2 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/ui/head/avator_icon_${cardId2}.png`;
+        const img3 = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/ui/head/avator_frame_${cardId1}.png`;
         var imagesLoaded = 3;
         var images = [];
 
@@ -369,9 +369,9 @@
         loadImages();
 
 
-        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/ui/frame/${cardId}.json`;
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/ui/frame/${cardId}.json`;
         assetManager.loadText(textureap);
-        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/ui/frame/${cardId}.atlas`;
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/ui/frame/${cardId}.atlas`;
         assetManager.loadText(texturejp);
         fetch(texturejp)
             .then(response => response.text())
@@ -382,7 +382,7 @@
                     .length;
                 console.log(`'png' 出现了 ${occurrences} 次`);
                 for (let i = 1; i <= occurrences; i++) {
-                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/ui/frame/${cardId}.png`;
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/ui/frame/${cardId}.png`;
                     assetManager.loadTexture(texturePath);
                 }
                 if (FrameIsSpine) {
@@ -446,9 +446,9 @@
 
     function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin = "default") {
         if (isDraw === true) {
-            prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/draw/";
+            prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/cards/spine/draw/";
         } else {
-            prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/ui/frame/";
+            prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.9/assets/ui/frame/";
         };
         atlas = new spine.TextureAtlas(assetManager.get(prefix + name + ".atlas"), function (path) {
             return assetManager.get(prefix + path);
