@@ -182,7 +182,7 @@
         </div>
         <div id="myTooltip" for="anadata" class="tooltip"></div>
     </div>
-</div>
+    </div>
 </body>
 <script>
     var lastFrameTime = Date.now() / 1000;
@@ -245,14 +245,14 @@
         ctn.style.display = "block"
         init()
     });
-    
+
     slider.oninput = function () {
         speedValueDisplay.textContent = `${parseFloat(this.value).toFixed(2)}x`;
     }
     slidersize.oninput = function () {
         sizeValueDisplay.textContent = `${(parseFloat(this.value) + 0.3).toFixed(2)}x`;
     }
-    
+
     speedValueDisplay.textContent = `${parseFloat(slider.value).toFixed(2)}x`;
     sizeValueDisplay.textContent = `${(parseFloat(slidersize.value) + 1).toFixed(2)}x`;
 
@@ -357,15 +357,30 @@
         }
     }
 
+    class CustomTextureAtlasAttachmentLoader extends spine.TextureAtlasAttachmentLoader {
+        constructor(atlas) { super(atlas); }
+        newRegionAttachment(skin, name, path) {
+            try {
+                return super.newRegionAttachment(skin, name, path);
+            } catch (error) {
+                if (error.message.includes("Region not found in atlas")) {
+                    console.warn(`Region not found: ${path}. Skipping...`);
+                    return null;
+                }
+                throw error;
+            }
+        }
+    }
+
     function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin = "default") {
         const prefix = isDraw ? "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/draw/" : "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.0.8/assets/cards/spine/avatar/";
         const atlas = new spine.TextureAtlas(assetManager.get(`${prefix}${name}.atlas`), path => assetManager.get(`${prefix}${path}`));
-        var atlasLoader = new spine.TextureAtlasAttachmentLoader(atlas);
+        var atlasLoader = new CustomTextureAtlasAttachmentLoader(atlas);
         var skeletonJson = new spine.SkeletonJson(atlasLoader);
         var skeletonData = skeletonJson.readSkeletonData(assetManager.get(prefix + name + ".json"));
         var skeleton = new spine.Skeleton(skeletonData);
         skeleton.setSkinByName(skin);
-        var bounds = calculateBounds(skeleton); 
+        var bounds = calculateBounds(skeleton);
 
         var table = document.createElement("table");
         var headerRow = table.insertRow();
