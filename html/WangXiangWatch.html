@@ -8,17 +8,29 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
         }
         .container {
-            max-width: 1200px;
-            margin: 20px auto;
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #f4f4f4;
             padding: 20px;
+            overflow-y: auto;
+            border-right: 1px solid #ddd;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
             background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .post {
             margin-bottom: 20px;
@@ -27,7 +39,7 @@
         }
         .post-title {
             margin: 0;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
         .post-excerpt {
             color: #555;
@@ -44,33 +56,53 @@
             font-size: 1.2rem;
             color: #999;
         }
-        .article-container {
+        .menu-icon {
             display: none;
-        }
-        .back-to-list {
-            display: none;
-            margin-bottom: 20px;
-            color: #0066cc;
+            font-size: 1.5rem;
             cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
         }
-        .back-to-list:hover {
-            text-decoration: underline;
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -300px;
+                height: 100vh;
+                transition: left 0.3s;
+                z-index: 999;
+            }
+            .sidebar.active {
+                left: 0;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .content {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container" id="posts-container">
-        <h1>最新文章</h1>
-        <div class="loading" id="loading">加载中...</div>
-    </div>
-
-    <div class="container article-container" id="article-container">
-        <div class="back-to-list" id="back-to-list" onclick="showPostList()">← 返回目录</div>
-        <h1 id="article-title"></h1>
-        <div id="article-content"></div>
+    <div class="menu-icon" id="menu-icon">☰</div>
+    <div class="container">
+        <div class="sidebar" id="sidebar">
+            <h1>目录</h1>
+            <div class="loading" id="loading">加载中...</div>
+            <div id="posts-container"></div>
+        </div>
+        <div class="content" id="content">
+            <h1 id="article-title"></h1>
+            <div id="article-content"></div>
+        </div>
     </div>
 
     <script>
+        document.getElementById('sidebar').classList.toggle('active');
         const apiUrl = `https://tangmen8.haoyuexyj.top/wp-json/wp/v2/posts?per_page=100&orderby=date&order=desc&page=1&t=${new Date().getTime()}`;
 
         fetch(apiUrl)
@@ -114,10 +146,12 @@
             fetch(articleUrl)
                 .then(response => response.json())
                 .then(post => {
-                    document.getElementById('posts-container').style.display = 'none';
-                    document.getElementById('article-container').style.display = 'block';
-                    document.getElementById('back-to-list').style.display = 'block';
+                    document.getElementById('content').style.display = 'block';
+                    document.getElementById('article-title').textContent = post.title.rendered;
                     document.getElementById('article-content').innerHTML = post.content.rendered;
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('sidebar').classList.remove('active');
+                    }
                 })
                 .catch(() => {
                     console.error('获取文章内容失败');
@@ -125,10 +159,14 @@
         }
 
         function showPostList() {
-            document.getElementById('posts-container').style.display = 'block';
-            document.getElementById('article-container').style.display = 'none';
-            document.getElementById('back-to-list').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            document.getElementById('article-title').textContent = '';
+            document.getElementById('article-content').innerHTML = '';
         }
+
+        document.getElementById('menu-icon').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
     </script>
 </body>
 </html>
