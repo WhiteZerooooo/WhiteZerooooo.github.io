@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>FoodFantasy Q版展示</title>
     <link rel="icon" type="image/x-icon"
-        href="https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/other/ico/CardSpineViewer.ico">
+        href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/other/ico/CardSpineViewer.ico">
     <style>
         * {
             margin: 0;
@@ -149,9 +149,9 @@
             color: white;
         }
     </style>
-    <script src="https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/build/spine-webgl.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/build/spine-webgl.js"></script>
     <script
-        src="https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/build/jquery-3.1.0.min.js"></script>
+        src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/build/jquery-3.1.0.min.js"></script>
 </head>
 
 
@@ -159,7 +159,7 @@
     <button id="loadBtn">点击加载Q版飨灵</button>
     <div class="container" id="ctn">
         <div
-            style="background-image: url('https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/other/maps_bg_7_02.jpg/'); background-size: 100% 100%; background-position: 0px 0px, 12px 0px, 12px -12px, 0px 12px;">
+            style="background-image: url('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/other/maps_bg_7_02.jpg/'); background-size: 100% 100%; background-position: 0px 0px, 12px 0px, 12px -12px, 0px 12px;">
             <canvas id="canvas"></canvas>
         </div>
         <div class="spine-container">
@@ -271,7 +271,7 @@
     let cardType = urlParams.get('type') || '';
     activeSkeleton = cardName;
 
-    fetch('https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/json/card.json')
+    fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/json/card.json')
         .then(response => response.json())
         .then(data => {
             if (cardType === 'SP' || cardType === 'SP满破') cardName = `${cardName}(SP)`;
@@ -316,9 +316,9 @@
         shapes = new spine.webgl.ShapeRenderer(gl);
         assetManager = new spine.webgl.AssetManager(gl);
 
-        assetManager.loadText(`https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.json`);
-        assetManager.loadText(`https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.atlas`);
-        fetch(`https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.atlas`)
+        assetManager.loadText(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.json`);
+        assetManager.loadText(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.atlas`);
+        fetch(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.atlas`)
             .then(response => response.text())
             .then(text => {
                 const pngCount = text.split(' ').filter(word => word.includes('png')).length;
@@ -326,19 +326,19 @@
                 for (let i = 1; i <= pngCount; i++) {
                     var texturePath;
                     if (cardId === "500648_1") {
-                        texturePath = `https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.png`;
                     } else if (cardId === "500649_1") {
-                        texturePath = `https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.png`;
                     } else if (cardId === "500650_1") {
-                        texturePath = `https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.png`;
                     } else if (cardId === "500651_1") {
-                        texturePath = `https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.png`;
                     } else if (cardId === "500652_1") {
-                        texturePath = `https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.png`;
                     } else if (cardId === "500660_1") {
-                        texturePath = `https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}.png`;
                     } else {
-                        texturePath = `https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}_p${i}.png`;
+                        texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/${cardId}_p${i}.png`;
                     }
                     assetManager.loadTexture(texturePath);
                 }
@@ -373,7 +373,7 @@
     }
 
     function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin = "default") {
-        const prefix = isDraw ? "https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/draw/" : "https://cdn.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/";
+        const prefix = isDraw ? "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/draw/" : "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/spine/avatar/";
         const atlas = new spine.TextureAtlas(assetManager.get(`${prefix}${name}.atlas`), path => assetManager.get(`${prefix}${path}`));
         var atlasLoader = new CustomTextureAtlasAttachmentLoader(atlas);
         var skeletonJson = new spine.SkeletonJson(atlasLoader);
