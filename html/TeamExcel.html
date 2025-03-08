@@ -19,23 +19,15 @@
   <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/build/main.js"></script>
 
   <style>
-    #container {
-        width: 50%; /* 设置父容器的宽度 */
-        margin: 0px 20px; /* 居中显示 */
-    }
-    @media screen and (max-width: 1280px) {
-        #container {
-            width: 50%; /* 设置父容器的宽度 */
-            margin: 0px 0px; /* 居中显示 */
-        }
-    }
-
+    /* 全局样式 */
     body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
+        padding-top: 160px; /* 为固定的 header 和 nav 留出空间 */
     }
 
+    /* Header 样式 */
     header {
         background-color: #333;
         color: #fff;
@@ -43,66 +35,46 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        position: relative;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        z-index: 1000;
     }
 
-    h1 {
+    header h1 {
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
         font-size: 2em;
-    }
-
-    h1 {
         font-weight: bold;
-        font-size: 36px;
-        margin-bottom: 20px;
-        text-align: center;
-        /* 居中对齐 */
         text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-        /* 文字阴影 */
-        color: #f2f2f2;
-        /* 文字颜色 */
         letter-spacing: 0.05em;
-        /* 文字间距 */
+        margin: 0;
     }
 
+    header img#toutu {
+        height: 100px;
+        width: 100%;
+    }
+
+    /* Nav 样式 */
     nav {
         background-color: #f2f2f2;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 0 20px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        position: fixed;
+        top: 100px; /* header 的高度 */
+        left: 0;
+        width: 100%;
+        z-index: 1000;
     }
-
-    nav a {
-        color: #333;
-        text-decoration: none;
-        font-family: "Helvetica Neue", sans-serif;
-        font-size: 24px;
-        padding: 16px;
-    }
-
-    /* 在手机屏幕上的样式 */
-    @media screen and (max-width: 1280px) {
-        nav a {
-            color: #333;
-            text-decoration: none;
-            font-family: "Helvetica Neue", sans-serif;
-            font-size: 14px;
-            padding: 7px;
-        }
-    }
-
-    nav a:hover {
-        background-color: #fff;
-        color: #333;
-        border-radius: 3px;
-        transition: all 0.3s ease;
-    }
-
 
     nav ul {
         display: flex;
@@ -113,22 +85,80 @@
 
     nav li {
         margin: 0 10px;
+    }
+
+    nav a {
+        color: #333;
+        text-decoration: none;
+        font-family: "Helvetica Neue", sans-serif;
         font-size: 24px;
+        padding: 16px;
     }
 
-    main {
+    nav a:hover {
+        background-color: #fff;
+        color: #333;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+
+    /* 搜索框样式 */
+    #search-container {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 10px;
-        margin-top: -20px;
+        align-items: center;
+        margin-right: 50px;
     }
 
-    #toutu {
-        height: 100px;
-        width: 100%;
+    #search-input {
+        padding: 8px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-right: 10px;
     }
 
+    #search-button {
+        padding: 8px 16px;
+        font-size: 16px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    #search-button:hover {
+        background-color: #555;
+    }
+
+    /* 高亮样式 */
+    .highlight {
+        background-color: yellow;
+        font-weight: bold;
+    }
+
+    /* 容器样式 */
+    #container {
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* 响应式设计 */
+    @media screen and (max-width: 1280px) {
+        nav a {
+            font-size: 14px;
+            padding: 7px;
+        }
+
+        #search-input {
+            width: 120px;
+        }
+
+        #search-button {
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+    }
   </style>
 </head>
 <body>
@@ -146,15 +176,18 @@
             <li><a href="https://wiki.biligame.com/szqy/首页">食契WIKI</a></li>
             <li><a href="../html/TeamMember.html">关于我们</a></li>
         </ul>
+        <div id="search-container">
+            <input type="text" id="search-input" placeholder="输入要搜索的文字...">
+            <button id="search-button">搜索</button>
+        </div>
     </nav>
-    <br>
     <div id="container">
     </div>
     <br>
     <script>
         var config = {
-            width: 400, /* 窗口宽度最大值 */
-            height: 400, /* 窗口高度最大值 */
+            width: 400,
+            height: 400,
             right: '0px',
             bottom: '0px',
             basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/other/Live2dView',
@@ -171,12 +204,79 @@
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 var response = xhr.responseText;
-                // 移除<h2>标签
                 response = response.replace(/<h2.*?<\/h2>/g, '');
                 container.innerHTML = response;
             }
         };
         xhr.send();
+
+        // 搜索功能
+    var currentHighlightIndex = -1; // 当前高亮的位置，初始为 -1
+    var highlights = []; // 存储所有高亮的元素
+    var lastSearchText = ''; // 记录上一次搜索的内容
+
+    document.getElementById('search-button').addEventListener('click', function() {
+        var searchText = document.getElementById('search-input').value.trim();
+        if (searchText) {
+            // 如果搜索内容发生变化，重新高亮
+            if (searchText !== lastSearchText) {
+                removeHighlights(); // 移除之前的高亮
+                highlightText(searchText); // 高亮匹配的文字
+                lastSearchText = searchText; // 记录当前的搜索内容
+                currentHighlightIndex = -1; // 重置当前高亮位置
+            }
+
+            // 如果有匹配项，跳转到下一个高亮
+            if (highlights.length > 0) {
+                currentHighlightIndex = (currentHighlightIndex + 1) % highlights.length; // 循环匹配
+                highlights[currentHighlightIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+        console.log('Highlights:', highlights);
+    });
+
+    // 高亮文字的函数
+    function highlightText(searchText) {
+        var regex = new RegExp('(' + searchText + ')', 'gi');
+        var walker = document.createTreeWalker(
+            document.body,
+            NodeFilter.SHOW_TEXT,
+            null,
+            false
+        );
+
+        while (walker.nextNode()) {
+            var node = walker.currentNode;
+            var parent = node.parentNode;
+            if (parent.nodeName.toLowerCase() === 'script' || parent.nodeName.toLowerCase() === 'style') {
+                continue; // 跳过 script 和 style 标签
+            }
+            var matches = node.nodeValue.match(regex);
+            if (matches) {
+                var span = document.createElement('span');
+                span.innerHTML = node.nodeValue.replace(regex, '<span class="highlight">$1</span>');
+                parent.replaceChild(span, node);
+
+                // 将高亮的元素添加到数组中
+                var highlightedSpans = span.querySelectorAll('.highlight');
+                highlightedSpans.forEach(function(highlight) {
+                    highlights.push(highlight);
+                });
+            }
+        }
+    }
+
+    // 移除高亮的函数
+    function removeHighlights() {
+        highlights.forEach(function(element) {
+            var parent = element.parentNode;
+            if (parent) {
+                parent.replaceChild(document.createTextNode(element.textContent), element);
+                parent.normalize(); // 合并相邻的文本节点
+            }
+        });
+        highlights = []; // 清空高亮数组
+    }
     </script>
 </body>
 </html>
