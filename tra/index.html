@@ -17,11 +17,8 @@
         <canvas id="canvas" width="350" height="350"></canvas>
 </body>
 <script>
-// 获取URL中的查询字符串
 const queryString = window.location.search;
-// 创建URLSearchParams对象
 const urlParams = new URLSearchParams(queryString);
-// 获取url参数的值
 var cardname1 = urlParams.get('name1') || "小笼包";
 var cardid1 = urlParams.get('id1') || 200001;
 var cardname2 = urlParams.get('name2') || "not exist";
