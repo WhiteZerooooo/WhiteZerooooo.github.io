@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>FoodFantasy 立绘展示</title>
     <link rel="icon" type="image/x-icon"
-        href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/other/ico/CardImage.ico">
+        href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.2/assets/other/ico/CardImage.ico">
     <style>
         body,
         html {
@@ -26,7 +26,7 @@
     let cardType = urlParams.get('type') || '';
     let isProcessed = false;
 
-    fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/json/card.json')
+    fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.2/assets/json/card.json')
     .then(response => response.json())
     .then(data => {
         if (cardType === 'SP' || cardType === 'SP满破') cardName += '(SP)';
@@ -48,9 +48,9 @@
         if (typeSuffixMap[cardType]) cardId += typeSuffixMap[cardType];
 
         const imageUrls = [
-            `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/card/card_draw_bg_${cardId}.jpg`,
-            `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/card/card_draw_${cardId}.png`,
-            `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.0/assets/cards/card/card_draw_fg_${cardId}.png`
+            `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.2/assets/cards/card/card_draw_bg_${cardId}.jpg`,
+            `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.2/assets/cards/card/card_draw_${cardId}.png`,
+            `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.2/assets/cards/card/card_draw_fg_${cardId}.png`
         ];
 
         const validImages = [];
