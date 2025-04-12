@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoodFantasy Q版动态展示</title>
-    <link rel="icon" type="image/x-icon"
-        href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/ico/CardSpineViewer.ico">
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/ico/CardSpineViewer.ico">
     <style>
         :root {
             --primary-color: #ff6b6b;
@@ -410,7 +409,7 @@
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             
-            const config = { premultipliedAlpha: false, alpha: true };
+            var config = { premultipliedAlpha: false, alpha: true };
             gl = canvas.getContext("webgl", config) || canvas.getContext("experimental-webgl", config);
             gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
 
@@ -433,29 +432,31 @@
             assetManager = new spine.webgl.AssetManager(gl);
 
             // 加载资源
-            assetManager.loadText(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/avatar/${cardId}.json`);
-            assetManager.loadText(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/avatar/${cardId}.atlas`);
+            loadResources(cardId, () => {
+                requestAnimationFrame(load);
+            });
+        }
+
+        // 加载资源函数
+        function loadResources(cardId, callback) {
+            const textureJson = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/avatar/${cardId}.json`;
+            const textureAtlas = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/avatar/${cardId}.atlas`;
             
-            fetch(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/avatar/${cardId}.atlas`)
+            assetManager.loadText(textureJson);
+            assetManager.loadText(textureAtlas);
+            
+            fetch(textureAtlas)
                 .then(response => response.text())
                 .then(text => {
                     const pngCount = text.split(' ').filter(word => word.includes('png')).length;
                     console.log(`找到 ${pngCount} 个PNG文件`);
-                    
                     for (let i = 1; i <= pngCount; i++) {
-                        let texturePath;
-                        const specialCards = ["500648_1", "500649_1", "500650_1", "500651_1", "500652_1", "500660_1"];
-                        
-                        if (specialCards.includes(cardId)) {
-                            texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/avatar/${cardId}.png`;
-                        } else {
-                            texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/avatar/${cardId}_p${i}.png`;
-                        }
+                        const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/avatar/${cardId}_p${i}.png`;
                         assetManager.loadTexture(texturePath);
                     }
-                    requestAnimationFrame(load);
-                })
-                .catch(error => console.error('加载资源失败:', error));
+                    
+                    callback();
+                });
         }
 
         // 自定义纹理加载器
@@ -557,12 +558,13 @@
             const animationMapping = {
                 "攻击": "attack",
                 "静止": "idle",
-                "500648_1": "500648_1",
-                "500649_1": "500649_1",
-                "500650_1": "500650_1",
-                "500651_1": "500651_1",
-                "500652_1": "500652_1",
-                "500660_1": "500660_1"
+                "受伤": "attacked",
+                "死亡": "die",
+                "移动": "run",
+                "基础技": "skill1",
+                "能量技": "skill2",
+                "胜利": "win",
+                "透明": "idle1"
             };
             
             const animationName = animationMapping[initialAnimation] || initialAnimation;
@@ -598,7 +600,6 @@
             let lastX = 0;
             let lastY = 0;
 
-            // 鼠标/触摸事件处理
             const handleStart = (clientX, clientY) => {
                 isMouseDown = true;
                 lastX = clientX / canvas.offsetWidth * canvas.width;
@@ -821,8 +822,7 @@
         // 加载函数
         function load() {
             if (assetManager.isLoadingComplete()) {
-                const skeletonName = `${cardName}`;
-                skeletons[skeletonName] = loadSkeleton(cardId, "静止", true, false);
+                skeletons[cardName] = loadSkeleton(cardId, "静止", true, false);
                 setupUI();
                 requestAnimationFrame(render);
             } else {
