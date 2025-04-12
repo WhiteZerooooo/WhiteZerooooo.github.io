@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
     <meta charset="utf-8">
-    <title>立绘查看工具</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缇尔菈秘档 - 立绘查看工具</title>
     <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/ico/tools.ico">
+    
+    <!-- 引入外部CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 引入JS库 -->
     <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/jquery-3.1.0.min.js"></script>
     <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/pixi.min.js"></script>
     <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/live2dcubismcore.min.js"></script>
@@ -12,495 +19,753 @@
     <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/live2dcubismpixi.js"></script>
     <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/l2d.js"></script>
     <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/main.js"></script>
+    
     <style>
-        #ToolsHtml_Ct_0 {
-            flex: 1;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #f8f1e5;
+            --dark-color: #333;
+            --light-color: #f5f5f5;
+            --accent-color: #9c27b0;
+            --ur-color: #ff9800;
+            --sr-color: #9c27b0;
+            --r-color: #00bcd4;
+            --m-color: #9e9e9e;
+            --sp-color: #f44336;
         }
-
-        #ToolsHtml_Ct_1 {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        #ToolsHtml_MyText {
-            font-family: Arial, sans-serif;
-            font-size: 24px;
-            line-height: 1.5;
-            color: #333;
-        }
-
-        #ToolsHtml_body {
-            font-family: Arial, sans-serif;
-        }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: #0056b3;
-        }
-
-        .gundong {
-            background-color: #fafafa;
-            padding: 10px;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .left {
-            float: left;
-            width: 80%;
-        }
-
-        .scroll-text {
-            position: relative;
-            top: 0;
-            right: 100%;
-            white-space: nowrap;
-            font-size: 20px;
-            line-height: 1.5;
-            font-weight: bold;
-            color: #333;
-            animation: scrollText 5s linear infinite;
-        }
-
-        @keyframes scrollText {
-            0% {
-                left: 150%;
-            }
-
-            100% {
-                left: -250%;
-            }
-        }
-
-        input[type="text"],
-        select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-size: 24px;
-        }
-
-        .btn1,
-        .btn2,
-        .btn3 {
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .btn1 {
-            background-color: #4CAF50;
-            color: #fff;
-        }
-
-        .btn2 {
-            background-color: #008CBA;
-            color: #fff;
-        }
-
-        .btn3 {
-            background-color: #f44336;
-            color: #fff;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
+        
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
         }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        /* 头部样式 */
+        .header {
             position: relative;
+            height: 120px;
+            overflow: hidden;
         }
-
-        h1 {
+        
+        .header-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .header-title {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 2em;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
         }
-
-        h1 {
-            font-weight: bold;
-            font-size: 36px;
-            margin-bottom: 20px;
-            text-align: center;
-            /* 居中对齐 */
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-            /* 文字阴影 */
-            color: #f2f2f2;
-            /* 文字颜色 */
-            letter-spacing: 0.05em;
-            /* 文字间距 */
+        
+        /* 导航栏样式 */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 1rem;
         }
-
-        nav {
-            background-color: #f2f2f2;
+        
+        .nav-list {
             display: flex;
-            justify-content: space-between;
-            padding: 0 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        nav a {
-            color: #333;
-            text-decoration: none;
-            font-family: "Helvetica Neue", sans-serif;
-            font-size: 24px;
-            padding: 16px;
-        }
-
-        /* 在手机屏幕上的样式 */
-        @media screen and (max-width: 1280px) {
-            nav a {
-                color: #333;
-                text-decoration: none;
-                font-family: "Helvetica Neue", sans-serif;
-                font-size: 14px;
-                padding: 7px;
-            }
-        }
-
-        nav a:hover {
-            background-color: #fff;
-            color: #333;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-
-        nav ul {
-            display: flex;
+            justify-content: center;
             list-style: none;
-            margin: 0;
-            padding: 0;
+            flex-wrap: wrap;
         }
-
-        nav li {
-            margin: 0 10px;
-            font-size: 24px;
+        
+        .nav-item {
+            margin: 0.5rem 1rem;
         }
-
-        main {
+        
+        .nav-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .nav-link i {
+            margin-right: 0.5rem;
+        }
+        
+        /* 主要内容区域 */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        /* 工具卡片样式 */
+        .tool-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 0.8rem;
+        }
+        
+        /* 滚动公告 */
+        .announcement {
+            background-color: rgba(255, 107, 107, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .announcement-text {
+            white-space: nowrap;
+            animation: scrollText 15s linear infinite;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        @keyframes scrollText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* 输入框和按钮样式 */
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .input-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+        }
+        
+        .form-select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .btn i {
+            margin-right: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e05555;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
+        }
+        
+        .btn-secondary {
+            background-color: #4a89dc;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #3a70c2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(74, 137, 220, 0.3);
+        }
+        
+        .btn-danger {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+        }
+        
+        /* 分割线样式 */
+        .divider {
+            height: 1px;
+            background-color: #eee;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .divider-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 0 1rem;
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* 内容卡片样式 */
+        .content-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .content-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            text-align: center;
+            position: relative;
+        }
+        
+        .content-title:before,
+        .content-title:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background-color: #eee;
+        }
+        
+        .content-title:before {
+            left: 0;
+        }
+        
+        .content-title:after {
+            right: 0;
+        }
+        
+        /* 角色列表样式 */
+        .character-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        .character-item {
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            padding: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .character-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .character-name {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .character-links {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            padding: 10px;
-            margin-top: -20px;
+            gap: 0.5rem;
         }
-
-        #HeadImage {
-            height: 100px;
-            width: 100%;
+        
+        .character-link {
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .character-link:hover {
+            opacity: 0.8;
+        }
+        
+        /* 品阶颜色 */
+        .sp {
+            color: var(--sp-color);
+        }
+        
+        .ur {
+            color: var(--ur-color);
+        }
+        
+        .sr {
+            color: var(--sr-color);
+        }
+        
+        .r {
+            color: var(--r-color);
+        }
+        
+        .m {
+            color: var(--m-color);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 1.8rem;
+            }
+            
+            .nav-list {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-item {
+                margin: 0.3rem 0;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .character-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Live2D查看器样式 */
+        .l2d-container {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1000;
         }
     </style>
 </head>
 
-<body id="ToolsHtml_body">
+<body>
+    <!-- Live2D查看器 -->
     <div class="Canvas" id="L2dCanvas"></div>
-    <header>
-        <img id="HeadImage" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
-        <h1>缇尔菈秘档</h1>
+    
+    <!-- 页面头部 -->
+    <header class="header">
+        <img class="header-image" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
+        <h1 class="header-title">缇尔菈秘档</h1>
     </header>
-    <nav>
-        <ul>
-            <li><a href="../html/StoryView.html">缇尔菈展览馆</a></li>
-            <li><a href="../html/Tools.html">立绘查看工具</a></li>
-            <li><a href="../html/TwoDraw.html">拉郎模拟器</a></li>
-            <li><a href="../html/TeamExcel.html">飨灵组织表格</a></li>
-            <li><a href="https://wiki.biligame.com/szqy/首页">食契WIKI</a></li>
-            <li><a href="../html/TeamMember.html">关于我们</a></li>
+    
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i class="bi bi-images"></i>缇尔菈展览馆</a></li>
+            <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a></li>
+            <li class="nav-item"><a href="../html/TwoDraw.html" class="nav-link"><i class="bi bi-heart-fill"></i>拉郎模拟器</a></li>
+            <li class="nav-item"><a href="../html/TeamExcel.html" class="nav-link"><i class="bi bi-table"></i>飨灵组织表格</a></li>
+            <li class="nav-item"><a href="https://wiki.biligame.com/szqy/首页" class="nav-link"><i class="bi bi-book"></i>食契WIKI</a></li>
+            <li class="nav-item"><a href="../html/TeamMember.html" class="nav-link"><i class="bi bi-people-fill"></i>关于我们</a></li>
         </ul>
     </nav>
-    <br>
-    <div id="ToolsHtml_Ct_0">
-        <div class="gundong">
-            <div class="left">
-                <p class="scroll-text">
-                    <big>一个查看Q版、立绘、动态立绘的小工具</big>
-                    /
-                    <big>请勿将其分享至官方相关社交平台中</big>
-                    /
-                    <big>有Q版无法载入可以向我反馈</big>
-                </p>
+    
+    <!-- 主要内容 -->
+    <div class="main-container">
+        <!-- 工具卡片 -->
+        <div class="tool-card">
+            <h2 class="card-title"><i class="bi bi-tools"></i>立绘查看工具</h2>
+            
+            <div class="announcement">
+                <div class="announcement-text">
+                    <i class="bi bi-megaphone"></i> 一个查看Q版、立绘、动态立绘的小工具 · 请勿将其分享至官方相关社交平台中 · 有Q版无法载入可以向我反馈
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="name-input" class="input-label">飨灵名称</label>
+                <input id="name-input" type="text" class="form-input" placeholder="请输入飨灵名称">
+            </div>
+            
+            <div class="input-group">
+                <label for="id-input" class="input-label">立绘ID (非必需)</label>
+                <input id="id-input" type="text" class="form-input" placeholder="请输入立绘ID">
+            </div>
+            
+            <div class="input-group">
+                <label for="type-select" class="input-label">皮肤类型</label>
+                <select id="type-select" class="form-select">
+                    <option value="">原皮</option>
+                    <option value="满破">满破</option>
+                    <option value="SP">SP</option>
+                    <option value="SP满破">SP满破</option>
+                    <option value="1">第一张皮</option>
+                    <option value="2">第二张皮</option>
+                    <option value="花嫁">花嫁</option>
+                    <option value="泳装">泳装</option>
+                    <option value="童话">童话</option>
+                    <option value="春节">春节</option>
+                    <option value="联动">联动</option>
+                </select>
+            </div>
+            
+            <div class="btn-group">
+                <button id="spine-button" class="btn btn-primary"><i class="bi bi-joystick"></i> Q版</button>
+                <button id="image-button" class="btn btn-secondary"><i class="bi bi-image"></i> 立绘</button>
+                <button id="draw-button" class="btn btn-danger"><i class="bi bi-play-circle"></i> 动态立绘</button>
+            </div>
+            
+            <div class="divider"><span class="divider-text">或</span></div>
+            
+            <div class="input-group">
+                <label for="frame-input" class="input-label">头像框名称</label>
+                <input id="frame-input" type="text" class="form-input" placeholder="请输入头像框名称">
+            </div>
+            
+            <div class="input-group">
+                <label for="head-input" class="input-label">头像名称</label>
+                <input id="head-input" type="text" class="form-input" placeholder="请输入头像名称">
+            </div>
+            
+            <button id="head-button" class="btn btn-primary"><i class="bi bi-eye-fill"></i> 查看搭配情况</button>
+        </div>
+        
+        <!-- 新增立绘部分 -->
+        <div class="content-card">
+            <h3 class="content-title">新增立绘</h3>
+            
+            <div class="character-list" id="new-characters">
+                <!-- 这里的内容将通过JS动态生成 -->
             </div>
         </div>
-        <br>
-        <input id="name-input" type="text" placeholder="请输入飨灵名称">
-        <input id="id-input" type="text" placeholder="请输入立绘ID(非必需)">
-        <br><br>
-        <big><big>皮肤类型：</big></big>
-        <br><br>
-        <select id="type-select">
-            <option value="">原皮</option>
-            <option value="满破">满破</option>
-            <option value="SP">SP</option>
-            <option value="SP满破">SP满破</option>
-            <option value="1">第一张皮</option>
-            <option value="2">第二张皮</option>
-            <option value="花嫁">花嫁</option>
-            <option value="泳装">泳装</option>
-            <option value="童话">童话</option>
-            <option value="春节">春节</option>
-            <option value="联动">联动</option>
-        </select>
-        <button id="spine-button" class="btn1">Q版</button>
-        <button id="image-button" class="btn2">立绘</button>
-        <button id="draw-button" class="btn3">动态立绘</button>
-        <br><br><br>
-        <hr><br>
-        <input id="frame-input" type="text" placeholder="请输入头像框名称">
-        <input id="head-input" type="text" placeholder="请输入头像名称">
-        <button id="head-button" class="btn1">点击查看搭配情况</button>
-        <br><br>
-        <hr><br>
-        <strong><big><big><big>
-                        <center>————&nbsp;&nbsp;&nbsp;友情链接&nbsp;&nbsp;&nbsp;————</center>
-                    </big></big></big></strong><br>
-        <div id="ToolsHtml_Ct_1">
-            <center>
-                <p id="ToolsHtml_MyText">
-                    <a href="../html/StoryView.html"><big><big><big><big>缇尔菈展览馆</big></big></big></big></a>
-                    <br>
-                    <a href="../html/Advertisement.html">--广告位招租--</a>
-                    <!-- <big><big><big><a href="https://www.allcpp.cn/c/16365.do">广州cp摊位号伍C07</a></big></big></big> -->
-                </p>
-        </div><br>
-        <strong><big><big><big>
-                        <center>————&nbsp;&nbsp;&nbsp;新增立绘&nbsp;&nbsp;&nbsp;————</center>
-                    </big></big></big></strong><br>
-        <div class="container">
-            <span style="color:red;">SP
-                <div id="ToolsHtml_Ct_1">
-                    <center>
-                        占位飨灵
-                        <a href="../html/CardImage.html?name=小笼包&type=初始">(初始)</a>
-                        <a href="../html/CardImage.html?name=小笼包&type=满破">(满破)</a>
-                        <a href="../html/CardSpineViewer.html?name=小笼包&type=原皮">(Q版)</a>
-                        <br>
-                </div>
-            </span>
-            <br><span style="color:darkorange;">UR
-                <div id="ToolsHtml_Ct_1">
-                    <center>
-                        香薷饮
-                        <a href="../html/CardImage.html?name=香薷饮&type=初始">(初始)</a>
-                        <a href="../html/CardImage.html?name=香薷饮&type=满破">(满破)</a>
-                        <a href="../html/CardSpineViewer.html?name=香薷饮&type=原皮">(Q版)</a>
-                        <!-- <br> -->
-                        <!-- 翡翠面
-                        <a href="../html/CardImage.html?name=翡翠面&type=初始">(初始)</a>
-                        <a href="../html/CardImage.html?name=翡翠面&type=满破">(满破)</a>
-                        <a href="../html/CardSpineViewer.html?name=翡翠面&type=原皮">(Q版)</a>
-                        <br>
-                        神肉比尔通
-                        <a href="../html/CardImage.html?name=神肉比尔通&type=初始">(初始)</a>
-                        <a href="../html/CardImage.html?name=神肉比尔通&type=满破">(满破)</a>
-                        <a href="../html/CardSpineViewer.html?name=神肉比尔通&type=原皮">(Q版)</a> -->
-                </div>
-            </span>
-            <br><span style="color:#9c27b0;">SR
-                <div id="ToolsHtml_Ct_1">
-                    <center>
-                        潘芙蕾
-                        <a href="../html/CardImage.html?name=潘芙蕾&type=初始">(初始)</a>
-                        <a href="../html/CardImage.html?name=潘芙蕾&type=满破">(满破)</a>
-                        <a href="../html/CardSpineViewer.html?name=潘芙蕾&type=原皮">(Q版)</a>
-                        <!-- <br> -->
-                        <!-- 凤尾虾
-                        <a href="../html/CardImage.html?name=凤尾虾&type=初始">(初始)</a>
-                        <a href="../html/CardImage.html?name=凤尾虾&type=满破">(满破)</a>
-                        <a href="../html/CardSpineViewer.html?name=凤尾虾&type=原皮">(Q版)</a>
-                        <br>
-                        巧克力熔岩蛋糕
-                        <a href="../html/CardImage.html?name=巧克力熔岩蛋糕&type=初始">(初始)</a>
-                        <a href="../html/CardImage.html?name=巧克力熔岩蛋糕&type=满破">(满破)</a>
-                        <a href="../html/CardSpineViewer.html?name=巧克力熔岩蛋糕&type=原皮">(Q版)</a> -->
-                </div>
-            </span>
-            <br><span style="color:#00CED1;">R
-                <div id="ToolsHtml_Ct_1">
-                    <center>
-                        占位飨灵
-                        <a href="../html/CardImage.html?name=小笼包&type=初始">(初始)</a>
-                        <a href="../html/CardImage.html?name=小笼包&type=满破">(满破)</a>
-                        <a href="../html/CardSpineViewer.html?name=小笼包&type=原皮">(Q版)</a>
-                        <br>
-                </div>
-            </span>
-            <br><span style="color:#a0a0a0;">M
-                <div id="ToolsHtml_Ct_1">
-                    <center>
-                        占位飨灵
-                        <a href="../html/CardImage.html?name=小笼包&type=初始">(初始)</a>
-                        <a href="../html/CardImage.html?name=小笼包&type=满破">(满破)</a>
-                        <a href="../html/CardSpineViewer.html?name=小笼包&type=原皮">(Q版)</a>
-                        <br>
-                </div>
-            </span>
-            <br><span style="color:#000000;">未知品阶
-                <div id="ToolsHtml_Ct_1">
-                    <center>
-                        塔吉锅 —— 24年周年庆大副本提及
-                        <a href="../html/CardImage.html?name=&type=&id=000000">(NPC)</a>
-                        <!-- <a href="../html/CardImage.html?name=塔吉锅&type=满破">(满破)</a> -->
-                        <!-- <a href="../html/CardSpineViewer.html?name=塔吉锅&type=原皮">(Q版)</a> -->
-                        <br>
-                        比特酒 —— 皮斯科故事提及
-                        <a href="../html/CardImage.html?name=&type=&id=000001">(NPC)</a>
-                        <!-- <a href="../html/CardImage.html?name=比特酒&type=满破">(满破)</a> -->
-                        <!-- <a href="../html/CardSpineViewer.html?name=比特酒&type=原皮">(Q版)</a> -->
-                        <br>
-                </div>
-            </span>
-            <br><span style="color:#000000;">皮肤
-                <div id="ToolsHtml_Ct_1">
-                    <center>
-                        占位皮肤
-                        <a href="../html/CardImage.html?name=小笼包&type=泳装">(立绘)</a>
-                        <a href="../html/CardSpineViewer.html?name=小笼包&type=泳装">(Q版)</a>
-                        <br>
-                        <!-- 金齑玉脍 - 副本皮 -->
-                        <!-- <a href="../html/CardImage.html?name=金齑玉脍&type=1">(立绘)</a> -->
-                        <!-- <a href="../html/CardSpineViewer.html?name=金齑玉脍&type=1">(Q版)</a> -->
-                        <!-- <br> -->
-                </div>
-            </span>
-            <br><span style="color:#000000;">头像
-                <div id="ToolsHtml_Ct_1">
-                    <center>
-                        占位头像
-                        <a href="../html/FrameView.html?name=初始头像框&name2=初始头像1">(预览)</a>
-                        <br>
-                </div>
-            </span>
-            <br><span style="color:#000000;">头像框
-                <div id="ToolsHtml_Ct_1">
-                    <center>
-                        占位头像框
-                        <a href="../html/FrameView.html?name=初始头像框&name2=初始头像1">(预览)</a>
-                        <br>
-                </div>
-            </span>
-            <br><span style="color:#000000;">头框
-                <div id="ToolsHtml_Ct_1">
-                    <center>
-                        占位头框
-                        <a href="../html/FrameView.html?name=初始头像框&name2=初始头像1">(预览)</a>
-                </div>
-            </span>
+        
+        <!-- 无图卫星部分 -->
+        <div class="content-card">
+            <h3 class="content-title">无图卫星</h3>
+            <div id="upcoming-characters">
+                <!-- 这里的内容将通过JS动态生成 -->
+            </div>
         </div>
-        <br>
-        <strong><big><big><big>
-                        <center>————&nbsp;&nbsp;&nbsp;无图卫星&nbsp;&nbsp;&nbsp;————</center>
-                    </big></big></big></strong><br>
-        <div id="ToolsHtml_Ct_1">
-            <center>
-                甘麦大枣汤 / 卡门培尔 / 伊达卷 / 恰巴塔<br><br>
-                黑死酒 / 紫苏甘露煮 / 龙牡汤 / 甜烧白 / 伦教糕<br><br>
-                ————————————————————————<br><br>
-                甘麦大枣汤 —— 凉拌海蜇故事提及<br><br>
-                卡门培尔 —— 巧克力熔岩蛋糕故事提及<br><br>
-                黑死酒 —— 皮斯科故事提及<br><br>
-                恰巴塔 —— 格瓦斯故事提及<br><br>
-                伊达卷 —— 春雨沙拉故事提及<br><br>
-                紫苏甘露煮 —— 星鳗寿司故事提及<br><br>
-                龙牡汤、甜烧白、伦教糕 —— 25年春节大副本提及<br>
+        
+        <!-- 友情链接部分 -->
+        <div class="content-card">
+            <h3 class="content-title">友情链接</h3>
+            <div class="links-container" style="text-align: center;">
+                <a href="../html/StoryView.html" class="btn btn-secondary" style="display: inline-block; margin: 0.5rem;">
+                    <i class="bi bi-images"></i> 缇尔菈展览馆
+                </a>
+                <a href="../html/Advertisement.html" class="btn btn-secondary" style="display: inline-block; margin: 0.5rem;">
+                    <i class="bi bi-megaphone"></i> 广告位招租
+                </a>
+            </div>
         </div>
     </div>
-    <br>
+    
+    <script>
+        // Live2D查看器配置
+        var config = {
+            width: 400,
+            height: 400,
+            right: '20px',
+            bottom: '20px',
+            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/Live2dView',
+            role: 'l2d200132_11',
+            background: '',
+            opacity: 0,
+            mobile: true
+        };
+        var v = new Viewer(config);
+        
+        // 角色数据 - 便于修改和扩展
+        const characterData = {
+            newCharacters: [
+                {
+                    name: "香薷饮",
+                    type: "UR",
+                    colorClass: "ur",
+                    links: [
+                        { text: "初始", type: "初始" },
+                        { text: "满破", type: "满破" },
+                        { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                    ]
+                },
+                {
+                    name: "潘芙蕾",
+                    type: "SR",
+                    colorClass: "sr",
+                    links: [
+                        { text: "初始", type: "初始" },
+                        { text: "满破", type: "满破" },
+                        { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                    ]
+                },
+                {
+                    name: "塔吉锅",
+                    type: "NPC",
+                    colorClass: "",
+                    description: "24年周年庆大副本提及",
+                    links: [
+                        { text: "NPC", type: "", id: "000000" }
+                    ]
+                },
+                {
+                    name: "比特酒",
+                    type: "NPC",
+                    colorClass: "",
+                    description: "皮斯科故事提及",
+                    links: [
+                        { text: "NPC", type: "", id: "000001" }
+                    ]
+                },
+                // {
+                //     name: "SP模板",
+                //     type: "SP",
+                //     colorClass: "sp",
+                //     links: [
+                //         { text: "初始", type: "初始" },
+                //         { text: "满破", type: "满破" },
+                //         { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                //     ]
+                // },
+                // {
+                //     name: "UR模板",
+                //     type: "UR",
+                //     colorClass: "ur",
+                //     links: [
+                //         { text: "初始", type: "初始" },
+                //         { text: "满破", type: "满破" },
+                //         { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                //     ]
+                // },
+                // {
+                //     name: "SR模板",
+                //     type: "SR",
+                //     colorClass: "sr",
+                //     links: [
+                //         { text: "初始", type: "初始" },
+                //         { text: "满破", type: "满破" },
+                //         { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                //     ]
+                // },
+                // {
+                //     name: "R模板",
+                //     type: "R",
+                //     colorClass: "r",
+                //     links: [
+                //         { text: "初始", type: "初始" },
+                //         { text: "满破", type: "满破" },
+                //         { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                //     ]
+                // },
+                // {
+                //     name: "M模板",
+                //     type: "M",
+                //     colorClass: "m",
+                //     links: [
+                //         { text: "初始", type: "初始" },
+                //         { text: "满破", type: "满破" },
+                //         { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                //     ]
+                // },
+                // {
+                //     name: "皮肤模板",
+                //     type: "皮肤",
+                //     colorClass: "",
+                //     links: [
+                //         { text: "立绘", type: "泳装" },
+                //         { text: "Q版", type: "泳装", viewer: "CardSpineViewer" }
+                //     ]
+                // },
+                // {
+                //     name: "头像模板",
+                //     type: "头像",
+                //     colorClass: "",
+                //     links: [
+                //         { text: "预览", name: "初始头像框", name2: "初始头像1", viewer: "FrameView" }
+                //     ]
+                // }
+            ],
+            upcomingCharacters: [
+                "甘麦大枣汤 / 卡门培尔 / 伊达卷 / 恰巴塔",
+                "黑死酒 / 紫苏甘露煮 / 龙牡汤 / 甜烧白 / 伦教糕",
+                "————————————————————————",
+                "甘麦大枣汤 —— 凉拌海蜇故事提及",
+                "卡门培尔 —— 巧克力熔岩蛋糕故事提及",
+                "黑死酒 —— 皮斯科故事提及",
+                "恰巴塔 —— 格瓦斯故事提及",
+                "伊达卷 —— 春雨沙拉故事提及",
+                "紫苏甘露煮 —— 星鳗寿司故事提及",
+                "龙牡汤、甜烧白、伦教糕 —— 25年春节大副本提及"
+            ]
+        };
+        
+        // 生成新增角色列表
+        function renderNewCharacters() {
+            const container = document.getElementById('new-characters');
+            container.innerHTML = '';
+            
+            characterData.newCharacters.forEach(character => {
+                const item = document.createElement('div');
+                item.className = 'character-item';
+                
+                let nameHtml = `<span class="${character.colorClass}">${character.name}</span>`;
+                if (character.type) {
+                    nameHtml += `<small>-${character.type}</small>`;
+                }
+                
+                let linksHtml = '';
+                character.links.forEach(link => {
+                    let url = '';
+                    if (link.viewer === 'FrameView') {
+                        url = `../html/${link.viewer}.html?name=${link.name}&name2=${link.name2}`;
+                    } else if (link.id) {
+                        url = `../html/CardImage.html?name=&type=${link.type}&id=${link.id}`;
+                    } else {
+                        url = `../html/${link.viewer || 'CardImage'}.html?name=${character.name}&type=${link.type}`;
+                    }
+                    
+                    linksHtml += `<a href="${url}" class="character-link" style="background-color: ${getLinkColor(link.text)}; color: white;">${link.text}</a>`;
+                });
+                
+                item.innerHTML = `
+                    <div class="character-name">${nameHtml} ${character.description ? `<small>(${character.description})</small>` : ''}</div>
+                    <div class="character-links">${linksHtml}</div>
+                `;
+                
+                container.appendChild(item);
+            });
+        }
+        
+        // 生成无图卫星列表
+        function renderUpcomingCharacters() {
+            const container = document.getElementById('upcoming-characters');
+            container.innerHTML = '';
+            
+            characterData.upcomingCharacters.forEach(text => {
+                const p = document.createElement('p');
+                p.style.textAlign = 'center';
+                p.style.margin = '0.5rem 0';
+                p.innerHTML = text;
+                container.appendChild(p);
+            });
+        }
+        
+        // 根据链接文本获取颜色
+        function getLinkColor(text) {
+            const colors = {
+                '初始': '#4CAF50',
+                '满破': '#2196F3',
+                'Q版': '#9C27B0',
+                '立绘': '#FF9800',
+                '预览': '#607D8B',
+                'NPC': '#795548'
+            };
+            return colors[text] || '#607D8B';
+        }
+        
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', () => {
+            renderNewCharacters();
+            renderUpcomingCharacters();
+            
+            // 绑定按钮事件
+            const frameInput = document.getElementById('frame-input');
+            const headInput = document.getElementById('head-input');
+            const headButton = document.getElementById('head-button');
+            
+            headButton.addEventListener('click', function() {
+                const frameValue = frameInput.value;
+                const headValue = headInput.value;
+                window.location.href = `../html/FrameView.html?name=${frameValue}&name2=${headValue}`;
+            });
+            
+            const nameInput = document.getElementById('name-input');
+            const typeSelect = document.getElementById('type-select');
+            const idInput = document.getElementById('id-input');
+            
+            document.getElementById('spine-button').addEventListener('click', function() {
+                const nameValue = nameInput.value;
+                const typeValue = typeSelect.value;
+                const idValue = idInput.value;
+                window.location.href = `../html/CardSpineViewer.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
+            });
+            
+            document.getElementById('image-button').addEventListener('click', function() {
+                const nameValue = nameInput.value;
+                const typeValue = typeSelect.value;
+                const idValue = idInput.value;
+                window.location.href = `../html/CardImage.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
+            });
+            
+            document.getElementById('draw-button').addEventListener('click', function() {
+                const nameValue = nameInput.value;
+                const typeValue = typeSelect.value;
+                const idValue = idInput.value;
+                window.location.href = `../html/CardDrawViewer.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
+            });
+        });
+    </script>
 </body>
-<script>
-    var config = {
-        width: 400, /* 窗口宽度最大值 */
-        height: 400, /* 窗口高度最大值 */
-        right: '0px',
-        bottom: '0px',
-        basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/Live2dView',
-        role: 'l2d200132_11',
-        background: '',
-        opacity: 0,
-        mobile: true
-    }
-    var v = new Viewer(config);
-
-
-
-    const frameInput = document.getElementById('frame-input');
-    const headInput = document.getElementById('head-input');
-
-    // 查看头框搭配按钮
-    const headButton = document.getElementById('head-button');
-    headButton.addEventListener('click', function () {
-        const frameValue = frameInput.value; // 获取头像框名称
-        const headValue = headInput.value; // 获取头像名称
-        const url = `../html/FrameView.html?name=${frameValue}&name2=${headValue}`;
-        window.location.href = url;
-    });
-
-    const nameInput = document.getElementById('name-input');
-    const typeSelect = document.getElementById('type-select');
-    const idInput = document.getElementById('id-input');
-
-    // 查看飨灵Q版按钮
-    const spineButton = document.getElementById('spine-button');
-    spineButton.addEventListener('click', function () {
-        const nameValue = nameInput.value;
-        const typeValue = typeSelect.value;
-        const idValue = idInput.value;
-        const url = `../html/CardSpineViewer.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
-        window.location.href = url;
-    });
-
-    // 查看飨灵立绘按钮
-    const imageButton = document.getElementById('image-button');
-    imageButton.addEventListener('click', function () {
-        const nameValue = nameInput.value;
-        const typeValue = typeSelect.value;
-        const idValue = idInput.value;
-        const url = `../html/CardImage.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
-        window.location.href = url;
-    });
-
-    // 查看飨灵动态立绘按钮
-    const drawButton = document.getElementById('draw-button');
-    drawButton.addEventListener('click', function () {
-        const nameValue = nameInput.value;
-        const typeValue = typeSelect.value;
-        const idValue = idInput.value;
-        const url = `../html/CardDrawViewer.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
-        window.location.href = url;
-    });
-
-</script>
-
 </html>
