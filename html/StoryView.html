@@ -1,502 +1,571 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
-    <title>缇尔菈剧情展览馆</title>
-    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/ico/storyview.ico">
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/jquery-3.1.0.min.js"></script>
-    <!-- Live2DCubismCore -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/live2dcubismcore.min.js"></script>
-    <!-- Include Pixi. -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/pixi.min.js"></script>
-    <!-- Include Cubism Components. -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/live2dcubismframework.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/live2dcubismpixi.js"></script>
-    <!-- User's Script -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/l2d.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/main.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缇尔菈剧情展览馆 | 缇尔菈秘档</title>
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/ico/storyview.ico">
+    
+    <!-- 引入外部CSS和字体 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- 引入JS库 -->
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/jquery-3.1.0.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/pixi.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismcore.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismframework.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismpixi.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/l2d.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/main.js"></script>
+    
     <style>
-        /* 样式表 */
-        body {
-            font-family: Arial, sans-serif;
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #f8f1e5;
+            --dark-color: #333;
+            --light-color: #f5f5f5;
+            --accent-color: #9c27b0;
+            --header-height: 100px;
+            --nav-height: 60px;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            padding-top: 160px; /* 为固定的 header 和 nav 留出空间 */
+            box-sizing: border-box;
+            transition: all 0.3s ease;
         }
-
-        /* Header 样式 */
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            padding-top: calc(var(--header-height) + var(--nav-height));
+        }
+        
+        /* 头部样式 */
+        .header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100px;
+            height: var(--header-height);
+            background-color: #333;
+            color: #fff;
             z-index: 1000;
+            overflow: hidden;
         }
-
-        header h1 {
+        
+        .header-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+        
+        .header-title {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 2em;
-            font-weight: bold;
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-            letter-spacing: 0.05em;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
             margin: 0;
         }
-
-        header img#toutu {
-            height: 100px;
+        
+        /* 导航栏样式 */
+        .navbar {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
             width: 100%;
-        }
-
-        nav {
-            background-color: #f2f2f2;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 1rem;
+            z-index: 1000;
+            height: var(--nav-height);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            position: fixed;
-            top: 100px; /* header 的高度 */
-            left: 0;
-            width: 100%;
-            z-index: 1000;
         }
-
-        nav ul {
+        
+        .nav-list {
             display: flex;
             list-style: none;
             margin: 0;
             padding: 0;
         }
-
-        nav li {
-            margin: 0 10px;
+        
+        .nav-item {
+            margin: 0 0.5rem;
         }
-
-        nav a {
-            color: #333;
+        
+        .nav-link {
+            color: var(--dark-color);
             text-decoration: none;
-            font-family: "Helvetica Neue", sans-serif;
-            font-size: 24px;
-            padding: 16px;
-        }
-
-        nav a:hover {
-            background-color: #fff;
-            color: #333;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        main {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 10px;
-            margin-top: -20px;
-        }
-
-        /* 默认样式 */
-        article {
-            background-color: #fefefe;
-            border: 1px solid #ccc;
-            margin: 10px;
-            padding: 10px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .avatar {
-            line-height: 1.5;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            font-size: 18px;
-            margin-left: 10px;
-            flex-wrap: wrap;
-            white-space: pre-wrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-height: 50px;
-            /* 控制展示的行数 */
-            transition: max-height 0.5s;
-            /* 添加动画效果 */
-        }
-
-        .avatar img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-
-        #avatar-container {
-            display: flex;
-            align-items: center;
-            font-size: 18px;
-            margin-right: 20px;
-            flex-wrap: wrap;
-            white-space: pre-wrap;
-        }
-
-        #avatar-container img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .name {
-            width: 150px;
-        }
-
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .scaled-image {
-            max-width: 100%;
-        }
-
-        .art-container {
-            display: flex;
-        }
-
-        .left1-column {
-            flex-basis: 20%;
-        }
-
-        .left2-column {
-            flex-basis: 20%;
-            margin-left: 30px;
-        }
-
-        .right-column {
-            flex-basis: 55%;
-            margin-left: 30px;
-        }
-
-        article {
-            width: 100%;
-        }
-
-        @media screen and (max-width: 1280px) {
-            .art-container {
-                flex-direction: column;
-            }
-
-            .left1-column {
-                width: 95%;
-            }
-
-            .left2-column {
-                width: 95%;
-                margin-left: 0;
-            }
-
-            .right-column {
-                width: 95%;
-                margin-left: 0;
-            }
-        }
-
-        /* 搜索框样式 */
-        #search-container {
-            display: flex;
-            align-items: center;
-        }
-
-        #search-input {
-            padding: 8px;
-            font-size: 16px;
-            border: 1px solid #ccc;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
             border-radius: 4px;
-            margin-right: 10px;
+            display: flex;
+            align-items: center;
         }
-
-        #search-btn {
-            padding: 8px 16px;
-            font-size: 16px;
-            background-color: #333;
-            color: #fff;
+        
+        .nav-link:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .nav-link i {
+            margin-right: 0.5rem;
+        }
+        
+        /* 搜索框样式 */
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+        }
+        
+        .search-input {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .search-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+        }
+        
+        .search-btn {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: var(--primary-color);
+            color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            margin-right: 50px;
+            transition: all 0.3s;
         }
-
-        #search-btn:hover {
-            background-color: #555;
+        
+        .search-btn:hover {
+            background-color: #e05555;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(255, 107, 107, 0.3);
         }
-
+        
+        /* 公告栏样式 */
         .announcement {
+            width: 100%;
+            padding: 1rem;
+            background-color: rgba(255, 107, 107, 0.1);
+            margin: 1rem 0;
+            border-radius: 8px;
+            overflow: hidden;
             position: relative;
-            width: 100%;
-            height: 70px;
-            overflow: hidden;
+            height: 60px;
         }
-
-        @media screen and (max-width: 1280px) {
-            nav a {
-                font-size: 14px;
-                padding: 7px;
-            }
-
-            #search-input {
-                width: 120px;
-            }
-
-            #search-button {
-                padding: 6px 12px;
-                font-size: 14px;
-            }
-        }
-
-        .announcement-left {
+        
+        .announcement-text {
             position: absolute;
-            top: -10px;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #f2f2f2;
-            overflow: hidden;
-        }
-
-        .announcement-scroll-text {
-            position: absolute;
-            top: 0;
-            right: 100%;
             white-space: nowrap;
-            font-size: 20px;
-            line-height: 1.5;
-            font-weight: bold;
-            color: #333;
-            animation: scrollText 10s linear infinite;
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--primary-color);
+            animation: scrollText 15s linear infinite;
         }
-
+        
         @keyframes scrollText {
-            0% {
-                left: 100%;
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* 主要内容区域 */
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        /* 文章容器布局 */
+        .art-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .left1-column, 
+        .left2-column, 
+        .right-column {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        /* 文章卡片样式 */
+        .story-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+        
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .story-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .story-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1%;
+            margin-bottom: 1rem;
+        }
+        
+        .story-image {
+            max-width: 100%;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        .story-image.half {
+            width: 49.5%;
+        }
+        
+        .story-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .story-link {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .story-link:hover {
+            background-color: #e05555;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(255, 107, 107, 0.3);
+        }
+        
+        .story-characters {
+            margin-top: 1rem;
+        }
+        
+        .characters-title {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .toggle-btn {
+            padding: 0.3rem 0.6rem;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .toggle-btn:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .character-avatars {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            max-height: 60px;
+            overflow: hidden;
+            transition: max-height 0.5s;
+        }
+        
+        .character-avatars.expanded {
+            max-height: 1000px;
+        }
+        
+        .character-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: all 0.3s;
+        }
+        
+        .character-avatar:hover {
+            transform: scale(1.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 响应式设计 */
+        @media screen and (max-width: 992px) {
+            .art-container {
+                flex-direction: column;
             }
-
-            100% {
-                left: -51%;
+            
+            .left1-column, 
+            .left2-column, 
+            .right-column {
+                width: 100%;
             }
         }
-
-        #mineCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 2;
-        }
-
-        .bubble {
-            position: fixed;
-            z-index: 999;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-        }
-
-        .bubble::before {
-            content: "";
-            position: absolute;
-            top: 15px;
-            left: -10%;
-            transform: translateX(-50%);
-            border-width: 10px;
-            border-style: solid;
-            border-color: transparent #333 transparent transparent;
+        
+        @media screen and (max-width: 768px) {
+            .header-title {
+                font-size: 1.8rem;
+            }
+            
+            .nav-list {
+                display: none; /* 移动端可以改为汉堡菜单 */
+            }
+            
+            .search-container {
+                width: 100%;
+                margin-right: 0;
+            }
+            
+            .search-input {
+                flex-grow: 1;
+            }
+            
+            .story-image.half {
+                width: 100%;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Live2D查看器 -->
     <div class="Canvas" id="L2dCanvas"></div>
-    <header>
-        <img id="toutu" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
-        <h1>缇尔菈秘档</h1>
+    
+    <!-- 页面头部 -->
+    <header class="header">
+        <img class="header-image" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
+        <h1 class="header-title">缇尔菈秘档</h1>
     </header>
-    <nav>
-        <ul>
-            <li><a href="../html/StoryView.html">缇尔菈展览馆</a></li>
-            <li><a href="../html/Tools.html">立绘查看工具</a></li>
-            <li><a href="../html/TwoDraw.html">拉郎模拟器</a></li>
-            <li><a href="../html/TeamExcel.html">飨灵组织表格</a></li>
-            <li><a href="https://wiki.biligame.com/szqy/首页">食契WIKI</a></li>
-            <li><a href="../html/TeamMember.html">关于我们</a></li>
+    
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i class="bi bi-images"></i>缇尔菈展览馆</a></li>
+            <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a></li>
+            <li class="nav-item"><a href="../html/TwoDraw.html" class="nav-link"><i class="bi bi-heart-fill"></i>拉郎模拟器</a></li>
+            <li class="nav-item"><a href="../html/SkinDraw.html" class="nav-link"><i class="bi bi-hammer"></i>皮肤池模拟器</a></li>
+            <li class="nav-item"><a href="../html/TeamExcel.html" class="nav-link"><i class="bi bi-table"></i>飨灵组织表格</a></li>
+            <li class="nav-item"><a href="https://wiki.biligame.com/szqy/首页" class="nav-link"><i class="bi bi-book"></i>食契WIKI</a></li>
+            <li class="nav-item"><a href="../html/TeamMember.html" class="nav-link"><i class="bi bi-people-fill"></i>关于我们</a></li>
         </ul>
+        
         <div class="search-container">
-            <input type="text" placeholder="搜索..." id="search-input">
-            <button id="search-btn" onclick="SearchStoryFromPerson()">搜索</button>
+            <input type="text" placeholder="搜索剧情或飨灵..." class="search-input" id="search-input">
+            <button class="search-btn" id="search-btn"><i class="bi bi-search"></i> 搜索</button>
         </div>
     </nav>
-    <br>
-    <div class="announcement">
-        <div class="announcement-left">
-            <p class="announcement-scroll-text">
-                <big>现已开放剧情：所有大型副本剧情。皮肤本等剧情待收录。</big>
-                <!-- <big>点击浏览剧情跳转至wiki相关剧情页面</big> -->
-            </p>
+    
+    <!-- 主要内容 -->
+    <div class="main-container">
+        <div class="announcement">
+            <div class="announcement-text">
+                <i class="bi bi-megaphone"></i> 现已开放剧情：所有大型副本剧情。皮肤本等剧情待收录。
+            </div>
+        </div>
+        
+        <div class="art-container">
+            <div class="left1-column" id="left1-column"></div>
+            <div class="left2-column" id="left2-column"></div>
+            <div class="right-column" id="right-column"></div>
         </div>
     </div>
-    <main>
-        <div class="art-container">
-            <div class="left1-column">
-            </div>
-            <div class="left2-column">
-            </div>
-            <div class="right-column">
-            </div>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2023 缇尔菈剧情展览馆.</p>
-    </footer>
+    
     <script>
+        // Live2D查看器配置
         var config = {
-            width: 400, /* 窗口宽度最大值 */
-            height: 400, /* 窗口高度最大值 */
-            right: '0px',
-            bottom: '0px',
-            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/Live2dView',
+            width: 400,
+            height: 400,
+            right: '20px',
+            bottom: '20px',
+            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/Live2dView',
             role: 'l2d200132_11',
             background: '',
             opacity: 0,
             mobile: true
-        }
-        var v = new Viewer(config); 
-        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/json/story.json')
+        };
+        var v = new Viewer(config);
+        
+        // 获取并渲染故事数据
+        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/json/story.json')
             .then(response => response.json())
-            .then(jsonData => {
-                main(jsonData)
+            .then(data => {
+                renderStories(data);
+                loadCharacterAvatars();
             })
-            .catch(error => console.error(error));
-
-        function main(data) {
-            data.forEach(articleUse => {
-                if (articleUse.title != "？？？") $({
-                    1: '.left1-column',
-                    2: '.left2-column',
-                    3: '.right-column'
-                }[articleUse.type] || '').append(
-                `<article class="${articleUse.title}" data-persons="${articleUse.person}">
-                    <h2>${articleUse.title}</h2>
-                    ${articleUse.img2 ? `<img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/arts/common/${articleUse.img}" alt="展览图片" class="scaled-image" width="49%"><img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/arts/common/${articleUse.img2}" alt="展览图片" class="scaled-image" width="49%" style="margin-left: 1%;">` : (articleUse.img ? `<img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/arts/common/${articleUse.img}" alt="展览图片" class="scaled-image">` : "")}
-                    <p>${articleUse.descr}</p>
-                    <a href="../html/StoryViewer.html?title=${articleUse.title}">浏览剧情</a>
-                    <p>相关飨灵&nbsp;&nbsp;&nbsp;
-                        <button onclick="toggleExpand('#${articleUse.title}')">展开</button>
-                    </p>
-                    <div class="avatar" id='${articleUse.title}'></div>
-                </article>`);
+            .catch(error => console.error('加载故事数据失败:', error));
+        
+        // 渲染故事卡片
+        function renderStories(stories) {
+            const columns = {
+                1: document.getElementById('left1-column'),
+                2: document.getElementById('left2-column'),
+                3: document.getElementById('right-column')
+            };
+            
+            stories.forEach(story => {
+                if (story.title !== "？？？") {
+                    const column = columns[story.type] || columns[3];
+                    if (column) {
+                        column.appendChild(createStoryCard(story));
+                    }
+                }
             });
-            // data.forEach(articleUse => {
-            //     if (articleUse.title != "？？？") $({
-            //         1: '.left1-column',
-            //         2: '.left2-column',
-            //         3: '.right-column'
-            //     }[articleUse.type] || '').append(
-            //     `<article class="${articleUse.title}" data-persons="${articleUse.person}">
-            //         <h2>${articleUse.title}</h2>
-            //         ${articleUse.img2 ? `<img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/CG/${articleUse.img}" alt="展览图片" class="scaled-image" width="49%"><img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/CG/${articleUse.img2}" alt="展览图片" class="scaled-image" width="49%" style="margin-left: 1%;">` : (articleUse.img ? `<img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/CG/${articleUse.img}" alt="展览图片" class="scaled-image">` : "")}
-            //         <p>${articleUse.descr}</p>
-            //         <a href="https://wiki.biligame.com/szqy/${articleUse.title}#活动剧情">浏览剧情</a>
-            //         <p>相关飨灵&nbsp;&nbsp;&nbsp;
-            //             <button onclick="toggleExpand('#${articleUse.title}')">展开</button>
-            //         </p>
-            //         <div class="avatar" id='${articleUse.title}'></div>
-            //     </article>`);
-            // });
-
-            const articles2 = document.querySelectorAll('article');
-            articles2.forEach(article => {
-                // 获取 data-persons 属性的值
-                const persons = article.getAttribute('data-persons');
-                // 将中文字符串通过顿号分开成多个字符串
-                const personArray = persons.split('、');
-                fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/json/card.json')
-                    .then(response => response.json())
-                    .then(data => {
-                        // 循环遍历每个人物名称并查找对应的 ID
-                        personArray.forEach(personName => {
-                            Object.values(data).forEach(item => {
-                                if (item.name === personName) {
-                                    // console.log(`The ID for ${personName} is ${item.id}`);
-                                    const avatar = article.querySelector('.avatar');
-                                    // 创建新的 img 元素
-                                    const newAvatar = document.createElement('img');
-                                    newAvatar.src = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/cards/head/card_icon_${item.id}.png`;
-                                    newAvatar.alt = '头像';
-                                    if (avatar) {
-                                        avatar.appendChild(newAvatar);
-                                    }
-                                    // newAvatar.addEventListener("mouseover", function (e) {
-                                    //     var div = document.createElement("div");
-                                    //     var p = document.createElement("p");
-                                    //     div.id = `${personName}bubble`
-                                    //     div.classList.add('bubble');
-                                    //     p.append(`${personName}`)
-                                    //     div.appendChild(p)
-                                    //     var elementRect = newAvatar.getBoundingClientRect();
-                                    //     var bubbleX = elementRect.left + elementRect.width + 10; // 气泡距离鼠标右侧20像素
-                                    //     var bubbleY = elementRect.top; // 气泡在鼠标垂直方向上居中显示
-                                    //     // 设置气泡的位置
-                                    //     div.style.left = bubbleX + 'px';
-                                    //     div.style.top = bubbleY + 'px';
-                                    //     document.body.appendChild(div);
-                                    // });
-
-                                    // newAvatar.addEventListener("mouseout", function () {
-                                    //     var div = document.getElementById(`${personName}bubble`);
-                                    //     div.parentNode.removeChild(div);
-                                    // });
-                                }
-                            });
+        }
+        
+        // 创建故事卡片
+        function createStoryCard(story) {
+            const card = document.createElement('div');
+            card.className = 'story-card';
+            card.dataset.persons = story.person;
+            card.classList.add(story.title.replace(/\s+/g, '-'));
+            
+            // 创建图片HTML
+            let imagesHTML = '';
+            if (story.img && story.img2) {
+                imagesHTML = `
+                    <div class="story-images">
+                        <img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/arts/common/${story.img}" 
+                             alt="${story.title}" class="story-image half">
+                        <img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/arts/common/${story.img2}" 
+                             alt="${story.title}" class="story-image half">
+                    </div>
+                `;
+            } else if (story.img) {
+                imagesHTML = `
+                    <img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/arts/common/${story.img}" 
+                         alt="${story.title}" class="story-image">
+                `;
+            }
+            
+            // 创建卡片HTML
+            card.innerHTML = `
+                <h3 class="story-title">${story.title}</h3>
+                ${imagesHTML}
+                <p class="story-description">${story.descr}</p>
+                <a href="../html/StoryViewer.html?title=${story.title}" class="story-link">
+                    <i class="bi bi-book"></i> 浏览剧情
+                </a>
+                <div class="story-characters">
+                    <p class="characters-title">
+                        相关飨灵
+                        <button class="toggle-btn" onclick="toggleAvatars(this)">
+                            <i class="bi bi-chevron-down"></i>
+                        </button>
+                    </p>
+                    <div class="character-avatars" id="${story.title}-avatars"></div>
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        // 加载角色头像
+        function loadCharacterAvatars() {
+            fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/json/card.json')
+                .then(response => response.json())
+                .then(cards => {
+                    const storyCards = document.querySelectorAll('.story-card');
+                    
+                    storyCards.forEach(card => {
+                        const persons = card.dataset.persons.split('、');
+                        const avatarsContainer = card.querySelector('.character-avatars');
+                        
+                        persons.forEach(personName => {
+                            const cardData = Object.values(cards).find(item => item.name === personName);
+                            if (cardData) {
+                                const avatar = document.createElement('img');
+                                avatar.className = 'character-avatar';
+                                avatar.src = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/head/card_icon_${cardData.id}.png`;
+                                avatar.alt = personName;
+                                avatar.title = personName;
+                                avatarsContainer.appendChild(avatar);
+                            }
                         });
                     });
-            });
+                })
+                .catch(error => console.error('加载角色数据失败:', error));
         }
-        function SearchStoryFromPerson(usefully) {
-            const searchInput = document.getElementById("search-input");
-            const articles = document.getElementsByTagName("article");
-            const searchValue = searchInput.value.toLowerCase();
-            for (let i = 0; i < articles.length; i++) {
-                const article = articles[i];
-                const persons = article.dataset.persons;
-                const titles = article.className;
-                article.style.display = (persons.includes(searchValue) || titles.includes(searchValue))  ? "block" : "none";
-            }
-        }
-        function toggleExpand(usefully) {
-            var avatar = document.querySelector(usefully);
-            if (avatar.style.maxHeight) {
-                avatar.style.maxHeight = null;
+        
+        // 切换头像展开/收起
+        function toggleAvatars(button) {
+            const avatarsContainer = button.parentElement.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            avatarsContainer.classList.toggle('expanded');
+            
+            if (avatarsContainer.classList.contains('expanded')) {
+                icon.classList.remove('bi-chevron-down');
+                icon.classList.add('bi-chevron-up');
+                button.setAttribute('aria-expanded', 'true');
             } else {
-                avatar.style.maxHeight = avatar.scrollHeight + "px";
+                icon.classList.remove('bi-chevron-up');
+                icon.classList.add('bi-chevron-down');
+                button.setAttribute('aria-expanded', 'false');
             }
+        }
+        
+        // 搜索功能
+        document.getElementById('search-btn').addEventListener('click', searchStories);
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchStories();
+            }
+        });
+        
+        function searchStories() {
+            const searchValue = document.getElementById('search-input').value.trim().toLowerCase();
+            const storyCards = document.querySelectorAll('.story-card');
+            
+            if (!searchValue) {
+                storyCards.forEach(card => card.style.display = 'block');
+                return;
+            }
+            
+            storyCards.forEach(card => {
+                const persons = card.dataset.persons.toLowerCase();
+                const title = card.classList[1].replace(/-/g, ' ').toLowerCase();
+                
+                card.style.display = (persons.includes(searchValue) || title.includes(searchValue)) 
+                    ? 'block' 
+                    : 'none';
+            });
         }
     </script>
 </body>
-
 </html>

@@ -3,617 +3,830 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoodFantasy 动态立绘展示</title>
-    <link rel="icon" type="image/x-icon"
-        href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/ico/CardDrawViewer.ico">
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/ico/CardDrawViewer.ico">
+    
+    <!-- 引入外部CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- 引入JS库 -->
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/jquery-3.1.0.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/spine-webgl.js"></script>
+    
     <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #f8f1e5;
+            --dark-color: #333;
+            --light-color: #f5f5f5;
+            --border-color: #e0c9a6;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --tooltip-bg: #333;
+            --tooltip-text: #fff;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: all 0.2s ease;
         }
-
+        
         body {
-            height: 100vh;
-            font-family: Arial, sans-serif;
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
             display: flex;
-            justify-content: left;
-            align-items: left;
-        }
-
-        .container {
-            display: block;
-            margin-top: 20px;
-            margin-left: 20px;
-            border: 1px solid #d9d9d9;
-            background-color: #fffaf0;
+            flex-direction: column;
+            min-height: 100vh;
             padding: 20px;
-            width: 400px;
-            height: 350px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
         }
-
-        canvas {
-            width: 100%;
-            height: 800px;
-            transform: scale(0.95);
-            border: 1px solid #d9d9d9;
-            margin-bottom: 20px;
-        }
-
-        .spine-container {
+        
+        /* 主容器布局 */
+        .app-container {
             display: flex;
             flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* 控制面板样式 */
+        .control-panel {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            height: fit-content;
+        }
+        
+        .panel-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
             align-items: center;
         }
-
-        .spine-container label,
-        .spine-container select,
-        .spine-container button,
-        .spine-container input {
-            margin: 5px;
+        
+        .panel-title i {
+            margin-right: 10px;
         }
-
-        .spine-container label {
-            flex-basis: 120px;
+        
+        /* 画布容器样式 */
+        .canvas-container {
+            flex: 1;
+            min-width: 400px;
+            /* background-image: url('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/maps_bg_7_02.jpg'); */
+            background-size: cover;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            position: relative;
         }
-
-        .spine-container select {
-            flex-grow: 1;
-            flex-basis: 70px;
-        }
-
-        .spine-container button {
-            flex-basis: 350px;
-        }
-
-        .spine-container input {
-            flex-grow: 1;
-            flex-basis: 70px;
-        }
-
-        .spine-container {
-            transform-origin: 0 0;
-            transform: scale(1);
-            background-color: #fff;
+        
+        #canvas {
             width: 100%;
-            padding: 20px;
-            border-radius: 10px;
-        }
-
-        select,
-        input[type="range"],
-        .button {
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            border: none;
-            border-radius: 4px;
-            padding: 10px;
-            font-size: 16px;
-            color: #000;
-            margin: 10px 0;
-            background-color: #fff;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        select:hover,
-        input[type="range"]:hover,
-        .button:hover {
-            background-color: #f2f2f2;
-        }
-
-        #resetBtn:hover {
-            background-color: #d43524;
-        }
-
-        label {
+            height: 1000px;
+            min-height: 600px;
             display: block;
-            margin: 10px 0;
-            font-size: 16px;
-            color: #000;
         }
-
-        .tooltip {
-            position: fixed;
-            z-index: 999;
-            display: none;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
+        
+        /* 控制组样式 */
+        .control-group {
+            margin-bottom: 1.5rem;
         }
-
-        .tooltip::before {
-            content: "";
-            position: absolute;
-            top: 15px;
-            left: -3%;
-            transform: translateX(-50%);
-            border-width: 10px;
-            border-style: solid;
-            border-color: transparent #333 transparent transparent;
+        
+        .control-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-color);
         }
-
-        td,
-        th {
-            border: 1px solid white;
-            padding: 3px;
+        
+        /* 下拉选择框样式 */
+        .form-select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+            background-size: 16px;
+            transition: all 0.3s;
         }
-
-        table {
-            border-collapse: collapse;
+        
+        .form-select:hover {
+            border-color: var(--primary-color);
+        }
+        
+        /* 滑块样式 */
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .slider {
+            flex: 1;
+            appearance: none;
+            height: 6px;
+            border-radius: 3px;
+            background: #ddd;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        
+        .slider-value {
+            min-width: 50px;
+            text-align: right;
+            font-size: 0.9rem;
+        }
+        
+        /* 按钮样式 */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
             color: white;
         }
+        
+        .btn-primary:hover {
+            background-color: #e05555;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
+        }
+        
+        /* 工具提示样式 */
+        .info-icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            color: var(--primary-color);
+            margin-left: 5px;
+        }
+        
+        .tooltip {
+            position: fixed;
+            z-index: 1000;
+            max-width: 300px;
+            padding: 15px;
+            background-color: var(--tooltip-bg);
+            color: var(--tooltip-text);
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.2s, transform 0.2s;
+            pointer-events: none;
+        }
+        
+        .tooltip.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .tooltip-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        th {
+            font-weight: bold;
+        }
+        
+        /* 加载按钮样式 */
+        .load-btn {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        
+        .load-btn:hover {
+            transform: translateX(-50%) translateY(-2px);
+            box-shadow: 0 6px 12px var(--shadow-color);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .app-container {
+                flex-direction: column;
+            }
+            
+            .control-panel, .canvas-container {
+                max-width: 100%;
+            }
+            
+            #canvas {
+                min-height: 400px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            body {
+                padding: 10px;
+            }
+            
+            .control-panel {
+                padding: 15px;
+            }
+            
+            .panel-title {
+                font-size: 1.3rem;
+            }
+        }
     </style>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/spine-webgl.js"></script>
-    <script
-        src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/jquery-3.1.0.min.js"></script>
 </head>
 
 <body>
-    <button id="loadBtn">点击加载Q版飨灵</button>
-    <div class="container" id="ctn">
-        <div class="spine-container">
-            <label for="skeletonList"><big>飨灵选择:</big></label>
-            <select id="skeletonList"></select>
-            <label id="goods" for="animationList"><big>动画:</big></label>
-            <select id="animationList"></select>
-            <svg id="anadata" style="height:41px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <path
-                    d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z"
-                    fill="currentColor"></path>
-            </svg>
-            <label for="speed"><big>播放速度:</big></label>
-            <div id="speedValueDisplay"></div>
-            <input type="range" min="0" max="2" step="0.05" value="1.0" class="slider" id="speed">
-            <label for="bigsize"><big>模型大小:</big></label>
-            <div id="sizeValueDisplay"></div>
-            <input type="range" min="0.2" max="1.2" step="0.05" value="0.7" class="slider" id="bigsize">
-            <button id="resetBtn" class="button">重置位置</button>
+    <button id="loadBtn" class="load-btn"><i class="bi bi-download"></i> 加载动态立绘</button>
+    
+    <div class="app-container">
+        <!-- 控制面板 -->
+        <div class="control-panel" id="ctn" style="display: none;">
+            <h2 class="panel-title"><i class="bi bi-sliders"></i> 控制面板</h2>
+            
+            <div class="control-group">
+                <label for="skeletonList" class="control-label">飨灵选择</label>
+                <select id="skeletonList" class="form-select"></select>
+            </div>
+            
+            <div class="control-group">
+                <label for="animationList" class="control-label">
+                    动画选择
+                    <!-- <svg id="infoIcon" class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z"/>
+                    </svg> -->
+                </label>
+                <select id="animationList" class="form-select"></select>
+            </div>
+            
+            <div class="control-group">
+                <label for="speed" class="control-label">播放速度: <span id="speedValueDisplay" class="slider-value">1.00x</span></label>
+                <div class="slider-container">
+                    <input type="range" min="0" max="2" step="0.05" value="1.0" class="slider" id="speed">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label for="bigsize" class="control-label">模型大小: <span id="sizeValueDisplay" class="slider-value">1.00x</span></label>
+                <div class="slider-container">
+                    <input type="range" min="0.2" max="1.2" step="0.05" value="0.7" class="slider" id="bigsize">
+                </div>
+            </div>
+            
+            <button id="resetBtn" class="btn btn-primary"><i class="bi bi-arrow-counterclockwise"></i> 重置位置</button>
         </div>
-        <div id="myTooltip" for="anadata" class="tooltip"></div>
+        
+        <!-- 画布容器 -->
+        <div class="canvas-container">
+            <canvas id="canvas"></canvas>
+        </div>
     </div>
-    <div
-        style="background-image: url('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/maps_bg_7_02.jpg/'); background-size: 100% 100%; background-position: 0px 0px, 12px 0px, 12px -12px, 0px 12px;">
-        <canvas id="canvas"></canvas>
-    </div>
-</body>
+    
+    <!-- 工具提示 -->
+    <div id="tooltip" class="tooltip"></div>
 
-<script>
-    var lastFrameTime = Date.now() / 1000;
-    let canvas, gl, shader, batcher, assetManager, skeletonRenderer, debugRenderer, shapes;
-    let skeletons = {}, activeSkeleton;
-    var mvp = new spine.webgl.Matrix4();
-    var slider = document.getElementById("speed");
-    var slidersize = document.getElementById("bigsize");
-    var speedValueDisplay = document.getElementById("speedValueDisplay");
-    var sizeValueDisplay = document.getElementById("sizeValueDisplay");
-    var loadBtn = document.getElementById("loadBtn");
-    var ctn = document.getElementById("ctn");
-    var speed = slider.value;
-    var bigsize = slidersize.value;
-    var defaultSpeed = slider.value;
-    var defaultSize = slidersize.value;
+    <script>
+        // 初始化变量
+        let lastFrameTime = Date.now() / 1000;
+        let canvas, gl, shader, batcher, assetManager, skeletonRenderer, debugRenderer, shapes;
+        let skeletons = {}, activeSkeleton;
+        let mvp = new spine.webgl.Matrix4();
+        
+        // 获取DOM元素
+        const speedSlider = document.getElementById("speed");
+        const sizeSlider = document.getElementById("bigsize");
+        const speedValueDisplay = document.getElementById("speedValueDisplay");
+        const sizeValueDisplay = document.getElementById("sizeValueDisplay");
+        const loadBtn = document.getElementById("loadBtn");
+        const ctn = document.getElementById("ctn");
+        const infoIcon = document.getElementById("infoIcon");
+        const tooltip = document.getElementById("tooltip");
+        
+        // 设置初始值
+        let speed = parseFloat(speedSlider.value);
+        let bigsize = parseFloat(sizeSlider.value);
+        const defaultSpeed = parseFloat(speedSlider.value);
+        const defaultSize = parseFloat(sizeSlider.value);
+        
+        // 从URL参数获取初始配置
+        const urlParams = new URLSearchParams(window.location.search);
+        let num = urlParams.get('num') || 15;
+        let cardName = urlParams.get('name') || 200001;
+        let cardId = urlParams.get('id') || 200001;
+        let cardType = urlParams.get('type') || '';
+        activeSkeleton = cardName;
 
-    loadBtn.style.display = "none"
+        // 隐藏控制面板，显示加载按钮
+        // loadBtn.style.display = "block";
+        // ctn.style.display = "none";
 
-    var myElement = document.getElementById("anadata");
-    var myTooltip = document.getElementById("myTooltip");
+        // 隐藏加载按钮，显示控制面板
+        loadBtn.style.display = "none";
+        ctn.style.display = "block";
 
-    myElement.addEventListener("mouseover", () => {
-        const elementRect = myElement.getBoundingClientRect();
-        const tooltipRect = myTooltip.getBoundingClientRect();
-        myTooltip.style.left = `${elementRect.left + elementRect.width + 17}px`;
-        myTooltip.style.top = `${elementRect.top - tooltipRect.height - 5}px`;
-        myTooltip.style.display = "block";
-    });
-
-    myElement.addEventListener("mouseout", function () {
-        myTooltip.style.display = "none";
-    });
-
-    loadBtn.addEventListener("click", function () {
-        loadBtn.style.display = "none"
-        ctn.style.display = "block"
-        init()
-    });
-
-    slider.oninput = function () {
-        speedValueDisplay.textContent = `${parseFloat(this.value).toFixed(2)}x`;
-    }
-    slidersize.oninput = function () {
-        sizeValueDisplay.textContent = `${(parseFloat(this.value) + 0.3).toFixed(2)}x`;
-    }
-
-    speedValueDisplay.textContent = `${parseFloat(slider.value).toFixed(2)}x`;
-    sizeValueDisplay.textContent = `${(parseFloat(slidersize.value) + 0.3).toFixed(2)}x`;
-
-    const canvasElement = document.getElementById("canvas");
-    canvasElement.addEventListener("wheel", (event) => {
-        event.preventDefault();
-        if (bigsize <= 1) bigsize = parseFloat(bigsize) + (event.deltaY > 0 ? -0.1 : 0.1);
-        else bigsize = parseFloat(bigsize) + (event.deltaY > 0 ? -0.1 : 0);
-    });
-
-    const urlParams = new URLSearchParams(window.location.search);
-    let num = urlParams.get('num') || 15;
-    let cardName = urlParams.get('name') || 200001;
-    let cardId = urlParams.get('id') || 200001;
-    let cardType = urlParams.get('type') || '';
-    activeSkeleton = cardName;
-
-    fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/json/card.json')
-        .then(response => response.json())
-        .then(data => {
-            if (cardType === 'SP' || cardType === 'SP满破') cardName = `${cardName}(SP)`;
-            Object.values(data).forEach(item => {
-                if (item.name === cardName) {
-                    cardId = item.id;
-                    activeSkeleton = cardName;
-                }
-            });
-            const cardTypeSuffix = { 'SP满破': '_5', '1': '_7', '2': '_8', '花嫁': '_9', '泳装': '_10', '童话': '_11', '春节': '_12', '联动': '_20' };
-            if (cardTypeSuffix.hasOwnProperty(cardType)) cardId += cardTypeSuffix[cardType];
-            init();
-        })
-        .catch(error => console.error(error));
-
-    if (isMobileDevice()) {
-        document.body.style.display = "block";
-    }
-
-    function isMobileDevice() {
-        return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-    };
-
-    function init() {
-        canvas = document.getElementById("canvas");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        var config = { premultipliedAlpha: false, alpha: true };
-        gl = canvas.getContext("webgl", config) || canvas.getContext("experimental-webgl", config);
-        gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
-
-        shader = spine.webgl.Shader.newColoredTextured(gl);
-        batcher = new spine.webgl.PolygonBatcher(gl);
-        mvp.ortho2d(0, 0, canvas.width - 1, canvas.height - 1);
-        skeletonRenderer = new spine.webgl.SkeletonRenderer(gl);
-        debugRenderer = new spine.webgl.SkeletonDebugRenderer(gl);
-        debugRenderer.drawBones = false;
-        debugRenderer.drawRegionAttachments = false;
-        debugRenderer.drawBoundingBoxes = false;
-        debugRenderer.drawMeshHull = false;
-        debugRenderer.drawMeshTriangles = false;
-        debugRenderer.drawPaths = false;
-        debugShader = spine.webgl.Shader.newColored(gl);
-        shapes = new spine.webgl.ShapeRenderer(gl);
-        assetManager = new spine.webgl.AssetManager(gl);
-
-        assetManager.loadText(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/cards/spine/draw/${cardId}.json`);
-        assetManager.loadText(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/cards/spine/draw/${cardId}.atlas`);
-        fetch(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/cards/spine/draw/${cardId}.atlas`)
-            .then(response => response.text())
-            .then(text => {
-                const pngCount = text.split(' ').filter(word => word.includes('png')).length;
-                console.log(`'png' 出现了 ${pngCount} 次`);
-                for (let i = 1; i <= pngCount; i++) {
-                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/cards/spine/draw/${cardId}_p${i}.png`;
-                    assetManager.loadTexture(texturePath);
-                }
-                requestAnimationFrame(load);
-            });
-    }
-
-    function load() {
-        if (assetManager.isLoadingComplete()) {
-            const skeletonName = `${cardName}`;
-            skeletons[skeletonName] = loadSkeleton(cardId, "静止", true, false);
-            setupUI();
-            requestAnimationFrame(render);
-        } else {
-            requestAnimationFrame(load);
-        }
-    }
-
-    class CustomTextureAtlasAttachmentLoader extends spine.TextureAtlasAttachmentLoader {
-        constructor(atlas) { super(atlas); }
-        newRegionAttachment(skin, name, path) {
-            try {
-                return super.newRegionAttachment(skin, name, path);
-            } catch (error) {
-                if (error.message.includes("Region not found in atlas")) {
-                    console.warn(`Region not found: ${path}. Skipping...`);
-                    return null;
-                }
-                throw error;
-            }
-        }
-    }
-
-    function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin = "default") {
-        const prefix = isDraw ? "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/cards/spine/draw/" : "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/cards/spine/draw/";
-        const atlas = new spine.TextureAtlas(assetManager.get(`${prefix}${name}.atlas`), path => assetManager.get(`${prefix}${path}`));
-        var atlasLoader = new CustomTextureAtlasAttachmentLoader(atlas);
-        var skeletonJson = new spine.SkeletonJson(atlasLoader);
-        var skeletonData = skeletonJson.readSkeletonData(assetManager.get(prefix + name + ".json"));
-        var skeleton = new spine.Skeleton(skeletonData);
-        skeleton.setSkinByName(skin);
-        var bounds = calculateBounds(skeleton); 
-
-        var table = document.createElement("table");
-        var headerRow = table.insertRow();
-        var headerCell1 = headerCell2 = headerCell3 = headerRow.insertCell();
-        headerCell1.innerHTML = "<b>动画</b>";
-        headerCell2.innerHTML = "<b>持续时间(s)</b>";
-        headerCell3.innerHTML = "<b>帧数(30/s)</b>";
-
-        function addRow(table, cell1Text, cell2Text, cell3Text) {
-            var row = table.insertRow();
-            var cell1 = row.insertCell();
-            var cell2 = row.insertCell();
-            var cell3 = row.insertCell();
-            cell1.innerHTML = cell1Text;
-            cell2.innerHTML = cell2Text;
-            cell3.innerHTML = cell3Text;
-        }
-
-        function tryAddRow(table, animationIndex, label) {
-            try {
-                const duration = skeletonData.animations[animationIndex].duration.toFixed(3).replace(/\.?0+$/, '');
-                const roundedDuration = Math.round(skeletonData.animations[animationIndex].duration * 30);
-                addRow(table, label, duration, roundedDuration);
-            } catch (error) {
-                console.log("执行addRow函数时出错:", error);
-            }
-        }
-
-        tryAddRow(table, 0, "静止");
-        tryAddRow(table, 1, "透明");
-
-        var p = document.createElement("p");
-        p.innerHTML = `<b>【${cardName}】动画数据</b> `
-        myTooltip.appendChild(p);
-        myTooltip.appendChild(table);
-
-        var resetBtn = document.getElementById("resetBtn");
-        resetBtn.addEventListener("click", function () {
-            skeleton.x = 0;
-            skeleton.y = 0;
-        });
-
-        var isMouseDown = false;
-
-        var lastX = 0;
-        var lastY = 0;
-
-        canvas.addEventListener("mousedown", function (e) {
-            isMouseDown = true;
-            lastX = e.clientX / canvas.offsetWidth * canvas.width;
-            lastY = (canvas.offsetHeight - e.clientY) / canvas.offsetHeight * canvas.height;
-            e.preventDefault();
-        });
-        canvas.addEventListener("touchstart", function (e) {
-            isMouseDown = true;
-            lastX = e.touches[0].clientX / canvas.offsetWidth * canvas.width;
-            lastY = (canvas.offsetHeight - e.touches[0].clientY) / canvas.offsetHeight * canvas.height;
-            e.preventDefault();
-        });
-
-        canvas.addEventListener("mousemove", function (e) {
-            if (!isMouseDown) return;
-            var x = e.clientX / canvas.offsetWidth * canvas.width;
-            var y = (canvas.offsetHeight - e.clientY) / canvas.offsetHeight * canvas.height;
-            var deltaX = x - lastX;
-            var deltaY = y - lastY;
-            lastX = x;
-            lastY = y;
-            skeleton.x += deltaX;
-            skeleton.y += deltaY;
-            e.preventDefault();
-        });
-        canvas.addEventListener("touchmove", function (e) {
-            if (!isMouseDown) return;
-            var x = e.touches[0].clientX / canvas.offsetWidth * canvas.width;
-            var y = (canvas.offsetHeight - e.touches[0].clientY) / canvas.offsetHeight * canvas.height;
-            var deltaX = x - lastX;
-            var deltaY = y - lastY;
-            lastX = x;
-            lastY = y;
-            skeleton.x += deltaX;
-            skeleton.y += deltaY;
-            e.preventDefault();
-        });
-
-        canvas.addEventListener("mouseup", function (e) {
-            isMouseDown = false;
-        });
-        canvas.addEventListener("touchend", function (e) {
-            isMouseDown = false;
-        });
-
-        var animationState = new spine.AnimationState(new spine.AnimationStateData(skeleton.data));
-        if (initialAnimation === "透明") {
-            initialAnimation = "idle1";
-        };
-        if (initialAnimation === "静止") {
-            initialAnimation = "idle";
-        };
-        animationState.setAnimation(0, initialAnimation, true);
-        if (initialAnimation === "idle1") {
-            initialAnimation = "透明";
-        };
-        if (initialAnimation === "idle") {
-            initialAnimation = "静止";
-        };
-        animationState.addListener({
-            event: function (trackIndex, event) {
-                // console.log("Event on track " + trackIndex + ": " + JSON.stringify(event));
-            },
-            complete: function (trackIndex, loopCount) {
-                // console.log("Animation on track " + trackIndex + " completed, loop count: " + loopCount);
-            },
-            start: function (trackIndex) {
-                // console.log("Animation on track " + trackIndex + " started");
-            },
-            end: function (trackIndex) {
-                // console.log("Animation on track " + trackIndex + " ended");
-            }
-        })
-
-        return { skeleton, state: animationState, bounds: bounds, premultipliedAlpha };
-    }
-
-    function calculateBounds(skeleton) {
-        skeleton.setToSetupPose();
-        skeleton.updateWorldTransform();
-        var offset = new spine.Vector2();
-        var size = new spine.Vector2();
-        skeleton.getBounds(offset, size);
-        return { offset: offset, size: size };
-    }
-
-    function setupUI() {
-        var skeletonList = $("#skeletonList");
-        for (var skeletonName in skeletons) {
-            var option = $("<option></option>");
-            option.attr("value", skeletonName).text(skeletonName);
-            if (skeletonName === activeSkeleton) option.attr("selected", "selected");
-            skeletonList.append(option);
-        }
-        var setupAnimationUI = function () {
-            var animationList = $("#animationList");
-            animationList.empty();
-            var skeleton = skeletons[activeSkeleton].skeleton;
-            var state = skeletons[activeSkeleton].state;
-            const animations = skeleton.data.animations.map(anim => anim.name);
-            var activeAnimation = state.tracks[0].animation.name;
-            animations.forEach(anim => {
-                const displayName = { idle: "静止", attack: "攻击", attacked: "受伤", die: "死亡", run: "移动", skill1: "基础技", skill2: "能量技", win: "胜利", idle1: "透明" }[anim] || anim;
-                const option = $(`<option value="${displayName}">${displayName}</option>`);
-                if (displayName === "静止") option.attr("selected", "selected");
-                animationList.append(option);
-            });
-            animationList.change(() => {
-                slider.value = defaultSpeed;
-                speed = defaultSpeed;
-                speedValueDisplay.textContent = `${parseFloat(defaultSpeed).toFixed(2)}x`;
-                slidersize.value = defaultSize;
-                bigsize = defaultSize;
-                sizeValueDisplay.textContent = `${(parseFloat(defaultSize) + 0.3).toFixed(2)}x`;
-                const state = skeletons[activeSkeleton].state;
-                const skeleton = skeletons[activeSkeleton].skeleton;
-                const animationName = $("#animationList option:selected").text();
-                const animationKey = { "静止": "idle", "攻击": "attack", "受伤": "attacked", "死亡": "die", "移动": "run", "基础技": "skill1", "能量技": "skill2", "胜利": "win", "透明": "idle1" }[animationName] || animationName;
-                skeleton.setToSetupPose();
-                state.setAnimation(0, animationKey, true);
-            });
-        }
-
-        var setupSkinUI = function () {
-            var skinList = $("#skinList");
-            skinList.empty();
-            var skeleton = skeletons[activeSkeleton].skeleton;
-            var activeSkin = skeleton.skin == null ? "default" : skeleton.skin.name;
-            for (var i = 0; i < skeleton.data.skins.length; i++) {
-                var name = skeleton.data.skins[i].name;
-                var option = $("<option></option>");
-                option.attr("value", name).text(name);
-                if (name === activeSkin) option.attr("selected", "selected");
-                skinList.append(option);
-            }
-
-            skinList.change(function () {
-                var skeleton = skeletons[activeSkeleton].skeleton;
-                var skinName = $("#skinList option:selected").text();
-                skeleton.setSkinByName(skinName);
-                skeleton.setSlotsToSetupPose();
+        // 获取飨灵数据并初始化
+        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/json/card.json')
+            .then(response => response.json())
+            .then(data => {
+                if (cardType === 'SP' || cardType === 'SP满破') cardName = `${cardName}(SP)`;
+                Object.values(data).forEach(item => {
+                    if (item.name === cardName) {
+                        cardId = item.id;
+                        activeSkeleton = cardName;
+                    }
+                });
+                const cardTypeSuffix = { 'SP满破': '_5', '1': '_7', '2': '_8', '花嫁': '_9', '泳装': '_10', '童话': '_11', '春节': '_12', '联动': '_20' };
+                if (cardTypeSuffix.hasOwnProperty(cardType)) cardId += cardTypeSuffix[cardType];
+                init();
             })
+            .catch(error => console.error('加载飨灵数据失败:', error));
+
+        // 加载按钮点击事件
+        loadBtn.addEventListener("click", function() {
+            loadBtn.style.display = "none";
+            ctn.style.display = "block";
+            init();
+        });
+
+        // 滑块事件监听
+        speedSlider.addEventListener("input", function() {
+            speed = parseFloat(this.value);
+            speedValueDisplay.textContent = `${speed.toFixed(2)}x`;
+        });
+
+        sizeSlider.addEventListener("input", function() {
+            bigsize = parseFloat(this.value);
+            sizeValueDisplay.textContent = `${bigsize.toFixed(2)}x`;
+        });
+
+        // 画布滚轮缩放事件
+        const canvasElement = document.getElementById("canvas");
+        canvasElement.addEventListener("wheel", (event) => {
+            event.preventDefault();
+            if (bigsize <= 1) bigsize = parseFloat(bigsize) + (event.deltaY > 0 ? -0.1 : 0.1);
+            else bigsize = parseFloat(bigsize) + (event.deltaY > 0 ? -0.1 : 0);
+            sizeSlider.value = bigsize;
+            sizeValueDisplay.textContent = `${bigsize.toFixed(2)}x`;
+        });
+
+        // 信息图标悬停事件
+        infoIcon.addEventListener("mouseenter", showTooltip);
+        infoIcon.addEventListener("mouseleave", hideTooltip);
+
+        // 工具提示函数
+        function showTooltip() {
+            tooltip.classList.add("visible");
         }
 
-        skeletonList.change(function () {
-            activeSkeleton = $("#skeletonList option:selected").text();
-            slider.value = defaultSpeed;
-            speed = defaultSpeed;
-            speedValueDisplay.textContent = `${parseFloat(defaultSpeed).toFixed(2)}x`;
-            slidersize.value = defaultSize;
-            bigsize = defaultSize;
-            sizeValueDisplay.textContent = `${(parseFloat(defaultSize) + 0.3).toFixed(2)}x`;
+        function hideTooltip() {
+            tooltip.classList.remove("visible");
+        }
+
+        // 初始化函数
+        function init() {
+            canvas = document.getElementById("canvas");
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            const config = { premultipliedAlpha: false, alpha: true };
+            gl = canvas.getContext("webgl", config) || canvas.getContext("experimental-webgl", config);
+            gl.pixelStorei(gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, true);
+
+            shader = spine.webgl.Shader.newColoredTextured(gl);
+            batcher = new spine.webgl.PolygonBatcher(gl);
+            mvp.ortho2d(0, 0, canvas.width - 1, canvas.height - 1);
+            skeletonRenderer = new spine.webgl.SkeletonRenderer(gl);
+            debugRenderer = new spine.webgl.SkeletonDebugRenderer(gl);
+            
+            // 配置调试渲染器
+            debugRenderer.drawBones = false;
+            debugRenderer.drawRegionAttachments = false;
+            debugRenderer.drawBoundingBoxes = false;
+            debugRenderer.drawMeshHull = false;
+            debugRenderer.drawMeshTriangles = false;
+            debugRenderer.drawPaths = false;
+            
+            debugShader = spine.webgl.Shader.newColored(gl);
+            shapes = new spine.webgl.ShapeRenderer(gl);
+            assetManager = new spine.webgl.AssetManager(gl);
+
+            // 加载资源
+            assetManager.loadText(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/draw/${cardId}.json`);
+            assetManager.loadText(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/draw/${cardId}.atlas`);
+            
+            fetch(`https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/draw/${cardId}.atlas`)
+                .then(response => response.text())
+                .then(text => {
+                    const pngCount = text.split(' ').filter(word => word.includes('png')).length;
+                    console.log(`找到 ${pngCount} 个PNG文件`);
+                    
+                    for (let i = 1; i <= pngCount; i++) {
+                        const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/draw/${cardId}_p${i}.png`;
+                        assetManager.loadTexture(texturePath);
+                    }
+                    requestAnimationFrame(load);
+                })
+                .catch(error => console.error('加载资源失败:', error));
+        }
+
+        // 加载骨架函数
+        function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin = "default") {
+            // 自定义纹理加载器
+            class CustomTextureAtlasAttachmentLoader extends spine.TextureAtlasAttachmentLoader {
+                constructor(atlas) { super(atlas); }
+                
+                newRegionAttachment(skin, name, path) {
+                    try {
+                        return super.newRegionAttachment(skin, name, path);
+                    } catch (error) {
+                        if (error.message.includes("Region not found in atlas")) {
+                            console.warn(`区域未找到: ${path}. 跳过...`);
+                            return null;
+                        }
+                        throw error;
+                    }
+                }
+            }
+            const prefix = isDraw ? 
+                "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/draw/" : 
+                "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/spine/draw/";
+                
+            const atlas = new spine.TextureAtlas(
+                assetManager.get(`${prefix}${name}.atlas`), 
+                path => assetManager.get(`${prefix}${path}`)
+            );
+            
+            const atlasLoader = new CustomTextureAtlasAttachmentLoader(atlas);
+            const skeletonJson = new spine.SkeletonJson(atlasLoader);
+            const skeletonData = skeletonJson.readSkeletonData(assetManager.get(prefix + name + ".json"));
+            const skeleton = new spine.Skeleton(skeletonData);
+            skeleton.setSkinByName(skin);
+            const bounds = calculateBounds(skeleton);
+
+            // 创建动画数据表格
+            const table = document.createElement("table");
+            const headerRow = table.insertRow();
+            
+            ["动画", "持续时间(s)", "帧数(30/s)"].forEach(text => {
+                const headerCell = headerRow.insertCell();
+                headerCell.innerHTML = `<b>${text}</b>`;
+            });
+
+            // 添加动画数据行
+            function addRow(table, cell1Text, cell2Text, cell3Text) {
+                const row = table.insertRow();
+                [cell1Text, cell2Text, cell3Text].forEach(text => {
+                    const cell = row.insertCell();
+                    cell.innerHTML = text;
+                });
+            }
+
+            function tryAddRow(table, animationIndex, label) {
+                try {
+                    const duration = skeletonData.animations[animationIndex].duration.toFixed(3).replace(/\.?0+$/, '');
+                    const roundedDuration = Math.round(skeletonData.animations[animationIndex].duration * 30);
+                    addRow(table, label, duration, roundedDuration);
+                } catch (error) {
+                    console.log("添加行时出错:", error);
+                }
+            }
+
+            tryAddRow(table, 0, "静止");
+            tryAddRow(table, 1, "透明");
+
+            // 更新工具提示内容
+            const title = document.createElement("div");
+            title.className = "tooltip-title";
+            title.innerHTML = `【${cardName}】动画数据`;
+            
+            tooltip.innerHTML = "";
+            tooltip.appendChild(title);
+            tooltip.appendChild(table);
+
+            // 重置按钮事件
+            document.getElementById("resetBtn").addEventListener("click", function() {
+                skeleton.x = 0;
+                skeleton.y = 0;
+            });
+
+            // 设置拖拽交互
+            setupDragInteraction(canvas, skeleton);
+
+            // 创建动画状态
+            const animationState = new spine.AnimationState(new spine.AnimationStateData(skeleton.data));
+            
+            // 处理特殊动画名称
+            const animationMapping = {
+                "透明": "idle1",
+                "静止": "idle"
+            };
+            
+            const animationName = animationMapping[initialAnimation] || initialAnimation;
+            animationState.setAnimation(0, animationName, true);
+            
+            // 动画状态监听器
+            animationState.addListener({
+                event: function(trackIndex, event) {
+                    // console.log("事件:", trackIndex, event);
+                },
+                complete: function(trackIndex, loopCount) {
+                    // console.log("动画完成:", trackIndex, loopCount);
+                },
+                start: function(trackIndex) {
+                    // console.log("动画开始:", trackIndex);
+                },
+                end: function(trackIndex) {
+                    // console.log("动画结束:", trackIndex);
+                }
+            });
+
+            return { 
+                skeleton: skeleton, 
+                state: animationState, 
+                bounds: bounds, 
+                premultipliedAlpha: premultipliedAlpha 
+            };
+        }
+
+        // 设置拖拽交互
+        function setupDragInteraction(canvas, skeleton) {
+            let isMouseDown = false;
+            let lastX = 0;
+            let lastY = 0;
+
+            const handleStart = (clientX, clientY) => {
+                isMouseDown = true;
+                lastX = clientX / canvas.offsetWidth * canvas.width;
+                lastY = (canvas.offsetHeight - clientY) / canvas.offsetHeight * canvas.height;
+            };
+
+            const handleMove = (clientX, clientY) => {
+                if (!isMouseDown) return;
+                const x = clientX / canvas.offsetWidth * canvas.width;
+                const y = (canvas.offsetHeight - clientY) / canvas.offsetHeight * canvas.height;
+                const deltaX = x - lastX;
+                const deltaY = y - lastY;
+                
+                lastX = x;
+                lastY = y;
+                skeleton.x += deltaX;
+                skeleton.y += deltaY;
+            };
+
+            const handleEnd = () => {
+                isMouseDown = false;
+            };
+
+            // 添加事件监听器
+            canvas.addEventListener("mousedown", (e) => {
+                handleStart(e.clientX, e.clientY);
+                e.preventDefault();
+            });
+            
+            canvas.addEventListener("touchstart", (e) => {
+                handleStart(e.touches[0].clientX, e.touches[0].clientY);
+                e.preventDefault();
+            });
+
+            canvas.addEventListener("mousemove", (e) => {
+                handleMove(e.clientX, e.clientY);
+                e.preventDefault();
+            });
+            
+            canvas.addEventListener("touchmove", (e) => {
+                handleMove(e.touches[0].clientX, e.touches[0].clientY);
+                e.preventDefault();
+            });
+
+            canvas.addEventListener("mouseup", handleEnd);
+            canvas.addEventListener("touchend", handleEnd);
+        }
+
+        // 计算边界
+        function calculateBounds(skeleton) {
+            skeleton.setToSetupPose();
+            skeleton.updateWorldTransform();
+            const offset = new spine.Vector2();
+            const size = new spine.Vector2();
+            skeleton.getBounds(offset, size);
+            return { offset: offset, size: size };
+        }
+
+        // 设置UI
+        function setupUI() {
+            const skeletonList = $("#skeletonList");
+            
+            // 填充飨灵选择下拉框
+            for (const skeletonName in skeletons) {
+                const option = $(`<option value="${skeletonName}">${skeletonName}</option>`);
+                if (skeletonName === activeSkeleton) option.attr("selected", "selected");
+                skeletonList.append(option);
+            }
+
+            // 设置动画UI
+            const setupAnimationUI = function() {
+                const animationList = $("#animationList");
+                animationList.empty();
+                
+                const skeleton = skeletons[activeSkeleton].skeleton;
+                const state = skeletons[activeSkeleton].state;
+                const animations = skeleton.data.animations.map(anim => anim.name);
+                
+                const animationNames = {
+                    idle: "静止",
+                    idle1: "透明"
+                };
+                
+                animations.forEach(anim => {
+                    const displayName = animationNames[anim] || anim;
+                    const option = $(`<option value="${displayName}">${displayName}</option>`);
+                    if (displayName === "静止") option.attr("selected", "selected");
+                    animationList.append(option);
+                });
+                
+                animationList.change(() => {
+                    resetSlidersToDefault();
+                    
+                    const state = skeletons[activeSkeleton].state;
+                    const skeleton = skeletons[activeSkeleton].skeleton;
+                    const animationName = $("#animationList option:selected").text();
+                    
+                    const animationKey = { "静止": "idle", "透明": "idle1" }[animationName] || animationName;
+                    skeleton.setToSetupPose();
+                    state.setAnimation(0, animationKey, true);
+                });
+            };
+
+            // 重置滑块到默认值
+            function resetSlidersToDefault() {
+                speedSlider.value = defaultSpeed;
+                speed = defaultSpeed;
+                speedValueDisplay.textContent = `${defaultSpeed.toFixed(2)}x`;
+                
+                sizeSlider.value = defaultSize;
+                bigsize = defaultSize;
+                sizeValueDisplay.textContent = `${defaultSize.toFixed(2)}x`;
+            }
+
+            // 飨灵选择变化事件
+            skeletonList.change(function() {
+                activeSkeleton = $("#skeletonList option:selected").text();
+                resetSlidersToDefault();
+                setupAnimationUI();
+            });
+            
+            // 初始化UI
             setupAnimationUI();
-            setupSkinUI();
-        })
-        setupAnimationUI();
-        setupSkinUI();
-    }
-
-    function render() {
-        var now = Date.now() / 1000;
-        var delta = now - lastFrameTime;
-        lastFrameTime = now;
-
-        resize();
-
-        gl.clearColor(1, 1, 1, 0);
-        gl.clear(gl.COLOR_BUFFER_BIT);
-
-        gl.enable(gl.BLEND);
-        gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
-
-        var state = skeletons[activeSkeleton].state;
-        var skeleton = skeletons[activeSkeleton].skeleton;
-        var premultipliedAlpha = skeletons[activeSkeleton].premultipliedAlpha;
-        state.timeScale = speed;
-        state.update(delta);
-        state.apply(skeleton);
-        skeleton.updateWorldTransform();
-
-        shader.bind();
-        shader.setUniformi(spine.webgl.Shader.SAMPLER, 0);
-        shader.setUniform4x4f(spine.webgl.Shader.MVP_MATRIX, mvp.values);
-
-        batcher.begin(shader);
-        skeletonRenderer.premultipliedAlpha = premultipliedAlpha;
-        skeletonRenderer.draw(batcher, skeleton);
-        batcher.end();
-
-        shader.unbind();
-
-        debugShader.bind();
-        debugShader.setUniform4x4f(spine.webgl.Shader.MVP_MATRIX, mvp.values);
-        debugRenderer.premultipliedAlpha = premultipliedAlpha;
-        shapes.begin(debugShader);
-        debugRenderer.draw(shapes, skeleton);
-        shapes.end();
-        debugShader.unbind();
-
-        requestAnimationFrame(render);
-    }
-
-    function resize() {
-        var w = canvas.clientWidth;
-        var h = canvas.clientHeight;
-        var bounds = skeletons[activeSkeleton].bounds;
-        if (canvas.width != w || canvas.height != h) {
-            canvas.width = w;
-            canvas.height = h;
         }
 
-        var centerX = bounds.offset.x + bounds.size.x / 2;
-        var centerY = bounds.offset.y + bounds.size.y / 2;
-        var scaleX = bounds.size.x / canvas.width;
-        var scaleY = bounds.size.y / canvas.height;
-        var scale = Math.max(scaleX, scaleY) * 1.2;
-        scale += 1;
-        scale += -bigsize * 2;
-        var width = canvas.width * scale;
-        var height = canvas.height * scale;
-        canvas.width = width
-        canvas.height = height
+        // 渲染函数
+        function render() {
+            const now = Date.now() / 1000;
+            const delta = now - lastFrameTime;
+            lastFrameTime = now;
 
-        mvp.ortho2d(centerX - width / 2, centerY - height / 2, width, height);
-        gl.viewport(0, 0, canvas.width, canvas.height);
-    }
-</script>
+            resize();
 
+            gl.clearColor(1, 1, 1, 0);
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+            gl.enable(gl.BLEND);
+            gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+
+            const state = skeletons[activeSkeleton].state;
+            const skeleton = skeletons[activeSkeleton].skeleton;
+            const premultipliedAlpha = skeletons[activeSkeleton].premultipliedAlpha;
+            
+            state.timeScale = speed;
+            state.update(delta);
+            state.apply(skeleton);
+            skeleton.updateWorldTransform();
+
+            shader.bind();
+            shader.setUniformi(spine.webgl.Shader.SAMPLER, 0);
+            shader.setUniform4x4f(spine.webgl.Shader.MVP_MATRIX, mvp.values);
+
+            batcher.begin(shader);
+            skeletonRenderer.premultipliedAlpha = premultipliedAlpha;
+            skeletonRenderer.draw(batcher, skeleton);
+            batcher.end();
+
+            shader.unbind();
+
+            debugShader.bind();
+            debugShader.setUniform4x4f(spine.webgl.Shader.MVP_MATRIX, mvp.values);
+            debugRenderer.premultipliedAlpha = premultipliedAlpha;
+            shapes.begin(debugShader);
+            debugRenderer.draw(shapes, skeleton);
+            shapes.end();
+            debugShader.unbind();
+
+            requestAnimationFrame(render);
+        }
+
+        // 调整大小函数
+        function resize() {
+            const w = canvas.clientWidth;
+            const h = canvas.clientHeight;
+            const bounds = skeletons[activeSkeleton].bounds;
+            
+            if (canvas.width != w || canvas.height != h) {
+                canvas.width = w;
+                canvas.height = h;
+            }
+
+            const centerX = bounds.offset.x + bounds.size.x / 2;
+            const centerY = bounds.offset.y + bounds.size.y / 2;
+            const scaleX = bounds.size.x / canvas.width;
+            const scaleY = bounds.size.y / canvas.height;
+            let scale = Math.max(scaleX, scaleY) * 1.2;
+            
+            scale += 1;
+            scale += -bigsize * 2;
+            
+            const width = canvas.width * scale;
+            const height = canvas.height * scale;
+            
+            canvas.width = width;
+            canvas.height = height;
+
+            mvp.ortho2d(centerX - width / 2, centerY - height / 2, width, height);
+            gl.viewport(0, 0, canvas.width, canvas.height);
+        }
+
+        // 加载函数
+        function load() {
+            if (assetManager.isLoadingComplete()) {
+                const skeletonName = `${cardName}`;
+                skeletons[skeletonName] = loadSkeleton(cardId, "静止", true, false);
+                setupUI();
+                requestAnimationFrame(render);
+            } else {
+                requestAnimationFrame(load);
+            }
+        }
+    </script>
+</body>
 </html>

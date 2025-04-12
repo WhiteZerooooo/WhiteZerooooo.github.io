@@ -4,21 +4,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>缇尔菈秘档 - 立绘查看工具</title>
-    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/ico/tools.ico">
+    <title>立绘查看工具 | 缇尔菈秘档</title>
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/ico/tools.ico">
     
     <!-- 引入外部CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     
     <!-- 引入JS库 -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/jquery-3.1.0.min.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/pixi.min.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/live2dcubismcore.min.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/live2dcubismframework.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/live2dcubismpixi.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/l2d.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/main.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/jquery-3.1.0.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/pixi.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismcore.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismframework.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismpixi.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/l2d.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/main.js"></script>
     
     <style>
         :root {
@@ -27,6 +27,8 @@
             --dark-color: #333;
             --light-color: #f5f5f5;
             --accent-color: #9c27b0;
+            --header-height: 100px;
+            --nav-height: 60px;
             --ur-color: #ff9800;
             --sr-color: #9c27b0;
             --r-color: #00bcd4;
@@ -46,12 +48,19 @@
             background-color: var(--light-color);
             color: var(--dark-color);
             line-height: 1.6;
+            padding-top: calc(var(--header-height) + var(--nav-height));
         }
         
         /* 头部样式 */
         .header {
-            position: relative;
-            height: 120px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: #333;
+            color: #fff;
+            z-index: 1000;
             overflow: hidden;
         }
         
@@ -72,24 +81,34 @@
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             letter-spacing: 2px;
+            margin: 0;
         }
         
         /* 导航栏样式 */
         .navbar {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
             background-color: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 0.5rem 1rem;
+            z-index: 1000;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         
         .nav-list {
             display: flex;
-            justify-content: center;
             list-style: none;
-            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
         }
         
         .nav-item {
-            margin: 0.5rem 1rem;
+            margin: 0 0.5rem;
         }
         
         .nav-link {
@@ -416,7 +435,7 @@
     
     <!-- 页面头部 -->
     <header class="header">
-        <img class="header-image" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
+        <img class="header-image" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
         <h1 class="header-title">缇尔菈秘档</h1>
     </header>
     
@@ -426,6 +445,7 @@
             <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i class="bi bi-images"></i>缇尔菈展览馆</a></li>
             <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a></li>
             <li class="nav-item"><a href="../html/TwoDraw.html" class="nav-link"><i class="bi bi-heart-fill"></i>拉郎模拟器</a></li>
+            <li class="nav-item"><a href="../html/SkinDraw.html" class="nav-link"><i class="bi bi-hammer"></i>皮肤池模拟器</a></li>
             <li class="nav-item"><a href="../html/TeamExcel.html" class="nav-link"><i class="bi bi-table"></i>飨灵组织表格</a></li>
             <li class="nav-item"><a href="https://wiki.biligame.com/szqy/首页" class="nav-link"><i class="bi bi-book"></i>食契WIKI</a></li>
             <li class="nav-item"><a href="../html/TeamMember.html" class="nav-link"><i class="bi bi-people-fill"></i>关于我们</a></li>
@@ -530,7 +550,7 @@
             height: 400,
             right: '20px',
             bottom: '20px',
-            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/Live2dView',
+            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/Live2dView',
             role: 'l2d200132_11',
             background: '',
             opacity: 0,
@@ -552,6 +572,26 @@
                     ]
                 },
                 {
+                    name: "阿芙佳朵",
+                    type: "UR",
+                    colorClass: "ur",
+                    links: [
+                        { text: "初始", type: "初始" },
+                        { text: "满破", type: "满破" },
+                        { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                    ]
+                },
+                {
+                    name: "瓦伦堡野味",
+                    type: "UR",
+                    colorClass: "ur",
+                    links: [
+                        { text: "初始", type: "初始" },
+                        { text: "满破", type: "满破" },
+                        { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                    ]
+                },
+                {
                     name: "潘芙蕾",
                     type: "SR",
                     colorClass: "sr",
@@ -563,11 +603,31 @@
                 },
                 {
                     name: "塔吉锅",
-                    type: "NPC",
-                    colorClass: "",
-                    description: "24年周年庆大副本提及",
+                    type: "SR",
+                    colorClass: "sr",
                     links: [
-                        { text: "NPC", type: "", id: "000000" }
+                        { text: "初始", type: "初始" },
+                        { text: "满破", type: "满破" },
+                        { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                    ]
+                },
+                {
+                    name: "玫瑰果汤",
+                    type: "SR",
+                    colorClass: "sr",
+                    links: [
+                        { text: "初始", type: "初始" },
+                        { text: "满破", type: "满破" },
+                        { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                    ]
+                },
+                {
+                    name: "阿芙佳朵",
+                    type: "皮肤",
+                    colorClass: "",
+                    links: [
+                        { text: "立绘", type: "1" },
+                        { text: "Q版", type: "1", viewer: "CardSpineViewer" }
                     ]
                 },
                 {
@@ -636,6 +696,15 @@
                 //     links: [
                 //         { text: "立绘", type: "泳装" },
                 //         { text: "Q版", type: "泳装", viewer: "CardSpineViewer" }
+                //     ]
+                // },
+                // {
+                //     name: "NPC模板",
+                //     type: "NPC",
+                //     colorClass: "",
+                //     description: "xxxxxx",
+                //     links: [
+                //         { text: "NPC", type: "", id: "000000" }
                 //     ]
                 // },
                 // {

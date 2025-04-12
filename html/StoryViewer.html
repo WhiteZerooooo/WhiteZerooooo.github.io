@@ -1,276 +1,368 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
-    <title id="title1">故事</title>
-    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/ico/storyviewer.ico">
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/jquery-3.1.0.min.js"></script>
-    <!-- Live2DCubismCore -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/live2dcubismcore.min.js"></script>
-    <!-- Include Pixi. -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/pixi.min.js"></script>
-    <!-- Include Cubism Components. -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/live2dcubismframework.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/live2dcubismpixi.js"></script>
-    <!-- User's Script -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/l2d.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/build/main.js"></script>
-    <style type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">故事阅读器</title>
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/ico/storyviewer.ico">
+    
+    <!-- 引入字体和图标 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <!-- 引入JS库 -->
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/jquery-3.1.0.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/pixi.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismcore.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismframework.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismpixi.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/l2d.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/main.js"></script>
+    
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #f8f1e5;
+            --dark-color: #333;
+            --light-color: #f5f5f5;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            padding: 20px;
         }
-
+        
+        /* 容器样式 */
         .container {
-            margin: 50px auto;
-            width: 75%;
-        }
-
-        #text-container {
-            font-size: 24px;
-        }
-
-        h1 {
-            font-weight: bold;
-            font-size: 36px;
-            margin-bottom: 20px;
-            text-align: center;
-            text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-            color: #333;
-            letter-spacing: 0.05em;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            padding: 30px;
             position: relative;
         }
-
-        h1::before,
-        h1::after {
-            content: "";
+        
+        /* 返回按钮 */
+        .back-button {
             position: absolute;
-            top: 50%;
-            width: 400px;
-            height: 1px;
-            background-color: #333;
-        }
-
-        h1::before {
-            left: 0;
-        }
-
-        h1::after {
-            right: 0;
-        }
-
-        pre {
-            background-color: #fff;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: white;
             border: none;
-            border-radius: 0;
-            padding: 20px;
+            border-radius: 30px;
             font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 2px 5px rgba(255, 107, 107, 0.3);
+        }
+        
+        .back-button:hover {
+            background-color: #e05555;
+            transform: translateY(-2px);
+        }
+        
+        .back-button i {
+            margin-right: 5px;
+        }
+        
+        /* 标题样式 */
+        .story-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        .story-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        /* 角色头像区域 */
+        .characters-section {
+            margin-bottom: 20px;
+        }
+        
+        .characters-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .characters-title i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .characters-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .character-avatar {
+            position: relative;
+        }
+        
+        .character-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .character-img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* 故事内容区域 */
+        .story-content {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px var(--shadow-color);
+            font-size: 18px;
+            line-height: 1.8;
             white-space: pre-wrap;
             word-wrap: break-word;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
         }
-
-        .back-button {
+        
+        /* 角色气泡提示 */
+        .character-tooltip {
             position: fixed;
-            top: 20px;
-            left: 40px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-            transform: scale(2);
+            z-index: 1000;
+            background-color: var(--dark-color);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
         }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        
+        .character-tooltip.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-
-        .avatar {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            font-size: 18px;
-            margin-right: 20px;
+        
+        .tooltip-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-color);
         }
-
-        .avatar img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-
-        .search-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-
-        #search-input {
-            position: fixed;
-            top: 24px;
-            right: 70px;
-        }
-
-        #mineCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 2;
-        }
-
-        .bubble {
-            position: fixed;
-            z-index: 999;
+        
+        .tooltip-story {
+            margin-bottom: 5px;
             padding-left: 10px;
-            padding-right: 10px;
-            background-color: #333;
-            color: #fff;
+            border-left: 2px solid var(--primary-color);
         }
-
-        .bubble::before {
-            content: "";
-            position: absolute;
-            top: 15px;
-            left: -5%;
-            transform: translateX(-50%);
-            border-width: 10px;
-            border-style: solid;
-            border-color: transparent #333 transparent transparent;
+        
+        /* Live2D查看器样式 */
+        .l2d-container {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1000;
         }
-
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .story-title {
+                font-size: 1.5rem;
+            }
+            
+            .story-content {
+                font-size: 16px;
+                padding: 15px;
+            }
+            
+            .character-img {
+                width: 50px;
+                height: 50px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Live2D查看器 -->
     <div class="Canvas" id="L2dCanvas"></div>
-    <a href="../html/StoryView.html">点击返回缇尔菈展览馆</a>
+    
+    <!-- 工具提示 -->
+    <div id="character-tooltip" class="character-tooltip"></div>
+    
+    <!-- 返回按钮 -->
+    <a href="../html/StoryView.html" class="back-button">
+        <i class="bi bi-arrow-left"></i>返回展览馆
+    </a>
+    
+    <!-- 主要内容容器 -->
     <div class="container">
-        <div id="titler">
-            <h1 id="title2">故事</h1>
+        
+        <!-- 故事标题 -->
+        <div class="story-header">
+            <h1 id="story-title" class="story-title">加载中...</h1>
         </div>
-        <p>相关飨灵&nbsp;&nbsp;&nbsp;</p>
-        <div class="avatar">
-            <!-- <img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/head/card_icon_200260.png" alt="头像"> -->
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-md-8">
-                <pre id="text-container"></pre>
+        
+        <!-- 相关角色 -->
+        <div class="characters-section">
+            <h3 class="characters-title">
+                <i class="bi bi-people-fill"></i>相关飨灵
+            </h3>
+            <div id="characters-container" class="characters-grid">
+                <!-- 角色头像将在这里动态生成 -->
             </div>
         </div>
+        
+        <!-- 分割线 -->
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid var(--border-color);">
+        
+        <!-- 故事内容 -->
+        <div id="story-content" class="story-content">
+            正在加载故事内容...
+        </div>
     </div>
-    <!-- 加载jQuery库 -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    
     <script>
-        var config = {
-            width: 400, /* 窗口宽度最大值 */
-            height: 400, /* 窗口高度最大值 */
-            right: '0px',
-            bottom: '0px',
-            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/Live2dView',
+        // Live2D查看器配置
+        const config = {
+            width: 350,
+            height: 350,
+            right: '20px',
+            bottom: '20px',
+            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/Live2dView',
             role: 'l2d200132_11',
             background: '',
             opacity: 0,
             mobile: true
-        }
-        var v = new Viewer(config); 
-        // 获取URL中的查询字符串
-        const queryString = window.location.search;
-        // 创建URLSearchParams对象
-        const urlParams = new URLSearchParams(queryString);
-        // 获取url参数的值
-        var urltitle = urlParams.get('title');
-        var urlperson = urlParams.get('person');
-        const avatar = document.querySelector('.avatar');
-        const title1 = document.getElementById('title1');
-        const title2 = document.getElementById('title2');
-        title1.textContent = `${urltitle}`
-        title2.textContent = `${urltitle}`
-        let persons = urlperson
-        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/json/story.json')
-            .then(response => response.json())
-            .then(datast => {
-                // 循环遍历每个人物名称并查找对应的 ID
-                datast.forEach(datar => {
-                    if (datar.title === `${urltitle}`) {
-                        persons = datar.person
-                        const personArray = persons.split('、');
-                        console.log(persons)
-                        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/json/card.json')
-                            .then(response => response.json())
-                            .then(data => {
-                                // 循环遍历每个人物名称并查找对应的 ID
-                                personArray.forEach(personName => {
-                                    Object.values(data).forEach(item => {
-                                        if (item.name === personName) {
-                                            // console.log(`The ID for ${personName} is ${item.id}`);
-                                            // 创建新的 img 元素
-                                            const newAvatar = document.createElement('img');
-                                            newAvatar.id = `${personName}`
-                                            newAvatar.src = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/cards/head/card_icon_${item.id}.png`;
-                                            newAvatar.alt = '头像';
-                                            if (avatar) {
-                                                avatar.appendChild(newAvatar);
-                                            }
-                                            newAvatar.addEventListener("mouseover", function (e) {
-                                                var div = document.createElement("div");
-                                                var p = document.createElement("p");
-                                                div.id = `${personName}bubble`
-                                                div.classList.add('bubble');
-                                                p.append(`[${personName}]其他剧情：`)
-                                                div.appendChild(p)
-                                                Object.values(datast).forEach(ittt => {
-                                                    if (ittt.person.includes(personName)) {
-                                                        var p = document.createElement("p");
-                                                        p.append(`${ittt.title}`)
-                                                        div.appendChild(p)
-                                                    }
-                                                });
-                                                var elementRect = newAvatar.getBoundingClientRect();
-                                                var bubbleX = elementRect.left + elementRect.width + 10; // 气泡距离鼠标右侧20像素
-                                                var bubbleY = elementRect.top; // 气泡在鼠标垂直方向上居中显示
-                                                // 设置气泡的位置
-                                                div.style.left = bubbleX + 'px';
-                                                div.style.top = bubbleY + 'px';
-                                                document.body.appendChild(div);
-                                            });
-                                            newAvatar.addEventListener("mouseout", function () {
-                                                var div = document.getElementById(`${personName}bubble`);
-                                                div.parentNode.removeChild(div);
-                                            });
-
-                                        }
-                                    });
-                                });
-                            });
-                    }
-                });
+        };
+        const viewer = new Viewer(config);
+        
+        // 获取URL参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const storyTitle = urlParams.get('title');
+        const initialPerson = urlParams.get('person');
+        
+        // 设置页面标题
+        document.getElementById('page-title').textContent = `${storyTitle} - 缇尔菈秘档`;
+        document.getElementById('story-title').textContent = storyTitle;
+        
+        // 加载故事内容
+        function loadStoryContent() {
+            $.ajax({
+                url: `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/story/${storyTitle}.txt`,
+                dataType: "text",
+                success: function(data) {
+                    document.getElementById('story-content').textContent = data;
+                },
+                error: function() {
+                    document.getElementById('story-content').textContent = "加载故事内容失败，请稍后再试。";
+                }
             });
-
-
-        // 使用jQuery的AJAX方法读取文件
-        $.ajax({
-            url: `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/story/${urltitle}.txt`,
-            dataType: "text",
-            success: function (data) {
-                // 将读取的文本显示在页面上
-                $("#text-container").html(data);
-            }
+        }
+        
+        // 加载角色信息
+        function loadCharacters() {
+            fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/json/story.json')
+                .then(response => response.json())
+                .then(stories => {
+                    // 查找当前故事
+                    const currentStory = stories.find(story => story.title === storyTitle);
+                    const persons = currentStory ? currentStory.person.split('、') : [];
+                    
+                    // 加载角色卡片数据
+                    fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/json/card.json')
+                        .then(response => response.json())
+                        .then(cards => {
+                            const container = document.getElementById('characters-container');
+                            
+                            persons.forEach(personName => {
+                                const card = Object.values(cards).find(item => item.name === personName);
+                                if (card) {
+                                    const avatar = document.createElement('div');
+                                    avatar.className = 'character-avatar';
+                                    avatar.innerHTML = `
+                                        <img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/head/card_icon_${card.id}.png" 
+                                             alt="${personName}" 
+                                             class="character-img"
+                                             data-character="${personName}">
+                                    `;
+                                    container.appendChild(avatar);
+                                    
+                                    // 添加悬停事件
+                                    const img = avatar.querySelector('img');
+                                    img.addEventListener('mouseover', (e) => showCharacterTooltip(e, personName, stories));
+                                    img.addEventListener('mouseout', hideCharacterTooltip);
+                                }
+                            });
+                        });
+                });
+        }
+        
+        // 显示角色工具提示
+        function showCharacterTooltip(event, characterName, allStories) {
+            const tooltip = document.getElementById('character-tooltip');
+            const relatedStories = allStories.filter(story => story.person.includes(characterName));
+            
+            let tooltipContent = `<div class="tooltip-title">${characterName}的其他剧情</div>`;
+            relatedStories.forEach(story => {
+                if (story.title !== storyTitle) {
+                    tooltipContent += `<div class="tooltip-story">${story.title}</div>`;
+                }
+            });
+            
+            tooltip.innerHTML = tooltipContent;
+            tooltip.style.left = `${event.pageX + 15}px`;
+            tooltip.style.top = `${event.pageY}px`;
+            tooltip.classList.add('visible');
+        }
+        
+        // 隐藏角色工具提示
+        function hideCharacterTooltip() {
+            const tooltip = document.getElementById('character-tooltip');
+            tooltip.classList.remove('visible');
+        }
+        
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', () => {
+            loadStoryContent();
+            loadCharacters();
         });
     </script>
 </body>
-
 </html>
