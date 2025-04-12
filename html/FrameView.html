@@ -293,17 +293,16 @@
             
             <div class="controls-container">
                 <div class="control-group">
-                    <label class="control-label">头像框</label>
+                    <label class="control-label">头像框
+                        <!-- <svg id="infoIcon" class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z"/>
+                        </svg> -->
+                    </label>
                     <select id="skeletonList"></select>
                 </div>
                 
                 <div class="control-group">
-                    <label class="control-label">
-                        头像
-                        <svg id="infoIcon" class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path d="M11 7h2v2h-2zm0 4h2v6h-2zm1-9C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8z"/>
-                        </svg>
-                    </label>
+                    <label class="control-label">头像</label>
                     <select id="animationList"></select>
                 </div>
                 
@@ -389,9 +388,7 @@
                         cardId2 = item.id;
                     }
                 });
-                (function () {
-                    init();
-                })();
+                init();
             })
             .catch(error => console.error('加载成就奖励数据失败:', error));
 
@@ -527,7 +524,6 @@
             for (let i = 0; i < imageSources.length; i++) {
                 promises.push(checkFileExists(imageSources[i]));
             }
-            
             Promise.all(promises)
                 .then(results => {
                     let validImages = [];
@@ -536,7 +532,6 @@
                             validImages.push(imageSources[i]);
                         }
                     }
-                    
                     loadImages(validImages, imagesNum);
                 });
         }
@@ -546,11 +541,11 @@
             let images = [];
             let imagesLoaded = 0;
             
-            for (let i = imagesNum; i < imageSources.length; i++) {
+            for (let i = 0; i < imageSources.length; i++) {
                 let image = new Image();
                 image.onload = function() {
                     imagesLoaded++;
-                    if (imagesLoaded === imageSources.length - imagesNum) {
+                    if (imagesLoaded === imageSources.length) {
                         createStackedImage(images);
                     }
                 };
