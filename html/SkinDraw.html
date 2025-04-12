@@ -502,7 +502,7 @@
         
         // 添加到历史记录
         function addToHistory(text) {
-            let history = JSON.parse(localStorage.getItem('pairHistory')) || [];
+            let history = JSON.parse(localStorage.getItem('pairSkinHistory')) || [];
             history.unshift(text); // 添加到数组开头
             
             // 限制历史记录数量
@@ -510,14 +510,14 @@
                 history = history.slice(0, 50);
             }
             
-            localStorage.setItem('pairHistory', JSON.stringify(history));
+            localStorage.setItem('pairSkinHistory', JSON.stringify(history));
             renderHistory();
         }
         
         // 渲染历史记录
         function renderHistory() {
             const historyList = document.getElementById('history-list');
-            const history = JSON.parse(localStorage.getItem('pairHistory')) || [];
+            const history = JSON.parse(localStorage.getItem('pairSkinHistory')) || [];
             
             historyList.innerHTML = '';
             
@@ -531,7 +531,7 @@
         
         // 清除历史记录
         function clearHistory() {
-            localStorage.removeItem('pairHistory');
+            localStorage.removeItem('pairSkinHistory');
             renderHistory();
             document.getElementById('pair-result').textContent = '已清除所有抽取记录';
             
