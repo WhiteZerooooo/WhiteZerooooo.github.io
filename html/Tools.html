@@ -446,6 +446,69 @@
             color: var(--m-color);
         }
         
+        /* 分类标题样式 */
+        .category-title {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+            color: var(--dark-color);
+        }
+        
+        /* 卫星卡片样式 */
+        .satellite-card {
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+            margin: 2.5px;
+        }
+
+        #satellite-card-sp {
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s;
+            position: relative;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .satellite-card:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .satellite-name {
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .satellite-desc {
+            display: none;
+            padding: 0.5rem;
+            background-color: white;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .satellite-card:hover .satellite-desc {
+            display: block;
+        }
+
+        #upcoming-characters-info {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
         /* 响应式设计 */
         @media (max-width: 768px) {
             .header-title {
@@ -469,13 +532,71 @@
                 grid-template-columns: 1fr;
             }
         }
-        
-        /* Live2D查看器样式 */
-        .l2d-container {
+
+        .iframe-overlay {
             position: fixed;
-            right: 20px;
-            bottom: 20px;
-            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .iframe-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+        
+        .iframe-wrapper {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            max-width: 1500px;
+            margin: 2% auto;
+        }
+        
+        .iframe-close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: #ff4757;
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .iframe-close-btn:hover {
+            background: #ff6b81;
+            transform: rotate(90deg);
+        }
+        
+        .iframe-content {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .iframe-wrapper {
+                width: 95%;
+                height: 80%;
+            }
         }
     </style>
 </head>
@@ -569,21 +690,20 @@
             <button id="head-button" class="btn btn-primary"><i class="bi bi-eye-fill"></i> 查看搭配情况</button>
         </div>
         
-        <!-- 新增立绘部分 -->
+        <!-- 新增立绘部分 - 按分类显示 -->
         <div class="content-card">
-            <h3 class="content-title">新增立绘</h3>
+            <h3 class="content-title">新增飨灵</h3>
             
-            <div class="character-list" id="new-characters">
+            <div id="new-characters">
                 <!-- 这里的内容将通过JS动态生成 -->
             </div>
         </div>
         
-        <!-- 无图卫星部分 -->
+        <!-- 无图卫星部分 - 修改为卡片形式 -->
         <div class="content-card">
             <h3 class="content-title">无图卫星</h3>
-            <div id="upcoming-characters">
-                <!-- 这里的内容将通过JS动态生成 -->
-            </div>
+            <div id="upcoming-characters"></div>
+            <div id="upcoming-characters-info"></div>
         </div>
         
         <!-- 友情链接部分 -->
@@ -597,6 +717,13 @@
                     <i class="bi bi-megaphone"></i> 广告位招租
                 </a>
             </div>
+        </div>
+    </div>
+
+    <div class="iframe-overlay" id="global-iframe-container">
+        <div class="iframe-wrapper">
+            <!-- <button class="iframe-close-btn" id="iframe-close-btn">×</button> -->
+            <iframe class="iframe-content" id="global-iframe"></iframe>
         </div>
     </div>
     
@@ -632,6 +759,8 @@
         // 角色数据 - 便于修改和扩展
         const characterData = {
             newCharacters: [
+                // SP飨灵
+                // UR飨灵
                 {
                     name: "香薷饮",
                     type: "UR",
@@ -662,6 +791,7 @@
                         { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
                     ]
                 },
+                // SR飨灵
                 {
                     name: "潘芙蕾",
                     type: "SR",
@@ -692,15 +822,19 @@
                         { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
                     ]
                 },
+                // R飨灵
+                // M飨灵
+                // 皮肤
                 {
                     name: "阿芙佳朵",
                     type: "皮肤",
-                    colorClass: "",
+                    colorClass: "ur",
                     links: [
                         { text: "立绘", type: "1" },
                         { text: "Q版", type: "1", viewer: "CardSpineViewer" }
                     ]
                 },
+                // NPC
                 {
                     name: "比特酒",
                     type: "NPC",
@@ -710,110 +844,204 @@
                         { text: "NPC", type: "", id: "000001" }
                     ]
                 },
-                // {
-                //     name: "SP模板",
-                //     type: "SP",
-                //     colorClass: "sp",
-                //     links: [
-                //         { text: "初始", type: "初始" },
-                //         { text: "满破", type: "满破" },
-                //         { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
-                //     ]
-                // },
-                // {
-                //     name: "UR模板",
-                //     type: "UR",
-                //     colorClass: "ur",
-                //     links: [
-                //         { text: "初始", type: "初始" },
-                //         { text: "满破", type: "满破" },
-                //         { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
-                //     ]
-                // },
-                // {
-                //     name: "SR模板",
-                //     type: "SR",
-                //     colorClass: "sr",
-                //     links: [
-                //         { text: "初始", type: "初始" },
-                //         { text: "满破", type: "满破" },
-                //         { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
-                //     ]
-                // },
-                // {
-                //     name: "R模板",
-                //     type: "R",
-                //     colorClass: "r",
-                //     links: [
-                //         { text: "初始", type: "初始" },
-                //         { text: "满破", type: "满破" },
-                //         { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
-                //     ]
-                // },
-                // {
-                //     name: "M模板",
-                //     type: "M",
-                //     colorClass: "m",
-                //     links: [
-                //         { text: "初始", type: "初始" },
-                //         { text: "满破", type: "满破" },
-                //         { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
-                //     ]
-                // },
-                // {
-                //     name: "皮肤模板",
-                //     type: "皮肤",
-                //     colorClass: "",
-                //     links: [
-                //         { text: "立绘", type: "泳装" },
-                //         { text: "Q版", type: "泳装", viewer: "CardSpineViewer" }
-                //     ]
-                // },
-                // {
-                //     name: "NPC模板",
-                //     type: "NPC",
-                //     colorClass: "",
-                //     description: "xxxxxx",
-                //     links: [
-                //         { text: "NPC", type: "", id: "000000" }
-                //     ]
-                // },
-                // {
-                //     name: "头像模板",
-                //     type: "头像",
-                //     colorClass: "",
-                //     links: [
-                //         { text: "预览", name: "初始头像框", name2: "初始头像1", viewer: "FrameView" }
-                //     ]
-                // }
+                // 模板示例 - 实际使用时可以取消注释
+                /*
+                {
+                    name: "SP模板",
+                    type: "SP",
+                    colorClass: "sp",
+                    links: [
+                        { text: "初始", type: "初始" },
+                        { text: "满破", type: "满破" },
+                        { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                    ]
+                },
+                {
+                    name: "UR模板",
+                    type: "UR",
+                    colorClass: "ur",
+                    links: [
+                        { text: "初始", type: "初始" },
+                        { text: "满破", type: "满破" },
+                        { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                    ]
+                },
+                {
+                    name: "SR模板",
+                    type: "SR",
+                    colorClass: "sr",
+                    links: [
+                        { text: "初始", type: "初始" },
+                        { text: "满破", type: "满破" },
+                        { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                    ]
+                },
+                {
+                    name: "R模板",
+                    type: "R",
+                    colorClass: "r",
+                    links: [
+                        { text: "初始", type: "初始" },
+                        { text: "满破", type: "满破" },
+                        { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                    ]
+                },
+                {
+                    name: "M模板",
+                    type: "M",
+                    colorClass: "m",
+                    links: [
+                        { text: "初始", type: "初始" },
+                        { text: "满破", type: "满破" },
+                        { text: "Q版", type: "原皮", viewer: "CardSpineViewer" }
+                    ]
+                },
+                {
+                    name: "皮肤模板",
+                    type: "皮肤",
+                    colorClass: "",
+                    links: [
+                        { text: "立绘", type: "泳装" },
+                        { text: "Q版", type: "泳装", viewer: "CardSpineViewer" }
+                    ]
+                },
+                {
+                    name: "NPC模板",
+                    type: "NPC",
+                    colorClass: "",
+                    description: "xxxxxx",
+                    links: [
+                        { text: "NPC", type: "", id: "000000" }
+                    ]
+                },
+                {
+                    name: "头像模板",
+                    type: "头像",
+                    colorClass: "",
+                    links: [
+                        { text: "预览", name: "初始头像框", name2: "初始头像1", viewer: "FrameView" }
+                    ]
+                }
+                */
             ],
             upcomingCharacters: [
-                "甘麦大枣汤 / 卡门培尔 / 伊达卷 / 恰巴塔",
-                "黑死酒 / 紫苏甘露煮 / 龙牡汤 / 甜烧白 / 伦教糕",
-                "————————————————————————",
-                "甘麦大枣汤 —— 凉拌海蜇故事提及",
-                "卡门培尔 —— 巧克力熔岩蛋糕故事提及",
-                "黑死酒 —— 皮斯科故事提及",
-                "恰巴塔 —— 格瓦斯故事提及",
-                "伊达卷 —— 春雨沙拉故事提及",
-                "紫苏甘露煮 —— 星鳗寿司故事提及",
-                "龙牡汤、甜烧白、伦教糕 —— 25年春节大副本提及"
+                {
+                    name: "甘麦大枣汤 / 卡门培尔 / 伊达卷 / 恰巴塔 / 黑死酒 / 紫苏甘露煮 / 龙牡汤 / 甜烧白 / 伦教糕",
+                    description: "剧情卫星",
+                    type: 1
+                },
+                {
+                    name: "",
+                    description: "",
+                    type: 0
+                },
+                {
+                    name: "甘麦大枣汤",
+                    description: "凉拌海蜇故事提及",
+                    type: 2
+                },
+                {
+                    name: "卡门培尔",
+                    description: "巧克力熔岩蛋糕故事提及",
+                    type: 2
+                },
+                {
+                    name: "黑死酒",
+                    description: "皮斯科故事提及",
+                    type: 2
+                },
+                {
+                    name: "恰巴塔",
+                    description: "格瓦斯故事提及",
+                    type: 2
+                },
+                {
+                    name: "伊达卷",
+                    description: "春雨沙拉故事提及",
+                    type: 2
+                },
+                {
+                    name: "紫苏甘露煮",
+                    description: "星鳗寿司故事提及",
+                    type: 2
+                },
+                {
+                    name: "龙牡汤",
+                    description: "25年春节大副本提及",
+                    type: 2
+                },
+                {
+                    name: "甜烧白",
+                    description: "25年春节大副本提及",
+                    type: 2
+                },
+                {
+                    name: "伦教糕",
+                    description: "25年春节大副本提及",
+                    type: 2
+                }
             ]
         };
         
-        // 生成新增角色列表
+        // 生成新增角色列表 - 按分类分组
         function renderNewCharacters() {
             const container = document.getElementById('new-characters');
             container.innerHTML = '';
             
+            // 按类型分组
+            const groupedCharacters = {
+                sp: [],
+                ur: [],
+                sr: [],
+                r: [],
+                m: [],
+                skin: [],
+                npc: [],
+                frame: []
+            };
+            
             characterData.newCharacters.forEach(character => {
+                if (character.type === "SP") groupedCharacters.sp.push(character);
+                else if (character.type === "UR") groupedCharacters.ur.push(character);
+                else if (character.type === "SR") groupedCharacters.sr.push(character);
+                else if (character.type === "R") groupedCharacters.r.push(character);
+                else if (character.type === "M") groupedCharacters.m.push(character);
+                else if (character.type === "皮肤") groupedCharacters.skin.push(character);
+                else if (character.type === "NPC") groupedCharacters.npc.push(character);
+                else if (character.type === "头像") groupedCharacters.frame.push(character);
+            });
+            
+            // 渲染每个分类
+            renderCategory(groupedCharacters.sp, "SP飨灵", container, "sp");
+            renderCategory(groupedCharacters.ur, "UR飨灵", container, "ur");
+            renderCategory(groupedCharacters.sr, "SR飨灵", container, "sr");
+            renderCategory(groupedCharacters.r, "R飨灵", container, "r");
+            renderCategory(groupedCharacters.m, "M飨灵", container, "m");
+            renderCategory(groupedCharacters.skin, "飨灵皮肤", container);
+            renderCategory(groupedCharacters.npc, "NPC", container);
+            renderCategory(groupedCharacters.frame, "头像框", container);
+        }
+        
+        // 渲染一个分类
+        function renderCategory(characters, title, container, color = "") {
+            if (characters.length === 0) return;
+            
+            const categoryDiv = document.createElement('div');
+            categoryDiv.className = 'category-container';
+            
+            const titleElement = document.createElement('h4');
+            titleElement.className = 'category-title';
+            titleElement.innerHTML = `<span class="${color}">${title}</span>`;
+            categoryDiv.appendChild(titleElement);
+            
+            const listContainer = document.createElement('div');
+            listContainer.className = 'character-list';
+            
+            characters.forEach(character => {
                 const item = document.createElement('div');
                 item.className = 'character-item';
                 
                 let nameHtml = `<span class="${character.colorClass}">${character.name}</span>`;
-                if (character.type) {
-                    nameHtml += `<small>-${character.type}</small>`;
-                }
                 
                 let linksHtml = '';
                 character.links.forEach(link => {
@@ -826,29 +1054,57 @@
                         url = `../html/${link.viewer || 'CardImage'}.html?name=${character.name}&type=${link.type}`;
                     }
                     
-                    linksHtml += `<a href="${url}" class="character-link" style="background-color: ${getLinkColor(link.text)}; color: white;">${link.text}</a>`;
+                    linksHtml += `<a href="#" class="character-link" 
+                                    style="background-color: ${getLinkColor(link.text)}; color: white;"
+                                    data-url="${url}">
+                                    ${link.text}
+                                </a>`;
                 });
-                
+
                 item.innerHTML = `
                     <div class="character-name">${nameHtml} ${character.description ? `<small>(${character.description})</small>` : ''}</div>
                     <div class="character-links">${linksHtml}</div>
                 `;
-                
-                container.appendChild(item);
+
+                listContainer.appendChild(item);
             });
+            
+            categoryDiv.appendChild(listContainer);
+            container.appendChild(categoryDiv);
         }
-        
-        // 生成无图卫星列表
+
+        // 生成无图卫星列表 - 卡片形式
         function renderUpcomingCharacters() {
             const container = document.getElementById('upcoming-characters');
+            const container_info = document.getElementById('upcoming-characters-info');
             container.innerHTML = '';
             
-            characterData.upcomingCharacters.forEach(text => {
-                const p = document.createElement('p');
-                p.style.textAlign = 'center';
-                p.style.margin = '0.5rem 0';
-                p.innerHTML = text;
-                container.appendChild(p);
+            characterData.upcomingCharacters.forEach(item => {
+                if (item.type === 0) {
+                    const divider = document.createElement('div');
+                    divider.style.height = '1px';
+                    divider.style.backgroundColor = '#eee';
+                    divider.style.margin = '1rem 0';
+                    container.appendChild(divider);
+                    return;
+                }
+                
+                const card = document.createElement('div');
+                card.className = 'satellite-card';
+                if (item.type === 1) {card.id = 'satellite-card-sp';}
+                
+                const nameElement = document.createElement('div');
+                nameElement.className = 'satellite-name';
+                nameElement.textContent = item.name;
+                
+                const descElement = document.createElement('div');
+                descElement.className = 'satellite-desc';
+                descElement.textContent = item.description;
+                
+                card.appendChild(nameElement);
+                card.appendChild(descElement);
+                if (item.type === 1) {container.appendChild(card);}
+                else {container_info.appendChild(card);}
             });
         }
         
@@ -869,6 +1125,36 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderNewCharacters();
             renderUpcomingCharacters();
+
+            // 获取全局iframe元素
+            const iframeContainer = document.getElementById('global-iframe-container');
+            const iframe = document.getElementById('global-iframe');
+            // const closeBtn = document.getElementById('iframe-close-btn');
+            
+            // 全局链接点击事件处理
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('character-link')) {
+                    e.preventDefault();
+                    const url = decodeURIComponent(e.target.getAttribute('data-url'));
+                    iframe.src = url;
+                    iframeContainer.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // 防止背景滚动
+                }
+            });
+            
+            // 关闭按钮事件
+            // closeBtn.addEventListener('click', function() {
+            //     iframeContainer.classList.remove('active');
+            //     document.body.style.overflow = ''; // 恢复滚动
+            // });
+            
+            // 点击遮罩层关闭
+            iframeContainer.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = ''; // 恢复滚动
+                }
+            });
             
             // 绑定按钮事件
             const frameInput = document.getElementById('frame-input');
@@ -878,7 +1164,10 @@
             headButton.addEventListener('click', function() {
                 const frameValue = frameInput.value;
                 const headValue = headInput.value;
-                window.location.href = `../html/FrameView.html?name=${frameValue}&name2=${headValue}`;
+                iframe.src = `../html/FrameView.html?name=${frameValue}&name2=${headValue}`;
+                iframeContainer.classList.add('active');
+                document.body.style.overflow = 'hidden'; // 防止背景滚动
+                // window.location.href = `../html/FrameView.html?name=${frameValue}&name2=${headValue}`;
             });
             
             const nameInput = document.getElementById('name-input');
@@ -889,21 +1178,30 @@
                 const nameValue = nameInput.value;
                 const typeValue = typeSelect.value;
                 const idValue = idInput.value;
-                window.location.href = `../html/CardSpineViewer.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
+                iframe.src = `../html/CardSpineViewer.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
+                iframeContainer.classList.add('active');
+                document.body.style.overflow = 'hidden'; // 防止背景滚动
+                // window.location.href = `../html/CardSpineViewer.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
             });
             
             document.getElementById('image-button').addEventListener('click', function() {
                 const nameValue = nameInput.value;
                 const typeValue = typeSelect.value;
                 const idValue = idInput.value;
-                window.location.href = `../html/CardImage.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
+                iframe.src = `../html/CardImage.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
+                iframeContainer.classList.add('active');
+                document.body.style.overflow = 'hidden'; // 防止背景滚动
+                // window.location.href = `../html/CardImage.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
             });
             
             document.getElementById('draw-button').addEventListener('click', function() {
                 const nameValue = nameInput.value;
                 const typeValue = typeSelect.value;
                 const idValue = idInput.value;
-                window.location.href = `../html/CardDrawViewer.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
+                iframe.src = `../html/CardDrawViewer.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
+                iframeContainer.classList.add('active');
+                document.body.style.overflow = 'hidden'; // 防止背景滚动
+                // window.location.href = `../html/CardDrawViewer.html?name=${nameValue}&type=${typeValue}&id=${idValue}`;
             });
         });
     </script>
