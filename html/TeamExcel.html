@@ -1,470 +1,557 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>飨灵组织表格 | 缇尔菈秘档</title>
-  <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/ico/teamexcel.ico">
-  
-  <!-- 引入外部CSS和字体 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-  
-  <!-- 引入JS库 -->
-  <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/xlsx.full.min.js"></script>
-  <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/shim.min.js"></script>
-  <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/jquery-3.1.0.min.js"></script>
-  <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/pixi.min.js"></script>
-  <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismcore.min.js"></script>
-  <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismframework.js"></script>
-  <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismpixi.js"></script>
-  <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/l2d.js"></script>
-  <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飨灵组织表格 | 缇尔菈秘档</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/ico/teamexcel.ico">
 
-  <style>
-    :root {
-      --primary-color: #ff6b6b;
-      --secondary-color: #f8f1e5;
-      --dark-color: #333;
-      --light-color: #f5f5f5;
-      --header-height: 100px;
-      --nav-height: 60px;
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      transition: all 0.3s ease;
-    }
-    
-    body {
-      font-family: 'Noto Sans SC', sans-serif;
-      background-color: var(--light-color);
-      color: var(--dark-color);
-      line-height: 1.6;
-      padding-top: calc(var(--header-height) + var(--nav-height));
-    }
-    
-    /* 头部样式 */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: var(--header-height);
-      background-color: #333;
-      color: #fff;
-      z-index: 1000;
-      overflow: hidden;
-    }
-    
-    .header-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: brightness(0.7);
-    }
-    
-    .header-title {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      font-size: 2.5rem;
-      font-weight: 700;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      letter-spacing: 2px;
-      margin: 0;
-    }
-    
-    /* 导航栏样式 */
-    .navbar {
-      position: fixed;
-      top: var(--header-height);
-      left: 0;
-      width: 100%;
-      background-color: white;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      padding: 0.5rem 1rem;
-      z-index: 1000;
-      height: var(--nav-height);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .nav-list {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    
-    .nav-item {
-      margin: 0 0.5rem;
-    }
-    
-    .nav-link {
-      color: var(--dark-color);
-      text-decoration: none;
-      font-size: 1.1rem;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-    }
-    
-    .nav-link:hover {
-      background-color: rgba(0, 0, 0, 0.05);
-      color: var(--primary-color);
-    }
-    
-    .nav-link i {
-      margin-right: 0.5rem;
-    }
-    
-    /* 搜索框样式 */
-    .search-container {
-      display: flex;
-      align-items: center;
-      margin-right: 1rem;
-    }
-    
-    .search-input {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      margin-right: 0.5rem;
-      transition: all 0.3s;
-    }
-    
-    .search-input:focus {
-      border-color: var(--primary-color);
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
-    }
-    
-    .search-btn {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
-      background-color: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: all 0.3s;
-      display: flex;
-      align-items: center;
-    }
-    
-    .search-btn:hover {
-      background-color: #e05555;
-      transform: translateY(-2px);
-      box-shadow: 0 2px 5px rgba(255, 107, 107, 0.3);
-    }
-    
-    .search-btn i {
-      margin-right: 0.5rem;
-    }
-    
-    /* 主要内容容器 */
-    .main-container {
-      max-width: 100%;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    
-    /* 表格容器样式 */
-    .table-container {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      padding: 1.5rem;
-      width: 100%;
-      overflow-x: auto;
-    }
-    
-    /* 高亮样式 */
-    .highlight {
-      background-color: #FFF9C4;
-      font-weight: 500;
-      padding: 0.1rem 0.2rem;
-      border-radius: 3px;
-    }
-    
-    /* 加载指示器 */
-    .loader {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100px;
-    }
-    
-    .loader-spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid #f3f3f3;
-      border-top: 4px solid var(--primary-color);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    /* Live2D查看器样式 */
-    .l2d-container {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 1000;
-    }
-    
-    /* 响应式设计 */
-    @media screen and (max-width: 768px) {
-      .header-title {
-        font-size: 1.8rem;
-      }
-      
-      .nav-list {
-        display: none; /* 移动端可以改为汉堡菜单 */
-      }
-      
-      .search-container {
-        width: 100%;
-        margin-right: 0;
-      }
-      
-      .search-input {
-        flex-grow: 1;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- Live2D查看器 -->
-  <div class="Canvas" id="L2dCanvas"></div>
-  
-  <!-- 页面头部 -->
-  <header class="header">
-    <img class="header-image" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
-    <h1 class="header-title">缇尔菈秘档</h1>
-  </header>
-  
-  <!-- 导航栏 -->
-  <nav class="navbar">
-    <ul class="nav-list">
-      <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i class="bi bi-images"></i>缇尔菈展览馆</a></li>
-      <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a></li>
-      <li class="nav-item"><a href="../html/TwoDraw.html" class="nav-link"><i class="bi bi-heart-fill"></i>拉郎模拟器</a></li>
-      <li class="nav-item"><a href="../html/SkinDraw.html" class="nav-link"><i class="bi bi-hammer"></i>皮肤池模拟器</a></li>
-      <li class="nav-item"><a href="../html/TeamExcel.html" class="nav-link"><i class="bi bi-table"></i>飨灵组织表格</a></li>
-      <li class="nav-item"><a href="https://wiki.biligame.com/szqy/首页" class="nav-link"><i class="bi bi-book"></i>食契WIKI</a></li>
-      <li class="nav-item"><a href="../html/TeamMember.html" class="nav-link"><i class="bi bi-people-fill"></i>关于我们</a></li>
-    </ul>
-    
-    <div class="search-container">
-      <input type="text" class="search-input" id="search-input" placeholder="搜索飨灵或组织...">
-      <button class="search-btn" id="search-button"><i class="bi bi-search"></i> 搜索</button>
-    </div>
-  </nav>
-  
-  <!-- 主要内容 -->
-  <div class="main-container">
-    <div class="loader" id="loader">
-      <div class="loader-spinner"></div>
-    </div>
-    <div class="table-container" id="table-container"></div>
-  </div>
+    <!-- 引入外部CSS和字体 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
 
-  <script>
-    // Live2D查看器配置
-    var config = {
-      width: 400,
-      height: 400,
-      right: '20px',
-      bottom: '20px',
-      basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/Live2dView',
-      role: 'l2d200132_11',
-      background: '',
-      opacity: 0,
-      mobile: true
-    };
-    var v = new Viewer(config);
-    
-    // 加载表格数据
-    document.addEventListener('DOMContentLoaded', function() {
-      loadTableData();
-    });
-    
-    function loadTableData() {
-      var container = document.getElementById('table-container');
-      var loader = document.getElementById('loader');
-      
-      // 显示加载指示器
-      loader.style.display = 'flex';
-      container.style.display = 'none';
-      
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/FooFanTeam.html', true);
-      
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === 4) {
-          // 隐藏加载指示器
-          loader.style.display = 'none';
-          container.style.display = 'block';
-          
-          if (xhr.status === 200) {
-            var response = xhr.responseText;
-            // 移除不需要的h2标签
-            response = response.replace(/<h2.*?<\/h2>/g, '');
-            container.innerHTML = response;
+    <!-- 引入JS库 -->
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/xlsx.full.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/shim.min.js"></script>
+    <script
+        src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/jquery-3.1.0.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/pixi.min.js"></script>
+    <script
+        src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismcore.min.js"></script>
+    <script
+        src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismframework.js"></script>
+    <script
+        src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/live2dcubismpixi.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/l2d.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/build/main.js"></script>
+
+    <style>
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #f8f1e5;
+            --dark-color: #333;
+            --light-color: #f5f5f5;
+            --header-height: 100px;
+            --nav-height: 60px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+            padding-top: calc(var(--header-height) + var(--nav-height));
+        }
+
+        /* 头部样式 */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background-color: #333;
+            color: #fff;
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        .header-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        .header-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            position: fixed;
+            top: var(--header-height);
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem 1rem;
+            z-index: 1000;
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            margin: 0 0.5rem;
+        }
+
+        .nav-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: var(--primary-color);
+        }
+
+        .nav-link i {
+            margin-right: 0.5rem;
+        }
+
+        /* 搜索框样式 */
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-right: 1rem;
+        }
+
+        .search-input {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-right: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+        }
+
+        .search-btn {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-btn:hover {
+            background-color: #e05555;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(255, 107, 107, 0.3);
+        }
+
+        .search-btn i {
+            margin-right: 0.5rem;
+        }
+        
+        /* 汉堡菜单按钮 - 默认隐藏 */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--dark-color);
+            padding-right: 10px;
+        }
+        
+        /* 移动端导航栏样式 */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 0.5rem 1rem;
+                justify-content: flex-end;
+            }
             
-            // 初始化搜索功能
-            initSearch();
-          } else {
-            container.innerHTML = '<p>加载表格数据失败，请稍后重试。</p>';
-          }
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            
+            .nav-list.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                margin: 0;
+            }
+            
+            .nav-link {
+                padding: 0.8rem 1.5rem;
+                border-radius: 0;
+            }
+            
+            .nav-link:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
         }
-      };
-      
-      xhr.send();
-    }
-    
-    // 搜索功能
-    var currentHighlightIndex = -1;
-    var highlights = [];
-    var lastSearchText = '';
-    
-    function initSearch() {
-      document.getElementById('search-button').addEventListener('click', performSearch);
-      document.getElementById('search-input').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          performSearch();
+
+        /* 主要内容容器 */
+        .main-container {
+            max-width: 100%;
+            margin: 2rem auto;
+            padding: 0 1rem;
         }
-      });
-    }
-    
-    function performSearch() {
-      var searchText = document.getElementById('search-input').value.trim();
-      
-      if (!searchText) {
-        removeHighlights();
-        lastSearchText = '';
-        return;
-      }
-      
-      // 如果搜索内容变化，重新高亮
-      if (searchText !== lastSearchText) {
-        removeHighlights();
-        highlightText(searchText);
-        lastSearchText = searchText;
-        currentHighlightIndex = -1;
-      }
-      
-      // 跳转到下一个高亮
-      if (highlights.length > 0) {
-        currentHighlightIndex = (currentHighlightIndex + 1) % highlights.length;
-        scrollToHighlight(highlights[currentHighlightIndex]);
-      } else {
-        alert('未找到匹配的内容');
-      }
-    }
-    
-    function highlightText(searchText) {
-      var regex = new RegExp('(' + escapeRegExp(searchText) + ')', 'gi');
-      var container = document.getElementById('table-container');
-      
-      // 获取所有文本节点
-      var textNodes = [];
-      var walker = document.createTreeWalker(
-        container,
-        NodeFilter.SHOW_TEXT,
-        null,
-        false
-      );
-      
-      while (walker.nextNode()) {
-        textNodes.push(walker.currentNode);
-      }
-      
-      textNodes.forEach(function(node) {
-        var parent = node.parentNode;
+
+        /* 表格容器样式 */
+        .table-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        /* 高亮样式 */
+        .highlight {
+            background-color: #FFF9C4;
+            font-weight: 500;
+            padding: 0.1rem 0.2rem;
+            border-radius: 3px;
+        }
+
+        /* 加载指示器 */
+        .loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+        }
+
+        .loader-spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Live2D查看器样式 */
+        .l2d-container {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 1000;
+        }
+
+        /* 响应式设计 */
+        @media screen and (max-width: 768px) {
+            .header-title {
+                font-size: 1.8rem;
+            }
+
+            .nav-list {
+                display: none;
+                /* 移动端可以改为汉堡菜单 */
+            }
+
+            .search-container {
+                width: 100%;
+                margin-right: 0;
+            }
+
+            .search-input {
+                flex-grow: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Live2D查看器 -->
+    <div class="Canvas" id="L2dCanvas"></div>
+
+    <!-- 页面头部 -->
+    <header class="header">
+        <img class="header-image"
+            src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/WebsiteTexture/head.jpg"
+            alt="Header Image">
+        <h1 class="header-title">缇尔菈秘档</h1>
+    </header>
+
+    <!-- 导航栏 - 修改为响应式 -->
+    <nav class="navbar">
+        <!-- 汉堡菜单按钮（移动端显示） -->
+        <button class="hamburger" id="hamburger">
+            <i class="bi bi-list"></i>
+        </button>
         
-        // 跳过不需要的元素
-        if (parent.nodeName.toLowerCase() === 'script' || 
-            parent.nodeName.toLowerCase() === 'style' ||
-            parent.classList.contains('highlight')) {
-          return;
+        <!-- 导航列表 -->
+        <ul class="nav-list" id="navList">
+            <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i class="bi bi-images"></i>缇尔菈展览馆</a></li>
+            <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a></li>
+            <li class="nav-item"><a href="../html/TwoDraw.html" class="nav-link"><i class="bi bi-heart-fill"></i>拉郎模拟器</a></li>
+            <li class="nav-item"><a href="../html/SkinDraw.html" class="nav-link"><i class="bi bi-hammer"></i>皮肤池模拟器</a></li>
+            <li class="nav-item"><a href="../html/TeamExcel.html" class="nav-link"><i class="bi bi-table"></i>飨灵组织表格</a></li>
+            <li class="nav-item"><a href="https://wiki.biligame.com/szqy/首页" class="nav-link"><i class="bi bi-book"></i>食契WIKI</a></li>
+            <li class="nav-item"><a href="../html/TeamMember.html" class="nav-link"><i class="bi bi-people-fill"></i>关于我们</a></li>
+        </ul>
+        
+        <div class="search-container">
+            <input type="text" placeholder="搜索剧情或飨灵..." class="search-input" id="search-input">
+            <button class="search-btn" id="search-btn"><i class="bi bi-search"></i> 搜索</button>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="main-container">
+        <div class="loader" id="loader">
+            <div class="loader-spinner"></div>
+        </div>
+        <div class="table-container" id="table-container"></div>
+    </div>
+
+    <script>
+        // Live2D查看器配置
+        var config = {
+            width: 400,
+            height: 400,
+            right: '20px',
+            bottom: '20px',
+            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/Live2dView',
+            role: 'l2d200132_11',
+            background: '',
+            opacity: 0,
+            mobile: true
+        };
+
+        // 检测是否为移动设备
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // 如果不是移动设备，则执行代码
+        if (!isMobileDevice()) {
+            var v = new Viewer(config);
         }
         
-        var text = node.nodeValue;
-        var matches = text.match(regex);
-        
-        if (matches) {
-          var span = document.createElement('span');
-          span.innerHTML = text.replace(regex, '<span class="highlight">$1</span>');
-          
-          // 替换文本节点
-          parent.replaceChild(span, node);
-          
-          // 收集高亮元素
-          var highlightedSpans = span.querySelectorAll('.highlight');
-          highlightedSpans.forEach(function(highlight) {
-            highlights.push(highlight);
-          });
+        // 汉堡菜单点击事件
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navList').classList.toggle('active');
+        });
+
+        // 加载表格数据
+        document.addEventListener('DOMContentLoaded', function () {
+            loadTableData();
+        });
+
+        function loadTableData() {
+            var container = document.getElementById('table-container');
+            var loader = document.getElementById('loader');
+
+            // 显示加载指示器
+            loader.style.display = 'flex';
+            container.style.display = 'none';
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/FooFanTeam.html', true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    // 隐藏加载指示器
+                    loader.style.display = 'none';
+                    container.style.display = 'block';
+
+                    if (xhr.status === 200) {
+                        var response = xhr.responseText;
+                        // 移除不需要的h2标签
+                        response = response.replace(/<h2.*?<\/h2>/g, '');
+                        container.innerHTML = response;
+
+                        // 初始化搜索功能
+                        initSearch();
+                    } else {
+                        container.innerHTML = '<p>加载表格数据失败，请稍后重试。</p>';
+                    }
+                }
+            };
+
+            xhr.send();
         }
-      });
-    }
-    
-    function removeHighlights() {
-      highlights.forEach(function(element) {
-        var parent = element.parentNode;
-        if (parent) {
-          // 用文本节点替换高亮元素
-          var textNode = document.createTextNode(element.textContent);
-          parent.replaceChild(textNode, element);
-          
-          // 合并相邻的文本节点
-          parent.normalize();
+
+        // 搜索功能
+        var currentHighlightIndex = -1;
+        var highlights = [];
+        var lastSearchText = '';
+
+        function initSearch() {
+            document.getElementById('search-button').addEventListener('click', performSearch);
+            document.getElementById('search-input').addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
         }
-      });
-      highlights = [];
-    }
-    
-    function scrollToHighlight(element) {
-      // 移除之前的高亮效果
-      highlights.forEach(el => el.classList.remove('active-highlight'));
-      
-      // 添加当前高亮效果
-      element.classList.add('active-highlight');
-      
-      // 平滑滚动到元素
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-      });
-      
-      // 添加脉冲动画
-      element.style.animation = 'pulse 0.5s';
-      setTimeout(function() {
-        element.style.animation = '';
-      }, 500);
-    }
-    
-    function escapeRegExp(string) {
-      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    }
-    
-    // 添加脉冲动画和高亮样式
-    var style = document.createElement('style');
-    style.textContent = `
+
+        function performSearch() {
+            var searchText = document.getElementById('search-input').value.trim();
+
+            if (!searchText) {
+                removeHighlights();
+                lastSearchText = '';
+                return;
+            }
+
+            // 如果搜索内容变化，重新高亮
+            if (searchText !== lastSearchText) {
+                removeHighlights();
+                highlightText(searchText);
+                lastSearchText = searchText;
+                currentHighlightIndex = -1;
+            }
+
+            // 跳转到下一个高亮
+            if (highlights.length > 0) {
+                currentHighlightIndex = (currentHighlightIndex + 1) % highlights.length;
+                scrollToHighlight(highlights[currentHighlightIndex]);
+            } else {
+                alert('未找到匹配的内容');
+            }
+        }
+
+        function highlightText(searchText) {
+            var regex = new RegExp('(' + escapeRegExp(searchText) + ')', 'gi');
+            var container = document.getElementById('table-container');
+
+            // 获取所有文本节点
+            var textNodes = [];
+            var walker = document.createTreeWalker(
+                container,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+
+            while (walker.nextNode()) {
+                textNodes.push(walker.currentNode);
+            }
+
+            textNodes.forEach(function (node) {
+                var parent = node.parentNode;
+
+                // 跳过不需要的元素
+                if (parent.nodeName.toLowerCase() === 'script' ||
+                    parent.nodeName.toLowerCase() === 'style' ||
+                    parent.classList.contains('highlight')) {
+                    return;
+                }
+
+                var text = node.nodeValue;
+                var matches = text.match(regex);
+
+                if (matches) {
+                    var span = document.createElement('span');
+                    span.innerHTML = text.replace(regex, '<span class="highlight">$1</span>');
+
+                    // 替换文本节点
+                    parent.replaceChild(span, node);
+
+                    // 收集高亮元素
+                    var highlightedSpans = span.querySelectorAll('.highlight');
+                    highlightedSpans.forEach(function (highlight) {
+                        highlights.push(highlight);
+                    });
+                }
+            });
+        }
+
+        function removeHighlights() {
+            highlights.forEach(function (element) {
+                var parent = element.parentNode;
+                if (parent) {
+                    // 用文本节点替换高亮元素
+                    var textNode = document.createTextNode(element.textContent);
+                    parent.replaceChild(textNode, element);
+
+                    // 合并相邻的文本节点
+                    parent.normalize();
+                }
+            });
+            highlights = [];
+        }
+
+        function scrollToHighlight(element) {
+            // 移除之前的高亮效果
+            highlights.forEach(el => el.classList.remove('active-highlight'));
+
+            // 添加当前高亮效果
+            element.classList.add('active-highlight');
+
+            // 平滑滚动到元素
+            element.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            // 添加脉冲动画
+            element.style.animation = 'pulse 0.5s';
+            setTimeout(function () {
+                element.style.animation = '';
+            }, 500);
+        }
+
+        function escapeRegExp(string) {
+            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        // 添加脉冲动画和高亮样式
+        var style = document.createElement('style');
+        style.textContent = `
       @keyframes pulse {
         0% { background-color: #FFF9C4; }
         50% { background-color: #FFEE58; }
@@ -475,7 +562,8 @@
         box-shadow: 0 0 5px rgba(255, 238, 88, 0.8);
       }
     `;
-    document.head.appendChild(style);
-  </script>
+        document.head.appendChild(style);
+    </script>
 </body>
+
 </html>

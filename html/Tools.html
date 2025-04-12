@@ -131,6 +131,57 @@
             margin-right: 0.5rem;
         }
         
+        /* 汉堡菜单按钮 - 默认隐藏 */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--dark-color);
+        }
+        
+        /* 移动端导航栏样式 */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 0.5rem 1rem;
+                justify-content: flex-end;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+                padding: 1rem 0;
+            }
+            
+            .nav-list.active {
+                display: flex;
+            }
+            
+            .nav-item {
+                margin: 0;
+            }
+            
+            .nav-link {
+                padding: 0.8rem 1.5rem;
+                border-radius: 0;
+            }
+            
+            .nav-link:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+        }
+        
         /* 主要内容区域 */
         .main-container {
             max-width: 1200px;
@@ -439,9 +490,15 @@
         <h1 class="header-title">缇尔菈秘档</h1>
     </header>
     
-    <!-- 导航栏 -->
+    <!-- 导航栏 - 修改为响应式 -->
     <nav class="navbar">
-        <ul class="nav-list">
+        <!-- 汉堡菜单按钮（移动端显示） -->
+        <button class="hamburger" id="hamburger">
+            <i class="bi bi-list"></i>
+        </button>
+        
+        <!-- 导航列表 -->
+        <ul class="nav-list" id="navList">
             <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i class="bi bi-images"></i>缇尔菈展览馆</a></li>
             <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a></li>
             <li class="nav-item"><a href="../html/TwoDraw.html" class="nav-link"><i class="bi bi-heart-fill"></i>拉郎模拟器</a></li>
@@ -556,7 +613,21 @@
             opacity: 0,
             mobile: true
         };
-        var v = new Viewer(config);
+        
+        // 检测是否为移动设备
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // 如果不是移动设备，则执行代码
+        if (!isMobileDevice()) {
+            var v = new Viewer(config);
+        }
+        
+        // 汉堡菜单点击事件
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navList').classList.toggle('active');
+        });
         
         // 角色数据 - 便于修改和扩展
         const characterData = {
