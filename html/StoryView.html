@@ -27,7 +27,7 @@
             --dark-color: #333;
             --light-color: #f5f5f5;
             --accent-color: #9c27b0;
-            --header-height: 100px;
+            --header-height: 80px;
             --nav-height: 60px;
         }
         
@@ -139,6 +139,11 @@
         
         /* 移动端导航栏样式 */
         @media screen and (max-width: 768px) {
+            :root {
+                --header-height: 50px;
+                --nav-height: 60px;
+            }
+
             .navbar {
                 padding: 0.5rem 1rem;
                 justify-content: flex-end;
@@ -412,6 +417,72 @@
                 width: 100%;
             }
         }
+
+        .iframe-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .iframe-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            width: 90%;
+            height: 90%;
+            max-width: 1500px;
+            margin: 2% auto;
+        }
+
+        .iframe-close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: #ff4757;
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .iframe-close-btn:hover {
+            background: #ff6b81;
+            transform: rotate(90deg);
+        }
+
+        .iframe-content {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
+
+        @media (max-width: 768px) {
+            .iframe-wrapper {
+                width: 95%;
+                height: 80%;
+            }
+        }
     </style>
 </head>
 
@@ -461,6 +532,13 @@
             <div class="left1-column" id="left1-column"></div>
             <div class="left2-column" id="left2-column"></div>
             <div class="right-column" id="right-column"></div>
+        </div>
+    </div>
+    
+    <div class="iframe-overlay" id="global-iframe-container">
+        <div class="iframe-wrapper">
+            <!-- <button class="iframe-close-btn" id="iframe-close-btn">×</button> -->
+            <iframe class="iframe-content" id="global-iframe"></iframe>
         </div>
     </div>
     
@@ -550,7 +628,7 @@
                 <h3 class="story-title">${story.title}</h3>
                 ${imagesHTML}
                 <p class="story-description">${story.descr}</p>
-                <a href="../html/StoryViewer.html?title=${story.title}" class="story-link">
+                <a class="story-link" id="story-link-${story.title}">
                     <i class="bi bi-book"></i> 浏览剧情
                 </a>
                 <div class="story-characters">
@@ -563,7 +641,17 @@
                     <div class="character-avatars" id="${story.title}-avatars"></div>
                 </div>
             `;
-            
+
+            const iframeContainer = document.getElementById('global-iframe-container');
+            const iframe = document.getElementById('global-iframe');
+            const storyButton = card.querySelector(`#story-link-${story.title}`);
+
+            storyButton.addEventListener('click', function() {
+                iframe.src = `../html/StoryViewer.html?title=${story.title}`;
+                iframeContainer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
             return card;
         }
         
@@ -638,6 +726,31 @@
                     : 'none';
             });
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // 获取全局iframe元素
+            const iframeContainer = document.getElementById('global-iframe-container');
+            const iframe = document.getElementById('global-iframe');
+            
+            // 全局链接点击事件处理
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('character-link')) {
+                    e.preventDefault();
+                    const url = decodeURIComponent(e.target.getAttribute('data-url'));
+                    iframe.src = url;
+                    iframeContainer.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // 防止背景滚动
+                }
+            });
+            
+            // 点击遮罩层关闭
+            iframeContainer.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = ''; // 恢复滚动
+                }
+            });
+        });
     </script>
 </body>
 </html>

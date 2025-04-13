@@ -225,11 +225,11 @@
     
     <!-- 工具提示 -->
     <div id="character-tooltip" class="character-tooltip"></div>
-    
+
     <!-- 返回按钮 -->
-    <a href="../html/StoryView.html" class="back-button">
+    <!-- <a href="../html/StoryView.html" class="back-button">
         <i class="bi bi-arrow-left"></i>返回展览馆
-    </a>
+    </a> -->
     
     <!-- 主要内容容器 -->
     <div class="container">
@@ -271,7 +271,15 @@
             opacity: 0,
             mobile: true
         };
-        const viewer = new Viewer(config);
+        // 检测是否为移动设备
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // 如果不是移动设备，则执行代码
+        if (!isMobileDevice()) {
+            // var v = new Viewer(config);
+        }
         
         // 获取URL参数
         const urlParams = new URLSearchParams(window.location.search);
@@ -279,7 +287,7 @@
         const initialPerson = urlParams.get('person');
         
         // 设置页面标题
-        document.getElementById('page-title').textContent = `${storyTitle} - 缇尔菈秘档`;
+        document.getElementById('page-title').textContent = `${storyTitle} | 缇尔菈秘档`;
         document.getElementById('story-title').textContent = storyTitle;
         
         // 加载故事内容
@@ -340,15 +348,30 @@
             const relatedStories = allStories.filter(story => story.person.includes(characterName));
             
             let tooltipContent = `<div class="tooltip-title">${characterName}的其他剧情</div>`;
-            relatedStories.forEach(story => {
-                if (story.title !== storyTitle) {
-                    tooltipContent += `<div class="tooltip-story">${story.title}</div>`;
+            if (relatedStories.length === 1) {
+                tooltipContent += `<div class="tooltip-story">无其他剧情 / 暂未收录</div>`;
+            } else {
+                relatedStories.forEach(story => {
+                    if (story.title !== storyTitle) {
+                        tooltipContent += `<div class="tooltip-story">${story.title}</div>`;
+                    }
+                });
+            }
+
+            function positionTooltip(event) {
+                const windowWidth = window.innerWidth;
+                const clickX = event.pageX;
+                const tooltipWidth = tooltip.offsetWidth;
+                if (clickX > windowWidth / 2 && (clickX - tooltipWidth - 15) > 0) {
+                    tooltip.style.left = `${event.pageX - tooltipWidth - 15}px`;
+                } else {
+                    tooltip.style.left = `${event.pageX + 15}px`;
                 }
-            });
+                tooltip.style.top = `${event.pageY + 15}px`;
+            }
             
             tooltip.innerHTML = tooltipContent;
-            tooltip.style.left = `${event.pageX + 15}px`;
-            tooltip.style.top = `${event.pageY}px`;
+            positionTooltip(event);
             tooltip.classList.add('visible');
         }
         

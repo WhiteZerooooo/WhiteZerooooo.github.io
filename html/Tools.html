@@ -27,7 +27,7 @@
             --dark-color: #333;
             --light-color: #f5f5f5;
             --accent-color: #9c27b0;
-            --header-height: 100px;
+            --header-height: 80px;
             --nav-height: 60px;
             --ur-color: #ff9800;
             --sr-color: #9c27b0;
@@ -143,6 +143,11 @@
         
         /* 移动端导航栏样式 */
         @media screen and (max-width: 768px) {
+            :root {
+                --header-height: 50px;
+                --nav-height: 30px;
+            }
+
             .navbar {
                 padding: 0.5rem 1rem;
                 justify-content: flex-end;
@@ -345,6 +350,14 @@
             color: #999;
             font-size: 0.9rem;
         }
+
+        /* 分割线2样式 */
+        .divider2 {
+            height: 1px;
+            background-color: #eee;
+            margin: 1rem 0;
+            position: relative;
+        }
         
         /* 内容卡片样式 */
         .content-card {
@@ -464,10 +477,11 @@
             transition: all 0.3s;
             position: relative;
             cursor: pointer;
-            margin: 2.5px;
+            width: 32%;
+            margin: 2.5px auto;
         }
 
-        #satellite-card-sp {
+        .satellite-card-sp {
             background-color: #f9f9f9;
             border-radius: 6px;
             padding: 1rem;
@@ -483,6 +497,12 @@
             transform: translateY(-3px);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+
+        .satellite-card-sp:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
         
         .satellite-name {
             font-weight: 500;
@@ -491,7 +511,7 @@
         }
         
         .satellite-desc {
-            display: none;
+            display: block;
             padding: 0.5rem;
             background-color: white;
             border-radius: 4px;
@@ -500,8 +520,8 @@
             color: #666;
         }
         
-        .satellite-card:hover .satellite-desc {
-            display: block;
+        .satellite-card-sp .satellite-desc {
+            display: none;
         }
 
         #upcoming-characters-info {
@@ -703,6 +723,7 @@
         <div class="content-card">
             <h3 class="content-title">无图卫星</h3>
             <div id="upcoming-characters"></div>
+            <div class="divider2"></div>
             <div id="upcoming-characters-info"></div>
         </div>
         
@@ -775,6 +796,7 @@
                     name: "阿芙佳朵",
                     type: "UR",
                     colorClass: "ur",
+                    isNew: true,
                     links: [
                         { text: "初始", type: "初始" },
                         { text: "满破", type: "满破" },
@@ -785,6 +807,7 @@
                     name: "瓦伦堡野味",
                     type: "UR",
                     colorClass: "ur",
+                    isNew: true,
                     links: [
                         { text: "初始", type: "初始" },
                         { text: "满破", type: "满破" },
@@ -806,6 +829,7 @@
                     name: "塔吉锅",
                     type: "SR",
                     colorClass: "sr",
+                    isNew: true,
                     links: [
                         { text: "初始", type: "初始" },
                         { text: "满破", type: "满破" },
@@ -816,6 +840,7 @@
                     name: "玫瑰果汤",
                     type: "SR",
                     colorClass: "sr",
+                    isNew: true,
                     links: [
                         { text: "初始", type: "初始" },
                         { text: "满破", type: "满破" },
@@ -829,6 +854,7 @@
                     name: "阿芙佳朵",
                     type: "皮肤",
                     colorClass: "ur",
+                    isNew: true,
                     links: [
                         { text: "立绘", type: "1" },
                         { text: "Q版", type: "1", viewer: "CardSpineViewer" }
@@ -929,11 +955,6 @@
                     name: "甘麦大枣汤 / 卡门培尔 / 伊达卷 / 恰巴塔 / 黑死酒 / 紫苏甘露煮 / 龙牡汤 / 甜烧白 / 伦教糕",
                     description: "剧情卫星",
                     type: 1
-                },
-                {
-                    name: "",
-                    description: "",
-                    type: 0
                 },
                 {
                     name: "甘麦大枣汤",
@@ -1042,6 +1063,7 @@
                 item.className = 'character-item';
                 
                 let nameHtml = `<span class="${character.colorClass}">${character.name}</span>`;
+                if (character.isNew) nameHtml += `<span style="color: red; font-size: 12px; font-weight: bold; margin-left: 5px;">NEW</span>`
                 
                 let linksHtml = '';
                 character.links.forEach(link => {
@@ -1080,18 +1102,9 @@
             container.innerHTML = '';
             
             characterData.upcomingCharacters.forEach(item => {
-                if (item.type === 0) {
-                    const divider = document.createElement('div');
-                    divider.style.height = '1px';
-                    divider.style.backgroundColor = '#eee';
-                    divider.style.margin = '1rem 0';
-                    container.appendChild(divider);
-                    return;
-                }
-                
                 const card = document.createElement('div');
                 card.className = 'satellite-card';
-                if (item.type === 1) {card.id = 'satellite-card-sp';}
+                if (item.type === 1) {card.className = 'satellite-card-sp';}
                 
                 const nameElement = document.createElement('div');
                 nameElement.className = 'satellite-name';
