@@ -2,418 +2,616 @@
 <html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>皮肤券帮帮 | 缇尔菈秘档</title>
-    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/ico/goods-icon-881620.ico">
-
-    <!-- 引入外部CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="0HeadAndNav.css">
-
-    <style>
-        :root {
-            --primary-color: #4a89dc;
-            --primary-hover: #3a70c2;
-        }
-
-        body {
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .main-content {
-            width: 100%;
-            max-width: 800px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .page-title {
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-weight: 700;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .help-form {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px var(--shadow-color);
-            width: 100%;
-            max-width: 500px;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .help-form:hover {
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--dark-color);
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .form-input:focus {
-            border-color: var(--primary-color);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(74, 137, 220, 0.2);
-        }
-
-        .submit-btn {
-            background-color: var(--primary-color);
-            color: #fff;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            width: 100%;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(74, 137, 220, 0.3);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        .tips-box {
-            background-color: #fff;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px var(--shadow-color);
-            width: 100%;
-            max-width: 500px;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--warning-color);
-        }
-
-        .tips-title {
-            color: var(--warning-color);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .tips-list {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .tips-list li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-            line-height: 1.5;
-        }
-
-        .tips-list li::before {
-            content: "•";
-            color: var(--warning-color);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        /* 模态框样式 */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal.show {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            margin: 1rem;
-            padding: 1.5rem;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 500px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            position: relative;
-            transform: translateY(-20px);
-            transition: transform 0.3s ease;
-        }
-
-        .modal.show .modal-content {
-            transform: translateY(0);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            color: #aaa;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close-btn:hover {
-            color: var(--dark-color);
-        }
-
-        .modal-message {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin: 1rem 0;
-            text-align: center;
-        }
-
-        .progress-container {
-            width: 100%;
-            background-color: #f1f1f1;
-            border-radius: 5px;
-            margin: 1rem 0;
-            overflow: hidden;
-        }
-
-        .progress-bar {
-            height: 10px;
-            background-color: var(--primary-color);
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .main-content {
-                padding: 1rem;
-            }
-
-            .page-title {
-                font-size: 1.5rem;
-            }
-
-            .help-form, .tips-box {
-                padding: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .help-form, .tips-box {
-                padding: 1rem;
-            }
-
-            .page-title {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>食之契约神器</title>
+  <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/ico/storyview.ico">
+  
+  <!-- 引入外部CSS和字体 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary-color: #ff6b6b;
+      --secondary-color: #f8f1e5;
+      --dark-color: #333;
+      --light-color: #f5f5f5;
+      --header-height: 100px;
+      --nav-height: 60px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+    
+    body {
+      font-family: 'Noto Sans SC', sans-serif;
+      background-color: var(--light-color);
+      color: var(--dark-color);
+      line-height: 1.6;
+      padding-top: calc(var(--header-height) + var(--nav-height));
+    }
+    
+    /* 头部样式 */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--header-height);
+      background-color: #333;
+      color: #fff;
+      z-index: 1000;
+      overflow: hidden;
+    }
+    
+    .header-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+    
+    .header-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      letter-spacing: 2px;
+      margin: 0;
+    }
+    
+    /* 导航栏样式 */
+    .navbar {
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 0.5rem 1rem;
+      z-index: 1000;
+      height: var(--nav-height);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-list {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav-item {
+      margin: 0 0.5rem;
+    }
+    
+    .nav-link {
+      color: var(--dark-color);
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .nav-link:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      color: var(--primary-color);
+    }
+    
+    .nav-link i {
+      margin-right: 0.5rem;
+    }
+    
+    /* 主要内容区域 */
+    .main-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    
+    /* 控制面板样式 */
+    .control-panel {
+      background-color: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+    
+    .control-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .control-label {
+      font-weight: 500;
+    }
+    
+    .select-control {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      min-width: 150px;
+    }
+    
+    .btn {
+      padding: 0.5rem 1rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .btn:hover {
+      background-color: #e05555;
+    }
+    
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    /* 截图容器样式 */
+    .screenshot-container {
+      background-color: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .screenshot-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary-color);
+    }
+    
+    /* 表格样式 */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+    }
+    
+    .data-table th {
+      background-color: #f4f4f4;
+      padding: 0.75rem;
+      text-align: left;
+    }
+    
+    .data-table td {
+      padding: 0.75rem;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .data-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    /* 颜色样式 */
+    .color-蓝 {
+      background-color: #99BEFF;
+      color: #005eff;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    .color-红 {
+      background-color: #FFE9E8;
+      color: #ff3b30;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    .color-青 {
+      background-color: #99DDFF;
+      color: #00aaff;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    .color-紫 {
+      background-color: #D58EFF;
+      color: #a200ff;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    .color-绿 {
+      background-color: #EEFCDE;
+      color: #88ff00;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    .color-黄 {
+      background-color: #FEFBC6;
+      color: #cdc300;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    /* 差异高亮样式 */
+    .diff-added {
+      background-color: #a8f1a8;
+    }
+    
+    .diff-removed {
+      background-color: #f8d7da;
+      text-decoration: line-through;
+    }
+    
+    /* 结果容器样式 */
+    .result-container {
+      background-color: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .result-title {
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    
+    /* 响应式设计 */
+    @media screen and (max-width: 768px) {
+      .header-title {
+        font-size: 1.8rem;
+      }
+      
+      .control-panel {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .select-control {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <!-- 页面头部 -->
-    <header class="header">
-        <img class="header-image" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
-        <h1 class="header-title">缇尔菈秘档</h1>
-    </header>
+  <!-- 页面头部 -->
+  <header class="header">
+    <img class="header-image" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
+    <h1 class="header-title">缇尔菈秘档</h1>
+  </header>
+  
+  <!-- 导航栏 -->
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i class="bi bi-images"></i>缇尔菈展览馆</a></li>
+      <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a></li>
+      <li class="nav-item"><a href="../html/TwoDraw.html" class="nav-link"><i class="bi bi-heart-fill"></i>拉郎模拟器</a></li>
+      <li class="nav-item"><a href="../html/TeamExcel.html" class="nav-link"><i class="bi bi-table"></i>飨灵组织表格</a></li>
+      <li class="nav-item"><a href="https://wiki.biligame.com/szqy/首页" class="nav-link"><i class="bi bi-book"></i>食契WIKI</a></li>
+      <li class="nav-item"><a href="../html/TeamMember.html" class="nav-link"><i class="bi bi-people-fill"></i>关于我们</a></li>
+    </ul>
+  </nav>
+  
+  <!-- 主要内容 -->
+  <div class="main-container">
+    <!-- 控制面板 -->
+    <div class="control-panel">
+      <div class="control-group">
+        <label for="select_card" class="control-label">请选择飨灵</label>
+        <select id="select_card" class="select-control" onchange="handleSelectCard()"></select>
+      </div>
+      
+      <div class="control-group">
+        <label for="select_version" class="control-label">请选择版本</label>
+        <select id="select_version" class="select-control" onchange="handleSelectVersion()"></select>
+      </div>
+      
+      <button id="capture-btn" class="btn"><i class="bi bi-camera"></i>生成截图</button>
+      
+      <div class="checkbox-group">
+        <input type="checkbox" id="myCheckbox" name="myCheckbox" value="1">
+        <label for="myCheckbox">关闭差异</label>
+      </div>
+    </div>
     
-    <!-- 导航栏 -->
-    <nav class="navbar">
-        <button class="hamburger" id="hamburger">
-            <i class="bi bi-list"></i>
-        </button>
-        
-        <ul class="nav-list" id="navList">
-            <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i class="bi bi-images"></i>缇尔菈展览馆</a></li>
-            <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a></li>
-            <li class="nav-item"><a href="../html/TwoDraw.html" class="nav-link"><i class="bi bi-heart-fill"></i>拉郎模拟器</a></li>
-            <li class="nav-item"><a href="../html/SkinDraw.html" class="nav-link"><i class="bi bi-hammer"></i>皮肤池模拟器</a></li>
-            <li class="nav-item"><a href="../html/TeamExcel.html" class="nav-link"><i class="bi bi-table"></i>飨灵组织表格</a></li>
-            <li class="nav-item"><a href="https://wiki.biligame.com/szqy/首页" class="nav-link"><i class="bi bi-book"></i>食契WIKI</a></li>
-            <li class="nav-item"><a href="../html/TeamMember.html" class="nav-link"><i class="bi bi-people-fill"></i>关于我们</a></li>
-        </ul>
-    </nav>
+    <!-- 截图容器 -->
+    <div class="screenshot-container" id="screenshot-container">
+      <h1 class="screenshot-title" id="title"></h1>
+      
+      <table class="data-table" id="panel-table">
+        <thead>
+          <tr>
+            <th>职业</th>
+            <th>攻击力</th>
+            <th>攻速值</th>
+            <th>防御力</th>
+            <th>生命值</th>
+            <th>暴击值</th>
+            <th>暴伤值</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
 
-    <div class="main-content">
-        <h1 class="page-title">皮肤券帮帮</h1>
-        
-        <form id="simulateClickForm" class="help-form">
-            <div class="form-group">
-                <label for="url" class="form-label">请输入皮肤券地址</label>
-                <input type="text" id="url" name="url" class="form-input" 
-                       placeholder="例如：http://p0.fantanggame.com/Recommend/set/100506" required>
-            </div>
-            <button type="submit" class="submit-btn">
-                <i class="bi bi-send-fill"></i> 开始帮帮
-            </button>
-        </form>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>基础技</th>
+          </tr>
+        </thead>
+        <tbody id="base-skill-body"></tbody>
+      </table>
 
-        <div class="tips-box">
-            <h3 class="tips-title">
-                <i class="bi bi-exclamation-triangle-fill"></i> 使用提示
-            </h3>
-            <ul class="tips-list">
-                <li>请输入正确的皮肤券地址，例如：http://p0.fantanggame.com/Recommend/set/XXXXXX</li>
-                <li>p0先行服、p1官服、p2渠道，XXXXXX为你的UID</li>
-                <li>注意游戏中复制的可能为https，帮帮失败可以修改为http再试一次</li>
-                <li>每次帮帮会尝试10次请求，成功5次后自动停止</li>
-            </ul>
-        </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>能量技</th>
+          </tr>
+        </thead>
+        <tbody id="energy-skill-body"></tbody>
+      </table>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>连携技</th>
+          </tr>
+        </thead>
+        <tbody id="connect-skill-body"></tbody>
+      </table>
+
+      <table class="data-table" id="artifacts-table">
+        <thead>
+          <tr>
+            <th>核心</th>
+            <th>描述</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
-
-    <!-- 响应模态框 -->
-    <div id="responseModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-            <p class="modal-message" id="responseMessage">正在帮帮第 1 次<br>成功 0 次，失败 0 次</p>
-        </div>
+    
+    <!-- 结果容器 -->
+    <div class="result-container">
+      <h3 class="result-title">生成的截图：</h3>
+      <div id="screenshot-result"></div>
     </div>
+  </div>
 
-    <script>
-        // 获取DOM元素
-        const modal = document.getElementById("responseModal");
-        const closeBtn = document.querySelector(".close-btn");
-        const responseMessage = document.getElementById("responseMessage");
-        const progressBar = document.getElementById("progressBar");
-        const form = document.getElementById('simulateClickForm');
+  <script src="diff.js"></script>
+  <script src="html2canvas.min.js"></script>
+  
+  <script>
+    // 初始化复选框事件
+    const checkbox = document.getElementById('myCheckbox');
+    checkbox.addEventListener('change', function() {
+      handleSelectVersion();
+    });
 
-        // 表单提交处理
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const url = document.getElementById('url').value.trim();
-            if (!url) return;
-            
-            // 显示模态框
-            modal.classList.add('show');
-            
-            // 初始化变量
-            const totalRequests = 10;
-            const maxSuccess = 5;
-            let successCount = 0;
-            let failureCount = 0;
-            let currentRequest = 0;
-            
-            // 远程API地址
-            const remoteUrl = 'https://weird-anita-zeroapitest-1b766488.koyeb.app/simulate-click';
-            
-            // 发送请求函数
-            function sendRequest() {
-                if (currentRequest >= totalRequests || successCount >= maxSuccess) {
-                    // 帮帮结束
-                    const resultMessage = successCount >= maxSuccess 
-                        ? `✅ 帮帮成功完成！<br>共成功 ${successCount} 次`
-                        : `⚠️ 帮帮结束<br>成功 ${successCount} 次，失败 ${failureCount} 次`;
-                    
-                    responseMessage.innerHTML = resultMessage;
-                    return;
-                }
-                
-                currentRequest++;
-                updateProgress();
-                
-                // 更新UI
-                responseMessage.innerHTML = `正在帮帮第 ${currentRequest} 次<br>成功 ${successCount} 次，失败 ${failureCount} 次`;
-                
-                // 发送AJAX请求
-                const xhr = new XMLHttpRequest();
-                xhr.open('POST', remoteUrl, true);
-                xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-                
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                        if (xhr.status === 200) {
-                            successCount++;
-                        } else {
-                            failureCount++;
-                        }
-                        
-                        updateProgress();
-                        setTimeout(sendRequest, 500); // 添加延迟避免请求过快
-                    }
-                };
-                
-                xhr.onerror = function() {
-                    failureCount++;
-                    updateProgress();
-                    setTimeout(sendRequest, 500);
-                };
-                
-                xhr.send(JSON.stringify({ url: url }));
-            }
-            
-            // 更新进度条
-            function updateProgress() {
-                const progress = Math.min(
-                    ((successCount + failureCount) / totalRequests) * 100, 
-                    ((successCount >= maxSuccess ? maxSuccess : successCount + failureCount) / totalRequests) * 100
-                );
-                progressBar.style.width = `${progress}%`;
-            }
-            
-            // 开始发送请求
-            sendRequest();
+    // 截图按钮事件
+    document.getElementById('capture-btn').addEventListener('click', () => {
+      const element = document.getElementById('screenshot-container');
+      html2canvas(element).then(canvas => {
+        const resultContainer = document.getElementById('screenshot-result');
+        resultContainer.innerHTML = '';
+        resultContainer.appendChild(canvas);
+      }).catch(error => {
+        console.error('截图失败:', error);
+      });
+    });
+
+    // 点击截图保存
+    document.getElementById('screenshot-result').addEventListener('click', () => {
+      const resultContainer = document.getElementById('screenshot-result');
+      const canvas = resultContainer.querySelector('canvas');
+      if (canvas) {
+        const link = document.createElement('a');
+        link.download = '食之契约神器.png';
+        const dataUrl = canvas.toDataURL();
+        link.href = dataUrl;
+        link.click();
+      }
+    });
+
+    // 初始化差异比较
+    var diffCH = new Diff.Diff();
+    diffCH.tokenize = function (v) {
+      return v.split(/([^\x00-\x7F×])|(<br>)/);
+    }
+
+    // 获取复选框状态
+    function checkBoxStatus() {
+      return document.getElementById('myCheckbox').checked;
+    }
+
+    // 生成差异高亮文本
+    function getDiff(oldText, newText) {
+      const_diff = diffCH.diff(oldText, newText);
+      let const_change = "";
+      
+      const_diff.forEach(function (u) {
+        if (u.added) {
+          const_change += `<span class="diff-added">${u.value}</span>`;
+        } else if (u.removed) {
+          if (const_diff.length < 15) {
+            const_change += `<span class="diff-removed">${u.value}</span>`;
+          }
+        } else {
+          if (const_diff.length > 1) {
+            const_change += u.value;
+          }
+        }
+      });
+      
+      if (const_diff.length >= 15) {
+        const_change = `<span class="diff-removed">${oldText}</span><br><span class="diff-added">${newText}</span>`;
+      }
+      
+      if (oldText == newText) {
+        const_change = newText;
+      }
+      
+      return const_change.replaceAll("colorstyle", "color style");
+    }
+
+    // 更新表格数据
+    function updataTable(oldData, newData) {
+      // 更新面板表格
+      function updatePanelTable(tableId, oldInfo, newInfo) {
+        const tableBody = document.querySelector(`${tableId} tbody`);
+        tableBody.innerHTML = `
+          <tr>
+            <td>${getDiff(oldInfo["career"], newInfo["career"])}</td>
+            <td>${getDiff(oldInfo["attack"], newInfo["attack"])}</td>
+            <td>${getDiff(oldInfo["attackRate"], newInfo["attackRate"])}</td>
+            <td>${getDiff(oldInfo["defence"], newInfo["defence"])}</td>
+            <td>${getDiff(oldInfo["hp"], newInfo["hp"])}</td>
+            <td>${getDiff(oldInfo["critRate"], newInfo["critRate"])}</td>
+            <td>${getDiff(oldInfo["critDamage"], newInfo["critDamage"])}</td>
+          </tr>
+        `;
+      }
+
+      // 更新技能表格
+      function updateSkillTable(tableId, oldSkills, newSkills) {
+        const tableBody = document.querySelector(tableId);
+        tableBody.innerHTML = `
+          <tr>
+            <td>${getDiff(oldSkills, newSkills)}</td>
+          </tr>
+        `;
+      }
+
+      // 更新神器表格
+      function updateArtifactTable(tableId, oldInfo, newInfo, colors) {
+        const tableBody = document.querySelector(`${tableId} tbody`);
+        tableBody.innerHTML = '';
+        
+        Object.keys(newInfo).forEach((key) => {
+          const colorKey = key.slice(-2, -1);
+          const colorName = colors[colorKey] || '未知';
+          tableBody.innerHTML += `
+            <tr>
+              <td class="color-${colorName}">${key}</td>
+              <td>${getDiff(oldInfo[key], newInfo[key])}</td>
+            </tr>
+          `;
         });
-        
-        // 关闭模态框
-        closeBtn.onclick = function() {
-            modal.classList.remove('show');
-        }
-        
-        // 点击模态框外部关闭
-        window.onclick = function(event) {
-            if (event.target === modal) {
-                modal.classList.remove('show');
-            }
-        }
-    </script>
+      }
+
+      // 调用更新函数
+      updatePanelTable('#panel-table', oldData.Panel, newData.Panel);
+      updateSkillTable('#base-skill-body', oldData.BaseSkill, newData.BaseSkill);
+      updateSkillTable('#energy-skill-body', oldData.EnergySkill, newData.EnergySkill);
+      updateSkillTable('#connect-skill-body', oldData.ConnectSkill, newData.ConnectSkill);
+      updateArtifactTable('#artifacts-table', oldData.Artifacts.Info, newData.Artifacts.Info, newData.Artifacts.Color);
+    }
+
+    // 更新飨灵选择下拉框
+    function updataSelectCard(data) {
+      const select_card = document.getElementById("select_card");
+      select_card.innerHTML = '';
+      
+      Object.keys(data).forEach((key, index) => {
+        const option = document.createElement("option");
+        option.value = index;
+        option.text = key;
+        select_card.appendChild(option);
+      });
+      
+      handleSelectCard();
+    }
+
+    // 更新版本选择下拉框
+    function updataSelectVersion(data) {
+      const select_version = document.getElementById("select_version");
+      select_version.innerHTML = '';
+      
+      Object.keys(data).forEach((key, index) => {
+        const option = document.createElement("option");
+        option.value = index;
+        option.text = key;
+        select_version.appendChild(option);
+      });
+      
+      select_version.selectedIndex = select_version.options.length - 1;
+      handleSelectVersion();
+    }
+
+    // 处理飨灵选择变化
+    function handleSelectCard() {
+      const select_card = document.getElementById("select_card");
+      const selectedCard = select_card.options[parseInt(select_card.value)].text;
+      
+      if (globalData[selectedCard]) {
+        updataSelectVersion(globalData[selectedCard]);
+      }
+    }
+
+    // 处理版本选择变化
+    function handleSelectVersion() {
+      const select_card = document.getElementById("select_card");
+      const select_version = document.getElementById("select_version");
+      const selectedCard = select_card.options[parseInt(select_card.value)].text;
+      const selectedVersion = select_version.options[parseInt(select_version.value)].text;
+      
+      // 计算上一个版本
+      let PreVersion = "";
+      const versionNumber = parseInt(selectedVersion.replace("v", ""));
+      if (versionNumber === 0) {
+        PreVersion = "v0";
+      } else {
+        PreVersion = "v" + (versionNumber - 1);
+      }
+      
+      // 如果关闭差异，则使用相同版本
+      if (checkBoxStatus()) {
+        PreVersion = selectedVersion;
+      }
+      
+      // 更新标题和表格
+      const name = globalData[selectedCard][PreVersion].Name;
+      const versionText = selectedVersion === PreVersion ? selectedVersion : `${PreVersion} → ${selectedVersion}`;
+      document.getElementById('title').textContent = `${name} ${versionText}`;
+      
+      if (globalData[selectedCard][PreVersion] && globalData[selectedCard][selectedVersion]) {
+        updataTable(globalData[selectedCard][PreVersion], globalData[selectedCard][selectedVersion]);
+      }
+    }
+
+    // 加载JSON数据
+    let globalData;
+    fetch(`Card_Arti&Skill_Data.json?t=${new Date().getTime()}`)
+      .then(response => response.json())
+      .then(data => {
+        globalData = data;
+        updataSelectCard(globalData);
+      })
+      .catch(error => console.error('加载JSON文件失败:', error));
+  </script>
 </body>
 </html>
