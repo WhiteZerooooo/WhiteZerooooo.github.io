@@ -411,7 +411,7 @@
             <div class="form-group">
                 <label for="requestCount" class="form-label">点赞次数</label>
                 <input type="number" id="requestCount" name="requestCount" class="form-input" 
-                       placeholder="请输入点赞次数(5的倍数)" min="5" step="5" required>
+                       placeholder="请输入点赞次数(5的倍数)" min="5" step="5" max="500" required>
             </div>
             <button type="submit" class="submit-btn secondary">
                 <i class="bi bi-hand-thumbs-up-fill"></i> 开始点赞
@@ -619,8 +619,9 @@
                 // 模拟进度更新（实际应用中应该根据服务器响应更新）
                 let progress = 0;
                 const progressInterval = setInterval(() => {
-                    progress += 5;
+                    progress += 20;
                     if (progress > 90) clearInterval(progressInterval);
+                    if (progress == 100) progress = 99;
                     thumbUpProgressBar.style.width = `${progress}%`;
                     thumbUpMessage.innerHTML = `正在处理点赞请求...<br>已完成 ${progress}%`;
                 }, 500);
