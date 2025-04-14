@@ -13,117 +13,248 @@
     <link rel="stylesheet" href="0HeadAndNav.css">
 
     <style>
+        :root {
+            --primary-color: #4a89dc;
+            --primary-hover: #3a70c2;
+        }
+
         body {
-            font-family: 'Noto Sans SC', sans-serif;
-            background-color: var(--light-color);
-            color: var(--dark-color);
-            line-height: 1.6;
-            padding-top: calc(var(--header-height) + var(--nav-height));
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-        h1 {
-            margin-top: 20px;
-            color: #007bff;
-            font-size: 2rem;
-        }
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 500px;
-            margin-top: 20px;
-            text-align: center;
-        }
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        input[type="text"] {
-            width: 95%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 18px;
-            width: 100%;
-        }
-        button:hover {
-            background-color: #0056b3;
+            min-height: 100vh;
         }
 
+        .main-content {
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .help-form {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .help-form:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 137, 220, 0.2);
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            width: 100%;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(74, 137, 220, 0.3);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .tips-box {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px var(--shadow-color);
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .tips-title {
+            color: var(--warning-color);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tips-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .tips-list li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .tips-list li::before {
+            content: "•";
+            color: var(--warning-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* 模态框样式 */
         .modal {
             display: none;
             position: fixed;
-            z-index: 1;
+            z-index: 1000;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 8px;
-            text-align: center;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 1rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+
+        .modal.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close-btn:hover {
+            color: var(--dark-color);
+        }
+
+        .modal-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        .progress-container {
+            width: 100%;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 10px;
+            background-color: var(--primary-color);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* 响应式设计 */
         @media (max-width: 768px) {
-            h1 {
+            .main-content {
+                padding: 1rem;
+            }
+
+            .page-title {
                 font-size: 1.5rem;
             }
-            form {
-                padding: 15px;
+
+            .help-form, .tips-box {
+                padding: 1.5rem;
             }
-            input[type="text"] {
-                padding: 10px;
-                font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+            .help-form, .tips-box {
+                padding: 1rem;
             }
-            button {
-                padding: 10px;
-                font-size: 16px;
-            }
-            .modal-content {
-                width: 90%;
-                padding: 15px;
+
+            .page-title {
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
+
 <body>
     <!-- 页面头部 -->
     <header class="header">
@@ -131,14 +262,12 @@
         <h1 class="header-title">缇尔菈秘档</h1>
     </header>
     
-    <!-- 导航栏 - 修改为响应式 -->
+    <!-- 导航栏 -->
     <nav class="navbar">
-        <!-- 汉堡菜单按钮（移动端显示） -->
         <button class="hamburger" id="hamburger">
             <i class="bi bi-list"></i>
         </button>
         
-        <!-- 导航列表 -->
         <ul class="nav-list" id="navList">
             <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i class="bi bi-images"></i>缇尔菈展览馆</a></li>
             <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a></li>
@@ -150,81 +279,139 @@
         </ul>
     </nav>
 
-    <h1>皮肤券帮帮</h1>
-    <form id="simulateClickForm">
-        <label for="url">请输入皮肤券地址:</label>
-        <input type="text" id="url" name="url" placeholder="例如：http://p0.fantanggame.com/Recommend/set/100506" required>
-        <button type="submit">提交</button>
-    </form>
+    <div class="main-content">
+        <h1 class="page-title">皮肤券帮帮</h1>
+        
+        <form id="simulateClickForm" class="help-form">
+            <div class="form-group">
+                <label for="url" class="form-label">请输入皮肤券地址</label>
+                <input type="text" id="url" name="url" class="form-input" 
+                       placeholder="例如：http://p0.fantanggame.com/Recommend/set/100506" required>
+            </div>
+            <button type="submit" class="submit-btn">
+                <i class="bi bi-send-fill"></i> 开始帮帮
+            </button>
+        </form>
 
-    <div id="tip" style="margin-top: 25px; text-align: center; color: red;">
-        <p>请输入正确的皮肤券地址，例如：</p>
-        <p>http://p0.fantanggame.com/Recommend/set/XXXXXX</p>
-        <p>p0先行服、p1官服、p2渠道，XXXXXX为你的UID</p>
-        <p>注意游戏中复制的可能为https，帮帮失败可以修改为http再试一次</p>
+        <div class="tips-box">
+            <h3 class="tips-title">
+                <i class="bi bi-exclamation-triangle-fill"></i> 使用提示
+            </h3>
+            <ul class="tips-list">
+                <li>请输入正确的皮肤券地址，例如：http://p0.fantanggame.com/Recommend/set/XXXXXX</li>
+                <li>p0先行服、p1官服、p2渠道，XXXXXX为你的UID</li>
+                <li>注意游戏中复制的可能为https，帮帮失败可以修改为http再试一次</li>
+                <li>每次帮帮会尝试10次请求，成功5次后自动停止</li>
+            </ul>
+        </div>
     </div>
 
+    <!-- 响应模态框 -->
     <div id="responseModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <p id="responseMessage">操作成功</p>
+            <span class="close-btn">&times;</span>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <p class="modal-message" id="responseMessage">正在帮帮第 1 次<br>成功 0 次，失败 0 次</p>
         </div>
     </div>
 
     <script>
-        var modal = document.getElementById("responseModal");
-        var span = document.getElementsByClassName("close")[0];
-        var responseMessage = document.getElementById("responseMessage");
+        // 获取DOM元素
+        const modal = document.getElementById("responseModal");
+        const closeBtn = document.querySelector(".close-btn");
+        const responseMessage = document.getElementById("responseMessage");
+        const progressBar = document.getElementById("progressBar");
+        const form = document.getElementById('simulateClickForm');
 
-        document.getElementById('simulateClickForm').addEventListener('submit', function(event) {
+        // 表单提交处理
+        form.addEventListener('submit', function(event) {
             event.preventDefault();
-
-            var url = document.getElementById('url').value;
-            var totalRequests = 10;
-            var successCount = 0;
-            var failureCount = 0;
-            var currentRequest = 0;
-
-            var remoteUrl = 'https://weird-anita-zeroapitest-1b766488.koyeb.app/simulate-click';
-            var LocalUrl = 'http://127.0.0.1:3000/simulate-click';
-
+            
+            const url = document.getElementById('url').value.trim();
+            if (!url) return;
+            
+            // 显示模态框
+            modal.classList.add('show');
+            
+            // 初始化变量
+            const totalRequests = 10;
+            const maxSuccess = 5;
+            let successCount = 0;
+            let failureCount = 0;
+            let currentRequest = 0;
+            
+            // 远程API地址
+            const remoteUrl = 'https://weird-anita-zeroapitest-1b766488.koyeb.app/simulate-click';
+            
+            // 发送请求函数
             function sendRequest() {
-                if (currentRequest >= totalRequests || successCount >= 5) {
-                    responseMessage.innerHTML = `帮帮结束<br>成功 ${successCount} 次，失败 ${failureCount} 次`;
-                    modal.style.display = "flex";
+                if (currentRequest >= totalRequests || successCount >= maxSuccess) {
+                    // 帮帮结束
+                    const resultMessage = successCount >= maxSuccess 
+                        ? `✅ 帮帮成功完成！<br>共成功 ${successCount} 次`
+                        : `⚠️ 帮帮结束<br>成功 ${successCount} 次，失败 ${failureCount} 次`;
+                    
+                    responseMessage.innerHTML = resultMessage;
                     return;
                 }
-
+                
                 currentRequest++;
+                updateProgress();
+                
+                // 更新UI
                 responseMessage.innerHTML = `正在帮帮第 ${currentRequest} 次<br>成功 ${successCount} 次，失败 ${failureCount} 次`;
-                modal.style.display = "flex";
-
-                var xhr = new XMLHttpRequest();
+                
+                // 发送AJAX请求
+                const xhr = new XMLHttpRequest();
                 xhr.open('POST', remoteUrl, true);
                 xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-
-                xhr.onreadystatechange = function () {
+                
+                xhr.onreadystatechange = function() {
                     if (xhr.readyState === XMLHttpRequest.DONE) {
                         if (xhr.status === 200) {
                             successCount++;
                         } else {
                             failureCount++;
                         }
-                        sendRequest();
+                        
+                        updateProgress();
+                        setTimeout(sendRequest, 500); // 添加延迟避免请求过快
                     }
                 };
+                
+                xhr.onerror = function() {
+                    failureCount++;
+                    updateProgress();
+                    setTimeout(sendRequest, 500);
+                };
+                
                 xhr.send(JSON.stringify({ url: url }));
             }
+            
+            // 更新进度条
+            function updateProgress() {
+                const progress = Math.min(
+                    ((successCount + failureCount) / totalRequests) * 100, 
+                    ((successCount >= maxSuccess ? maxSuccess : successCount + failureCount) / totalRequests) * 100
+                );
+                progressBar.style.width = `${progress}%`;
+            }
+            
+            // 开始发送请求
             sendRequest();
         });
-
-        span.onclick = function() {
-            modal.style.display = "none";
+        
+        // 关闭模态框
+        closeBtn.onclick = function() {
+            modal.classList.remove('show');
         }
-
+        
+        // 点击模态框外部关闭
         window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target === modal) {
+                modal.classList.remove('show');
             }
         }
     </script>
