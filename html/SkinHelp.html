@@ -399,8 +399,8 @@
                 <label for="serverType" class="form-label">服务器类型</label>
                 <select id="serverType" class="form-select" required>
                     <option value="">请选择服务器类型</option>
-                    <option value="ios">官服(iOS)</option>
-                    <option value="android">渠道服(Android)</option>
+                    <option value="ios">官服</option>
+                    <option value="android">渠道服</option>
                 </select>
             </div>
             <div class="form-group">
@@ -424,7 +424,7 @@
             </h3>
             <ul class="tips-list">
                 <li>点赞帮帮：请选择正确的服务器类型并输入目标玩家ID</li>
-                <li>点赞次数必须是5的倍数，系统会自动分配账号进行点赞</li>
+                <li>点赞次数必须是5的倍数且小于500</li>
                 <li>点赞过程可能需要一些时间，请耐心等待</li>
             </ul>
         </div>
@@ -604,8 +604,10 @@
                     if (xhr.status === 200) {
                         const response = JSON.parse(xhr.responseText);
                         thumbUpProgressBar.style.width = '100%';
+                        clearInterval(progressInterval)
                         thumbUpMessage.innerHTML = `✅ 点赞完成！<br>成功 ${response.successCount} 次，失败 ${response.failCount} 次<br>总耗时: ${response.totalTime}`;
                     } else {
+                        clearInterval(progressInterval)
                         thumbUpMessage.innerHTML = '⚠️ 点赞过程中发生错误，请稍后再试';
                     }
                 };
@@ -619,9 +621,8 @@
                 // 模拟进度更新（实际应用中应该根据服务器响应更新）
                 let progress = 0;
                 const progressInterval = setInterval(() => {
-                    progress += 20;
+                    progress += 5;
                     if (progress > 90) clearInterval(progressInterval);
-                    if (progress == 100) progress = 99;
                     thumbUpProgressBar.style.width = `${progress}%`;
                     thumbUpMessage.innerHTML = `正在处理点赞请求...<br>已完成 ${progress}%`;
                 }, 500);
