@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>皮肤券帮帮 | 缇尔菈秘档</title>
+    <title>小兔子帮帮 | 缇尔菈秘档</title>
     <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/ico/goods-icon-881620.ico">
 
     <!-- 引入外部CSS -->
@@ -16,6 +16,8 @@
         :root {
             --primary-color: #4a89dc;
             --primary-hover: #3a70c2;
+            --secondary-color: #37bc9b;
+            --secondary-hover: #2fa386;
         }
 
         body {
@@ -37,11 +39,45 @@
 
         .page-title {
             color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
             text-align: center;
-            font-weight: 700;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            font-weight: 600;
+            width: 100%;
+            position: relative;
+        }
+
+        .section-title {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            text-align: center;
+            font-weight: 600;
+            width: 100%;
+            position: relative;
+        }
+
+        .section-title::before,
+        .section-title::after,
+        .page-title::before,
+        .page-title::after {
+            content: "";
+            display: inline-block;
+            height: 1px;
+            background: var(--border-color);
+            width: 30%;
+            position: absolute;
+            top: 50%;
+        }
+
+        .section-title::before,
+        .page-title::before {
+            left: 0;
+        }
+
+        .section-title::after,
+        .page-title::after {
+            right: 0;
         }
 
         .help-form {
@@ -86,6 +122,20 @@
             box-shadow: 0 0 0 3px rgba(74, 137, 220, 0.2);
         }
 
+        .form-select {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            background-color: white;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 16px 12px;
+        }
+
         .submit-btn {
             background-color: var(--primary-color);
             color: #fff;
@@ -111,6 +161,15 @@
 
         .submit-btn:active {
             transform: translateY(0);
+        }
+
+        .submit-btn.secondary {
+            background-color: var(--secondary-color);
+        }
+
+        .submit-btn.secondary:hover {
+            background-color: var(--secondary-hover);
+            box-shadow: 0 4px 8px rgba(55, 188, 155, 0.3);
         }
 
         .tips-box {
@@ -228,6 +287,10 @@
             transition: width 0.3s ease;
         }
 
+        .progress-bar.secondary {
+            background-color: var(--secondary-color);
+        }
+
         /* 响应式设计 */
         @media (max-width: 768px) {
             .main-content {
@@ -235,7 +298,18 @@
             }
 
             .page-title {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 1.3rem;
+            }
+
+            .section-title::before,
+            .section-title::after,
+            .page-title::before,
+            .page-title::after {
+                width: 20%;
             }
 
             .help-form, .tips-box {
@@ -249,7 +323,18 @@
             }
 
             .page-title {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+            }
+
+            .section-title::before,
+            .section-title::after,
+            .page-title::before,
+            .page-title::after {
+                width: 15%;
             }
         }
     </style>
@@ -282,6 +367,7 @@
     <div class="main-content">
         <h1 class="page-title">皮肤券帮帮</h1>
         
+        <!-- 皮肤券帮帮表单 -->
         <form id="simulateClickForm" class="help-form">
             <div class="form-group">
                 <label for="url" class="form-label">请输入皮肤券地址</label>
@@ -298,15 +384,53 @@
                 <i class="bi bi-exclamation-triangle-fill"></i> 使用提示
             </h3>
             <ul class="tips-list">
-                <li>请输入正确的皮肤券地址，例如：http://p0.fantanggame.com/Recommend/set/XXXXXX</li>
+                <li>皮肤券帮帮：请输入正确的皮肤券地址，例如：http://p0.fantanggame.com/Recommend/set/XXXXXX</li>
                 <li>p0先行服、p1官服、p2渠道，XXXXXX为你的UID</li>
                 <li>注意游戏中复制的可能为https，帮帮失败可以修改为http再试一次</li>
                 <li>每次帮帮会尝试10次请求，成功5次后自动停止</li>
             </ul>
         </div>
+
+        <h2 class="section-title">点赞帮帮</h2>
+        
+        <!-- 点赞帮帮表单 -->
+        <form id="thumbUpForm" class="help-form">
+            <div class="form-group">
+                <label for="serverType" class="form-label">服务器类型</label>
+                <select id="serverType" class="form-select" required>
+                    <option value="">请选择服务器类型</option>
+                    <option value="ios">官服(iOS)</option>
+                    <option value="android">渠道服(Android)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="playerId" class="form-label">目标玩家ID</label>
+                <input type="number" id="playerId" name="playerId" class="form-input" 
+                       placeholder="请输入要点赞的玩家ID" required>
+            </div>
+            <div class="form-group">
+                <label for="requestCount" class="form-label">点赞次数</label>
+                <input type="number" id="requestCount" name="requestCount" class="form-input" 
+                       placeholder="请输入点赞次数(5的倍数)" min="5" step="5" required>
+            </div>
+            <button type="submit" class="submit-btn secondary">
+                <i class="bi bi-hand-thumbs-up-fill"></i> 开始点赞
+            </button>
+        </form>
+
+        <div class="tips-box">
+            <h3 class="tips-title">
+                <i class="bi bi-exclamation-triangle-fill"></i> 使用提示
+            </h3>
+            <ul class="tips-list">
+                <li>点赞帮帮：请选择正确的服务器类型并输入目标玩家ID</li>
+                <li>点赞次数必须是5的倍数，系统会自动分配账号进行点赞</li>
+                <li>点赞过程可能需要一些时间，请耐心等待</li>
+            </ul>
+        </div>
     </div>
 
-    <!-- 响应模态框 -->
+    <!-- 皮肤券帮帮响应模态框 -->
     <div id="responseModal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -317,23 +441,58 @@
         </div>
     </div>
 
+    <!-- 点赞帮帮响应模态框 -->
+    <div id="thumbUpModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="progress-container">
+                <div class="progress-bar secondary" id="thumbUpProgressBar"></div>
+            </div>
+            <p class="modal-message" id="thumbUpMessage">正在处理点赞请求...<br>成功 0 次，失败 0 次</p>
+        </div>
+    </div>
+
     <script>
         // 获取DOM元素
-        const modal = document.getElementById("responseModal");
-        const closeBtn = document.querySelector(".close-btn");
+        const responseModal = document.getElementById("responseModal");
+        const thumbUpModal = document.getElementById("thumbUpModal");
+        const closeBtns = document.querySelectorAll(".close-btn");
         const responseMessage = document.getElementById("responseMessage");
+        const thumbUpMessage = document.getElementById("thumbUpMessage");
         const progressBar = document.getElementById("progressBar");
-        const form = document.getElementById('simulateClickForm');
+        const thumbUpProgressBar = document.getElementById("thumbUpProgressBar");
+        const simulateClickForm = document.getElementById('simulateClickForm');
+        const thumbUpForm = document.getElementById('thumbUpForm');
 
-        // 表单提交处理
-        form.addEventListener('submit', function(event) {
+        // 关闭模态框函数
+        function closeModal(modal) {
+            modal.classList.remove('show');
+        }
+
+        // 为所有关闭按钮添加事件
+        closeBtns.forEach(btn => {
+            btn.onclick = function() {
+                const modal = this.closest('.modal');
+                closeModal(modal);
+            }
+        });
+
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target);
+            }
+        }
+
+        // 皮肤券帮帮表单提交处理
+        simulateClickForm.addEventListener('submit', function(event) {
             event.preventDefault();
             
             const url = document.getElementById('url').value.trim();
             if (!url) return;
             
             // 显示模态框
-            modal.classList.add('show');
+            responseModal.classList.add('show');
             
             // 初始化变量
             const totalRequests = 10;
@@ -403,17 +562,74 @@
             sendRequest();
         });
         
-        // 关闭模态框
-        closeBtn.onclick = function() {
-            modal.classList.remove('show');
-        }
-        
-        // 点击模态框外部关闭
-        window.onclick = function(event) {
-            if (event.target === modal) {
-                modal.classList.remove('show');
+        // 点赞帮帮表单提交处理
+        thumbUpForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            const serverType = document.getElementById('serverType').value;
+            const playerId = document.getElementById('playerId').value.trim();
+            const requestCount = parseInt(document.getElementById('requestCount').value);
+            
+            if (!serverType || !playerId || !requestCount || requestCount % 5 !== 0) {
+                alert('请填写完整信息，且点赞次数必须是5的倍数');
+                return;
             }
-        }
+            
+            // 显示模态框
+            thumbUpModal.classList.add('show');
+            thumbUpMessage.innerHTML = '正在准备点赞请求...';
+            thumbUpProgressBar.style.width = '0%';
+            
+            try {
+                // 远程API地址
+                const remoteUrl = 'https://weird-anita-zeroapitest-1b766488.koyeb.app/fantang-operation';
+                
+                // 准备请求数据
+                const requestData = {
+                    pre: serverType,
+                    playerId: parseInt(playerId),
+                    num: requestCount
+                };
+                
+                // 发送请求
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', remoteUrl, true);
+                xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
+                
+                xhr.onprogress = function() {
+                    // 可以在这里更新进度
+                };
+                
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        const response = JSON.parse(xhr.responseText);
+                        thumbUpProgressBar.style.width = '100%';
+                        thumbUpMessage.innerHTML = `✅ 点赞完成！<br>成功 ${response.successCount} 次，失败 ${response.failCount} 次<br>总耗时: ${response.totalTime}`;
+                    } else {
+                        thumbUpMessage.innerHTML = '⚠️ 点赞过程中发生错误，请稍后再试';
+                    }
+                };
+                
+                xhr.onerror = function() {
+                    thumbUpMessage.innerHTML = '⚠️ 网络错误，请检查网络连接后重试';
+                };
+                
+                xhr.send(JSON.stringify(requestData));
+                
+                // 模拟进度更新（实际应用中应该根据服务器响应更新）
+                let progress = 0;
+                const progressInterval = setInterval(() => {
+                    progress += 5;
+                    if (progress > 90) clearInterval(progressInterval);
+                    thumbUpProgressBar.style.width = `${progress}%`;
+                    thumbUpMessage.innerHTML = `正在处理点赞请求...<br>已完成 ${progress}%`;
+                }, 500);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                thumbUpMessage.innerHTML = '⚠️ 发生错误: ' + error.message;
+            }
+        });
     </script>
 </body>
 </html>
