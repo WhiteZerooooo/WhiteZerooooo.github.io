@@ -2,349 +2,526 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>食之契约神器</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食之契约神器</title>
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/ico/storyview.ico">
 
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 20px;
-    }
+    <!-- 引入外部CSS和字体 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../html/0HeadAndNav.css">
 
-    th, td {
-      border: 1px solid #ddd;
-      padding: 8px;
-      text-align: left;
-    }
+    <style>
+        /* 主要内容区域 */
+        .main-container {
+            max-width: 1600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
 
-    th {
-      background-color: #f4f4f4;
-    }
+        /* 控制面板样式 */
+        .control-panel {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
 
-    .color-蓝 {
-      background-color: #99BEFF;
-      color: #005eff;
-      font-weight: bold;
-    }
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-    .color-红 {
-      background-color: #FFE9E8;
-      color: #ff3b30;
-      font-weight: bold;
-    }
+        .control-label {
+            font-weight: 500;
+        }
 
-    .color-青 {
-      background-color: #99DDFF;
-      color: #00aaff;
-      font-weight: bold;
-    }
+        .select-control {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-width: 150px;
+        }
 
-    .color-紫 {
-      background-color: #D58EFF;
-      color: #a200ff;
-      font-weight: bold;
-    }
+        .btn {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-    .color-绿 {
-      background-color: #EEFCDE;
-      color: #88ff00;
-      font-weight: bold;
-    }
+        .btn:hover {
+            background-color: #e05555;
+        }
 
-    .color-黄 {
-      background-color: #FEFBC6;
-      color: #cdc300;
-      font-weight: bold;
-    }
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-    #screenshot-container {
-      border: 1px solid #ccc;
-      padding: 10px;
-    }
+        /* 截图容器样式 */
+        .screenshot-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
 
-    #center-text {
-      text-align: center;
-    }
+        .screenshot-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
 
-  </style>
-  <script src="diff.js"></script>
-  <script src="html2canvas.min.js"></script>
+        /* 表格样式 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        .data-table th {
+            background-color: #f4f4f4;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .data-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* 颜色样式 */
+        .color-蓝 {
+            background-color: #99BEFF;
+            color: #005eff;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .color-红 {
+            background-color: #FFE9E8;
+            color: #ff3b30;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .color-青 {
+            background-color: #99DDFF;
+            color: #00aaff;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .color-紫 {
+            background-color: #D58EFF;
+            color: #a200ff;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .color-绿 {
+            background-color: #EEFCDE;
+            color: #88ff00;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .color-黄 {
+            background-color: #FEFBC6;
+            color: #cdc300;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* 差异高亮样式 */
+        .diff-added {
+            background-color: #a8f1a8;
+        }
+
+        .diff-removed {
+            background-color: #f8d7da;
+            text-decoration: line-through;
+        }
+
+        /* 结果容器样式 */
+        .result-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-title {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* 响应式设计 */
+        @media screen and (max-width: 768px) {
+            .header-title {
+                font-size: 1.8rem;
+            }
+
+            .control-panel {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .select-control {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <label for="options">请选择飨灵</label>
-  <select id="select_card" onchange="handleSelectCard()"></select>
-  <label for="options">请选择版本</label>
-  <select id="select_version" onchange="handleSelectVersion()"></select>
-  <button id="capture-btn">生成截图</button>
-  <input type="checkbox" id="myCheckbox" name="myCheckbox" value="1">
-  <label for="myCheckbox">关闭差异</label>
-  <div id="screenshot-container">
-    <h1 style="text-align: center; font-size: 50px;" id="title"></h1>
-    
-    <table id="panel-table">
-      <thead>
-        <tr>
-          <th>职业</th>
-          <th>攻击力</th>
-          <th>攻速值</th>
-          <th>防御力</th>
-          <th>生命值</th>
-          <th>暴击值</th>
-          <th>暴伤值</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+    <!-- 页面头部 -->
+    <header class="header">
+        <img class="header-image"
+            src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/WebsiteTexture/head.jpg"
+            alt="Header Image">
+        <h1 class="header-title">缇尔菈秘档</h1>
+    </header>
 
-    <table>
-      <thead>
-        <tr>
-          <th>基础技</th>
-        </tr>
-      </thead>
-      <tbody id="base-skill-body"></tbody>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i
+                        class="bi bi-images"></i>缇尔菈展览馆</a></li>
+            <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a>
+            </li>
+            <li class="nav-item"><a href="../html/TwoDraw.html" class="nav-link"><i
+                        class="bi bi-heart-fill"></i>拉郎模拟器</a></li>
+            <li class="nav-item"><a href="../html/TeamExcel.html" class="nav-link"><i class="bi bi-table"></i>飨灵组织表格</a>
+            </li>
+            <li class="nav-item"><a href="https://wiki.biligame.com/szqy/首页" class="nav-link"><i
+                        class="bi bi-book"></i>食契WIKI</a></li>
+            <li class="nav-item"><a href="../html/TeamMember.html" class="nav-link"><i
+                        class="bi bi-people-fill"></i>关于我们</a></li>
+        </ul>
+    </nav>
 
-      <thead>
-        <tr>
-          <th>能量技</th>
-        </tr>
-      </thead>
-      <tbody id="energy-skill-body"></tbody>
+    <!-- 主要内容 -->
+    <div class="main-container">
+        <!-- 控制面板 -->
+        <div class="control-panel">
+            <div class="control-group">
+                <label for="select_card" class="control-label">请选择飨灵</label>
+                <select id="select_card" class="select-control" onchange="handleSelectCard()"></select>
+            </div>
 
-      <thead>
-        <tr>
-          <th>连携技</th>
-        </tr>
-      </thead>
-      <tbody id="connect-skill-body"></tbody>
-    </table>
+            <div class="control-group">
+                <label for="select_version" class="control-label">请选择版本</label>
+                <select id="select_version" class="select-control" onchange="handleSelectVersion()"></select>
+            </div>
 
-    <table id="artifacts-table">
-      <thead>
-        <tr>
-          <th>核心</th>
-          <th>描述</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
-  <div id="result-container" style="margin-top: 20px;">
-    <h3>生成的截图：</h3>
-    <div id="screenshot-result"></div>
-  </div>
+            <button id="capture-btn" class="btn"><i class="bi bi-camera"></i>生成截图</button>
 
+            <div class="checkbox-group">
+                <input type="checkbox" id="myCheckbox" name="myCheckbox" value="1">
+                <label for="myCheckbox">关闭差异</label>
+            </div>
+        </div>
 
-  <script>
+        <!-- 截图容器 -->
+        <div class="screenshot-container" id="screenshot-container">
+            <h1 class="screenshot-title" id="title"></h1>
 
-    const checkbox = document.getElementById('myCheckbox');
-    checkbox.addEventListener('change', function() {
-      handleSelectVersion()
-    });
+            <table class="data-table" id="panel-table">
+                <thead>
+                    <tr>
+                        <th>职业</th>
+                        <th>攻击力</th>
+                        <th>攻速值</th>
+                        <th>防御力</th>
+                        <th>生命值</th>
+                        <th>暴击值</th>
+                        <th>暴伤值</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
 
-    document.getElementById('capture-btn').addEventListener('click', () => {
-      const element = document.getElementById('screenshot-container');
-      html2canvas(element).then(canvas => {
-        const resultContainer = document.getElementById('screenshot-result');
-        resultContainer.innerHTML = '';
-        resultContainer.appendChild(canvas);
-      }).catch(error => {
-        console.error('截图失败:', error);
-      });
-    });
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>基础技</th>
+                    </tr>
+                </thead>
+                <tbody id="base-skill-body"></tbody>
+            </table>
 
-    document.getElementById('screenshot-result').addEventListener('click', () => {
-      const resultContainer = document.getElementById('screenshot-result');
-      const canvas = resultContainer.querySelector('canvas');
-      const link = document.createElement('a');
-      link.download = 'image.png';
-      const dataUrl = canvas.toDataURL();
-      link.href = dataUrl;
-      link.click();
-    });
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>能量技</th>
+                    </tr>
+                </thead>
+                <tbody id="energy-skill-body"></tbody>
+            </table>
 
-    var diffCH = new Diff.Diff()
-    diffCH.tokenize = function (v) {
-        return v.split(/([^\x00-\x7F×])|(<br>)/)
-    }
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>连携技</th>
+                    </tr>
+                </thead>
+                <tbody id="connect-skill-body"></tbody>
+            </table>
 
-    function checkBoxStatus() {
-      const checkbox = document.getElementById('myCheckbox');
-      return checkbox.checked;
-    }
+            <table class="data-table" id="artifacts-table">
+                <thead>
+                    <tr>
+                        <th>核心</th>
+                        <th>描述</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
 
-    function isNumberOrSymbol(value) {
-      return /^(\d+(\.\d+)?|[\+\-\=\*\/\%\!\~\^\(\)\[\]\{\}\:\;\.\,]+)/.test(value);
-    }
+        <!-- 结果容器 -->
+        <div class="result-container">
+            <h3 class="result-title">生成的截图：</h3>
+            <div id="screenshot-result" style="scale: 0.95;"></div>
+        </div>
+    </div>
 
-    function containsParentheses(str) {
-      str = str || ""
-      return str.includes('(') || str.includes(')') || str.includes('（') || str.includes('）');
-    }
+    <script src="diff.js"></script>
+    <script src="html2canvas.min.js"></script>
 
-    function isChinese(value) {
-      return /[\u4e00-\u9fa5]/.test(value);
-    }
+    <script>
+        // 初始化复选框事件
+        const checkbox = document.getElementById('myCheckbox');
+        checkbox.addEventListener('change', function () {
+            handleSelectVersion();
+        });
 
-    function getDiff(oldText, newText) {
-      console.log(diffCH.diff(oldText, newText))
-      const_change = ""
-      const_diff = diffCH.diff(oldText, newText)
-      const_diff.forEach(function (u) {
-          if (u.added) {
-              const_change += "<span style='background-color:#a8f1a8'>" + u.value + "</span>"
-          } else if (u.removed) {
-              if (const_diff.length < 15) const_change += "<span style='background-color:#f8d7da'><del>" + u.value + "</del></span>"
-          } else {
-              if (const_diff.length > 1) {
-                  const_change += u.value
-              }
-          }
-      })
-      if ((const_diff.length >= 15)) {
-          // const_change = oldText + "<br><color style='color:#FFD780'>↓↓</color><br>" + newText
-          const_change = "<span style='background-color:#f8d7da'><del>" + oldText + "</span><br><span style='background-color:#a8f1a8'>" + newText + "</span>"
-      }
-      if (oldText == newText) const_change = newText
-      const_change = const_change.replaceAll("colorstyle", "color style")
-      return const_change;
-    }
+        // 截图按钮事件
+        document.getElementById('capture-btn').addEventListener('click', () => {
+            const element = document.getElementById('screenshot-container');
+            html2canvas(element, {
+                useCORS: true,
+                scale: 2,
+                backgroundColor: null
+            }).then(canvas => {
+                const resultContainer = document.getElementById('screenshot-result');
+                resultContainer.innerHTML = '';
+                resultContainer.appendChild(canvas);
+            }).catch(error => {
+                console.error('截图失败:', error);
+            });
+        });
 
-    function updataTable(oldData, newData) {
+        // 点击截图保存
+        // document.getElementById('screenshot-result').addEventListener('click', () => {
+        //     const resultContainer = document.getElementById('screenshot-result');
+        //     const canvas = resultContainer.querySelector('canvas');
+        //     if (canvas) {
+        //         const link = document.createElement('a');
+        //         link.download = '食之契约神器.png';
+        //         const dataUrl = canvas.toDataURL();
+        //         link.href = dataUrl;
+        //         link.click();
+        //     }
+        // });
 
-      function updatePanelTable(tableId, oldInfo, newInfo) {
-        const tableBody = document.querySelector(tableId);
-        tableBody.innerHTML = '';
-        const row = `
+        // 初始化差异比较
+        var diffCH = new Diff.Diff();
+        diffCH.tokenize = function (v) {
+            return v.split(/([^\x00-\x7F×])|(<br>)/);
+        }
+
+        // 获取复选框状态
+        function checkBoxStatus() {
+            return document.getElementById('myCheckbox').checked;
+        }
+
+        // 生成差异高亮文本
+        function getDiff(oldText, newText) {
+            const_diff = diffCH.diff(oldText, newText);
+            let const_change = "";
+
+            const_diff.forEach(function (u) {
+                if (u.added) {
+                    const_change += `<span class="diff-added">${u.value}</span>`;
+                } else if (u.removed) {
+                    if (const_diff.length < 15) {
+                        const_change += `<span class="diff-removed">${u.value}</span>`;
+                    }
+                } else {
+                    if (const_diff.length > 1) {
+                        const_change += u.value;
+                    }
+                }
+            });
+
+            if (const_diff.length >= 15) {
+                const_change = `<span class="diff-removed">${oldText}</span><br><span class="diff-added">${newText}</span>`;
+            }
+
+            if (oldText == newText) {
+                const_change = newText;
+            }
+
+            return const_change.replaceAll("colorstyle", "color style");
+        }
+
+        // 更新表格数据
+        function updataTable(oldData, newData) {
+            // 更新面板表格
+            function updatePanelTable(tableId, oldInfo, newInfo) {
+                const tableBody = document.querySelector(`${tableId} tbody`);
+                tableBody.innerHTML = `
           <tr>
-              <td>${getDiff(oldInfo["career"], newInfo["career"])}</td>
-              <td>${getDiff(oldInfo["attack"], newInfo["attack"])}</td>
-              <td>${getDiff(oldInfo["attackRate"], newInfo["attackRate"])}</td>
-              <td>${getDiff(oldInfo["defence"], newInfo["defence"])}</td>
-              <td>${getDiff(oldInfo["hp"], newInfo["hp"])}</td>
-              <td>${getDiff(oldInfo["critRate"], newInfo["critRate"])}</td>
-              <td>${getDiff(oldInfo["critDamage"], newInfo["critDamage"])}</td>
+            <td>${getDiff(oldInfo["career"], newInfo["career"])}</td>
+            <td>${getDiff(oldInfo["attack"], newInfo["attack"])}</td>
+            <td>${getDiff(oldInfo["attackRate"], newInfo["attackRate"])}</td>
+            <td>${getDiff(oldInfo["defence"], newInfo["defence"])}</td>
+            <td>${getDiff(oldInfo["hp"], newInfo["hp"])}</td>
+            <td>${getDiff(oldInfo["critRate"], newInfo["critRate"])}</td>
+            <td>${getDiff(oldInfo["critDamage"], newInfo["critDamage"])}</td>
           </tr>
         `;
-        tableBody.innerHTML += row;
-      }
+            }
 
-      function updateSkillTable(tableId, oldSkills, newSkills) {
-        const tableBody = document.querySelector(tableId);
-        tableBody.innerHTML = '';
-        const row = `
-                  <tr>
-                      <td>${getDiff(oldSkills, newSkills)}</td>
-                  </tr>
-              `;
-        tableBody.innerHTML += row;
-      }
-
-      function updateArtifactTable(tableId, oldInfo, newInfo, colors) {
-        const tableBody = document.querySelector(tableId);
-        tableBody.innerHTML = '';
-
-        Object.keys(newInfo).forEach((key) => {
-          const colorKey = key.slice(-2, -1);
-          const colorName = colors[colorKey] || '未知';
-          const row = `
-            <tr>
-                <td id="center-text" class="color-${colorName}">${key}</td>
-                <td>${getDiff(oldInfo[key], newInfo[key])}</td>
-            </tr>
+            // 更新技能表格
+            function updateSkillTable(tableId, oldSkills, newSkills) {
+                const tableBody = document.querySelector(tableId);
+                tableBody.innerHTML = `
+          <tr>
+            <td>${getDiff(oldSkills, newSkills)}</td>
+          </tr>
         `;
-          tableBody.innerHTML += row;
-        });
-      }
+            }
 
-      updatePanelTable('#panel-table tbody', oldData.Panel, newData.Panel);
+            // 更新神器表格
+            function updateArtifactTable(tableId, oldInfo, newInfo, colors) {
+                const tableBody = document.querySelector(`${tableId} tbody`);
+                tableBody.innerHTML = '';
 
-      updateSkillTable('#base-skill-body', oldData.BaseSkill, newData.BaseSkill);
-      updateSkillTable('#energy-skill-body', oldData.EnergySkill, newData.EnergySkill);
-      updateSkillTable('#connect-skill-body', oldData.ConnectSkill, newData.ConnectSkill);
+                Object.keys(newInfo).forEach((key) => {
+                    const colorKey = key.slice(-2, -1);
+                    const colorName = colors[colorKey] || '未知';
+                    tableBody.innerHTML += `
+                        <tr>
+                        <td class="color-${colorName}">${key}</td>
+                        <td>${getDiff(oldInfo[key], newInfo[key])}</td>
+                        </tr>
+                    `;
+                });
+            }
 
-      updateArtifactTable('#artifacts-table tbody', oldData.Artifacts.Info, newData.Artifacts.Info, newData.Artifacts.Color);
-    }
+            // 调用更新函数
+            updatePanelTable('#panel-table', oldData.Panel, newData.Panel);
+            updateSkillTable('#base-skill-body', oldData.BaseSkill, newData.BaseSkill);
+            updateSkillTable('#energy-skill-body', oldData.EnergySkill, newData.EnergySkill);
+            updateSkillTable('#connect-skill-body', oldData.ConnectSkill, newData.ConnectSkill);
+            updateArtifactTable('#artifacts-table', oldData.Artifacts.Info, newData.Artifacts.Info, newData.Artifacts.Color);
+        }
 
-    function updataSelectCard(data) {
-      const select_card = document.getElementById("select_card");
-      select_card.innerHTML = '';
-      Object.keys(data).forEach((key, index) => {
-        const option = document.createElement("option");
-        option.value = index;
-        option.text = key;
-        select_card.appendChild(option);
-      });
-      handleSelectCard()
-    }
+        // 更新飨灵选择下拉框
+        function updataSelectCard(data) {
+            const select_card = document.getElementById("select_card");
+            select_card.innerHTML = '';
 
-    function updataSelectVersion(data) {
-      const select_version = document.getElementById("select_version");
-      select_version.innerHTML = '';
-      Object.keys(data).forEach((key, index) => {
-        const option = document.createElement("option");
-        option.value = index;
-        option.text = key;
-        select_version.appendChild(option);
-      });
-      select_version.selectedIndex = select_version.options.length - 1;
-      handleSelectVersion()
-    }
+            Object.keys(data).forEach((key, index) => {
+                const option = document.createElement("option");
+                option.value = index;
+                option.text = key;
+                select_card.appendChild(option);
+            });
 
-    function handleSelectCard() {
-      const select_card = document.getElementById("select_card");
-      let selectedCard = select_card.options[parseInt(select_card.value)].text
+            handleSelectCard();
+        }
 
-      select_version.innerHTML = '';
-      updataSelectVersion(globalData[selectedCard])
-    }
+        // 更新版本选择下拉框
+        function updataSelectVersion(data) {
+            const select_version = document.getElementById("select_version");
+            select_version.innerHTML = '';
 
-    function handleSelectVersion() {
-      const select_card = document.getElementById("select_card");
-      const select_version = document.getElementById("select_version");
-      let selectedCard = select_card.options[parseInt(select_card.value)].text
-      let selectedVersion = select_version.options[parseInt(select_version.value)].text
+            Object.keys(data).forEach((key, index) => {
+                const option = document.createElement("option");
+                option.value = index;
+                option.text = key;
+                select_version.appendChild(option);
+            });
 
-      let PreVersion = "";
-      const versionNumber = parseInt(selectedVersion.replace("v", ""));
-      if (versionNumber === 0) {
-        PreVersion = "v0";  // v0 不减版本
-      } else {
-        PreVersion = "v" + (versionNumber - 1);  // v1 及以上减去 1
-      }
+            select_version.selectedIndex = select_version.options.length - 1;
+            handleSelectVersion();
+        }
 
-      console.log("NowVersion: " + selectedVersion);
-      console.log("PreVersion: " + PreVersion);
+        // 处理飨灵选择变化
+        function handleSelectCard() {
+            const select_card = document.getElementById("select_card");
+            const selectedCard = select_card.options[parseInt(select_card.value)].text;
 
-      if (checkBoxStatus()) {
-        PreVersion = selectedVersion;
-      }
+            if (globalData[selectedCard]) {
+                updataSelectVersion(globalData[selectedCard]);
+            }
+        }
 
-      const name = globalData[selectedCard][PreVersion].Name;
-      const versionText = selectedVersion === PreVersion ? selectedVersion : `${PreVersion} → ${selectedVersion}`;
-      document.getElementById('title').innerHTML = `${name} ${versionText}`;
-      updataTable(globalData[selectedCard][PreVersion], globalData[selectedCard][selectedVersion])
-    }
+        // 处理版本选择变化
+        function handleSelectVersion() {
+            const select_card = document.getElementById("select_card");
+            const select_version = document.getElementById("select_version");
+            const selectedCard = select_card.options[parseInt(select_card.value)].text;
+            const selectedVersion = select_version.options[parseInt(select_version.value)].text;
 
+            // 计算上一个版本
+            let PreVersion = "";
+            const versionNumber = parseInt(selectedVersion.replace("v", ""));
+            if (versionNumber === 0) {
+                PreVersion = "v0";
+            } else {
+                PreVersion = "v" + (versionNumber - 1);
+            }
 
-    let globalData;
-    fetch(`Card_Arti&Skill_Data.json?t=${new Date().getTime()}`)
-      .then(response => response.json())
-      .then(data => {
-        globalData = data;
-        updataSelectCard(globalData);
-      })
-      .catch(error => console.error('Error loading the JSON file:', error));
+            // 如果关闭差异，则使用相同版本
+            if (checkBoxStatus()) {
+                PreVersion = selectedVersion;
+            }
 
+            // 更新标题和表格
+            const name = globalData[selectedCard][PreVersion].Name;
+            const versionText = selectedVersion === PreVersion ? selectedVersion : `${PreVersion} → ${selectedVersion}`;
+            document.getElementById('title').textContent = `${name} ${versionText}`;
 
-  </script>
+            if (globalData[selectedCard][PreVersion] && globalData[selectedCard][selectedVersion]) {
+                updataTable(globalData[selectedCard][PreVersion], globalData[selectedCard][selectedVersion]);
+            }
+        }
+
+        // 加载JSON数据
+        let globalData;
+        fetch(`Card_Arti&Skill_Data.json?t=${new Date().getTime()}`)
+            .then(response => response.json())
+            .then(data => {
+                globalData = data;
+                updataSelectCard(globalData);
+            })
+            .catch(error => console.error('加载JSON文件失败:', error));
+    </script>
 </body>
 
 </html>
