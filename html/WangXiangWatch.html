@@ -6,166 +6,484 @@
     <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/ico/WangXiangWatch.ico">
     <title>万相之王</title>
     <style>
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #6b8cae;
+            --text-color: #333;
+            --light-text: #666;
+            --border-color: #e0e0e0;
+            --bg-color: #f9f9f9;
+            --content-bg: #ffffff;
+            --hover-color: #3a5a8a;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
-            height: 100vh;
+            min-height: 100vh;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--bg-color);
         }
+        
         .container {
             display: flex;
             flex: 1;
             overflow: hidden;
+            position: relative;
         }
+        
         .sidebar {
-            width: 250px;
-            background-color: #f4f4f4;
+            width: 280px;
+            background-color: var(--bg-color);
             padding: 20px;
             overflow-y: auto;
-            border-right: 1px solid #ddd;
+            border-right: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+            z-index: 100;
         }
+        
         .content {
             flex: 1;
-            padding: 20px;
+            padding: 25px;
             overflow-y: auto;
-            background-color: #fff;
+            background-color: var(--content-bg);
+            transition: margin-left 0.3s ease;
         }
+        
         .post {
             margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            background-color: var(--content-bg);
+            box-shadow: var(--shadow);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
+        
+        .post:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
         .post-title {
-            margin: 0;
+            margin: 0 0 10px 0;
             font-size: 1.2rem;
+            color: var(--primary-color);
         }
+        
         .post-excerpt {
-            color: #555;
+            color: var(--light-text);
+            font-size: 0.95rem;
         }
+        
         .post-link {
-            color: #0066cc;
+            color: var(--primary-color);
             text-decoration: none;
             cursor: pointer;
+            display: block;
+            padding: 5px 0;
         }
+        
         .post-link:hover {
+            color: var(--hover-color);
             text-decoration: underline;
         }
+        
         .loading {
             font-size: 1.2rem;
-            color: #999;
+            color: var(--light-text);
+            text-align: center;
+            padding: 20px;
         }
+        
         .menu-icon {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
-            padding: 10px;
+            padding: 15px;
             position: fixed;
             top: 10px;
             left: 10px;
             z-index: 1000;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 10px;
+            box-shadow: var(--shadow);
         }
+        
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .sidebar-title {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .close-sidebar {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--light-text);
+        }
+        
+        #article-title {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        #article-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        
+        #article-content p {
+            margin-bottom: 1.2em;
+        }
+        
+        #article-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 15px auto;
+            border-radius: 4px;
+        }
+        
+        .back-button {
+            display: none;
+            margin-bottom: 20px;
+            padding: 8px 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .back-button:hover {
+            background-color: var(--hover-color);
+        }
+        
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+        }
+        
         @media (max-width: 768px) {
             .sidebar {
                 position: fixed;
                 top: 0;
-                left: -300px;
+                left: -280px;
+                bottom: 0;
+                width: 280px;
                 height: 100vh;
-                transition: left 0.3s;
-                z-index: 999;
+                z-index: 100;
+                padding-top: 60px;
             }
+            
             .sidebar.active {
                 left: 0;
             }
+            
             .menu-icon {
                 display: block;
             }
+            
+            .close-sidebar {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+            
             .content {
+                padding: 15px;
                 margin-left: 0;
             }
+            
+            .overlay.active {
+                display: block;
+            }
+            
+            .back-button {
+                display: inline-block;
+            }
+        }
+        
+        /* 加载动画 */
+        .spinner {
+            margin: 20px auto;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* 错误提示 */
+        .error-message {
+            color: #d32f2f;
+            text-align: center;
+            padding: 20px;
+            background-color: #ffebee;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        /* 章节列表滚动条 */
+        .sidebar::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .sidebar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+        
+        .sidebar::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
         }
     </style>
 </head>
 <body>
     <div class="menu-icon" id="menu-icon">☰</div>
+    <div class="overlay" id="overlay"></div>
     <div class="container">
         <div class="sidebar" id="sidebar">
-            <h1>目录</h1>
-            <div class="loading" id="loading">加载中...</div>
+            <div class="sidebar-header">
+                <h1 class="sidebar-title">目录</h1>
+                <div class="close-sidebar" id="close-sidebar">×</div>
+            </div>
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>加载中...</p>
+            </div>
             <div id="posts-container"></div>
         </div>
         <div class="content" id="content">
+            <button class="back-button" id="back-button">← 返回目录</button>
             <h1 id="article-title"></h1>
             <div id="article-content"></div>
         </div>
     </div>
 
     <script>
-        document.getElementById('sidebar').classList.toggle('active');
-        const apiUrl = `https://tangmen8.haoyuexyj.top/wp-json/wp/v2/posts?per_page=100&orderby=date&order=desc&page=1&t=${new Date().getTime()}`;
-
-        fetch(apiUrl)
-            .then(response => response.json())
-            .then(posts => {
-                const postsContainer = document.getElementById('posts-container');
-                const loadingIndicator = document.getElementById('loading');
-
-                loadingIndicator.style.display = 'none';
-
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM元素
+            const sidebar = document.getElementById('sidebar');
+            const menuIcon = document.getElementById('menu-icon');
+            const closeSidebar = document.getElementById('close-sidebar');
+            const overlay = document.getElementById('overlay');
+            const backButton = document.getElementById('back-button');
+            const loadingIndicator = document.getElementById('loading');
+            const postsContainer = document.getElementById('posts-container');
+            const content = document.getElementById('content');
+            const articleTitle = document.getElementById('article-title');
+            const articleContent = document.getElementById('article-content');
+            
+            // 初始化状态
+            let posts = [];
+            let isMobile = window.innerWidth <= 768;
+            
+            // API URL
+            const apiUrl = `https://tangmen8.haoyuexyj.top/wp-json/wp/v2/posts?per_page=100&orderby=date&order=desc&page=1&t=${new Date().getTime()}`;
+            
+            // 加载文章列表
+            function loadPosts() {
+                fetch(apiUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('网络响应不正常');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        posts = data;
+                        renderPosts();
+                        loadingIndicator.style.display = 'none';
+                        
+                        // 如果有hash，加载对应文章
+                        if (window.location.hash) {
+                            const postId = window.location.hash.substring(1);
+                            if (postId) {
+                                loadArticle(postId);
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('获取文章列表失败:', error);
+                        loadingIndicator.innerHTML = '<div class="error-message">数据加载失败，请检查网络后刷新页面重试。</div>';
+                    });
+            }
+            
+            // 渲染文章列表
+            function renderPosts() {
+                postsContainer.innerHTML = '';
+                
+                if (posts.length === 0) {
+                    postsContainer.innerHTML = '<div class="error-message">暂无文章内容</div>';
+                    return;
+                }
+                
                 posts.forEach(post => {
                     const postElement = document.createElement('div');
                     postElement.classList.add('post');
-
+                    
                     const title = document.createElement('h2');
                     title.classList.add('post-title');
-
+                    
                     const link = document.createElement('a');
                     link.classList.add('post-link');
-                    link.href = '#';
+                    link.href = `#${post.id}`;
                     link.textContent = post.title.rendered;
-                    link.onclick = () => loadArticle(post.id);
-
+                    link.onclick = (e) => {
+                        e.preventDefault();
+                        loadArticle(post.id);
+                    };
+                    
                     const excerpt = document.createElement('p');
                     excerpt.classList.add('post-excerpt');
-                    excerpt.innerHTML = post.excerpt.rendered;
-
+                    excerpt.innerHTML = post.excerpt.rendered || '暂无简介';
+                    
                     title.appendChild(link);
                     postElement.appendChild(title);
                     postElement.appendChild(excerpt);
-
+                    
                     postsContainer.appendChild(postElement);
                 });
-            })
-            .catch(() => {
-                document.getElementById('loading').textContent = '数据加载失败，请重试。';
+            }
+            
+            // 加载文章内容
+            function loadArticle(postId) {
+                const articleUrl = `https://tangmen8.haoyuexyj.top/wp-json/wp/v2/posts/${postId}?t=${new Date().getTime()}`;
+                
+                // 显示加载状态
+                articleTitle.textContent = '加载中...';
+                articleContent.innerHTML = '<div class="spinner"></div>';
+                
+                fetch(articleUrl)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('文章加载失败');
+                        }
+                        return response.json();
+                    })
+                    .then(post => {
+                        // 更新URL hash
+                        window.location.hash = postId;
+                        
+                        // 显示文章内容
+                        articleTitle.textContent = post.title.rendered;
+                        articleContent.innerHTML = post.content.rendered;
+                        
+                        // 如果是移动设备，隐藏侧边栏
+                        if (isMobile) {
+                            sidebar.classList.remove('active');
+                            overlay.classList.remove('active');
+                        }
+                        
+                        // 滚动到顶部
+                        window.scrollTo(0, 0);
+                    })
+                    .catch(error => {
+                        console.error('获取文章内容失败:', error);
+                        articleTitle.textContent = '加载失败';
+                        articleContent.innerHTML = '<div class="error-message">文章内容加载失败，请稍后重试。</div>';
+                    });
+            }
+            
+            // 显示文章列表
+            function showPostList() {
+                articleTitle.textContent = '';
+                articleContent.innerHTML = '';
+                window.location.hash = '';
+                
+                if (isMobile) {
+                    sidebar.classList.add('active');
+                    overlay.classList.add('active');
+                }
+            }
+            
+            // 事件监听
+            menuIcon.addEventListener('click', () => {
+                sidebar.classList.add('active');
+                overlay.classList.add('active');
             });
-
-        function loadArticle(postId) {
-            const articleUrl = `https://tangmen8.haoyuexyj.top/wp-json/wp/v2/posts/${postId}?t=${new Date().getTime()}`;
-            fetch(articleUrl)
-                .then(response => response.json())
-                .then(post => {
-                    document.getElementById('content').style.display = 'block';
-                    document.getElementById('article-title').textContent = post.title.rendered;
-                    document.getElementById('article-content').innerHTML = post.content.rendered;
-                    if (window.innerWidth <= 768) {
-                        document.getElementById('sidebar').classList.remove('active');
+            
+            closeSidebar.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            overlay.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            backButton.addEventListener('click', showPostList);
+            
+            // 响应式处理
+            window.addEventListener('resize', () => {
+                isMobile = window.innerWidth <= 768;
+                
+                if (!isMobile) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                }
+            });
+            
+            // 监听hash变化
+            window.addEventListener('hashchange', () => {
+                if (!window.location.hash) {
+                    showPostList();
+                } else {
+                    const postId = window.location.hash.substring(1);
+                    if (postId && posts.some(post => post.id == postId)) {
+                        loadArticle(postId);
                     }
-                })
-                .catch(() => {
-                    console.error('获取文章内容失败');
-                });
-        }
-
-        function showPostList() {
-            document.getElementById('content').style.display = 'block';
-            document.getElementById('article-title').textContent = '';
-            document.getElementById('article-content').innerHTML = '';
-        }
-
-        document.getElementById('menu-icon').addEventListener('click', () => {
-            document.getElementById('sidebar').classList.toggle('active');
+                }
+            });
+            
+            // 初始加载
+            loadPosts();
         });
     </script>
 </body>
