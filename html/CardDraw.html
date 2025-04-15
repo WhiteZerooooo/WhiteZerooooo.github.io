@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>皮肤池模拟器 | 缇尔菈秘档</title>
+    <title>抽卡模拟器 | 缇尔菈秘档</title>
     <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/other/ico/storyview.ico">
     
     <!-- 引入外部CSS和字体 -->
@@ -247,7 +247,7 @@
             <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i class="bi bi-images"></i>缇尔菈展览馆</a></li>
             <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a></li>
             <li class="nav-item"><a href="../html/TwoDraw.html" class="nav-link"><i class="bi bi-heart-fill"></i>拉郎模拟器</a></li>
-            <li class="nav-item"><a href="../html/SkinDraw.html" class="nav-link"><i class="bi bi-hammer"></i>皮肤池模拟器</a></li>
+            <li class="nav-item"><a href="../html/CardDraw.html" class="nav-link"><i class="bi bi-hammer"></i>抽卡模拟器</a></li>
             <li class="nav-item"><a href="../html/TeamExcel.html" class="nav-link"><i class="bi bi-table"></i>飨灵组织表格</a></li>
             <li class="nav-item"><a href="https://wiki.biligame.com/szqy/首页" class="nav-link"><i class="bi bi-book"></i>食契WIKI</a></li>
             <li class="nav-item"><a href="../html/TeamMember.html" class="nav-link"><i class="bi bi-people-fill"></i>关于我们</a></li>
@@ -256,11 +256,12 @@
     
     <!-- 主要内容 -->
     <div class="main-container">
-        <h1 class="page-title">皮肤池模拟器</h1>
+        <h1 class="page-title">角色池模拟器</h1>
         
         <div class="btn-group">
             <button id="multi-one-btn" class="btn btn-primary"></i> 单抽</button>
             <button id="multi-ten-btn" class="btn btn-primary"></i> 十连</button>
+            <button id="change-btn" class="btn btn-primary"></i> 切换</button>
             <button id="multic-draw-btn" class="btn btn-secondary"><i class="bi bi-trash"></i> 清除记录</button>
         </div>
         
@@ -309,17 +310,33 @@
 
         document.getElementById('pair-result').style.display = "none";
 
-        const cards = []
+        let cards = []
+        let cards_main = []
+        let cards_skin = []
+        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/json/card.json')
+            .then(response => response.json())
+            .then(data => {
+                Object.values(data).forEach(item => {
+                    cards_main.push({
+                        "image": `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/card/card_draw_${item.id}.png`,
+                        "name": item.name
+                    });
+                });
+                console.log(cards_main);
+                cards = cards_main;
+            })
+            .catch(error => console.error('加载飨灵数据失败:', error));
+            
         fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/json/cardSkin.json')
             .then(response => response.json())
             .then(data => {
                 Object.values(data).forEach(item => {
-                    cards.push({
+                    cards_skin.push({
                         "name": item.name,
                         "image": `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.6/assets/cards/card/card_draw_${item.drawId}.png`
                     });
                 });
-                console.log(cards);
+                console.log(cards_skin);
             })
             .catch(error => console.error('加载飨灵数据失败:', error));
         
@@ -368,6 +385,18 @@
             // 保存到历史记录
             addToHistory(`抽到了 ${pairResultText}`);
         };
+
+        const changeCharacters = () => {
+            if (cards == cards_main) {
+                cards = cards_skin;
+                const title = document.getElementsByClassName('page-title')[0];
+                title.textContent = "皮肤池模拟器";
+            } else {
+                cards = cards_main;
+                const title = document.getElementsByClassName('page-title')[0];
+                title.textContent = "角色池模拟器";
+            }
+        }
         
         // 创建角色卡片
         function createCharacterCard(character) {
@@ -471,6 +500,7 @@
             // 绑定按钮事件
             document.getElementById('multi-one-btn').addEventListener('click', pairCharacters);
             document.getElementById('multi-ten-btn').addEventListener('click', pairTenCharacters);
+            document.getElementById('change-btn').addEventListener('click', changeCharacters);
             document.getElementById('multic-draw-btn').addEventListener('click', clearHistory);
             
             // 加载历史记录
