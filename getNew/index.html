@@ -225,8 +225,14 @@
         <h1 class="header-title">缇尔菈秘档</h1>
     </header>
 
-    <!-- 导航栏 -->
+    <!-- 导航栏 - 修改为响应式 -->
     <nav class="navbar">
+        <!-- 汉堡菜单按钮（移动端显示） -->
+        <button class="hamburger" id="hamburger">
+            <i class="bi bi-list"></i>
+        </button>
+        
+        <!-- 导航列表 -->
         <ul class="nav-list" id="navList">
             <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i class="bi bi-images"></i>缇尔菈展览馆</a></li>
             <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a></li>
@@ -328,6 +334,11 @@
     <script src="html2canvas.min.js"></script>
 
     <script>
+        // 汉堡菜单点击事件
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navList').classList.toggle('active');
+        });
+
         // 初始化复选框事件
         const checkbox = document.getElementById('myCheckbox');
         checkbox.addEventListener('change', function () {
