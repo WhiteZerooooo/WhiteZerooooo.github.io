@@ -178,17 +178,39 @@
 
         /* 响应式设计 */
         @media screen and (max-width: 768px) {
-            .header-title {
-                font-size: 1.8rem;
-            }
-
             .control-panel {
+                flex-direction: column;
+            }
+            
+            .control-group {
                 flex-direction: column;
                 align-items: flex-start;
             }
-
+            
             .select-control {
                 width: 100%;
+            }
+            
+            .screenshot-title {
+                font-size: 1.3rem;
+            }
+            
+            /* 更紧凑的表格 */
+            .data-table th, 
+            .data-table td {
+                padding: 0.3rem;
+                font-size: 0.8rem;
+            }
+            
+            /* 调整截图按钮位置 */
+            #capture-btn {
+                margin-top: 0.5rem;
+                order: 99; /* 移到最后 */
+            }
+            
+            /* 更小的复选框 */
+            .checkbox-group {
+                font-size: 0.9rem;
             }
         }
     </style>
