@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>拉郎模拟器 | 缇尔菈秘档</title>
-    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.7/assets/other/ico/storyview.ico">
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.8/assets/other/ico/storyview.ico">
     
     <!-- 引入外部CSS和字体 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="0HeadAndNav.css">
     
     <!-- 引入JS库 -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.7/build/jquery-3.1.0.min.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.7/build/pixi.min.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.7/build/live2dcubismcore.min.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.7/build/live2dcubismframework.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.7/build/live2dcubismpixi.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.7/build/l2d.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.7/build/main.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.8/build/jquery-3.1.0.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.8/build/pixi.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.8/build/live2dcubismcore.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.8/build/live2dcubismframework.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.8/build/live2dcubismpixi.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.8/build/l2d.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.8/build/main.js"></script>
     
     <style>
         :root {
@@ -230,7 +230,7 @@
     
     <!-- 页面头部 -->
     <header class="header">
-        <img class="header-image" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.7/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
+        <img class="header-image" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.8/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
         <h1 class="header-title">缇尔菈秘档</h1>
     </header>
     
@@ -283,7 +283,7 @@
             height: 400,
             right: '20px',
             bottom: '20px',
-            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.7/assets/other/Live2dView',
+            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.8/assets/other/Live2dView',
             role: 'l2d200132_11',
             background: '',
             opacity: 0,
@@ -308,12 +308,12 @@
         document.getElementById('pair-result').style.display = "none";
 
         const cards = []
-        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.7/assets/json/card.json')
+        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.8/assets/json/card.json')
             .then(response => response.json())
             .then(data => {
                 Object.values(data).forEach(item => {
                     cards.push({
-                        "image": `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.7/assets/cards/card/card_draw_${item.id}.png`,
+                        "image": `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.8/assets/cards/card/card_draw_${item.id}.png`,
                         "name": item.name
                     });
                 });
