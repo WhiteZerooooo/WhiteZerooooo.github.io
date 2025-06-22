@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>打地鼠小游戏</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#EC4899',
+                        neutral: '#F3F4F6',
+                        dark: '#1F2937'
+                    },
+                    fontFamily: {
+                        game: ['"Comic Sans MS"', '"Marker Felt"', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .game-shadow {
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+            }
+            .mole-hole {
+                position: relative;
+                overflow: hidden;
+                border-radius: 50%;
+                background-color: #8B4513;
+                box-shadow: inset 0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+            .mole-animal {
+                position: absolute;
+                bottom: -100%;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transition: bottom 0.3s ease-out;
+                cursor: pointer;
+            }
+            .mole-animal.active {
+                bottom: 0;
+            }
+            .mole-animal.hit {
+                transform: scale(0.8);
+                opacity: 0.7;
+            }
+            .game-button {
+                @apply px-4 py-2 rounded-lg font-bold transition-all duration-300;
+            }
+            .game-button:hover {
+                transform: translateY(-2px);
+            }
+            .game-button:active {
+                transform: translateY(1px);
+            }
+            .mobile-text {
+                @apply text-sm md:text-base;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-indigo-50 to-pink-50 min-h-screen font-game flex flex-col items-center justify-center p-3">
+    <div class="max-w-4xl w-full mx-auto bg-white rounded-2xl game-shadow p-4 md:p-8">
+        <header class="text-center mb-6">
+            <h1 class="text-[clamp(1.5rem,5vw,2.5rem)] font-bold text-primary mb-2">打地鼠游戏</h1>
+            <p class="text-gray-600 mobile-text">打到地鼠 +1 分，打到兔子 -1 分，时间：30秒</p>
+        </header>
+        
+        <div class="flex flex-col md:flex-row gap-4 mb-6">
+            <div class="flex-1 bg-neutral rounded-xl p-3 flex flex-col items-center justify-center">
+                <div class="flex items-center gap-3 mb-1">
+                    <span class="mobile-text font-bold text-dark">得分：</span>
+                    <span id="score" class="text-2xl md:text-3xl font-bold text-primary">0</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <span class="mobile-text font-bold text-dark">剩余时间：</span>
+                    <span id="time" class="text-2xl md:text-3xl font-bold text-secondary">30</span>
+                    <span class="mobile-text font-bold text-dark">秒</span>
+                </div>
+            </div>
+            
+            <div class="flex gap-3 justify-center">
+                <button id="startBtn" class="game-button bg-primary text-white mobile-text">
+                    <i class="fa fa-play mr-1"></i>开始游戏
+                </button>
+                <button id="resetBtn" class="game-button bg-gray-500 text-white mobile-text">
+                    <i class="fa fa-refresh mr-1"></i>重置
+                </button>
+            </div>
+        </div>
+        
+        <div id="gameBoard" class="grid grid-cols-3 gap-3 md:gap-5">
+            <!-- 游戏洞将通过JS生成 -->
+        </div>
+    </div>
+    
+    <footer class="mt-6 text-center text-gray-500 text-xs">
+        <p>© 2023 打地鼠游戏 | 一个有趣的休闲小游戏</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const gameBoard = document.getElementById('gameBoard');
+            const scoreDisplay = document.getElementById('score');
+            const timeDisplay = document.getElementById('time');
+            const startBtn = document.getElementById('startBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            
+            let score = 0;
+            let time = 30;
+            let gameInterval;
+            let moleInterval;
+            let isPlaying = false;
+            
+            // 创建游戏洞
+            for (let i = 0; i < 9; i++) {
+                const hole = document.createElement('div');
+                hole.className = 'mole-hole aspect-square';
+                hole.dataset.id = i;
+                
+                const animal = document.createElement('div');
+                animal.className = 'mole-animal flex items-center justify-center';
+                
+                hole.appendChild(animal);
+                gameBoard.appendChild(hole);
+                
+                // 添加点击事件
+                hole.addEventListener('click', () => {
+                    if (isPlaying && animal.classList.contains('active')) {
+                        animal.classList.add('hit');
+                        
+                        if (animal.dataset.type === 'mole') {
+                            score += 1;
+                        } else {
+                            score = Math.max(0, score - 1);
+                        }
+                        
+                        scoreDisplay.textContent = score;
+                        
+                        setTimeout(() => {
+                            animal.classList.remove('active', 'hit');
+                        }, 300);
+                    }
+                });
+            }
+            
+            // 开始游戏
+            startBtn.addEventListener('click', () => {
+                if (!isPlaying) {
+                    startGame();
+                }
+            });
+            
+            // 重置游戏
+            resetBtn.addEventListener('click', resetGame);
+            
+            // 开始游戏函数
+            function startGame() {
+                isPlaying = true;
+                score = 0;
+                time = 30;
+                scoreDisplay.textContent = score;
+                timeDisplay.textContent = time;
+                startBtn.disabled = true;
+                startBtn.classList.add('opacity-70', 'cursor-not-allowed');
+                
+                // 倒计时
+                gameInterval = setInterval(() => {
+                    time--;
+                    timeDisplay.textContent = time;
+                    
+                    if (time <= 0) {
+                        endGame();
+                    }
+                }, 1000);
+                
+                // 随机出现动物
+                showRandomAnimals();
+            }
+            
+            // 随机显示动物
+            function showRandomAnimals() {
+                const holes = document.querySelectorAll('.mole-hole');
+                const activeHoles = [];
+                
+                // 随机决定显示1-3只动物
+                const count = Math.floor(Math.random() * 3) + 1;
+                
+                // 随机选择洞
+                while (activeHoles.length < count && activeHoles.length < holes.length) {
+                    const randomIndex = Math.floor(Math.random() * holes.length);
+                    const hole = holes[randomIndex];
+                    
+                    if (!activeHoles.includes(hole) && !hole.querySelector('.mole-animal').classList.contains('active')) {
+                        activeHoles.push(hole);
+                    }
+                }
+                
+                // 显示动物
+                activeHoles.forEach(hole => {
+                    const animal = hole.querySelector('.mole-animal');
+                    
+                    // 随机决定是地鼠还是兔子
+                    const isMole = Math.random() > 0.5;
+                    animal.dataset.type = isMole ? 'mole' : 'rabbit';
+                    
+                    // 设置动物样式和图标
+                    if (isMole) {
+                        animal.innerHTML = '<i class="fa fa-paw text-3xl md:text-4xl text-dark"></i>';
+                        animal.classList.add('bg-green-300');
+                        animal.classList.remove('bg-red-300');
+                    } else {
+                        animal.innerHTML = '<i class="fa fa-rabbit-o text-3xl md:text-4xl text-dark"></i>';
+                        animal.classList.add('bg-red-300');
+                        animal.classList.remove('bg-green-300');
+                    }
+                    
+                    // 显示动物
+                    animal.classList.add('active');
+                    
+                    // 随机停留时间
+                    const hideTime = Math.floor(Math.random() * 1500) + 500;
+                    setTimeout(() => {
+                        if (isPlaying && animal.classList.contains('active')) {
+                            animal.classList.remove('active');
+                        }
+                    }, hideTime);
+                });
+                
+                // 继续随机显示
+                const nextShowTime = Math.floor(Math.random() * 1000) + 500;
+                moleInterval = setTimeout(showRandomAnimals, nextShowTime);
+            }
+            
+            // 结束游戏
+            function endGame() {
+                isPlaying = false;
+                clearInterval(gameInterval);
+                clearTimeout(moleInterval);
+                
+                // 隐藏所有动物
+                document.querySelectorAll('.mole-animal').forEach(animal => {
+                    animal.classList.remove('active', 'hit');
+                });
+                
+                startBtn.disabled = false;
+                startBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+                
+                // 显示结果
+                alert(`游戏结束！你的得分是：${score}`);
+            }
+            
+            // 重置游戏
+            function resetGame() {
+                isPlaying = false;
+                clearInterval(gameInterval);
+                clearTimeout(moleInterval);
+                
+                score = 0;
+                time = 30;
+                scoreDisplay.textContent = score;
+                timeDisplay.textContent = time;
+                
+                // 隐藏所有动物
+                document.querySelectorAll('.mole-animal').forEach(animal => {
+                    animal.classList.remove('active', 'hit');
+                });
+                
+                startBtn.disabled = false;
+                startBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+            }
+        });
+    </script>
+</body>
+</html>    
