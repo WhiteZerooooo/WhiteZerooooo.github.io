@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>立绘查看工具 | 缇尔菈秘档</title>
-    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.1/assets/other/ico/tools.ico">
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/other/ico/tools.ico">
     
     <!-- 引入外部CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -13,13 +13,13 @@
     <link rel="stylesheet" href="0HeadAndNav.css">
     
     <!-- 引入JS库 -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.1/build/jquery-3.1.0.min.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.1/build/pixi.min.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.1/build/live2dcubismcore.min.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.1/build/live2dcubismframework.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.1/build/live2dcubismpixi.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.1/build/l2d.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.1/build/main.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/build/jquery-3.1.0.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/build/pixi.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/build/live2dcubismcore.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/build/live2dcubismframework.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/build/live2dcubismpixi.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/build/l2d.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/build/main.js"></script>
     
     <style>
         /* 主要内容区域 */
@@ -383,7 +383,7 @@
     
     <!-- 页面头部 -->
     <header class="header">
-        <img class="header-image" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.1/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
+        <img class="header-image" src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/other/WebsiteTexture/head.jpg" alt="Header Image">
         <h1 class="header-title">缇尔菈秘档</h1>
     </header>
     
@@ -511,7 +511,7 @@
             height: 400,
             right: '20px',
             bottom: '20px',
-            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.1/assets/other/Live2dView',
+            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/other/Live2dView',
             role: 'l2d200132_11',
             background: '',
             opacity: 0,
@@ -537,6 +537,16 @@
         const characterData = {
             newCharacters: [
                 // SP飨灵
+                {
+                    name: "哈吉斯",
+                    type: "SP",
+                    colorClass: "sp",
+                    links: [
+                        { text: "初始", type: "SP" },
+                        { text: "满破", type: "SP满破" },
+                        { text: "Q版", type: "SP", viewer: "CardSpineViewer" }
+                    ]
+                },
                 // UR飨灵
                 {
                     name: "香薷饮",
@@ -549,7 +559,7 @@
                     ]
                 },
                 {
-                    name: "黑死酒",
+                    name: "紫苏甘露煮",
                     type: "UR",
                     colorClass: "ur",
                     links: [
@@ -570,7 +580,7 @@
                     ]
                 },
                 {
-                    name: "比特酒",
+                    name: "伊达卷",
                     type: "SR",
                     colorClass: "sr",
                     links: [
@@ -693,7 +703,7 @@
             ],
             upcomingCharacters: [
                 {
-                    name: "甘麦大枣汤 / 卡门培尔 / 伊达卷 / 恰巴塔 / 紫苏甘露煮 / 龙牡汤 / 甜烧白 / 伦教糕 / 吉拿棒",
+                    name: "甘麦大枣汤 / 卡门培尔 / 恰巴塔 / 龙牡汤 / 甜烧白 / 伦教糕 / 吉拿棒",
                     description: "剧情卫星",
                     type: 1
                 },
@@ -710,16 +720,6 @@
                 {
                     name: "恰巴塔",
                     description: "格瓦斯故事提及",
-                    type: 2
-                },
-                {
-                    name: "伊达卷",
-                    description: "春雨沙拉故事提及",
-                    type: 2
-                },
-                {
-                    name: "紫苏甘露煮",
-                    description: "星鳗寿司故事提及",
                     type: 2
                 },
                 {
