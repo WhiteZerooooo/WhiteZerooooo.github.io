@@ -40,14 +40,12 @@
     let canvas = document.getElementById('canvas');
     let context = canvas.getContext('2d');
 
-    // Load toggle state from localStorage
     const toggleCheckbox = document.getElementById('toggleLayers');
     const storedState = localStorage.getItem('showLayers');
     if (storedState !== null) {
         toggleCheckbox.checked = storedState === 'true';
     }
 
-    // Add event listener for toggle
     toggleCheckbox.addEventListener('change', function() {
         localStorage.setItem('showLayers', this.checked);
         renderCanvas(allImages, canvas, context);
@@ -132,6 +130,12 @@
     }
 
     document.getElementById('canvas').addEventListener('touchstart', () => {
+        const link = document.createElement('a');
+        link.download = 'image.png';
+        link.href = document.getElementById('canvas').toDataURL();
+        link.click();
+    });
+    document.getElementById('canvas').addEventListener('click', () => {
         const link = document.createElement('a');
         link.download = 'image.png';
         link.href = document.getElementById('canvas').toDataURL();
