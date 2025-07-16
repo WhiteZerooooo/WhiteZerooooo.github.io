@@ -810,11 +810,11 @@
                 character.links.forEach(link => {
                     let url = '';
                     if (link.viewer === 'FrameView') {
-                        url = `../html/${link.viewer}.html?name=${link.name}&name2=${link.name2}`;
+                        url = `../html/${link.viewer}.html?name=${link.name}&name2=${link.name2}&t=${new Date().getTime()}`;
                     } else if (link.id) {
-                        url = `../html/CardImage.html?name=&type=${link.type}&id=${link.id}`;
+                        url = `../html/CardImage.html?name=&type=${link.type}&id=${link.id}&t=${new Date().getTime()}`;
                     } else {
-                        url = `../html/${link.viewer || 'CardImage'}.html?name=${character.name}&type=${link.type}`;
+                        url = `../html/${link.viewer || 'CardImage'}.html?name=${character.name}&type=${link.type}&t=${new Date().getTime()}`;
                     }
                     
                     linksHtml += `<a href="#" class="character-link" 

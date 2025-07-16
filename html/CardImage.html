@@ -10,12 +10,23 @@
         body,
         html {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+        #controls {
+            margin: 10px;
+        }
+        #toggleLayers {
+            margin-right: 5px;
         }
     </style>
 </head>
 
 <body>
+    <div id="controls">
+        <input type="checkbox" id="toggleLayers" checked>
+        <label for="toggleLayers">显示背景/前景</label>
+    </div>
     <canvas id="canvas"></canvas>
 </body>
 
@@ -25,6 +36,22 @@
     let cardId = urlParams.get('id') || '200001';
     let cardType = urlParams.get('type') || '';
     let isProcessed = false;
+    let allImages = [];
+    let canvas = document.getElementById('canvas');
+    let context = canvas.getContext('2d');
+
+    // Load toggle state from localStorage
+    const toggleCheckbox = document.getElementById('toggleLayers');
+    const storedState = localStorage.getItem('showLayers');
+    if (storedState !== null) {
+        toggleCheckbox.checked = storedState === 'true';
+    }
+
+    // Add event listener for toggle
+    toggleCheckbox.addEventListener('change', function() {
+        localStorage.setItem('showLayers', this.checked);
+        renderCanvas(allImages, canvas, context);
+    });
 
     fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/json/card.json')
     .then(response => response.json())
@@ -59,7 +86,8 @@
             if (exists) validImages.push(url);
         }
 
-        drawImages(validImages);
+        allImages = await Promise.all(validImages.map(url => loadImage(url)));
+        renderCanvas(allImages, canvas, context);
     }
 
     async function checkFileExists(url) {
@@ -69,17 +97,6 @@
         } catch {
             return null;
         }
-    }
-
-    async function drawImages(imageSources) {
-        const canvas = document.getElementById('canvas');
-        const context = canvas.getContext('2d');
-        let images = [];
-        for (const src of imageSources) {
-            const img = await loadImage(src);
-            images.push(img);
-        }
-        renderCanvas(images, canvas, context);
     }
 
     function loadImage(url) {
@@ -95,12 +112,17 @@
     function renderCanvas(images, canvas, context) {
         if (images.length === 0) return;
 
-        const maxWidth = Math.max(...images.map(img => img.width));
-        const maxHeight = Math.max(...images.map(img => img.height));
+        const showLayers = document.getElementById('toggleLayers').checked;
+        const filteredImages = showLayers ? images : [images.find(img => img.src.includes('card_draw_') && !img.src.includes('card_draw_bg_') && !img.src.includes('card_draw_fg_'))].filter(Boolean);
+
+        const maxWidth = Math.max(...filteredImages.map(img => img.width));
+        const maxHeight = Math.max(...filteredImages.map(img => img.height));
         canvas.width = maxWidth;
         canvas.height = maxHeight;
 
-        for (const img of images) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        
+        for (const img of filteredImages) {
             const x = (maxWidth - img.width) / 2;
             const y = (maxHeight - img.height) / 2;
             context.drawImage(img, x, y);
