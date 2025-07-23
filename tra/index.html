@@ -1,6 +1,6 @@
 <html>
-<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/build/spine-webgl.js"></script>
-<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/build/jquery-3.1.0.min.js"></script>
+<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/build/spine-webgl.js"></script>
+<script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/build/jquery-3.1.0.min.js"></script>
 
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,7 @@ var cardname3 = urlParams.get('name3') || "not exist";;
 var cardid3 = urlParams.get('id3') || "not exist";;
 var cardname4 = urlParams.get('name4') || "not exist";;
 var cardid4 = urlParams.get('id4') || "not exist";;
-fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/json/card.json')
+fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/json/card.json')
     .then(response => response.json())
     .then(data => {
         Object.values(data).forEach(item => {
@@ -35,7 +35,7 @@ fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/ass
                 cardid1 = item.id;
             }
         });
-        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/json/cardSkin.json')
+        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/json/cardSkin.json')
             .then(response => response.json())
             .then(data => {
                 Object.values(data).forEach(item => {
@@ -92,16 +92,16 @@ function init() {
     shapes = new spine.webgl.ShapeRenderer(gl);
     assetManager = new spine.webgl.AssetManager(gl);
 
-    const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/${cardid1}.json`;
+    const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardid1}.json`;
     assetManager.loadText(textureap);
-    const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/${cardid1}.atlas`;
+    const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardid1}.atlas`;
     assetManager.loadText(texturejp);
     fetch(texturejp)
         .then(response => response.text())
         .then(text => {
             const occurrences = text.split(' ').filter(word => word.includes('png')).length;
             for (let i = 1; i <= occurrences; i++) {
-                const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/${cardid1}_p${i}.png`;
+                const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardid1}_p${i}.png`;
                 assetManager.loadTexture(texturePath);
             };
             if (cardid2 === "not exist") {
@@ -109,16 +109,16 @@ function init() {
             }
         });
     if (cardid2 !== "not exist") {
-        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/${cardid2}.json`;
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardid2}.json`;
         assetManager.loadText(textureap);
-        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/${cardid2}.atlas`;
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardid2}.atlas`;
         assetManager.loadText(texturejp);
         fetch(texturejp)
             .then(response => response.text())
             .then(text => {
                 const occurrences = text.split(' ').filter(word => word.includes('png')).length;
                 for (let i = 1; i <= occurrences; i++) {
-                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/${cardid2}_p${i}.png`;
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardid2}_p${i}.png`;
                     assetManager.loadTexture(texturePath);
                 };
                 if (cardid3 === "not exist") {
@@ -127,16 +127,16 @@ function init() {
             });
     };
     if (cardid3 !== "not exist") {
-        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/${cardid3}.json`;
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardid3}.json`;
         assetManager.loadText(textureap);
-        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/${cardid3}.atlas`;
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardid3}.atlas`;
         assetManager.loadText(texturejp);
         fetch(texturejp)
             .then(response => response.text())
             .then(text => {
                 const occurrences = text.split(' ').filter(word => word.includes('png')).length;
                 for (let i = 1; i <= occurrences; i++) {
-                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/${cardid3}_p${i}.png`;
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardid3}_p${i}.png`;
                     assetManager.loadTexture(texturePath);
                 };
                 if (cardid4 === "not exist") {
@@ -145,9 +145,9 @@ function init() {
             });
     };
     if (cardid4 !== "not exist") {
-        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/${cardid4}.json`;
+        const textureap = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardid4}.json`;
         assetManager.loadText(textureap);
-        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/${cardid4}.atlas`;
+        const texturejp = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardid4}.atlas`;
         assetManager.loadText(texturejp);
         fetch(texturejp)
             .then(response => response.text())
@@ -155,7 +155,7 @@ function init() {
                 const occurrences = text.split(' ').filter(word => word.includes('png')).length;
                 for (let i = 1; i <= occurrences; i++) {
                     // 构建纹理路径
-                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/${cardid4}_p${i}.png`;
+                    const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardid4}_p${i}.png`;
                     // 加载纹理
                     assetManager.loadTexture(texturePath);
                 };
@@ -203,9 +203,9 @@ function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin) 
     if (skin === undefined) skin = "default";
 
     if (isDraw === true) {
-        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/draw/";
+        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/draw/";
     } else {
-        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.3/assets/cards/spine/avatar/";
+        prefix = "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/";
     };
 
     atlas = new spine.TextureAtlas(assetManager.get(prefix + name + ".atlas"), function(path) {
