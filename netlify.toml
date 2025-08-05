@@ -1,5 +1,5 @@
 [[redirects]]
   from = "/api/*"
-  to = "http://110.41.178.31:3001/:splat"  # 将 /api/ 代理到你的后端
+  to = "http://124.221.217.248:3001/:splat"  # 将 /api/ 代理到你的后端
   status = 200
   force = true  # 强制 HTTPS
