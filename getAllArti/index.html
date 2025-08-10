@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食之契约神器</title>
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/ico/goods-icon-880877.ico">
+
+    <!-- 引入外部CSS和字体 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../html/0HeadAndNav.css">
+
+    <style>
+        /* 主要内容区域 */
+        .main-container {
+            max-width: 2000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* 控制面板样式 */
+        .control-panel {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .control-label {
+            font-weight: 500;
+        }
+
+        .select-control {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-width: 150px;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            background-color: #e05555;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* 截图容器样式 */
+        .screenshot-container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .screenshot-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* 表格样式 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1.5rem;
+        }
+
+        .data-table th {
+            background-color: #f4f4f4;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .data-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* 颜色样式 */
+        .color-蓝 {
+            background-color: #99BEFF;
+            color: #005eff;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .color-红 {
+            background-color: #FFE9E8;
+            color: #ff3b30;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .color-青 {
+            background-color: #99DDFF;
+            color: #00aaff;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .color-紫 {
+            background-color: #D58EFF;
+            color: #a200ff;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .color-绿 {
+            background-color: #EEFCDE;
+            color: #88ff00;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .color-黄 {
+            background-color: #FEFBC6;
+            color: #cdc300;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* 差异高亮样式 */
+        .diff-added {
+            background-color: #a8f1a8;
+        }
+
+        .diff-removed {
+            background-color: #f8d7da;
+            text-decoration: line-through;
+        }
+
+        .result-title {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* 响应式设计 */
+        @media screen and (max-width: 768px) {
+            .control-panel {
+                flex-direction: column;
+            }
+            
+            .control-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .select-control {
+                width: 100%;
+            }
+            
+            .screenshot-title {
+                font-size: 1.3rem;
+            }
+            
+            /* 更紧凑的表格 */
+            .data-table th, 
+            .data-table td {
+                padding: 0.3rem;
+                font-size: 0.8rem;
+            }
+            
+            /* 调整截图按钮位置 */
+            #capture-btn {
+                margin-top: 0.5rem;
+                order: 99; /* 移到最后 */
+            }
+            
+            /* 更小的复选框 */
+            .checkbox-group {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 页面头部 -->
+    <header class="header">
+        <img class="header-image"
+            src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.1.5/assets/other/WebsiteTexture/head.jpg"
+            alt="Header Image">
+        <h1 class="header-title">缇尔菈秘档</h1>
+    </header>
+
+    <!-- 导航栏 - 修改为响应式 -->
+    <nav class="navbar">
+        <!-- 汉堡菜单按钮（移动端显示） -->
+        <button class="hamburger" id="hamburger">
+            <i class="bi bi-list"></i>
+        </button>
+        
+        <!-- 导航列表 -->
+        <ul class="nav-list" id="navList">
+            <li class="nav-item"><a href="../html/StoryView.html" class="nav-link"><i class="bi bi-images"></i>缇尔菈展览馆</a></li>
+            <li class="nav-item"><a href="../html/Tools.html" class="nav-link"><i class="bi bi-tools"></i>立绘查看工具</a></li>
+            <li class="nav-item"><a href="../html/TwoDraw.html" class="nav-link"><i class="bi bi-heart-fill"></i>拉郎模拟器</a></li>
+            <li class="nav-item"><a href="../html/CardDraw.html" class="nav-link"><i class="bi bi-hammer"></i>抽卡模拟器</a></li>
+            <li class="nav-item"><a href="../html/TeamExcel.html" class="nav-link"><i class="bi bi-table"></i>飨灵组织表格</a></li>
+            <li class="nav-item"><a href="https://wiki.biligame.com/szqy/首页" class="nav-link"><i class="bi bi-book"></i>食契WIKI</a></li>
+            <li class="nav-item"><a href="../html/TeamMember.html" class="nav-link"><i class="bi bi-people-fill"></i>关于我们</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="main-container">
+        <!-- 控制面板 -->
+        <div class="control-panel">
+            <div class="control-group">
+                <label for="select_card" class="control-label">请选择飨灵</label>
+                <select id="select_card" class="select-control" onchange="handleSelectCard()"></select>
+            </div>
+
+            <button id="capture-btn" class="btn"><i class="bi bi-camera"></i>生成截图</button>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="myCheckbox" name="myCheckbox" value="1">
+                <label for="myCheckbox">关闭差异</label>
+            </div>
+        </div>
+
+        <!-- 截图容器 -->
+        <div id="test">
+            <div class="screenshot-container" id="screenshot-container">
+                <h1 class="screenshot-title" id="title"></h1>
+
+                <table class="data-table" id="panel-table">
+                    <thead>
+                        <tr>
+                            <th>职业</th>
+                            <th>攻击力</th>
+                            <th>攻速值</th>
+                            <th>防御力</th>
+                            <th>生命值</th>
+                            <th>暴击值</th>
+                            <th>暴伤值</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>基础技</th>
+                        </tr>
+                    </thead>
+                    <tbody id="base-skill-body"></tbody>
+                </table>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>能量技</th>
+                        </tr>
+                    </thead>
+                    <tbody id="energy-skill-body"></tbody>
+                </table>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>连携技</th>
+                        </tr>
+                    </thead>
+                    <tbody id="connect-skill-body"></tbody>
+                </table>
+
+                <table class="data-table" id="artifacts-table">
+                    <thead>
+                        <tr>
+                            <th>核心</th>
+                            <th>描述 (<span style='color:#FF0000'>1级 ■</span>|<span style='color:#FF7F00'>2级 ■</span>|<span style='color:#FFD700'>3级 ■</span>|<span style='color:#32CD32'>4级 ■</span>|<span style='color:#1E90FF'>5级 ■</span>|<span style='color:#9370DB'>6级 ■</span>|<span style='color:#FF1493'>7级 ■</span>|<span style='color:#00CED1'>8级 ■</span>|<span style='color:#FF6347'>9级 ■</span>|<span style='color:#8B4513'>10级 ■</span>)</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="diff.js"></script>
+    <script src="html2canvas.min.js"></script>
+
+    <script>
+        // 获取URL参数
+        function getUrlParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // 设置URL参数
+        function setUrlParam(name, value) {
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set(name, value);
+            window.history.replaceState({}, '', `${window.location.pathname}?${urlParams.toString()}`);
+        }
+
+        // 汉堡菜单点击事件
+        document.getElementById('hamburger').addEventListener('click', function() {
+            document.getElementById('navList').classList.toggle('active');
+        });
+
+        // 初始化复选框事件
+        const checkbox = document.getElementById('myCheckbox');
+        checkbox.addEventListener('change', function () {
+            updateDataDisplay();
+        });
+
+        // 截图按钮事件
+        document.getElementById('capture-btn').addEventListener('click', () => {
+            const element = document.getElementById('screenshot-container');
+            html2canvas(element, {
+                useCORS: true,
+                scale: 2,
+                backgroundColor: null
+            }).then(canvas => {
+                const resultContainer = document.getElementById('screenshot-result');
+                resultContainer.innerHTML = '';
+                resultContainer.appendChild(canvas);
+            }).catch(error => {
+                console.error('截图失败:', error);
+            });
+        });
+
+        // 初始化差异比较
+        var diffCH = new Diff.Diff();
+        diffCH.tokenize = function (v) {
+            return v.split(/([^\x00-\x7F×])|(<br>)/);
+        }
+
+        // 获取复选框状态
+        function checkBoxStatus() {
+            return document.getElementById('myCheckbox').checked;
+        }
+
+        // 生成差异高亮文本
+        function getDiff(oldText, newText) {
+            const_diff = diffCH.diff(oldText, newText);
+            let const_change = "";
+
+            const_diff.forEach(function (u) {
+                if (u.added) {
+                    const_change += `<span class="diff-added">${u.value}</span>`;
+                } else if (u.removed) {
+                    if (const_diff.length < 15) {
+                        const_change += `<span class="diff-removed">${u.value}</span>`;
+                    }
+                } else {
+                    if (const_diff.length > 1) {
+                        const_change += u.value;
+                    }
+                }
+            });
+
+            if (const_diff.length >= 15) {
+                const_change = `<span class="diff-removed">${oldText}</span><br><span class="diff-added">${newText}</span>`;
+            }
+
+            if (oldText == newText) {
+                const_change = newText;
+            }
+
+            return const_change.replaceAll("colorstyle", "color style");
+        }
+
+        // 更新表格数据
+        function updateTableData(oldData, newData) {
+            // 更新面板表格
+            function updatePanelTable(tableId, oldInfo, newInfo) {
+                const tableBody = document.querySelector(`${tableId} tbody`);
+                tableBody.innerHTML = `
+          <tr>
+            <td>${getDiff(oldInfo["career"], newInfo["career"])}</td>
+            <td>${getDiff(oldInfo["attack"], newInfo["attack"])}</td>
+            <td>${getDiff(oldInfo["attackRate"], newInfo["attackRate"])}</td>
+            <td>${getDiff(oldInfo["defence"], newInfo["defence"])}</td>
+            <td>${getDiff(oldInfo["hp"], newInfo["hp"])}</td>
+            <td>${getDiff(oldInfo["critRate"], newInfo["critRate"])}</td>
+            <td>${getDiff(oldInfo["critDamage"], newInfo["critDamage"])}</td>
+          </tr>
+        `;
+            }
+
+            // 更新技能表格
+            function updateSkillTable(tableId, oldSkills, newSkills) {
+                const tableBody = document.querySelector(tableId);
+                tableBody.innerHTML = `
+          <tr>
+            <td>${getDiff(oldSkills, newSkills)}</td>
+          </tr>
+        `;
+            }
+
+            // 更新神器表格
+            function updateArtifactTable(tableId, oldInfo, newInfo, colors) {
+                const tableBody = document.querySelector(`${tableId} tbody`);
+                tableBody.innerHTML = '';
+
+                Object.keys(newInfo).forEach((key) => {
+                    const colorKey = key.slice(-2, -1);
+                    const colorName = colors[colorKey] || '未知';
+                    tableBody.innerHTML += `
+                        <tr>
+                        <td class="color-${colorName}">${key}</td>
+                        <td>${getDiff(oldInfo[key], newInfo[key])}</td>
+                        </tr>
+                    `;
+                });
+            }
+
+            // 调用更新函数
+            updatePanelTable('#panel-table', oldData.Panel, newData.Panel);
+            updateSkillTable('#base-skill-body', oldData.BaseSkill, newData.BaseSkill);
+            updateSkillTable('#energy-skill-body', oldData.EnergySkill, newData.EnergySkill);
+            updateSkillTable('#connect-skill-body', oldData.ConnectSkill, newData.ConnectSkill);
+            updateArtifactTable('#artifacts-table', oldData.Artifacts.Info, newData.Artifacts.Info, newData.Artifacts.Color);
+        }
+
+        // 更新飨灵选择下拉框
+        function updateCardDropdown(data) {
+            const select_card = document.getElementById("select_card");
+            select_card.innerHTML = '';
+
+            const cardNames = Object.keys(data);
+            cardNames.forEach((key, index) => {
+                const option = document.createElement("option");
+                option.value = index;
+                option.text = key;
+                select_card.appendChild(option);
+            });
+
+            // 设置默认选中的飨灵
+            const urlCard = getUrlParam('Card');
+            if (urlCard && cardNames.includes(urlCard)) {
+                select_card.value = cardNames.indexOf(urlCard);
+            } else {
+                select_card.selectedIndex = 0;
+            }
+        }
+
+        // 获取最新版本号
+        function getLatestVersion(cardData) {
+            const versions = Object.keys(cardData);
+            return versions[versions.length - 1];
+        }
+
+        // 获取上一个版本号
+        function getPreviousVersion(cardData, currentVersion) {
+            const versions = Object.keys(cardData);
+            const currentIndex = versions.indexOf(currentVersion);
+            return currentIndex > 0 ? versions[currentIndex - 1] : currentVersion;
+        }
+
+        // 更新数据显示
+        function updateDataDisplay() {
+            const select_card = document.getElementById("select_card");
+            const selectedCard = select_card.options[parseInt(select_card.value)].text;
+            
+            if (!globalData[selectedCard]) return;
+
+            // 从URL获取版本或使用最新版本
+            let version = getUrlParam('version');
+            if (!version || !globalData[selectedCard][version]) {
+                version = getLatestVersion(globalData[selectedCard]);
+            }
+
+            // 计算上一个版本
+            let prevVersion = getPreviousVersion(globalData[selectedCard], version);
+            
+            // 如果关闭差异，则使用相同版本
+            if (checkBoxStatus()) {
+                prevVersion = version;
+            }
+
+            // 更新标题和表格
+            const name = globalData[selectedCard][prevVersion].Name;
+            const versionText = version === prevVersion ? version : `${prevVersion} → ${version}`;
+            // document.getElementById('title').textContent = `${name} ${versionText}`;
+            document.getElementById('title').textContent = `${name}`;
+
+            if (globalData[selectedCard][prevVersion] && globalData[selectedCard][version]) {
+                updateTableData(globalData[selectedCard][prevVersion], globalData[selectedCard][version]);
+            }
+            const element = document.getElementById('test');
+            element.classList.add('loaded');
+        }
+
+        // 处理飨灵选择变化
+        function handleSelectCard() {
+            const select_card = document.getElementById("select_card");
+            const selectedCard = select_card.options[parseInt(select_card.value)].text;
+            
+            // 更新URL参数
+            setUrlParam('Card', selectedCard);
+            
+            // 更新显示
+            updateDataDisplay();
+        }
+
+        // 加载JSON数据
+        let globalData;
+        fetch(`Card_Arti&Skill_Data_All.json?t=${new Date().getTime()}`)
+            .then(response => response.json())
+            .then(data => {
+                globalData = data;
+                updateCardDropdown(globalData);
+                updateDataDisplay();
+            })
+            .catch(error => console.error('加载JSON文件失败:', error));
+    </script>
+</body>
+
+</html>
