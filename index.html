@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FoodFantasy Q版动态展示</title>
-    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/other/ico/CardSpineViewer.ico">
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.5/assets/other/ico/CardSpineViewer.ico">
     <style>
         :root {
             --primary-color: #ff6b6b;
@@ -77,7 +77,7 @@
         }
         
         .canvas-container {
-            background-image: url('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/other/maps_bg_7_02.jpg');
+            background-image: url('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.5/assets/other/maps_bg_7_02.jpg');
             background-size: cover;
             border-radius: 10px;
             overflow: hidden;
@@ -251,8 +251,8 @@
             }
         }
     </style>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/build/spine-webgl.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/build/jquery-3.1.0.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.5/build/spine-webgl.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.5/build/jquery-3.1.0.min.js"></script>
 </head>
 
 <body>
@@ -345,7 +345,7 @@
         // mainCtn.style.display = "block";
         
         // 获取飨灵数据并初始化
-        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/json/card.json')
+        fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.5/assets/json/card.json')
             .then(response => response.json())
             .then(data => {
                 Object.values(data).forEach(item => {
@@ -354,7 +354,7 @@
                     }
                 });
                 
-                fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/json/cardSkin.json')
+                fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.5/assets/json/cardSkin.json')
                     .then(response => response.json())
                     .then(data => {
                         Object.values(data).forEach(item => {
@@ -469,8 +469,8 @@
 
         // 加载资源函数
         function loadResources(cardId, callback) {
-            const textureJson = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardId}.json`;
-            const textureAtlas = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardId}.atlas`;
+            const textureJson = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.5/assets/cards/spine/avatar/${cardId}.json`;
+            const textureAtlas = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.5/assets/cards/spine/avatar/${cardId}.atlas`;
             
             assetManager.loadText(textureJson);
             assetManager.loadText(textureAtlas);
@@ -481,7 +481,7 @@
                     const pngCount = text.split(' ').filter(word => word.includes('png')).length;
                     console.log(`找到 ${pngCount} 个PNG文件`);
                     for (let i = 1; i <= pngCount; i++) {
-                        const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/${cardId}_p${i}.png`;
+                        const texturePath = `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.5/assets/cards/spine/avatar/${cardId}_p${i}.png`;
                         assetManager.loadTexture(texturePath);
                     }
                     
@@ -509,8 +509,8 @@
         // 加载骨架函数
         function loadSkeleton(name, initialAnimation, premultipliedAlpha, isDraw, skin = "default") {
             const prefix = isDraw ? 
-                "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/draw/" : 
-                "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.4/assets/cards/spine/avatar/";
+                "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.5/assets/cards/spine/draw/" : 
+                "https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.2.5/assets/cards/spine/avatar/";
                 
                 const atlas = new spine.TextureAtlas(
                 assetManager.get(`${prefix}${name}.atlas`), 

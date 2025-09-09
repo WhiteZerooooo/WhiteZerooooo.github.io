@@ -2,6 +2,7 @@
     "小笼包": {
         "v0": {
             "Name": "小笼包",
+            "CardId": "200001",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -45,6 +46,7 @@
     "冰淇淋双球": {
         "v0": {
             "Name": "冰淇淋双球",
+            "CardId": "200002",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -88,6 +90,7 @@
     "蟹黄小笼包": {
         "v0": {
             "Name": "蟹黄小笼包",
+            "CardId": "200004",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -131,6 +134,7 @@
     "红茶": {
         "v0": {
             "Name": "红茶",
+            "CardId": "200012",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -174,6 +178,7 @@
     "冬荫功": {
         "v0": {
             "Name": "冬荫功",
+            "CardId": "200017",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -217,6 +222,7 @@
     "麻辣小龙虾": {
         "v0": {
             "Name": "麻辣小龙虾",
+            "CardId": "200020",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -260,6 +266,7 @@
     "法式鹅肝": {
         "v0": {
             "Name": "法式鹅肝",
+            "CardId": "200024",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -303,6 +310,7 @@
     "法式蜗牛": {
         "v0": {
             "Name": "法式蜗牛",
+            "CardId": "200025",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -343,9 +351,54 @@
             "ConnectSkill": "无"
         }
     },
+    "双黄莲蓉月饼": {
+        "v0": {
+            "Name": "双黄莲蓉月饼",
+            "CardId": "200028",
+            "Artifacts": {
+                "Color": {
+                    "1": "绿",
+                    "2": "紫",
+                    "3": "黄",
+                    "4": "绿",
+                    "5": "青"
+                },
+                "Info": {
+                    "双黄莲蓉月饼1A": "战斗中,增加攻击力<b>4%~20%</b>(<span style='color:#FF0000'>4%</span>|<span style='color:#FF7F00'>5.1%</span>|<span style='color:#FFD700'>6.3%</span>|<span style='color:#32CD32'>7.5%</span>|<span style='color:#1E90FF'>8.8%</span>|<span style='color:#9370DB'>10.2%</span>|<span style='color:#FF1493'>11.9%</span>|<span style='color:#00CED1'>14.1%</span>|<span style='color:#FF6347'>16.7%</span>|<span style='color:#8B4513'>20%</span>)",
+                    "双黄莲蓉月饼1B": "",
+                    "双黄莲蓉月饼1C": "",
+                    "双黄莲蓉月饼2A": "普通攻击伤害增加40%,普攻有40%概率施予最近两名敌方角色每秒攻击力<b>6%~30%</b>(<span style='color:#FF0000'>6%</span>|<span style='color:#FF7F00'>7%</span>|<span style='color:#FFD700'>9%</span>|<span style='color:#32CD32'>11%</span>|<span style='color:#1E90FF'>13%</span>|<span style='color:#9370DB'>15%</span>|<span style='color:#FF1493'>17%</span>|<span style='color:#00CED1'>21%</span>|<span style='color:#FF6347'>25%</span>|<span style='color:#8B4513'>30%</span>)的持续技能伤害,持续4秒,每10秒可发动一次",
+                    "双黄莲蓉月饼2B": "普通攻击伤害增加40%,普攻有40%概率施予最远两名敌方角色每秒攻击力<b>6%~30%</b>(<span style='color:#FF0000'>6%</span>|<span style='color:#FF7F00'>7%</span>|<span style='color:#FFD700'>9%</span>|<span style='color:#32CD32'>11%</span>|<span style='color:#1E90FF'>13%</span>|<span style='color:#9370DB'>15%</span>|<span style='color:#FF1493'>17%</span>|<span style='color:#00CED1'>21%</span>|<span style='color:#FF6347'>25%</span>|<span style='color:#8B4513'>30%</span>)的持续技能伤害,持续4秒,每10秒可发动一次",
+                    "双黄莲蓉月饼2C": "普通攻击伤害增加40%,普攻有40%概率施予最近一名敌方角色每秒攻击力<b>10%~50%</b>(<span style='color:#FF0000'>10%</span>|<span style='color:#FF7F00'>12%</span>|<span style='color:#FFD700'>15%</span>|<span style='color:#32CD32'>18%</span>|<span style='color:#1E90FF'>22%</span>|<span style='color:#9370DB'>25%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>35%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的持续技能伤害,持续4秒,每10秒可发动一次",
+                    "双黄莲蓉月饼3A": "自身普通攻击有50%概率会另对最近一名敌方造成攻击力<b>12%~60%</b>(<span style='color:#FF0000'>12%</span>|<span style='color:#FF7F00'>15%</span>|<span style='color:#FFD700'>19%</span>|<span style='color:#32CD32'>22%</span>|<span style='color:#1E90FF'>26%</span>|<span style='color:#9370DB'>30%</span>|<span style='color:#FF1493'>35%</span>|<span style='color:#00CED1'>42%</span>|<span style='color:#FF6347'>50%</span>|<span style='color:#8B4513'>60%</span>)的技能伤害",
+                    "双黄莲蓉月饼3B": "普通攻击有50%概率会另对最近一名敌方造成攻击力<b>6%~30%</b>(<span style='color:#FF0000'>6%</span>|<span style='color:#FF7F00'>7%</span>|<span style='color:#FFD700'>9%</span>|<span style='color:#32CD32'>11%</span>|<span style='color:#1E90FF'>13%</span>|<span style='color:#9370DB'>15%</span>|<span style='color:#FF1493'>17%</span>|<span style='color:#00CED1'>21%</span>|<span style='color:#FF6347'>25%</span>|<span style='color:#8B4513'>30%</span>)的技能伤害,另有50%概率施予其2秒眩晕",
+                    "双黄莲蓉月饼3C": "普通攻击会另对最近一名敌方造成攻击力<b>1%~10%</b>(<span style='color:#FF0000'>1%</span>|<span style='color:#FF7F00'>2%</span>|<span style='color:#FFD700'>3%</span>|<span style='color:#32CD32'>4%</span>|<span style='color:#1E90FF'>5%</span>|<span style='color:#9370DB'>6%</span>|<span style='color:#FF1493'>7%</span>|<span style='color:#00CED1'>8%</span>|<span style='color:#FF6347'>9%</span>|<span style='color:#8B4513'>10%</span>)的技能伤害,如果受到此伤害的角色生命值低于40%,则造成攻击力<b>10%~50%</b>(<span style='color:#FF0000'>10%</span>|<span style='color:#FF7F00'>12%</span>|<span style='color:#FFD700'>15%</span>|<span style='color:#32CD32'>18%</span>|<span style='color:#1E90FF'>22%</span>|<span style='color:#9370DB'>25%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>35%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的二次伤害",
+                    "双黄莲蓉月饼4A": "获得进攻光环,自身和最近一名友方角色普通攻击或释放技能后额外对最近一名敌方角色造成攻击力<b>24%~120%</b>(<span style='color:#FF0000'>24%</span>|<span style='color:#FF7F00'>30%</span>|<span style='color:#FFD700'>38%</span>|<span style='color:#32CD32'>45%</span>|<span style='color:#1E90FF'>53%</span>|<span style='color:#9370DB'>61%</span>|<span style='color:#FF1493'>71%</span>|<span style='color:#00CED1'>84%</span>|<span style='color:#FF6347'>100%</span>|<span style='color:#8B4513'>120%</span>)的技能伤害,各自每10秒可发动一次",
+                    "双黄莲蓉月饼4B": "获得进攻光环,自身和最近一名友方角色普通攻击或释放技能后额外对最远一名敌方角色造成攻击力<b>24%~120%</b>(<span style='color:#FF0000'>24%</span>|<span style='color:#FF7F00'>30%</span>|<span style='color:#FFD700'>38%</span>|<span style='color:#32CD32'>45%</span>|<span style='color:#1E90FF'>53%</span>|<span style='color:#9370DB'>61%</span>|<span style='color:#FF1493'>71%</span>|<span style='color:#00CED1'>84%</span>|<span style='color:#FF6347'>100%</span>|<span style='color:#8B4513'>120%</span>)的技能伤害,各自每10秒可发动一次",
+                    "双黄莲蓉月饼4C": "获得进攻光环,自身和最近一名友方角色普通攻击或释放技能后额外对所有敌方角色造成攻击力<b>12%~60%</b>(<span style='color:#FF0000'>12%</span>|<span style='color:#FF7F00'>15%</span>|<span style='color:#FFD700'>19%</span>|<span style='color:#32CD32'>22%</span>|<span style='color:#1E90FF'>26%</span>|<span style='color:#9370DB'>30%</span>|<span style='color:#FF1493'>35%</span>|<span style='color:#00CED1'>42%</span>|<span style='color:#FF6347'>50%</span>|<span style='color:#8B4513'>60%</span>)的技能伤害,各自每10秒可发动一次",
+                    "双黄莲蓉月饼5A": "基础技增加效果,对最近一名敌方角色造成攻击力<b>24%~120%</b>(<span style='color:#FF0000'>24%</span>|<span style='color:#FF7F00'>30%</span>|<span style='color:#FFD700'>38%</span>|<span style='color:#32CD32'>45%</span>|<span style='color:#1E90FF'>53%</span>|<span style='color:#9370DB'>61%</span>|<span style='color:#FF1493'>71%</span>|<span style='color:#00CED1'>84%</span>|<span style='color:#FF6347'>100%</span>|<span style='color:#8B4513'>120%</span>)的技能伤害",
+                    "双黄莲蓉月饼5B": "基础技增加效果,对最近两名敌方角色造成攻击力<b>10%~50%</b>(<span style='color:#FF0000'>10%</span>|<span style='color:#FF7F00'>12%</span>|<span style='color:#FFD700'>15%</span>|<span style='color:#32CD32'>18%</span>|<span style='color:#1E90FF'>22%</span>|<span style='color:#9370DB'>25%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>35%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的技能伤害",
+                    "双黄莲蓉月饼5C": "基础技增加效果,对最近一名敌方角色造成攻击力<b>6%~30%</b>(<span style='color:#FF0000'>6%</span>|<span style='color:#FF7F00'>7%</span>|<span style='color:#FFD700'>9%</span>|<span style='color:#32CD32'>11%</span>|<span style='color:#1E90FF'>13%</span>|<span style='color:#9370DB'>15%</span>|<span style='color:#FF1493'>17%</span>|<span style='color:#00CED1'>21%</span>|<span style='color:#FF6347'>25%</span>|<span style='color:#8B4513'>30%</span>)的技能伤害,如果受到此伤害的角色生命值低于40%,则造成攻击力<b>30%~150%</b>(<span style='color:#FF0000'>30%</span>|<span style='color:#FF7F00'>38%</span>|<span style='color:#FFD700'>47%</span>|<span style='color:#32CD32'>56%</span>|<span style='color:#1E90FF'>66%</span>|<span style='color:#9370DB'>76%</span>|<span style='color:#FF1493'>89%</span>|<span style='color:#00CED1'>106%</span>|<span style='color:#FF6347'>125%</span>|<span style='color:#8B4513'>150%</span>)的二次伤害"
+                }
+            },
+            "Panel": {
+                "career": "力量系",
+                "attack": "28 / 615",
+                "defence": "20 / 388",
+                "hp": "399 / 6352",
+                "critRate": "618 / 2563",
+                "critDamage": "541 / 2261",
+                "attackRate": "1742 / 6672"
+            },
+            "BaseSkill": "月色洗礼：双黄莲蓉月饼掷下月轮，对随机一名敌方每秒造成25-395点伤害，持续3秒，同时，驱散随机一名敌方所有增益状态。",
+            "EnergySkill": "月饼飞轮：双黄莲蓉月饼对敌方全体造成自身攻击力40%-80%的伤害并附带180-2844点伤害。当目标生命值小于等于10%-20%时，触发斩杀效果，目标直接死亡。",
+            "ConnectSkill": "超级月饼飞轮：双黄莲蓉月饼对敌方全体造成自身攻击力60%-120%的伤害并附带234-3697点伤害。当目标生命值小于等于15%-30%时，触发斩杀效果，目标直接死亡。"
+        }
+    },
     "伏特加": {
         "v0": {
             "Name": "伏特加",
+            "CardId": "200036",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -389,6 +442,7 @@
     "北京烤鸭": {
         "v0": {
             "Name": "北京烤鸭",
+            "CardId": "200037",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -432,6 +486,7 @@
     "汤圆": {
         "v0": {
             "Name": "汤圆",
+            "CardId": "200040",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -475,6 +530,7 @@
     "秋刀鱼": {
         "v0": {
             "Name": "秋刀鱼",
+            "CardId": "200041",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -518,6 +574,7 @@
     "布朗尼": {
         "v0": {
             "Name": "布朗尼",
+            "CardId": "200043",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -561,6 +618,7 @@
     "龟苓膏": {
         "v0": {
             "Name": "龟苓膏",
+            "CardId": "200045",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -604,6 +662,7 @@
     "竹筒饭": {
         "v0": {
             "Name": "竹筒饭",
+            "CardId": "200046",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -647,6 +706,7 @@
     "河豚白子": {
         "v0": {
             "Name": "河豚白子",
+            "CardId": "200047",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -690,6 +750,7 @@
     "B-52鸡尾酒": {
         "v0": {
             "Name": "B-52鸡尾酒",
+            "CardId": "200048",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -733,6 +794,7 @@
     "鱼子酱": {
         "v0": {
             "Name": "鱼子酱",
+            "CardId": "200057",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -776,6 +838,7 @@
     "红酒": {
         "v0": {
             "Name": "红酒",
+            "CardId": "200058",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -819,6 +882,7 @@
     "味噌汤": {
         "v0": {
             "Name": "味噌汤",
+            "CardId": "200065",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -862,6 +926,7 @@
     "甜豆花": {
         "v0": {
             "Name": "甜豆花",
+            "CardId": "200067",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -905,6 +970,7 @@
     "庐山云雾": {
         "v0": {
             "Name": "庐山云雾",
+            "CardId": "200071",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -948,6 +1014,7 @@
     "水信玄饼": {
         "v0": {
             "Name": "水信玄饼",
+            "CardId": "200073",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -991,6 +1058,7 @@
     "姜饼": {
         "v0": {
             "Name": "姜饼",
+            "CardId": "200079",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -1034,6 +1102,7 @@
     "饺子": {
         "v0": {
             "Name": "饺子",
+            "CardId": "200081",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -1077,6 +1146,7 @@
     "屠苏酒": {
         "v0": {
             "Name": "屠苏酒",
+            "CardId": "200082",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -1120,6 +1190,7 @@
     "川味火锅": {
         "v0": {
             "Name": "川味火锅",
+            "CardId": "200085",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -1163,6 +1234,7 @@
     "罗宋汤": {
         "v0": {
             "Name": "罗宋汤",
+            "CardId": "200089",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -1206,6 +1278,7 @@
     "生蚝": {
         "v0": {
             "Name": "生蚝",
+            "CardId": "200090",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -1249,6 +1322,7 @@
     "披萨": {
         "v0": {
             "Name": "披萨",
+            "CardId": "200091",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -1289,9 +1363,54 @@
             "ConnectSkill": "星刻月镰：披萨发起攻击，对敌方所有单位造成自身攻击力60%-120%的伤害,并附加420-5460点伤害，同时每秒造成36-468点伤害，持续5秒，并使敌方全体无法受到治疗，持续5秒。"
         }
     },
+    "宫保鸡丁": {
+        "v0": {
+            "Name": "宫保鸡丁",
+            "CardId": "200096",
+            "Artifacts": {
+                "Color": {
+                    "1": "黄",
+                    "2": "红",
+                    "3": "青",
+                    "4": "紫",
+                    "5": "黄"
+                },
+                "Info": {
+                    "宫保鸡丁1A": "普通攻击伤害提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>)。",
+                    "宫保鸡丁1B": "攻击速度提高<b>7%~40%</b>(<span style='color:#FF0000'>7%</span>|<span style='color:#FF7F00'>9.2%</span>|<span style='color:#FFD700'>11.7%</span>|<span style='color:#32CD32'>14.2%</span>|<span style='color:#1E90FF'>16.9%</span>|<span style='color:#9370DB'>19.8%</span>|<span style='color:#FF1493'>23.4%</span>|<span style='color:#00CED1'>27.8%</span>|<span style='color:#FF6347'>33.2%</span>|<span style='color:#8B4513'>40%</span>)。",
+                    "宫保鸡丁1C": "攻击力提高<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>)。",
+                    "宫保鸡丁2A": "普通攻击有40%的几率对最近一名敌方额外附加自身攻击力<b>26%~150%</b>(<span style='color:#FF0000'>26%</span>|<span style='color:#FF7F00'>34%</span>|<span style='color:#FFD700'>44%</span>|<span style='color:#32CD32'>53%</span>|<span style='color:#1E90FF'>63%</span>|<span style='color:#9370DB'>74%</span>|<span style='color:#FF1493'>87%</span>|<span style='color:#00CED1'>104%</span>|<span style='color:#FF6347'>124%</span>|<span style='color:#8B4513'>150%</span>)的伤害。",
+                    "宫保鸡丁2B": "普通攻击有40%的几率对全体敌方额外附加自身攻击力<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18%</span>|<span style='color:#FFD700'>23%</span>|<span style='color:#32CD32'>28%</span>|<span style='color:#1E90FF'>33%</span>|<span style='color:#9370DB'>39%</span>|<span style='color:#FF1493'>46%</span>|<span style='color:#00CED1'>55%</span>|<span style='color:#FF6347'>66%</span>|<span style='color:#8B4513'>80%</span>)的伤害。",
+                    "宫保鸡丁2C": "普通攻击有40%的几率对攻击力最高的敌方额外附加自身攻击力<b>21%~120%</b>(<span style='color:#FF0000'>21%</span>|<span style='color:#FF7F00'>27%</span>|<span style='color:#FFD700'>35%</span>|<span style='color:#32CD32'>42%</span>|<span style='color:#1E90FF'>50%</span>|<span style='color:#9370DB'>59%</span>|<span style='color:#FF1493'>70%</span>|<span style='color:#00CED1'>83%</span>|<span style='color:#FF6347'>99%</span>|<span style='color:#8B4513'>120%</span>)的伤害。",
+                    "宫保鸡丁3A": "每15秒释放一个额外基础技,提高自身<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>)攻击力并沉默自身,持续4秒。",
+                    "宫保鸡丁3B": "每15秒释放一个额外基础技,在4秒内提高自身<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>)攻击力并对最近的敌方造成自身攻击力<b>52%~300%</b>(<span style='color:#FF0000'>52%</span>|<span style='color:#FF7F00'>69%</span>|<span style='color:#FFD700'>88%</span>|<span style='color:#32CD32'>106%</span>|<span style='color:#1E90FF'>126%</span>|<span style='color:#9370DB'>148%</span>|<span style='color:#FF1493'>175%</span>|<span style='color:#00CED1'>209%</span>|<span style='color:#FF6347'>249%</span>|<span style='color:#8B4513'>300%</span>)的伤害。",
+                    "宫保鸡丁3C": "每15秒释放一个额外基础技,在4秒内提高自身<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>)攻击力并对全体敌方造成自身攻击力<b>26%~150%</b>(<span style='color:#FF0000'>26%</span>|<span style='color:#FF7F00'>34%</span>|<span style='color:#FFD700'>44%</span>|<span style='color:#32CD32'>53%</span>|<span style='color:#1E90FF'>63%</span>|<span style='color:#9370DB'>74%</span>|<span style='color:#FF1493'>87%</span>|<span style='color:#00CED1'>104%</span>|<span style='color:#FF6347'>124%</span>|<span style='color:#8B4513'>150%</span>)的伤害。",
+                    "宫保鸡丁4A": "暴击时有30%的几率使全体友方攻击力提高<b>7%~40%</b>(<span style='color:#FF0000'>7%</span>|<span style='color:#FF7F00'>9.2%</span>|<span style='color:#FFD700'>11.7%</span>|<span style='color:#32CD32'>14.2%</span>|<span style='color:#1E90FF'>16.9%</span>|<span style='color:#9370DB'>19.8%</span>|<span style='color:#FF1493'>23.4%</span>|<span style='color:#00CED1'>27.8%</span>|<span style='color:#FF6347'>33.2%</span>|<span style='color:#8B4513'>40%</span>),持续2秒。",
+                    "宫保鸡丁4B": "暴击时有30%的几率减少全体敌方<b>1~15</b>(<span style='color:#FF0000'>1</span>|<span style='color:#FF7F00'>3</span>|<span style='color:#FFD700'>4</span>|<span style='color:#32CD32'>6</span>|<span style='color:#1E90FF'>7</span>|<span style='color:#9370DB'>9</span>|<span style='color:#FF1493'>10</span>|<span style='color:#00CED1'>12</span>|<span style='color:#FF6347'>13</span>|<span style='color:#8B4513'>15</span>)点能量。（该效果有4秒的冷却时间）",
+                    "宫保鸡丁4C": "暴击时有30%的几率驱散随机<b>三~全体</b>(<span style='color:#FF0000'>三</span>|<span style='color:#FF7F00'>三</span>|<span style='color:#FFD700'>四</span>|<span style='color:#32CD32'>四</span>|<span style='color:#1E90FF'>四</span>|<span style='color:#9370DB'>四</span>|<span style='color:#FF1493'>全体</span>|<span style='color:#00CED1'>全体</span>|<span style='color:#FF6347'>全体</span>|<span style='color:#8B4513'>全体</span>)名友方的减益状态，并有30%的几率驱散随机<b>一~三</b>(<span style='color:#FF0000'>一</span>|<span style='color:#FF7F00'>一</span>|<span style='color:#FFD700'>一</span>|<span style='color:#32CD32'>一</span>|<span style='color:#1E90FF'>两</span>|<span style='color:#9370DB'>两</span>|<span style='color:#FF1493'>两</span>|<span style='color:#00CED1'>两</span>|<span style='color:#FF6347'>三</span>|<span style='color:#8B4513'>三</span>)名敌方的增益状态。（该效果分别有<b>15~6</b>(<span style='color:#FF0000'>15</span>|<span style='color:#FF7F00'>14</span>|<span style='color:#FFD700'>13</span>|<span style='color:#32CD32'>12</span>|<span style='color:#1E90FF'>11</span>|<span style='color:#9370DB'>10</span>|<span style='color:#FF1493'>9</span>|<span style='color:#00CED1'>8</span>|<span style='color:#FF6347'>7</span>|<span style='color:#8B4513'>6</span>)秒的冷却时间）",
+                    "宫保鸡丁5A": "自身免疫魅惑和眩晕,释放基础技后有50%的几率自身下<b>3~6</b>(<span style='color:#FF0000'>3</span>|<span style='color:#FF7F00'>3</span>|<span style='color:#FFD700'>3</span>|<span style='color:#32CD32'>4</span>|<span style='color:#1E90FF'>4</span>|<span style='color:#9370DB'>4</span>|<span style='color:#FF1493'>5</span>|<span style='color:#00CED1'>5</span>|<span style='color:#FF6347'>6</span>|<span style='color:#8B4513'>6</span>)次普通攻击必定暴击并有50%的几率使自身下3次普通攻击附加<b>528~3000</b>(<span style='color:#FF0000'>528</span>|<span style='color:#FF7F00'>696</span>|<span style='color:#FFD700'>881</span>|<span style='color:#32CD32'>1066</span>|<span style='color:#1E90FF'>1268</span>|<span style='color:#9370DB'>1486</span>|<span style='color:#FF1493'>1755</span>|<span style='color:#00CED1'>2091</span>|<span style='color:#FF6347'>2495</span>|<span style='color:#8B4513'>3000</span>)点伤害。",
+                    "宫保鸡丁5B": "自身免疫魅惑和眩晕,释放基础技后有50%的几率在三秒内每秒降低全体敌方<b>2~15</b>(<span style='color:#FF0000'>2</span>|<span style='color:#FF7F00'>3</span>|<span style='color:#FFD700'>4</span>|<span style='color:#32CD32'>6</span>|<span style='color:#1E90FF'>7</span>|<span style='color:#9370DB'>8</span>|<span style='color:#FF1493'>9</span>|<span style='color:#00CED1'>10</span>|<span style='color:#FF6347'>12</span>|<span style='color:#8B4513'>15</span>)点能量并有50%的几率使其免疫治疗。",
+                    "宫保鸡丁5C": "自身免疫魅惑和眩晕,释放基础技后有50%的几率对全体敌方额外造成自身攻击力<b>31%~180%</b>(<span style='color:#FF0000'>31%</span>|<span style='color:#FF7F00'>41%</span>|<span style='color:#FFD700'>52%</span>|<span style='color:#32CD32'>63%</span>|<span style='color:#1E90FF'>76%</span>|<span style='color:#9370DB'>89%</span>|<span style='color:#FF1493'>105%</span>|<span style='color:#00CED1'>125%</span>|<span style='color:#FF6347'>149%</span>|<span style='color:#8B4513'>180%</span>)的伤害并有50%的几率使其攻击力降低<b>7%~40%</b>(<span style='color:#FF0000'>7%</span>|<span style='color:#FF7F00'>9.2%</span>|<span style='color:#FFD700'>11.7%</span>|<span style='color:#32CD32'>14.2%</span>|<span style='color:#1E90FF'>16.9%</span>|<span style='color:#9370DB'>19.8%</span>|<span style='color:#FF1493'>23.4%</span>|<span style='color:#00CED1'>27.8%</span>|<span style='color:#FF6347'>33.2%</span>|<span style='color:#8B4513'>40%</span>),持续3秒。"
+                }
+            },
+            "Panel": {
+                "career": "魔法系",
+                "attack": "134 / 4295",
+                "defence": "21 / 490",
+                "hp": "622 / 11675",
+                "critRate": "1526 / 7447",
+                "critDamage": "1924 / 9500",
+                "attackRate": "1185 / 4985"
+            },
+            "BaseSkill": "锋芒势张：宫保鸡丁以枪震地，提高自身25%-45%攻击力和25%-45%攻击速度，持续5秒，并降低自身20点能量。",
+            "EnergySkill": "破空之枪：宫保鸡丁瞄准敌方进行连突，对最远敌方单位造成自身攻击力100%-180%的伤害，并附加452-5876点伤害，同时使自身下5次普通攻击必定暴击。",
+            "ConnectSkill": "超级破空之枪：宫保鸡丁瞄准敌方进行连突，对最远敌方单位造成自身攻击力120%-220%的伤害，并附加542-7046点伤害，同时使自身下7次普通攻击必定暴击。"
+        }
+    },
     "朗姆酒": {
         "v0": {
             "Name": "朗姆酒",
+            "CardId": "200099",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -1335,6 +1454,7 @@
     "苹果派": {
         "v0": {
             "Name": "苹果派",
+            "CardId": "200104",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -1378,6 +1498,7 @@
     "酥油茶": {
         "v0": {
             "Name": "酥油茶",
+            "CardId": "200107",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -1421,6 +1542,7 @@
     "欧培拉": {
         "v0": {
             "Name": "欧培拉",
+            "CardId": "200108",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -1464,6 +1586,7 @@
     "榴莲班戟": {
         "v0": {
             "Name": "榴莲班戟",
+            "CardId": "200109",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -1507,6 +1630,7 @@
     "梳芙厘": {
         "v0": {
             "Name": "梳芙厘",
+            "CardId": "200110",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -1550,6 +1674,7 @@
     "龙须酥": {
         "v0": {
             "Name": "龙须酥",
+            "CardId": "200111",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -1593,6 +1718,7 @@
     "黄山毛峰": {
         "v0": {
             "Name": "黄山毛峰",
+            "CardId": "200113",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -1636,6 +1762,7 @@
     "流水素面": {
         "v0": {
             "Name": "流水素面",
+            "CardId": "200114",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -1679,6 +1806,7 @@
     "纳豆": {
         "v0": {
             "Name": "纳豆",
+            "CardId": "200115",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -1722,6 +1850,7 @@
     "石锅拌饭": {
         "v0": {
             "Name": "石锅拌饭",
+            "CardId": "200116",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -1765,6 +1894,7 @@
     "芭菲": {
         "v0": {
             "Name": "芭菲",
+            "CardId": "200119",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -1808,6 +1938,7 @@
     "卡布奇诺": {
         "v0": {
             "Name": "卡布奇诺",
+            "CardId": "200120",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -1851,6 +1982,7 @@
     "威士忌": {
         "v0": {
             "Name": "威士忌",
+            "CardId": "200122",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -1894,6 +2026,7 @@
     "菠萝油": {
         "v0": {
             "Name": "菠萝油",
+            "CardId": "200124",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -1937,6 +2070,7 @@
     "甜甜圈": {
         "v0": {
             "Name": "甜甜圈",
+            "CardId": "200127",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -1980,6 +2114,7 @@
     "松鼠桂鱼": {
         "v0": {
             "Name": "松鼠桂鱼",
+            "CardId": "200128",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -2023,6 +2158,7 @@
     "蛋奶酒": {
         "v0": {
             "Name": "蛋奶酒",
+            "CardId": "200129",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -2066,6 +2202,7 @@
     "普雷结": {
         "v0": {
             "Name": "普雷结",
+            "CardId": "200130",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -2109,6 +2246,7 @@
     "冰糖燕窝": {
         "v0": {
             "Name": "冰糖燕窝",
+            "CardId": "200131",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -2152,6 +2290,7 @@
     "火鸡": {
         "v0": {
             "Name": "火鸡",
+            "CardId": "200132",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -2195,6 +2334,7 @@
     "翻糖蛋糕": {
         "v0": {
             "Name": "翻糖蛋糕",
+            "CardId": "200133",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -2238,6 +2378,7 @@
     "香槟": {
         "v0": {
             "Name": "香槟",
+            "CardId": "200135",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -2281,6 +2422,7 @@
     "稻荷寿司": {
         "v0": {
             "Name": "稻荷寿司",
+            "CardId": "200138",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -2324,6 +2466,7 @@
     "佛跳墙": {
         "v0": {
             "Name": "佛跳墙",
+            "CardId": "200139",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -2367,6 +2510,7 @@
     "龙凤烩": {
         "v0": {
             "Name": "龙凤烩",
+            "CardId": "200140",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -2410,6 +2554,7 @@
     "西湖龙井": {
         "v0": {
             "Name": "西湖龙井",
+            "CardId": "200141",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -2453,6 +2598,7 @@
     "麻婆豆腐": {
         "v0": {
             "Name": "麻婆豆腐",
+            "CardId": "200142",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -2496,6 +2642,7 @@
     "日式冷荞麦面": {
         "v0": {
             "Name": "日式冷荞麦面",
+            "CardId": "200145",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -2539,6 +2686,7 @@
     "雄黄酒": {
         "v0": {
             "Name": "雄黄酒",
+            "CardId": "200148",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -2582,6 +2730,7 @@
     "御节料理": {
         "v0": {
             "Name": "御节料理",
+            "CardId": "200149",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -2625,6 +2774,7 @@
     "鲱鱼罐头": {
         "v0": {
             "Name": "鲱鱼罐头",
+            "CardId": "200151",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -2668,6 +2818,7 @@
     "仰望星空": {
         "v0": {
             "Name": "仰望星空",
+            "CardId": "200153",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -2711,6 +2862,7 @@
     "纯米大吟酿": {
         "v0": {
             "Name": "纯米大吟酿",
+            "CardId": "200155",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -2754,6 +2906,7 @@
     "松茸土瓶蒸": {
         "v0": {
             "Name": "松茸土瓶蒸",
+            "CardId": "200156",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -2797,6 +2950,7 @@
     "菱饼": {
         "v0": {
             "Name": "菱饼",
+            "CardId": "200158",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -2840,6 +2994,7 @@
     "拐杖糖": {
         "v0": {
             "Name": "拐杖糖",
+            "CardId": "200159",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -2883,6 +3038,7 @@
     "白松露": {
         "v0": {
             "Name": "白松露",
+            "CardId": "200163",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -2926,6 +3082,7 @@
     "武夷大红袍": {
         "v0": {
             "Name": "武夷大红袍",
+            "CardId": "200165",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -2969,6 +3126,7 @@
     "烤羊排": {
         "v0": {
             "Name": "烤羊排",
+            "CardId": "200168",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3012,6 +3170,7 @@
     "龙舌兰": {
         "v0": {
             "Name": "龙舌兰",
+            "CardId": "200170",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -3055,6 +3214,7 @@
     "柏饼": {
         "v0": {
             "Name": "柏饼",
+            "CardId": "200171",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3098,6 +3258,7 @@
     "樱花茶": {
         "v0": {
             "Name": "樱花茶",
+            "CardId": "200174",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -3141,6 +3302,7 @@
     "瑞士卷": {
         "v0": {
             "Name": "瑞士卷",
+            "CardId": "200175",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -3184,6 +3346,7 @@
     "清蒸武昌鱼": {
         "v0": {
             "Name": "清蒸武昌鱼",
+            "CardId": "200178",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3227,6 +3390,7 @@
     "梅酒": {
         "v0": {
             "Name": "梅酒",
+            "CardId": "200179",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -3270,6 +3434,7 @@
     "意大利杂蔬汤": {
         "v0": {
             "Name": "意大利杂蔬汤",
+            "CardId": "200180",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -3313,6 +3478,7 @@
     "玛德莲蛋糕": {
         "v0": {
             "Name": "玛德莲蛋糕",
+            "CardId": "200184",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3356,6 +3522,7 @@
     "可颂": {
         "v0": {
             "Name": "可颂",
+            "CardId": "200189",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -3399,6 +3566,7 @@
     "冬虫夏草": {
         "v0": {
             "Name": "冬虫夏草",
+            "CardId": "200192",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3442,6 +3610,7 @@
     "萨赫蛋糕": {
         "v0": {
             "Name": "萨赫蛋糕",
+            "CardId": "200193",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -3485,6 +3654,7 @@
     "菊花酒": {
         "v0": {
             "Name": "菊花酒",
+            "CardId": "200194",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3528,6 +3698,7 @@
     "曲奇": {
         "v0": {
             "Name": "曲奇",
+            "CardId": "200196",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3571,6 +3742,7 @@
     "米饭(SP)": {
         "v0": {
             "Name": "米饭(SP)",
+            "CardId": "200199",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3614,6 +3786,7 @@
     "麻辣小龙虾(SP)": {
         "v0": {
             "Name": "麻辣小龙虾(SP)",
+            "CardId": "200200",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3657,6 +3830,7 @@
     "啤酒(SP)": {
         "v0": {
             "Name": "啤酒(SP)",
+            "CardId": "200203",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3700,6 +3874,7 @@
     "陇西腊肉": {
         "v0": {
             "Name": "陇西腊肉",
+            "CardId": "200207",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3743,6 +3918,7 @@
     "明太子": {
         "v0": {
             "Name": "明太子",
+            "CardId": "200208",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3786,6 +3962,7 @@
     "文思豆腐": {
         "v0": {
             "Name": "文思豆腐",
+            "CardId": "200209",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3829,6 +4006,7 @@
     "冰粉": {
         "v0": {
             "Name": "冰粉",
+            "CardId": "200210",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -3872,6 +4050,7 @@
     "马提尼": {
         "v0": {
             "Name": "马提尼",
+            "CardId": "200211",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -3915,6 +4094,7 @@
     "蜂王浆": {
         "v0": {
             "Name": "蜂王浆",
+            "CardId": "200213",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -3958,6 +4138,7 @@
     "烧仙草": {
         "v0": {
             "Name": "烧仙草",
+            "CardId": "200219",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -4001,6 +4182,7 @@
     "南京板鸭": {
         "v0": {
             "Name": "南京板鸭",
+            "CardId": "200223",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -4041,9 +4223,54 @@
             "ConnectSkill": "超级武曲：南京板鸭以激烈的琴音鼓舞己方，回复全体友方397-5161点生命值并提高全体友方35%-55%攻速，持续5秒。"
         }
     },
+    "西班牙海鲜饭": {
+        "v0": {
+            "Name": "西班牙海鲜饭",
+            "CardId": "200227",
+            "Artifacts": {
+                "Color": {
+                    "1": "绿",
+                    "2": "红",
+                    "3": "青",
+                    "4": "黄",
+                    "5": "绿"
+                },
+                "Info": {
+                    "西班牙海鲜饭1A": "普通攻击或释放技能后,能量增加<b>3~20</b>(<span style='color:#FF0000'>3</span>|<span style='color:#FF7F00'>4</span>|<span style='color:#FFD700'>5</span>|<span style='color:#32CD32'>7</span>|<span style='color:#1E90FF'>8</span>|<span style='color:#9370DB'>9</span>|<span style='color:#FF1493'>11</span>|<span style='color:#00CED1'>13</span>|<span style='color:#FF6347'>16</span>|<span style='color:#8B4513'>20</span>)点,每8秒可发动一次",
+                    "西班牙海鲜饭1B": "普通攻击或释放技能后,额外对敌方全体造成一次自身攻击力<b>26%~150%</b>(<span style='color:#FF0000'>26%</span>|<span style='color:#FF7F00'>34%</span>|<span style='color:#FFD700'>44%</span>|<span style='color:#32CD32'>53%</span>|<span style='color:#1E90FF'>63%</span>|<span style='color:#9370DB'>74%</span>|<span style='color:#FF1493'>87%</span>|<span style='color:#00CED1'>104%</span>|<span style='color:#FF6347'>124%</span>|<span style='color:#8B4513'>150%</span>)的伤害,每8秒可发动一次",
+                    "西班牙海鲜饭1C": "普通攻击或释放技能后,友方全体的普通攻击伤害增加<b>6.1%~35%</b>(<span style='color:#FF0000'>6.1%</span>|<span style='color:#FF7F00'>8.1%</span>|<span style='color:#FFD700'>10.2%</span>|<span style='color:#32CD32'>12.4%</span>|<span style='color:#1E90FF'>14.7%</span>|<span style='color:#9370DB'>17.3%</span>|<span style='color:#FF1493'>20.4%</span>|<span style='color:#00CED1'>24.4%</span>|<span style='color:#FF6347'>29.1%</span>|<span style='color:#8B4513'>35%</span>),持续4秒,每12秒可发动一次",
+                    "西班牙海鲜饭2A": "普通攻击时有40%的几率对全体敌方造成自身攻击力<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的额外伤害。",
+                    "西班牙海鲜饭2B": "释放基础技时对随机三名敌方单位额外造成<b>528~3000</b>(<span style='color:#FF0000'>528</span>|<span style='color:#FF7F00'>696</span>|<span style='color:#FFD700'>881</span>|<span style='color:#32CD32'>1066</span>|<span style='color:#1E90FF'>1268</span>|<span style='color:#9370DB'>1486</span>|<span style='color:#FF1493'>1755</span>|<span style='color:#00CED1'>2091</span>|<span style='color:#FF6347'>2495</span>|<span style='color:#8B4513'>3000</span>)点伤害。",
+                    "西班牙海鲜饭2C": "释放能量技时有40%的概率对全体敌方单位额外造成<b>528~3000</b>(<span style='color:#FF0000'>528</span>|<span style='color:#FF7F00'>696</span>|<span style='color:#FFD700'>881</span>|<span style='color:#32CD32'>1066</span>|<span style='color:#1E90FF'>1268</span>|<span style='color:#9370DB'>1486</span>|<span style='color:#FF1493'>1755</span>|<span style='color:#00CED1'>2091</span>|<span style='color:#FF6347'>2495</span>|<span style='color:#8B4513'>3000</span>)点伤害。",
+                    "西班牙海鲜饭3A": "每次普通攻击都会使自身下个普通攻击额外造成<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点伤害。",
+                    "西班牙海鲜饭3B": "释放基础技时有<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18%</span>|<span style='color:#FFD700'>23%</span>|<span style='color:#32CD32'>28%</span>|<span style='color:#1E90FF'>33%</span>|<span style='color:#9370DB'>39%</span>|<span style='color:#FF1493'>46%</span>|<span style='color:#00CED1'>55%</span>|<span style='color:#FF6347'>66%</span>|<span style='color:#8B4513'>80%</span>)的几率魅惑最远两名敌方2秒。",
+                    "西班牙海鲜饭3C": "释放能量技时使自身技能伤害提高<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>)并使全体友方免疫眩晕、魅惑,持续三秒。（该效果有8秒冷却时间）",
+                    "西班牙海鲜饭4A": "普通攻击时分别有10%概率提升自身<b>7%~40%</b>(<span style='color:#FF0000'>7%</span>|<span style='color:#FF7F00'>9.2%</span>|<span style='color:#FFD700'>11.7%</span>|<span style='color:#32CD32'>14.2%</span>|<span style='color:#1E90FF'>16.9%</span>|<span style='color:#9370DB'>19.8%</span>|<span style='color:#FF1493'>23.4%</span>|<span style='color:#00CED1'>27.8%</span>|<span style='color:#FF6347'>33.2%</span>|<span style='color:#8B4513'>40%</span>)攻击力和攻击速度,持续3秒。",
+                    "西班牙海鲜饭4B": "释放基础技时有50%的几率驱散随机三名敌方的增益效果并有50%的几率回复全体友方<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点生命值。",
+                    "西班牙海鲜饭4C": "释放能量技时驱散全体友方减益效果并提高自身<b>4%~25%</b>(<span style='color:#FF0000'>4%</span>|<span style='color:#FF7F00'>5.5%</span>|<span style='color:#FFD700'>7%</span>|<span style='color:#32CD32'>8.5%</span>|<span style='color:#1E90FF'>10.5%</span>|<span style='color:#9370DB'>12%</span>|<span style='color:#FF1493'>14.5%</span>|<span style='color:#00CED1'>17%</span>|<span style='color:#FF6347'>20.5%</span>|<span style='color:#8B4513'>25%</span>)的技能伤害,持续3秒。",
+                    "西班牙海鲜饭5A": "普通攻击时回复自身<b>123~700</b>(<span style='color:#FF0000'>123</span>|<span style='color:#FF7F00'>162</span>|<span style='color:#FFD700'>205</span>|<span style='color:#32CD32'>248</span>|<span style='color:#1E90FF'>295</span>|<span style='color:#9370DB'>346</span>|<span style='color:#FF1493'>409</span>|<span style='color:#00CED1'>488</span>|<span style='color:#FF6347'>582</span>|<span style='color:#8B4513'>700</span>)点生命值,当自身生命值大于70%时,普通攻击或释放技能会使自身攻击力提高<b>10%~60%</b>(<span style='color:#FF0000'>10%</span>|<span style='color:#FF7F00'>13%</span>|<span style='color:#FFD700'>17%</span>|<span style='color:#32CD32'>21%</span>|<span style='color:#1E90FF'>25%</span>|<span style='color:#9370DB'>29%</span>|<span style='color:#FF1493'>35%</span>|<span style='color:#00CED1'>41%</span>|<span style='color:#FF6347'>49%</span>|<span style='color:#8B4513'>60%</span>)、攻击速度提高<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18%</span>|<span style='color:#FFD700'>23%</span>|<span style='color:#32CD32'>28%</span>|<span style='color:#1E90FF'>33%</span>|<span style='color:#9370DB'>39%</span>|<span style='color:#FF1493'>46%</span>|<span style='color:#00CED1'>55%</span>|<span style='color:#FF6347'>66%</span>|<span style='color:#8B4513'>80%</span>),持续3秒。（提高攻击力和攻击速度的效果有5秒冷却时间）",
+                    "西班牙海鲜饭5B": "释放基础技时,额外对最远两名敌方造成自身攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害并使其每秒减少<b>2~15</b>(<span style='color:#FF0000'>2</span>|<span style='color:#FF7F00'>3</span>|<span style='color:#FFD700'>4</span>|<span style='color:#32CD32'>5</span>|<span style='color:#1E90FF'>6</span>|<span style='color:#9370DB'>7</span>|<span style='color:#FF1493'>8</span>|<span style='color:#00CED1'>10</span>|<span style='color:#FF6347'>12</span>|<span style='color:#8B4513'>15</span>)点能量,持续3秒,同时使其沉默3秒。（该效果有8秒冷却时间）",
+                    "西班牙海鲜饭5C": "自身攻击力降低<b>90%~35%</b>(<span style='color:#FF0000'>90%</span>|<span style='color:#FF7F00'>85%</span>|<span style='color:#FFD700'>80%</span>|<span style='color:#32CD32'>75%</span>|<span style='color:#1E90FF'>70%</span>|<span style='color:#9370DB'>64%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>52%</span>|<span style='color:#FF6347'>45%</span>|<span style='color:#8B4513'>35%</span>),释放能量技后回复自身100点能量。"
+                }
+            },
+            "Panel": {
+                "career": "力量系",
+                "attack": "129 / 4135",
+                "defence": "25 / 583",
+                "hp": "590 / 11377",
+                "critRate": "1129 / 5249",
+                "critDamage": "1392 / 6758",
+                "attackRate": "1629 / 6984"
+            },
+            "BaseSkill": "热情舞步：西班牙海鲜饭踏出热情舞步，对最远两名敌方造成自身攻击力100%-180%的伤害并附加92-1196点伤害并使其眩晕，持续两秒。",
+            "EnergySkill": "自由火炬：西班牙海鲜饭燃烧火炬，呼吁飨灵的自由平等，号召力对全体敌方造成自身攻击力40%-80%的伤害并附加411-5343点伤害同时在4秒内使全体友方攻击力和攻击速度提高15%-35%。",
+            "ConnectSkill": "无"
+        }
+    },
     "杏子糖": {
         "v0": {
             "Name": "杏子糖",
+            "CardId": "200228",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -4087,6 +4314,7 @@
     "苹果糖": {
         "v0": {
             "Name": "苹果糖",
+            "CardId": "200229",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -4130,6 +4358,7 @@
     "火晶柿子饼": {
         "v0": {
             "Name": "火晶柿子饼",
+            "CardId": "200230",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -4173,6 +4402,7 @@
     "明四喜": {
         "v0": {
             "Name": "明四喜",
+            "CardId": "200233",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -4216,6 +4446,7 @@
     "羊蝎子": {
         "v0": {
             "Name": "羊蝎子",
+            "CardId": "200234",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -4259,6 +4490,7 @@
     "北极贝": {
         "v0": {
             "Name": "北极贝",
+            "CardId": "200235",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -4302,6 +4534,7 @@
     "北京烤鸭(SP)": {
         "v0": {
             "Name": "北京烤鸭(SP)",
+            "CardId": "200236",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -4345,6 +4578,7 @@
     "君山银针": {
         "v0": {
             "Name": "君山银针",
+            "CardId": "200238",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -4388,6 +4622,7 @@
     "洛神花茶": {
         "v0": {
             "Name": "洛神花茶",
+            "CardId": "200240",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -4431,6 +4666,7 @@
     "江太史龙羹": {
         "v0": {
             "Name": "江太史龙羹",
+            "CardId": "200241",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -4474,6 +4710,7 @@
     "狸猫荞麦面": {
         "v0": {
             "Name": "狸猫荞麦面",
+            "CardId": "200242",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -4517,6 +4754,7 @@
     "鹅颈藤壶": {
         "v0": {
             "Name": "鹅颈藤壶",
+            "CardId": "200245",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -4560,6 +4798,7 @@
     "日式油豆腐": {
         "v0": {
             "Name": "日式油豆腐",
+            "CardId": "200246",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -4603,6 +4842,7 @@
     "枫糖浆": {
         "v0": {
             "Name": "枫糖浆",
+            "CardId": "200247",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -4646,6 +4886,7 @@
     "冻顶乌龙": {
         "v0": {
             "Name": "冻顶乌龙",
+            "CardId": "200248",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -4689,6 +4930,7 @@
     "东坡肉": {
         "v0": {
             "Name": "东坡肉",
+            "CardId": "200249",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -4732,6 +4974,7 @@
     "菖蒲酒": {
         "v0": {
             "Name": "菖蒲酒",
+            "CardId": "200250",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -4775,6 +5018,7 @@
     "芬兰驯鹿肉": {
         "v0": {
             "Name": "芬兰驯鹿肉",
+            "CardId": "200253",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -4815,9 +5059,54 @@
             "ConnectSkill": "超级雪雾鹿影：芬兰驯鹿肉坐在礼盒上身周起雾，雾里飘出一群白色驯鹿撞向敌方，对全体敌人造成自身攻击力60%-120%的伤害，附加450-5850点伤害，同时恢复我方全体15-35点能量，并提升我方全体20%-60%的技能伤害，持续5秒。"
         }
     },
+    "京酱肉丝": {
+        "v0": {
+            "Name": "京酱肉丝",
+            "CardId": "200254",
+            "Artifacts": {
+                "Color": {
+                    "1": "绿",
+                    "2": "红",
+                    "3": "青",
+                    "4": "黄",
+                    "5": "绿"
+                },
+                "Info": {
+                    "京酱肉丝1A": "每次普通攻击有<b>12%~70%</b>(<span style='color:#FF0000'>12%</span>|<span style='color:#FF7F00'>16%</span>|<span style='color:#FFD700'>20%</span>|<span style='color:#32CD32'>24%</span>|<span style='color:#1E90FF'>29%</span>|<span style='color:#9370DB'>34%</span>|<span style='color:#FF1493'>40%</span>|<span style='color:#00CED1'>48%</span>|<span style='color:#FF6347'>58%</span>|<span style='color:#8B4513'>70%</span>)的概率恢复自身3点能量。",
+                    "京酱肉丝1B": "每次普通攻击有<b>12%~70%</b>(<span style='color:#FF0000'>12%</span>|<span style='color:#FF7F00'>16%</span>|<span style='color:#FFD700'>20%</span>|<span style='color:#32CD32'>24%</span>|<span style='color:#1E90FF'>29%</span>|<span style='color:#9370DB'>34%</span>|<span style='color:#FF1493'>40%</span>|<span style='color:#00CED1'>48%</span>|<span style='color:#FF6347'>58%</span>|<span style='color:#8B4513'>70%</span>)的概率使下次普通攻击必定暴击并有<b>12%~70%</b>(<span style='color:#FF0000'>12%</span>|<span style='color:#FF7F00'>16%</span>|<span style='color:#FFD700'>20%</span>|<span style='color:#32CD32'>24%</span>|<span style='color:#1E90FF'>29%</span>|<span style='color:#9370DB'>34%</span>|<span style='color:#FF1493'>40%</span>|<span style='color:#00CED1'>48%</span>|<span style='color:#FF6347'>58%</span>|<span style='color:#8B4513'>70%</span>)的概率在1秒内暴击伤害提高30%。",
+                    "京酱肉丝1C": "每次普通攻击有<b>12%~70%</b>(<span style='color:#FF0000'>12%</span>|<span style='color:#FF7F00'>16%</span>|<span style='color:#FFD700'>20%</span>|<span style='color:#32CD32'>24%</span>|<span style='color:#1E90FF'>29%</span>|<span style='color:#9370DB'>34%</span>|<span style='color:#FF1493'>40%</span>|<span style='color:#00CED1'>48%</span>|<span style='color:#FF6347'>58%</span>|<span style='color:#8B4513'>70%</span>)的概率对全体敌方造成自身攻击力30%的伤害。",
+                    "京酱肉丝2A": "普通攻击伤害提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),普通攻击有30%的几率回复自身<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>)的最大生命值。(有6秒冷却时间)",
+                    "京酱肉丝2B": "普通攻击伤害提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),普通攻击有30%的几率使自身免疫眩晕和魅惑并有30%的几率提高自身攻击力<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>),持续3秒。(有6秒冷却时间)",
+                    "京酱肉丝2C": "普通攻击伤害提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),普通攻击有30%的几率驱散最近敌方单位的增益效果并有30%的几率使其攻击力降低<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>),持续3秒。(有6秒冷却时间)",
+                    "京酱肉丝3A": "每过20秒,提高自身攻击速度和暴击伤害<b>10%~60%</b>(<span style='color:#FF0000'>10%</span>|<span style='color:#FF7F00'>13%</span>|<span style='color:#FFD700'>17%</span>|<span style='color:#32CD32'>21%</span>|<span style='color:#1E90FF'>25%</span>|<span style='color:#9370DB'>29%</span>|<span style='color:#FF1493'>35%</span>|<span style='color:#00CED1'>41%</span>|<span style='color:#FF6347'>49%</span>|<span style='color:#8B4513'>60%</span>),持续7秒。",
+                    "京酱肉丝3B": "每过20秒,对全体敌方造成<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害,并对最近敌方造成额外自身攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害。",
+                    "京酱肉丝3C": "每过20秒,提高自身<b>7%~40%</b>(<span style='color:#FF0000'>7%</span>|<span style='color:#FF7F00'>9.2%</span>|<span style='color:#FFD700'>11.7%</span>|<span style='color:#32CD32'>14.2%</span>|<span style='color:#1E90FF'>16.9%</span>|<span style='color:#9370DB'>19.8%</span>|<span style='color:#FF1493'>23.4%</span>|<span style='color:#00CED1'>27.8%</span>|<span style='color:#FF6347'>33.2%</span>|<span style='color:#8B4513'>40%</span>)攻击力,持续5秒,并对全体敌方单位造成自身攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害。",
+                    "京酱肉丝4A": "暴击伤害提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),每过5秒下一次普通攻击随机使<b>一~三</b>(<span style='color:#FF0000'>一</span>|<span style='color:#FF7F00'>一</span>|<span style='color:#FFD700'>一</span>|<span style='color:#32CD32'>一</span>|<span style='color:#1E90FF'>两</span>|<span style='color:#9370DB'>两</span>|<span style='color:#FF1493'>两</span>|<span style='color:#00CED1'>三</span>|<span style='color:#FF6347'>三</span>|<span style='color:#8B4513'>三</span>)名友方飨灵免疫眩晕、魅惑、沉默,持续3秒。",
+                    "京酱肉丝4B": "暴击伤害提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),每过10秒下一次普通攻击随机使一名友方飨灵攻击力提高<b>12%~70%</b>(<span style='color:#FF0000'>12%</span>|<span style='color:#FF7F00'>16%</span>|<span style='color:#FFD700'>20%</span>|<span style='color:#32CD32'>24%</span>|<span style='color:#1E90FF'>29%</span>|<span style='color:#9370DB'>34%</span>|<span style='color:#FF1493'>40%</span>|<span style='color:#00CED1'>48%</span>|<span style='color:#FF6347'>58%</span>|<span style='color:#8B4513'>70%</span>),持续3秒。",
+                    "京酱肉丝4C": "暴击伤害提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),每过8秒下一次普通攻击沉默一名随机敌方单位同时眩晕一名随机敌方单位,持续2秒。",
+                    "京酱肉丝5A": "暴击伤害和攻击速度提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),暴击时使最近的敌方单位受到的普通攻击伤害增加<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),持续2秒。（该效果有5秒的冷却时间）",
+                    "京酱肉丝5B": "暴击伤害和攻击速度提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),暴击时使所有敌方单位免疫治疗持续5秒,同时每<b>5~2</b>(<span style='color:#FF0000'>5</span>|<span style='color:#FF7F00'>5</span>|<span style='color:#FFD700'>5</span>|<span style='color:#32CD32'>4</span>|<span style='color:#1E90FF'>4</span>|<span style='color:#9370DB'>4</span>|<span style='color:#FF1493'>3</span>|<span style='color:#00CED1'>3</span>|<span style='color:#FF6347'>2</span>|<span style='color:#8B4513'>2</span>)秒下一次普通攻击驱散最近敌方单位增益状态。（免疫治疗效果有15秒的冷却时间）",
+                    "京酱肉丝5C": "暴击伤害和攻击速度提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),暴击时使自身普通攻击伤害提高<b>12%~70%</b>(<span style='color:#FF0000'>12%</span>|<span style='color:#FF7F00'>16%</span>|<span style='color:#FFD700'>20%</span>|<span style='color:#32CD32'>24%</span>|<span style='color:#1E90FF'>29%</span>|<span style='color:#9370DB'>34%</span>|<span style='color:#FF1493'>40%</span>|<span style='color:#00CED1'>48%</span>|<span style='color:#FF6347'>58%</span>|<span style='color:#8B4513'>70%</span>),持续5秒。（该效果有15秒的冷却时间）"
+                }
+            },
+            "Panel": {
+                "career": "魔法系",
+                "attack": "139 / 4456",
+                "defence": "24 / 560",
+                "hp": "582 / 10925",
+                "critRate": "1533 / 7486",
+                "critDamage": "1475 / 7184",
+                "attackRate": "1422 / 6052"
+            },
+            "BaseSkill": "扇映辉：京酱肉丝抛起折扇，对自身造成当前生命值20%的伤害，沉默自身5秒并使自身的攻击力和攻击速度提升35%-55%，持续3秒。",
+            "EnergySkill": "摇风转：京酱肉丝掷出折扇，对最近敌方单位造成自身攻击力100%-180%的伤害，并附加444-5772点伤害同时提高自身普通攻击伤害20%-60%，持续4秒并使自身后7次普通攻击必定暴击。",
+            "ConnectSkill": "超级摇风转：京酱肉丝掷出折扇，对最近敌方单位造成自身攻击力120%-220%的伤害，并附加530-6890点伤害同时提高自身普通攻击伤害30%-70%，持续4秒并使自身后7次普通攻击必定暴击。"
+        }
+    },
     "戚风蛋糕": {
         "v0": {
             "Name": "戚风蛋糕",
+            "CardId": "200256",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -4861,6 +5150,7 @@
     "纽结糖": {
         "v0": {
             "Name": "纽结糖",
+            "CardId": "200257",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -4904,6 +5194,7 @@
     "红茶(SP)": {
         "v0": {
             "Name": "红茶(SP)",
+            "CardId": "200258",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -4947,6 +5238,7 @@
     "八宝饭": {
         "v0": {
             "Name": "八宝饭",
+            "CardId": "200260",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -4990,6 +5282,7 @@
     "中华海草": {
         "v0": {
             "Name": "中华海草",
+            "CardId": "200261",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -5033,6 +5326,7 @@
     "云丹": {
         "v0": {
             "Name": "云丹",
+            "CardId": "200262",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -5076,6 +5370,7 @@
     "羊羹": {
         "v0": {
             "Name": "羊羹",
+            "CardId": "200265",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -5119,6 +5414,7 @@
     "芥末章鱼": {
         "v0": {
             "Name": "芥末章鱼",
+            "CardId": "200266",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -5162,6 +5458,7 @@
     "莫吉托": {
         "v0": {
             "Name": "莫吉托",
+            "CardId": "200267",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -5205,6 +5502,7 @@
     "史多伦面包": {
         "v0": {
             "Name": "史多伦面包",
+            "CardId": "200268",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -5248,6 +5546,7 @@
     "雕花蜜煎": {
         "v0": {
             "Name": "雕花蜜煎",
+            "CardId": "200271",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -5291,6 +5590,7 @@
     "玉子烧": {
         "v0": {
             "Name": "玉子烧",
+            "CardId": "200272",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -5334,6 +5634,7 @@
     "猫耳朵": {
         "v0": {
             "Name": "猫耳朵",
+            "CardId": "200274",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -5377,6 +5678,7 @@
     "布里欧修": {
         "v0": {
             "Name": "布里欧修",
+            "CardId": "200275",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -5420,6 +5722,7 @@
     "松子酒": {
         "v0": {
             "Name": "松子酒",
+            "CardId": "200276",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -5463,6 +5766,7 @@
     "薯片": {
         "v0": {
             "Name": "薯片",
+            "CardId": "200277",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -5506,6 +5810,7 @@
     "巧克力棒": {
         "v0": {
             "Name": "巧克力棒",
+            "CardId": "200278",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -5549,6 +5854,7 @@
     "伯爵茶": {
         "v0": {
             "Name": "伯爵茶",
+            "CardId": "200279",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -5592,6 +5898,7 @@
     "白粥": {
         "v0": {
             "Name": "白粥",
+            "CardId": "200281",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -5635,6 +5942,7 @@
     "柿饼": {
         "v0": {
             "Name": "柿饼",
+            "CardId": "200282",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -5678,6 +5986,7 @@
     "面疙瘩汤": {
         "v0": {
             "Name": "面疙瘩汤",
+            "CardId": "200283",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -5721,6 +6030,7 @@
     "梅干": {
         "v0": {
             "Name": "梅干",
+            "CardId": "200284",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -5764,6 +6074,7 @@
     "安康鱼肝": {
         "v0": {
             "Name": "安康鱼肝",
+            "CardId": "200285",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -5807,6 +6118,7 @@
     "车海老": {
         "v0": {
             "Name": "车海老",
+            "CardId": "200286",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -5850,6 +6162,7 @@
     "B-52鸡尾酒(SP)": {
         "v0": {
             "Name": "B-52鸡尾酒(SP)",
+            "CardId": "200288",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -5893,6 +6206,7 @@
     "辣子鸡": {
         "v0": {
             "Name": "辣子鸡",
+            "CardId": "200289",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -5936,6 +6250,7 @@
     "盐甘草糖": {
         "v0": {
             "Name": "盐甘草糖",
+            "CardId": "200290",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -5979,6 +6294,7 @@
     "甜虾": {
         "v0": {
             "Name": "甜虾",
+            "CardId": "200291",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -6022,6 +6338,7 @@
     "羊方藏鱼": {
         "v0": {
             "Name": "羊方藏鱼",
+            "CardId": "200292",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -6065,6 +6382,7 @@
     "人参": {
         "v0": {
             "Name": "人参",
+            "CardId": "200294",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -6108,6 +6426,7 @@
     "回锅肉": {
         "v0": {
             "Name": "回锅肉",
+            "CardId": "200295",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -6151,6 +6470,7 @@
     "江珧柱": {
         "v0": {
             "Name": "江珧柱",
+            "CardId": "200296",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -6194,6 +6514,7 @@
     "片儿川": {
         "v0": {
             "Name": "片儿川",
+            "CardId": "200297",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -6237,6 +6558,7 @@
     "鲷鱼刺身": {
         "v0": {
             "Name": "鲷鱼刺身",
+            "CardId": "200299",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -6280,6 +6602,7 @@
     "普罗旺斯杂烩": {
         "v0": {
             "Name": "普罗旺斯杂烩",
+            "CardId": "200300",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -6323,6 +6646,7 @@
     "帝王蟹": {
         "v0": {
             "Name": "帝王蟹",
+            "CardId": "200302",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -6366,6 +6690,7 @@
     "白兰地": {
         "v0": {
             "Name": "白兰地",
+            "CardId": "200303",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -6409,6 +6734,7 @@
     "雪莉酒": {
         "v0": {
             "Name": "雪莉酒",
+            "CardId": "200305",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -6452,6 +6778,7 @@
     "落雁": {
         "v0": {
             "Name": "落雁",
+            "CardId": "200306",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -6495,6 +6822,7 @@
     "魔鬼太阳": {
         "v0": {
             "Name": "魔鬼太阳",
+            "CardId": "200307",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -6538,6 +6866,7 @@
     "哈吉斯": {
         "v0": {
             "Name": "哈吉斯",
+            "CardId": "200308",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -6581,6 +6910,7 @@
     "布蕾": {
         "v0": {
             "Name": "布蕾",
+            "CardId": "200309",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -6624,6 +6954,7 @@
     "花瓣饼": {
         "v0": {
             "Name": "花瓣饼",
+            "CardId": "200310",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -6667,6 +6998,7 @@
     "泡芙": {
         "v0": {
             "Name": "泡芙",
+            "CardId": "200311",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -6710,6 +7042,7 @@
     "河豚刺身": {
         "v0": {
             "Name": "河豚刺身",
+            "CardId": "200313",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -6753,6 +7086,7 @@
     "琴酒": {
         "v0": {
             "Name": "琴酒",
+            "CardId": "200314",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -6796,6 +7130,7 @@
     "沙丁鱼罐头": {
         "v0": {
             "Name": "沙丁鱼罐头",
+            "CardId": "200315",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -6836,9 +7171,54 @@
             "ConnectSkill": "超级锁闭之力：沙丁鱼罐头高举鞭子，操纵巨大的罐头升起将敌人封锁其中，对最近的敌人造成自身攻击力120%-220%的伤害，附加180-2340点伤害，并驱散其所有增益效果"
         }
     },
+    "最中": {
+        "v0": {
+            "Name": "最中",
+            "CardId": "200318",
+            "Artifacts": {
+                "Color": {
+                    "1": "黄",
+                    "2": "红",
+                    "3": "青",
+                    "4": "紫",
+                    "5": "黄"
+                },
+                "Info": {
+                    "最中1A": "每15秒提高自身<b>10%~60%</b>(<span style='color:#FF0000'>10%</span>|<span style='color:#FF7F00'>13%</span>|<span style='color:#FFD700'>17%</span>|<span style='color:#32CD32'>21%</span>|<span style='color:#1E90FF'>25%</span>|<span style='color:#9370DB'>29%</span>|<span style='color:#FF1493'>35%</span>|<span style='color:#00CED1'>41%</span>|<span style='color:#FF6347'>49%</span>|<span style='color:#8B4513'>60%</span>)攻击力,持续3秒。",
+                    "最中1B": "每15秒对一名随机敌方每秒造成自身攻击力<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的伤害,持续5秒。",
+                    "最中1C": "每15秒回复自身<b>8~50</b>(<span style='color:#FF0000'>8</span>|<span style='color:#FF7F00'>11</span>|<span style='color:#FFD700'>14</span>|<span style='color:#32CD32'>17</span>|<span style='color:#1E90FF'>21</span>|<span style='color:#9370DB'>24</span>|<span style='color:#FF1493'>29</span>|<span style='color:#00CED1'>34</span>|<span style='color:#FF6347'>41</span>|<span style='color:#8B4513'>50</span>)点能量。",
+                    "最中2A": "普通攻击有15%的几率回复最近两名友方<b>5~30</b>(<span style='color:#FF0000'>5</span>|<span style='color:#FF7F00'>6</span>|<span style='color:#FFD700'>8</span>|<span style='color:#32CD32'>10</span>|<span style='color:#1E90FF'>12</span>|<span style='color:#9370DB'>14</span>|<span style='color:#FF1493'>17</span>|<span style='color:#00CED1'>20</span>|<span style='color:#FF6347'>24</span>|<span style='color:#8B4513'>30</span>)点能量并有15%的几率对全体敌方造成自身攻击力<b>21%~120%</b>(<span style='color:#FF0000'>21%</span>|<span style='color:#FF7F00'>27%</span>|<span style='color:#FFD700'>35%</span>|<span style='color:#32CD32'>42%</span>|<span style='color:#1E90FF'>50%</span>|<span style='color:#9370DB'>59%</span>|<span style='color:#FF1493'>70%</span>|<span style='color:#00CED1'>83%</span>|<span style='color:#FF6347'>99%</span>|<span style='color:#8B4513'>120%</span>)的伤害",
+                    "最中2B": "普通攻击有15%的几率回复最近两名友方<b>5~30</b>(<span style='color:#FF0000'>5</span>|<span style='color:#FF7F00'>6</span>|<span style='color:#FFD700'>8</span>|<span style='color:#32CD32'>10</span>|<span style='color:#1E90FF'>12</span>|<span style='color:#9370DB'>14</span>|<span style='color:#FF1493'>17</span>|<span style='color:#00CED1'>20</span>|<span style='color:#FF6347'>24</span>|<span style='color:#8B4513'>30</span>)点能量并有15%的几率对攻击力最高敌方造成自身攻击力<b>31%~180%</b>(<span style='color:#FF0000'>31%</span>|<span style='color:#FF7F00'>41%</span>|<span style='color:#FFD700'>52%</span>|<span style='color:#32CD32'>63%</span>|<span style='color:#1E90FF'>76%</span>|<span style='color:#9370DB'>89%</span>|<span style='color:#FF1493'>105%</span>|<span style='color:#00CED1'>125%</span>|<span style='color:#FF6347'>149%</span>|<span style='color:#8B4513'>180%</span>)的伤害",
+                    "最中2C": "普通攻击有15%的几率回复最近两名友方<b>5~30</b>(<span style='color:#FF0000'>5</span>|<span style='color:#FF7F00'>6</span>|<span style='color:#FFD700'>8</span>|<span style='color:#32CD32'>10</span>|<span style='color:#1E90FF'>12</span>|<span style='color:#9370DB'>14</span>|<span style='color:#FF1493'>17</span>|<span style='color:#00CED1'>20</span>|<span style='color:#FF6347'>24</span>|<span style='color:#8B4513'>30</span>)点能量并有15%的几率对全体敌方每秒造成自身攻击力<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的伤害,持续3秒",
+                    "最中3A": "释放能量技后自身伤害提高<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18%</span>|<span style='color:#FFD700'>23%</span>|<span style='color:#32CD32'>28%</span>|<span style='color:#1E90FF'>33%</span>|<span style='color:#9370DB'>39%</span>|<span style='color:#FF1493'>46%</span>|<span style='color:#00CED1'>55%</span>|<span style='color:#FF6347'>66%</span>|<span style='color:#8B4513'>80%</span>),持续3秒（该效果有5秒的冷却时间）",
+                    "最中3B": "释放能量技后全体友方伤害提高<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>),持续3秒（该效果有5秒的冷却时间）",
+                    "最中3C": "释放能量技后攻击力最高的三名友方伤害提高<b>10%~60%</b>(<span style='color:#FF0000'>10%</span>|<span style='color:#FF7F00'>13%</span>|<span style='color:#FFD700'>17%</span>|<span style='color:#32CD32'>21%</span>|<span style='color:#1E90FF'>25%</span>|<span style='color:#9370DB'>29%</span>|<span style='color:#FF1493'>35%</span>|<span style='color:#00CED1'>41%</span>|<span style='color:#FF6347'>49%</span>|<span style='color:#8B4513'>60%</span>),持续3秒（该效果有5秒的冷却时间）",
+                    "最中4A": "普通攻击有15%的几率对全体敌方每秒造成自身攻击力<b>21%~120%</b>(<span style='color:#FF0000'>21%</span>|<span style='color:#FF7F00'>27%</span>|<span style='color:#FFD700'>35%</span>|<span style='color:#32CD32'>42%</span>|<span style='color:#1E90FF'>50%</span>|<span style='color:#9370DB'>59%</span>|<span style='color:#FF1493'>70%</span>|<span style='color:#00CED1'>83%</span>|<span style='color:#FF6347'>99%</span>|<span style='color:#8B4513'>120%</span>)的伤害并有15%的几率提高自身<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的攻击速度,持续3秒",
+                    "最中4B": "普通攻击有15%的几率对全体敌方每秒造成自身攻击力<b>21%~120%</b>(<span style='color:#FF0000'>21%</span>|<span style='color:#FF7F00'>27%</span>|<span style='color:#FFD700'>35%</span>|<span style='color:#32CD32'>42%</span>|<span style='color:#1E90FF'>50%</span>|<span style='color:#9370DB'>59%</span>|<span style='color:#FF1493'>70%</span>|<span style='color:#00CED1'>83%</span>|<span style='color:#FF6347'>99%</span>|<span style='color:#8B4513'>120%</span>)的伤害并有15%的几率提高全体友方<b>10%~60%</b>(<span style='color:#FF0000'>10%</span>|<span style='color:#FF7F00'>13%</span>|<span style='color:#FFD700'>17%</span>|<span style='color:#32CD32'>21%</span>|<span style='color:#1E90FF'>25%</span>|<span style='color:#9370DB'>29%</span>|<span style='color:#FF1493'>35%</span>|<span style='color:#00CED1'>41%</span>|<span style='color:#FF6347'>49%</span>|<span style='color:#8B4513'>60%</span>)的攻击速度,持续3秒",
+                    "最中4C": "普通攻击有15%的几率对全体敌方每秒造成自身攻击力<b>21%~120%</b>(<span style='color:#FF0000'>21%</span>|<span style='color:#FF7F00'>27%</span>|<span style='color:#FFD700'>35%</span>|<span style='color:#32CD32'>42%</span>|<span style='color:#1E90FF'>50%</span>|<span style='color:#9370DB'>59%</span>|<span style='color:#FF1493'>70%</span>|<span style='color:#00CED1'>83%</span>|<span style='color:#FF6347'>99%</span>|<span style='color:#8B4513'>120%</span>)的伤害,持续3秒并有15%的几率驱散全体敌方的增益效果",
+                    "最中5A": "攻击最高的三名友方攻击力提高20%,攻击力最高的三名友方普通攻击时有40%的概率对随机两名敌方造成自身攻击力<b>26%~150%</b>(<span style='color:#FF0000'>26%</span>|<span style='color:#FF7F00'>34%</span>|<span style='color:#FFD700'>44%</span>|<span style='color:#32CD32'>53%</span>|<span style='color:#1E90FF'>63%</span>|<span style='color:#9370DB'>74%</span>|<span style='color:#FF1493'>87%</span>|<span style='color:#00CED1'>104%</span>|<span style='color:#FF6347'>124%</span>|<span style='color:#8B4513'>150%</span>)的伤害",
+                    "最中5B": "自身暴击时有70%的概率对防御力最高的一名敌方造成自身攻击力<b>21%~120%</b>(<span style='color:#FF0000'>21%</span>|<span style='color:#FF7F00'>27%</span>|<span style='color:#FFD700'>35%</span>|<span style='color:#32CD32'>42%</span>|<span style='color:#1E90FF'>50%</span>|<span style='color:#9370DB'>59%</span>|<span style='color:#FF1493'>70%</span>|<span style='color:#00CED1'>83%</span>|<span style='color:#FF6347'>99%</span>|<span style='color:#8B4513'>120%</span>)的伤害",
+                    "最中5C": "攻击最高的三名友方普通攻击时有70%的概率对最近敌方造成自身攻击力<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18%</span>|<span style='color:#FFD700'>23%</span>|<span style='color:#32CD32'>28%</span>|<span style='color:#1E90FF'>33%</span>|<span style='color:#9370DB'>39%</span>|<span style='color:#FF1493'>46%</span>|<span style='color:#00CED1'>55%</span>|<span style='color:#FF6347'>66%</span>|<span style='color:#8B4513'>80%</span>)的伤害并有70%的概率沉默攻击最高的两名友方,持续3秒（沉默效果有8秒的冷却时间）"
+                }
+            },
+            "Panel": {
+                "career": "魔法系",
+                "attack": "145 / 4648",
+                "defence": "25 / 583",
+                "hp": "641 / 12033",
+                "critRate": "1421 / 6907",
+                "critDamage": "1451 / 7061",
+                "attackRate": "1125 / 4715"
+            },
+            "BaseSkill": "卜象：最中的水晶球化成多个袭向敌方，对全体敌人造成自身攻击力40%-80%的伤害，并附加230-2990的伤害，同时使其受到普通攻击伤害提升20%，持续2秒",
+            "EnergySkill": "占印：最中双手结印，水晶球漂浮至空中，散发光芒笼罩己方，对全体敌人造成自身攻击力40%-80%的伤害，并附加450-5850的伤害，同时使我方全体攻速提升15%，并使其防御力降低50点，持续3秒",
+            "ConnectSkill": "超级占印：最中双手结印，水晶球漂浮至空中，散发光芒笼罩己方，对全体敌人造成自身攻击力60%-120%的伤害，并附加500-6500的伤害，同时使我方全体攻速提升18%，并使其防御力降低45点，持续3秒"
+        }
+    },
     "金骏眉": {
         "v0": {
             "Name": "金骏眉",
+            "CardId": "200319",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -6882,6 +7262,7 @@
     "玉麒麟": {
         "v0": {
             "Name": "玉麒麟",
+            "CardId": "200320",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -6925,6 +7306,7 @@
     "水无月": {
         "v0": {
             "Name": "水无月",
+            "CardId": "200324",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -6968,6 +7350,7 @@
     "金丝蜜枣": {
         "v0": {
             "Name": "金丝蜜枣",
+            "CardId": "200326",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -7011,6 +7394,7 @@
     "白酒": {
         "v0": {
             "Name": "白酒",
+            "CardId": "200330",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -7054,6 +7438,7 @@
     "大宇宙烧卖": {
         "v0": {
             "Name": "大宇宙烧卖",
+            "CardId": "200332",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -7097,6 +7482,7 @@
     "绝代佳人面": {
         "v0": {
             "Name": "绝代佳人面",
+            "CardId": "200333",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -7140,6 +7526,7 @@
     "金雨炸云龙": {
         "v0": {
             "Name": "金雨炸云龙",
+            "CardId": "200335",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -7183,6 +7570,7 @@
     "老婆饼": {
         "v0": {
             "Name": "老婆饼",
+            "CardId": "200336",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -7226,6 +7614,7 @@
     "巴西烤肉": {
         "v0": {
             "Name": "巴西烤肉",
+            "CardId": "200337",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -7269,6 +7658,7 @@
     "松鹤延年": {
         "v0": {
             "Name": "松鹤延年",
+            "CardId": "200338",
             "Artifacts": {
                 "Color": {
                     "1": "青",
@@ -7312,6 +7702,7 @@
     "披萨(SP)": {
         "v0": {
             "Name": "披萨(SP)",
+            "CardId": "200339",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -7355,6 +7746,7 @@
     "肉桂卷": {
         "v0": {
             "Name": "肉桂卷",
+            "CardId": "200341",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -7398,6 +7790,7 @@
     "碧螺春": {
         "v0": {
             "Name": "碧螺春",
+            "CardId": "200342",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -7441,6 +7834,7 @@
     "布林饼": {
         "v0": {
             "Name": "布林饼",
+            "CardId": "200343",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -7484,6 +7878,7 @@
     "巴腾堡蛋糕": {
         "v0": {
             "Name": "巴腾堡蛋糕",
+            "CardId": "200344",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -7527,6 +7922,7 @@
     "女儿红": {
         "v0": {
             "Name": "女儿红",
+            "CardId": "200345",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -7570,6 +7966,7 @@
     "基维亚克": {
         "v0": {
             "Name": "基维亚克",
+            "CardId": "200346",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -7613,6 +8010,7 @@
     "红丝绒蛋糕": {
         "v0": {
             "Name": "红丝绒蛋糕",
+            "CardId": "200347",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -7656,6 +8054,7 @@
     "冰岛干鲨": {
         "v0": {
             "Name": "冰岛干鲨",
+            "CardId": "200351",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -7699,6 +8098,7 @@
     "波罗金诺": {
         "v0": {
             "Name": "波罗金诺",
+            "CardId": "200353",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -7742,6 +8142,7 @@
     "爱斯基摩冰淇淋": {
         "v0": {
             "Name": "爱斯基摩冰淇淋",
+            "CardId": "200355",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -7785,6 +8186,7 @@
     "公主蛋糕": {
         "v0": {
             "Name": "公主蛋糕",
+            "CardId": "200357",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -7828,6 +8230,7 @@
     "马赛鱼羹": {
         "v0": {
             "Name": "马赛鱼羹",
+            "CardId": "200358",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -7871,6 +8274,7 @@
     "维也纳炸肉排": {
         "v0": {
             "Name": "维也纳炸肉排",
+            "CardId": "200360",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -7914,6 +8318,7 @@
     "战斧牛排": {
         "v0": {
             "Name": "战斧牛排",
+            "CardId": "200361",
             "Artifacts": {
                 "Color": {
                     "1": "红",
@@ -7957,6 +8362,7 @@
     "瑞秋三明治": {
         "v0": {
             "Name": "瑞秋三明治",
+            "CardId": "200363",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8000,6 +8406,7 @@
     "萨芭雍": {
         "v0": {
             "Name": "萨芭雍",
+            "CardId": "200364",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8043,6 +8450,7 @@
     "卡萨塔(SP)": {
         "v0": {
             "Name": "卡萨塔(SP)",
+            "CardId": "200366",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -8086,6 +8494,7 @@
     "青酱意面": {
         "v0": {
             "Name": "青酱意面",
+            "CardId": "200368",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8129,6 +8538,7 @@
     "冰见平安鱼": {
         "v0": {
             "Name": "冰见平安鱼",
+            "CardId": "200371",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -8172,6 +8582,7 @@
     "泡椒凤爪": {
         "v0": {
             "Name": "泡椒凤爪",
+            "CardId": "200372",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -8215,6 +8626,7 @@
     "蓑衣黄瓜": {
         "v0": {
             "Name": "蓑衣黄瓜",
+            "CardId": "200373",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8258,6 +8670,7 @@
     "鲁本三明治": {
         "v0": {
             "Name": "鲁本三明治",
+            "CardId": "200374",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8301,6 +8714,7 @@
     "敦煌罗布麻茶": {
         "v0": {
             "Name": "敦煌罗布麻茶",
+            "CardId": "200375",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -8344,6 +8758,7 @@
     "卡斯提拉": {
         "v0": {
             "Name": "卡斯提拉",
+            "CardId": "200377",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -8387,6 +8802,7 @@
     "手指面": {
         "v0": {
             "Name": "手指面",
+            "CardId": "200378",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -8430,6 +8846,7 @@
     "太妃糖布丁": {
         "v0": {
             "Name": "太妃糖布丁",
+            "CardId": "200380",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8473,6 +8890,7 @@
     "索瓦兰吉": {
         "v0": {
             "Name": "索瓦兰吉",
+            "CardId": "200381",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8516,6 +8934,7 @@
     "烧酎": {
         "v0": {
             "Name": "烧酎",
+            "CardId": "200383",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8559,6 +8978,7 @@
     "莫萨卡": {
         "v0": {
             "Name": "莫萨卡",
+            "CardId": "200384",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8602,6 +9022,7 @@
     "东安子鸡": {
         "v0": {
             "Name": "东安子鸡",
+            "CardId": "200386",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8645,6 +9066,7 @@
     "油封鸭腿": {
         "v0": {
             "Name": "油封鸭腿",
+            "CardId": "200387",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8688,6 +9110,7 @@
     "车打芝士": {
         "v0": {
             "Name": "车打芝士",
+            "CardId": "200388",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8731,6 +9154,7 @@
     "皇帝松饼": {
         "v0": {
             "Name": "皇帝松饼",
+            "CardId": "200390",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -8774,6 +9198,7 @@
     "腓秀雅杂": {
         "v0": {
             "Name": "腓秀雅杂",
+            "CardId": "200391",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8817,6 +9242,7 @@
     "状元红": {
         "v0": {
             "Name": "状元红",
+            "CardId": "200392",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8860,6 +9286,7 @@
     "火山飘雪": {
         "v0": {
             "Name": "火山飘雪",
+            "CardId": "200395",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8903,6 +9330,7 @@
     "慕斯(SP)": {
         "v0": {
             "Name": "慕斯(SP)",
+            "CardId": "200399",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -8946,6 +9374,7 @@
     "帕尔玛火腿": {
         "v0": {
             "Name": "帕尔玛火腿",
+            "CardId": "200400",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -8989,6 +9418,7 @@
     "焦糖玛奇朵": {
         "v0": {
             "Name": "焦糖玛奇朵",
+            "CardId": "200401",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9032,6 +9462,7 @@
     "普洱": {
         "v0": {
             "Name": "普洱",
+            "CardId": "200403",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9075,6 +9506,7 @@
     "天使蛋糕": {
         "v0": {
             "Name": "天使蛋糕",
+            "CardId": "200404",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9118,6 +9550,7 @@
     "意式奶冻": {
         "v0": {
             "Name": "意式奶冻",
+            "CardId": "200405",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9161,6 +9594,7 @@
     "苦艾酒": {
         "v0": {
             "Name": "苦艾酒",
+            "CardId": "200406",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9204,6 +9638,7 @@
     "巴克拉瓦": {
         "v0": {
             "Name": "巴克拉瓦",
+            "CardId": "200409",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9247,6 +9682,7 @@
     "欧蕾": {
         "v0": {
             "Name": "欧蕾",
+            "CardId": "200410",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9290,6 +9726,7 @@
     "萨斯卡通莓果派": {
         "v0": {
             "Name": "萨斯卡通莓果派",
+            "CardId": "200411",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9333,6 +9770,7 @@
     "威代尔冰酒": {
         "v0": {
             "Name": "威代尔冰酒",
+            "CardId": "200412",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -9376,6 +9814,7 @@
     "蓝青口薯条": {
         "v0": {
             "Name": "蓝青口薯条",
+            "CardId": "200413",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9419,6 +9858,7 @@
     "蒙特利尔熏肉": {
         "v0": {
             "Name": "蒙特利尔熏肉",
+            "CardId": "200414",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9462,6 +9902,7 @@
     "牛奶(SP)": {
         "v0": {
             "Name": "牛奶(SP)",
+            "CardId": "200415",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -9505,6 +9946,7 @@
     "法拉费": {
         "v0": {
             "Name": "法拉费",
+            "CardId": "200416",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -9548,6 +9990,7 @@
     "麦卡罗尼": {
         "v0": {
             "Name": "麦卡罗尼",
+            "CardId": "200417",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -9591,6 +10034,7 @@
     "胡桃粥": {
         "v0": {
             "Name": "胡桃粥",
+            "CardId": "200419",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9634,6 +10078,7 @@
     "玛瑙鱼圆": {
         "v0": {
             "Name": "玛瑙鱼圆",
+            "CardId": "200420",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9677,6 +10122,7 @@
     "荷叶凤脯": {
         "v0": {
             "Name": "荷叶凤脯",
+            "CardId": "200421",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9720,6 +10166,7 @@
     "金髓煎": {
         "v0": {
             "Name": "金髓煎",
+            "CardId": "200422",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9763,6 +10210,7 @@
     "螺丝意面": {
         "v0": {
             "Name": "螺丝意面",
+            "CardId": "200423",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -9806,6 +10254,7 @@
     "法式烤苹果": {
         "v0": {
             "Name": "法式烤苹果",
+            "CardId": "200424",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9849,6 +10298,7 @@
     "雷司令干白": {
         "v0": {
             "Name": "雷司令干白",
+            "CardId": "200426",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -9892,6 +10342,7 @@
     "呼子乌贼": {
         "v0": {
             "Name": "呼子乌贼",
+            "CardId": "200427",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -9935,6 +10386,7 @@
     "帕尼尼": {
         "v0": {
             "Name": "帕尼尼",
+            "CardId": "200428",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -9978,6 +10430,7 @@
     "金平糖": {
         "v0": {
             "Name": "金平糖",
+            "CardId": "200430",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10021,6 +10474,7 @@
     "菲提尔": {
         "v0": {
             "Name": "菲提尔",
+            "CardId": "200431",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -10064,6 +10518,7 @@
     "莫洛奇亚": {
         "v0": {
             "Name": "莫洛奇亚",
+            "CardId": "200432",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10107,6 +10562,7 @@
     "库纳法": {
         "v0": {
             "Name": "库纳法",
+            "CardId": "200433",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -10150,6 +10606,7 @@
     "库莎丽": {
         "v0": {
             "Name": "库莎丽",
+            "CardId": "200434",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -10193,6 +10650,7 @@
     "皮斯科": {
         "v0": {
             "Name": "皮斯科",
+            "CardId": "200435",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10236,6 +10694,7 @@
     "科恩酒": {
         "v0": {
             "Name": "科恩酒",
+            "CardId": "200436",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10279,6 +10738,7 @@
     "鸳鸯鸡粥": {
         "v0": {
             "Name": "鸳鸯鸡粥",
+            "CardId": "200437",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -10322,6 +10782,7 @@
     "羊散丹": {
         "v0": {
             "Name": "羊散丹",
+            "CardId": "200438",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -10365,6 +10826,7 @@
     "小吊梨汤": {
         "v0": {
             "Name": "小吊梨汤",
+            "CardId": "200439",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10408,6 +10870,7 @@
     "卤煮火烧": {
         "v0": {
             "Name": "卤煮火烧",
+            "CardId": "200440",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -10451,6 +10914,7 @@
     "塔塔尔牛肉": {
         "v0": {
             "Name": "塔塔尔牛肉",
+            "CardId": "200441",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10494,6 +10958,7 @@
     "箸头春": {
         "v0": {
             "Name": "箸头春",
+            "CardId": "200443",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10537,6 +11002,7 @@
     "卡布里蛋糕": {
         "v0": {
             "Name": "卡布里蛋糕",
+            "CardId": "200444",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -10580,6 +11046,7 @@
     "托卡伊": {
         "v0": {
             "Name": "托卡伊",
+            "CardId": "200445",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -10623,6 +11090,7 @@
     "潘娜托尼": {
         "v0": {
             "Name": "潘娜托尼",
+            "CardId": "200446",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10666,6 +11134,7 @@
     "芬式蓝莓派": {
         "v0": {
             "Name": "芬式蓝莓派",
+            "CardId": "200447",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -10709,6 +11178,7 @@
     "波尔多七鳃鳗": {
         "v0": {
             "Name": "波尔多七鳃鳗",
+            "CardId": "200448",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10752,6 +11222,7 @@
     "格瓦斯": {
         "v0": {
             "Name": "格瓦斯",
+            "CardId": "200449",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10795,6 +11266,7 @@
     "神肉比尔通": {
         "v0": {
             "Name": "神肉比尔通",
+            "CardId": "200451",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10838,6 +11310,7 @@
     "胡姆斯": {
         "v0": {
             "Name": "胡姆斯",
+            "CardId": "200452",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10881,6 +11354,7 @@
     "西西里奶酪卷": {
         "v0": {
             "Name": "西西里奶酪卷",
+            "CardId": "200453",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -10924,6 +11398,7 @@
     "土豆泥(SP)": {
         "v0": {
             "Name": "土豆泥(SP)",
+            "CardId": "200454",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -10967,6 +11442,7 @@
     "恩希玛": {
         "v0": {
             "Name": "恩希玛",
+            "CardId": "200455",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11010,6 +11486,7 @@
     "波本酒": {
         "v0": {
             "Name": "波本酒",
+            "CardId": "200456",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -11053,6 +11530,7 @@
     "英吉拉": {
         "v0": {
             "Name": "英吉拉",
+            "CardId": "200457",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -11096,6 +11574,7 @@
     "比特酒": {
         "v0": {
             "Name": "比特酒",
+            "CardId": "200458",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -11139,6 +11618,7 @@
     "巧克力熔岩蛋糕": {
         "v0": {
             "Name": "巧克力熔岩蛋糕",
+            "CardId": "200459",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11182,6 +11662,7 @@
     "南姜乌榄": {
         "v0": {
             "Name": "南姜乌榄",
+            "CardId": "200460",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -11225,6 +11706,7 @@
     "及第粥": {
         "v0": {
             "Name": "及第粥",
+            "CardId": "200461",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11268,6 +11750,7 @@
     "叉烧酥": {
         "v0": {
             "Name": "叉烧酥",
+            "CardId": "200462",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11311,6 +11794,7 @@
     "香芋西米露": {
         "v0": {
             "Name": "香芋西米露",
+            "CardId": "200463",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11354,6 +11838,7 @@
     "煲仔饭": {
         "v0": {
             "Name": "煲仔饭",
+            "CardId": "200464",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -11397,6 +11882,7 @@
     "空青": {
         "v0": {
             "Name": "空青",
+            "CardId": "200465",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11440,6 +11926,7 @@
     "白敛": {
         "v0": {
             "Name": "白敛",
+            "CardId": "200466",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11483,6 +11970,7 @@
     "怀石料理": {
         "v0": {
             "Name": "怀石料理",
+            "CardId": "200467",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11526,6 +12014,7 @@
     "星鳗寿司": {
         "v0": {
             "Name": "星鳗寿司",
+            "CardId": "200468",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11569,6 +12058,7 @@
     "潘芙蕾": {
         "v0": {
             "Name": "潘芙蕾",
+            "CardId": "200469",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11612,6 +12102,7 @@
     "姜饼(SP)": {
         "v0": {
             "Name": "姜饼(SP)",
+            "CardId": "200470",
             "Artifacts": {
                 "Color": {
                     "1": "蓝",
@@ -11655,6 +12146,7 @@
     "莱明顿蛋糕": {
         "v0": {
             "Name": "莱明顿蛋糕",
+            "CardId": "200471",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -11698,6 +12190,7 @@
     "曼多瓦酥饼": {
         "v0": {
             "Name": "曼多瓦酥饼",
+            "CardId": "200472",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11741,6 +12234,7 @@
     "黄莓冻糕": {
         "v0": {
             "Name": "黄莓冻糕",
+            "CardId": "200473",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11784,6 +12278,7 @@
     "塔吉锅": {
         "v0": {
             "Name": "塔吉锅",
+            "CardId": "200474",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -11827,6 +12322,7 @@
     "金齑玉脍": {
         "v0": {
             "Name": "金齑玉脍",
+            "CardId": "200475",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11870,6 +12366,7 @@
     "翡翠面": {
         "v0": {
             "Name": "翡翠面",
+            "CardId": "200476",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -11913,6 +12410,7 @@
     "凤尾虾": {
         "v0": {
             "Name": "凤尾虾",
+            "CardId": "200478",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11956,6 +12454,7 @@
     "香薷饮": {
         "v0": {
             "Name": "香薷饮",
+            "CardId": "200479",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -11999,6 +12498,7 @@
     "黑死酒": {
         "v0": {
             "Name": "黑死酒",
+            "CardId": "200481",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -12042,6 +12542,7 @@
     "马黛茶": {
         "v0": {
             "Name": "马黛茶",
+            "CardId": "200482",
             "Artifacts": {
                 "Color": {
                     "1": "黄",
@@ -12085,6 +12586,7 @@
     "阿芙佳朵": {
         "v0": {
             "Name": "阿芙佳朵",
+            "CardId": "200484",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -12128,6 +12630,7 @@
     "瓦伦堡野味": {
         "v0": {
             "Name": "瓦伦堡野味",
+            "CardId": "200485",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -12171,6 +12674,7 @@
     "玫瑰果汤": {
         "v0": {
             "Name": "玫瑰果汤",
+            "CardId": "200486",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -12214,6 +12718,7 @@
     "哈吉斯(SP)": {
         "v0": {
             "Name": "哈吉斯(SP)",
+            "CardId": "200490",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -12257,6 +12762,7 @@
     "紫苏甘露煮": {
         "v0": {
             "Name": "紫苏甘露煮",
+            "CardId": "200491",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
@@ -12300,6 +12806,7 @@
     "伊达卷": {
         "v0": {
             "Name": "伊达卷",
+            "CardId": "200492",
             "Artifacts": {
                 "Color": {
                     "1": "绿",
