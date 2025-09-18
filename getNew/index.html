@@ -66,6 +66,27 @@
             background-color: #e05555;
         }
 
+        .btn-edit {
+            background-color: #4a7baf;
+        }
+        
+        .btn-edit:hover {
+            background-color: #3a6a9f;
+        }
+        
+        .btn-save {
+            background-color: #4caf50;
+        }
+        
+        .btn-save:hover {
+            background-color: #3d8b40;
+        }
+        
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+
         .checkbox-group {
             display: flex;
             align-items: center;
@@ -161,6 +182,31 @@
         .diff-removed {
             background-color: #f8d7da;
             text-decoration: line-through;
+        }
+        
+        /* 编辑模式样式 */
+        .editable {
+            border: 1px dashed #ccc;
+            padding: 0.5rem;
+            min-height: 1.5rem;
+            background-color: #f9f9f9;
+        }
+        
+        .edit-mode .editable {
+            border: 1px solid #4a7baf;
+            background-color: #f0f7ff;
+        }
+        
+        .edit-notice {
+            text-align: center;
+            color: #4a7baf;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .edit-mode .edit-notice {
+            display: block;
         }
 
         /* 结果容器样式 */
@@ -264,10 +310,14 @@
                 <input type="checkbox" id="myCheckbox" name="myCheckbox" value="1">
                 <label for="myCheckbox">关闭差异</label>
             </div>
+            
+            <button id="edit-btn" class="btn btn-edit"><i class="bi bi-pencil"></i>开启编辑</button>
+            <button id="save-btn" class="btn btn-save" style="display:none"><i class="bi bi-check-lg"></i>保存编辑</button>
         </div>
 
         <!-- 截图容器 -->
         <div class="screenshot-container" id="screenshot-container">
+            <div class="edit-notice">编辑模式已开启 - 点击文本区域进行编辑</div>
             <h1 class="screenshot-title" id="title"></h1>
 
             <table class="data-table" id="panel-table">
@@ -343,6 +393,51 @@
         const checkbox = document.getElementById('myCheckbox');
         checkbox.addEventListener('change', function () {
             handleSelectVersion();
+            updateEditButtonState();
+        });
+
+        // 更新编辑按钮状态
+        function updateEditButtonState() {
+            const editBtn = document.getElementById('edit-btn');
+            if (checkBoxStatus()) {
+                editBtn.disabled = false;
+            } else {
+                editBtn.disabled = true;
+                // 如果不在编辑模式但差异已关闭，退出编辑模式
+                if (isEditMode) {
+                    exitEditMode();
+                }
+            }
+        }
+
+        // 退出编辑模式
+        function exitEditMode() {
+            isEditMode = false;
+            document.getElementById('screenshot-container').classList.remove('edit-mode');
+            document.getElementById('edit-btn').style.display = 'flex';
+            document.getElementById('save-btn').style.display = 'none';
+            makeContentNotEditable();
+            handleSelectVersion(); // 刷新显示
+        }
+
+        // 编辑按钮事件
+        const editBtn = document.getElementById('edit-btn');
+        const saveBtn = document.getElementById('save-btn');
+        let isEditMode = false;
+        
+        editBtn.addEventListener('click', function() {
+            if (!checkBoxStatus()) return; // 只有在关闭差异模式下才能编辑
+            
+            isEditMode = true;
+            document.getElementById('screenshot-container').classList.add('edit-mode');
+            editBtn.style.display = 'none';
+            saveBtn.style.display = 'flex';
+            makeContentEditable();
+        });
+        
+        saveBtn.addEventListener('click', function() {
+            saveEditsToStorage();
+            exitEditMode();
         });
 
         // 截图按钮事件
@@ -361,18 +456,119 @@
             });
         });
 
-        // 点击截图保存
-        // document.getElementById('screenshot-result').addEventListener('click', () => {
-        //     const resultContainer = document.getElementById('screenshot-result');
-        //     const canvas = resultContainer.querySelector('canvas');
-        //     if (canvas) {
-        //         const link = document.createElement('a');
-        //         link.download = '食之契约神器.png';
-        //         const dataUrl = canvas.toDataURL();
-        //         link.href = dataUrl;
-        //         link.click();
-        //     }
-        // });
+        // 使内容可编辑
+        function makeContentEditable() {
+            // 基础技、能量技、连携技
+            document.querySelectorAll('#base-skill-body td, #energy-skill-body td, #connect-skill-body td').forEach(td => {
+                td.contentEditable = true;
+                td.classList.add('editable');
+            });
+            
+            // 神器描述
+            document.querySelectorAll('#artifacts-table td:nth-child(2)').forEach(td => {
+                td.contentEditable = true;
+                td.classList.add('editable');
+            });
+        }
+        
+        // 使内容不可编辑
+        function makeContentNotEditable() {
+            document.querySelectorAll('.editable').forEach(el => {
+                el.contentEditable = false;
+                el.classList.remove('editable');
+            });
+        }
+        
+        // 保存编辑内容到本地存储
+        function saveEditsToStorage() {
+            const select_card = document.getElementById("select_card");
+            const select_version = document.getElementById("select_version");
+            const selectedCard = select_card.options[parseInt(select_card.value)].text;
+            const selectedVersion = select_version.options[parseInt(select_version.value)].text;
+            
+            if (!selectedCard || !selectedVersion) return;
+            
+            // 获取编辑的数据
+            const editedData = {
+                BaseSkill: document.querySelector('#base-skill-body td').innerText,
+                EnergySkill: document.querySelector('#energy-skill-body td').innerText,
+                ConnectSkill: document.querySelector('#connect-skill-body td').innerText,
+                Artifacts: {}
+            };
+            
+            // 获取神器编辑数据
+            document.querySelectorAll('#artifacts-table tr').forEach(tr => {
+                const th = tr.querySelector('th');
+                if (th && th.innerText === '核心') return;
+                const firstTd = tr.querySelector('td:first-child');
+                const lastTd = tr.querySelector('td:last-child');
+                if (firstTd && lastTd) {
+                    const key = firstTd.innerText;
+                    const value = lastTd.innerText;
+                    editedData.Artifacts[key] = value;
+                }
+            });
+            
+            // 创建编辑版本名称
+            const editedVersion = "编辑版";
+            
+            // 保存到localStorage
+            const storageKey = `edited_${selectedCard}_${editedVersion}`;
+            localStorage.setItem(storageKey, JSON.stringify(editedData));
+            localStorage.setItem(`edited_${selectedCard}_newVersion`, selectedVersion);
+            
+            // 更新版本下拉框，添加编辑版本
+            updateVersionDropdownWithEdit(selectedCard, editedVersion);
+            
+            // alert('编辑内容已保存为"' + editedVersion + '"版本！');
+        }
+        
+        // 更新版本下拉框，包含编辑版本
+        function updateVersionDropdownWithEdit(cardName, editedVersion) {
+            const select_version = document.getElementById("select_version");
+            
+            // 检查是否已存在此编辑版本
+            let exists = false;
+            for (let i = 0; i < select_version.options.length; i++) {
+                if (select_version.options[i].text === editedVersion) {
+                    exists = true;
+                    break;
+                }
+            }
+            
+            // 如果不存在，添加编辑版本
+            if (!exists) {
+                const option = document.createElement("option");
+                option.value = select_version.options.length;
+                option.text = editedVersion;
+                select_version.appendChild(option);
+            }
+            
+            // 选择编辑版本
+            select_version.value = Array.from(select_version.options).findIndex(opt => opt.text === editedVersion);
+            
+            // 触发版本变更
+            handleSelectVersion();
+        }
+        
+        // 从本地存储获取编辑内容
+        function getEditsFromStorage(card, version) {
+            const storageKey = `edited_${card}_${version}`;
+            const editedData = localStorage.getItem(storageKey);
+            return editedData ? JSON.parse(editedData) : null;
+        }
+        
+        // 检查是否有编辑内容
+        function hasEdits(card, version) {
+            const storageKey = `edited_${card}_${version}`;
+            return localStorage.getItem(storageKey) !== null;
+        }
+        
+        // 清除编辑内容
+        function clearEdits(card, version) {
+            const storageKey = `edited_${card}_${version}`;
+            localStorage.removeItem(storageKey);
+        }
 
         // 初始化差异比较
         var diffCH = new Diff.Diff();
@@ -387,6 +583,11 @@
 
         // 生成差异高亮文本
         function getDiff(oldText, newText) {
+            // 如果关闭差异，直接返回新文本
+            if (checkBoxStatus()) {
+                return newText;
+            }
+            
             const_diff = diffCH.diff(oldText, newText);
             let const_change = "";
 
@@ -416,31 +617,45 @@
         }
 
         // 更新表格数据
-        function updataTable(oldData, newData) {
+        function updataTable(oldData, newData, editedData = null) {
+            // 如果有编辑数据，使用编辑数据
+            if (editedData) {
+                newData = {
+                    ...newData,
+                    BaseSkill: editedData.BaseSkill,
+                    EnergySkill: editedData.EnergySkill,
+                    ConnectSkill: editedData.ConnectSkill,
+                    Artifacts: {
+                        ...newData.Artifacts,
+                        Info: editedData.Artifacts
+                    }
+                };
+            }
+
             // 更新面板表格
             function updatePanelTable(tableId, oldInfo, newInfo) {
                 const tableBody = document.querySelector(`${tableId} tbody`);
                 tableBody.innerHTML = `
-          <tr>
-            <td>${getDiff(oldInfo["career"], newInfo["career"])}</td>
-            <td>${getDiff(oldInfo["attack"], newInfo["attack"])}</td>
-            <td>${getDiff(oldInfo["attackRate"], newInfo["attackRate"])}</td>
-            <td>${getDiff(oldInfo["defence"], newInfo["defence"])}</td>
-            <td>${getDiff(oldInfo["hp"], newInfo["hp"])}</td>
-            <td>${getDiff(oldInfo["critRate"], newInfo["critRate"])}</td>
-            <td>${getDiff(oldInfo["critDamage"], newInfo["critDamage"])}</td>
-          </tr>
-        `;
+                <tr>
+                    <td>${getDiff(oldInfo["career"], newInfo["career"])}</td>
+                    <td>${getDiff(oldInfo["attack"], newInfo["attack"])}</td>
+                    <td>${getDiff(oldInfo["attackRate"], newInfo["attackRate"])}</td>
+                    <td>${getDiff(oldInfo["defence"], newInfo["defence"])}</td>
+                    <td>${getDiff(oldInfo["hp"], newInfo["hp"])}</td>
+                    <td>${getDiff(oldInfo["critRate"], newInfo["critRate"])}</td>
+                    <td>${getDiff(oldInfo["critDamage"], newInfo["critDamage"])}</td>
+                </tr>
+                `;
             }
 
             // 更新技能表格
             function updateSkillTable(tableId, oldSkills, newSkills) {
                 const tableBody = document.querySelector(tableId);
                 tableBody.innerHTML = `
-          <tr>
-            <td>${getDiff(oldSkills, newSkills)}</td>
-          </tr>
-        `;
+                <tr>
+                    <td>${getDiff(oldSkills, newSkills)}</td>
+                </tr>
+                `;
             }
 
             // 更新神器表格
@@ -495,8 +710,42 @@
                 select_version.appendChild(option);
             });
 
+            // 添加所有编辑版本
+            const selectedCard = document.getElementById("select_card").options[parseInt(document.getElementById("select_card").value)].text;
+            addEditedVersionsToDropdown(selectedCard);
+            
             select_version.selectedIndex = select_version.options.length - 1;
             handleSelectVersion();
+        }
+        
+        // 添加编辑版本到下拉框
+        function addEditedVersionsToDropdown(cardName) {
+            const select_version = document.getElementById("select_version");
+            
+            // 获取所有以"(编辑)"结尾的本地存储键
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                if (key && key.startsWith(`edited_${cardName}_编辑版`)) {
+                    const version = key.replace(`edited_${cardName}_`, "");
+                    
+                    // 检查是否已存在此版本
+                    let exists = false;
+                    for (let j = 0; j < select_version.options.length; j++) {
+                        if (select_version.options[j].text === version) {
+                            exists = true;
+                            break;
+                        }
+                    }
+                    
+                    // 如果不存在，添加编辑版本
+                    if (!exists) {
+                        const option = document.createElement("option");
+                        option.value = select_version.options.length;
+                        option.text = version;
+                        select_version.appendChild(option);
+                    }
+                }
+            }
         }
 
         // 处理飨灵选择变化
@@ -507,6 +756,8 @@
             if (globalData[selectedCard]) {
                 updataSelectVersion(globalData[selectedCard]);
             }
+            
+            updateEditButtonState();
         }
 
         // 处理版本选择变化
@@ -516,28 +767,59 @@
             const selectedCard = select_card.options[parseInt(select_card.value)].text;
             const selectedVersion = select_version.options[parseInt(select_version.value)].text;
 
+            // 检查是否是编辑版本
+            const isEditedVersion = selectedVersion.endsWith("编辑版");
+            
             // 计算上一个版本
             let PreVersion = "";
-            const versionNumber = parseInt(selectedVersion.replace("v", ""));
-            if (versionNumber === 0) {
-                PreVersion = "v0";
+            
+            if (isEditedVersion) {
+                // 对于编辑版本，比较基础是去掉"(编辑)"的原始版本
+                const versions = Object.keys(globalData[selectedCard]);
+                const latestVersion = versions[versions.length - 1];
+                PreVersion = latestVersion
             } else {
-                PreVersion = "v" + (versionNumber - 1);
+                const versionNumber = parseInt(selectedVersion.replace("v", ""));
+                if (versionNumber === 0) {
+                    PreVersion = "v0";
+                } else {
+                    PreVersion = "v" + (versionNumber - 1);
+                }
             }
 
             // 如果关闭差异，则使用相同版本
-            if (checkBoxStatus()) {
+            if (checkBoxStatus() && !isEditedVersion) {
                 PreVersion = selectedVersion;
             }
 
+            // 检查是否有编辑内容
+            let editedData = null;
+            if (isEditedVersion) {
+                editedData = getEditsFromStorage(selectedCard, selectedVersion);
+            }
+
             // 更新标题和表格
-            const name = globalData[selectedCard][PreVersion].Name;
-            const versionText = selectedVersion === PreVersion ? selectedVersion : `${PreVersion} → ${selectedVersion}`;
+            const name = isEditedVersion ? 
+                globalData[selectedCard][Object.keys(globalData[selectedCard])[0]].Name : 
+                globalData[selectedCard][PreVersion].Name;
+                
+            let versionText = selectedVersion === PreVersion ? selectedVersion : `${PreVersion} → ${selectedVersion}`;
+            
+            // 如果有编辑内容，在标题中显示
+            // if (editedData) {
+            //     versionText += " (已编辑)";
+            // }
+            
             document.getElementById('title').textContent = `${name} ${versionText}`;
 
             if (globalData[selectedCard][PreVersion] && globalData[selectedCard][selectedVersion]) {
-                updataTable(globalData[selectedCard][PreVersion], globalData[selectedCard][selectedVersion]);
+                updataTable(globalData[selectedCard][PreVersion], globalData[selectedCard][selectedVersion], editedData);
+            } else if (isEditedVersion && globalData[selectedCard][PreVersion]) {
+                // 对于编辑版本，使用原始版本作为比较基准
+                updataTable(globalData[selectedCard][PreVersion], globalData[selectedCard][PreVersion], editedData);
             }
+            
+            updateEditButtonState();
         }
 
         // 加载JSON数据
@@ -547,6 +829,22 @@
             .then(data => {
                 globalData = data;
                 updataSelectCard(globalData);
+                
+                // 检查是否有需要清除的编辑数据（当最新版变更时）
+                Object.keys(globalData).forEach(cardName => {
+                    const versions = Object.keys(globalData[cardName]);
+                    const latestVersion = versions[versions.length - 1];
+                    const memVersion = localStorage.getItem(`edited_${cardName}_newVersion`);
+                    console.log(`检查飨灵 ${cardName}：本地版本 ${memVersion}，最新版本 ${latestVersion}`);
+                    if (latestVersion != memVersion) {
+                        localStorage.setItem(`edited_${cardName}_newVersion`, latestVersion);
+                    }
+                    if (latestVersion != memVersion && hasEdits(cardName, "编辑版")) {
+                        clearEdits(cardName, "编辑版");
+                    }
+                });
+                
+                updateEditButtonState();
             })
             .catch(error => console.error('加载JSON文件失败:', error));
     </script>
