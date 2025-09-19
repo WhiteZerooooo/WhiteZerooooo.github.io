@@ -311,6 +311,12 @@
                 <label for="myCheckbox">关闭差异</label>
             </div>
             
+            <!-- 添加加密文本开关 -->
+            <div class="checkbox-group">
+                <input type="checkbox" id="encryptCheckbox" name="encryptCheckbox" value="1">
+                <label for="encryptCheckbox">加密文本</label>
+            </div>
+            
             <button id="edit-btn" class="btn btn-edit"><i class="bi bi-pencil"></i>开启编辑</button>
             <button id="save-btn" class="btn btn-save" style="display:none"><i class="bi bi-check-lg"></i>保存编辑</button>
         </div>
@@ -394,6 +400,12 @@
         checkbox.addEventListener('change', function () {
             handleSelectVersion();
             updateEditButtonState();
+        });
+
+        // 初始化加密复选框事件
+        const encryptCheckbox = document.getElementById('encryptCheckbox');
+        encryptCheckbox.addEventListener('change', function () {
+            handleSelectVersion();
         });
 
         // 更新编辑按钮状态
@@ -580,12 +592,26 @@
         function checkBoxStatus() {
             return document.getElementById('myCheckbox').checked;
         }
+        
+        // 获取加密复选框状态
+        function encryptCheckBoxStatus() {
+            return document.getElementById('encryptCheckbox').checked;
+        }
+        
+        // 加密文本函数 - 保留数字，将其他字符替换为▇
+        function encryptText(text) {
+            if (!encryptCheckBoxStatus()) {
+                return text;
+            }
+            
+            return text.replace(/[^\d]/g, '▇');
+        }
 
         // 生成差异高亮文本
         function getDiff(oldText, newText) {
             // 如果关闭差异，直接返回新文本
             if (checkBoxStatus()) {
-                return newText;
+                return encryptText(newText);
             }
             
             const_diff = diffCH.diff(oldText, newText);
@@ -593,24 +619,24 @@
 
             const_diff.forEach(function (u) {
                 if (u.added) {
-                    const_change += `<span class="diff-added">${u.value}</span>`;
+                    const_change += `<span class="diff-added">${encryptText(u.value)}</span>`;
                 } else if (u.removed) {
                     if (const_diff.length < 15) {
-                        const_change += `<span class="diff-removed">${u.value}</span>`;
+                        const_change += `<span class="diff-removed">${encryptText(u.value)}</span>`;
                     }
                 } else {
                     if (const_diff.length > 1) {
-                        const_change += u.value;
+                        const_change += encryptText(u.value);
                     }
                 }
             });
 
             if (const_diff.length >= 15) {
-                const_change = `<span class="diff-removed">${oldText}</span><br><span class="diff-added">${newText}</span>`;
+                const_change = `<span class="diff-removed">${encryptText(oldText)}</span><br><span class="diff-added">${encryptText(newText)}</span>`;
             }
 
             if (oldText == newText) {
-                const_change = newText;
+                const_change = encryptText(newText);
             }
 
             return const_change.replaceAll("colorstyle", "color style");
