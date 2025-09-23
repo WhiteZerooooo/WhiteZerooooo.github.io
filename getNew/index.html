@@ -15,7 +15,7 @@
     <style>
         /* 主要内容区域 */
         .main-container {
-            max-width: 2000px;
+            max-width: 2200px;
             margin: 2rem auto;
             padding: 0 1rem;
         }
@@ -330,6 +330,8 @@
                 <thead>
                     <tr>
                         <th>职业</th>
+                        <th>堕神1</th>
+                        <th>堕神2</th>
                         <th>攻击力</th>
                         <th>攻速值</th>
                         <th>防御力</th>
@@ -664,6 +666,8 @@
                 tableBody.innerHTML = `
                 <tr>
                     <td>${getDiff(oldInfo["career"], newInfo["career"])}</td>
+                    <td>${getDiff(oldInfo["pet1"], newInfo["pet1"])}</td>
+                    <td>${getDiff(oldInfo["pet2"], newInfo["pet2"])}</td>
                     <td>${getDiff(oldInfo["attack"], newInfo["attack"])}</td>
                     <td>${getDiff(oldInfo["attackRate"], newInfo["attackRate"])}</td>
                     <td>${getDiff(oldInfo["defence"], newInfo["defence"])}</td>
