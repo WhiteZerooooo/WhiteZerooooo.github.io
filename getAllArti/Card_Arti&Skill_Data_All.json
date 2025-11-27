@@ -22407,28 +22407,28 @@
             "CardId": "200496",
             "Artifacts": {
                 "Color": {
-                    "1": "无",
-                    "2": "无",
-                    "3": "无",
-                    "4": "无",
-                    "5": "无"
+                    "1": "绿",
+                    "2": "红",
+                    "3": "青",
+                    "4": "紫",
+                    "5": "黄"
                 },
                 "Info": {
-                    "龙牡汤1A": "无",
-                    "龙牡汤1B": "无",
-                    "龙牡汤1C": "无",
-                    "龙牡汤2A": "无",
-                    "龙牡汤2B": "无",
-                    "龙牡汤2C": "无",
-                    "龙牡汤3A": "无",
-                    "龙牡汤3B": "无",
-                    "龙牡汤3C": "无",
-                    "龙牡汤4A": "无",
-                    "龙牡汤4B": "无",
-                    "龙牡汤4C": "无",
-                    "龙牡汤5A": "无",
-                    "龙牡汤5B": "无",
-                    "龙牡汤5C": "无"
+                    "龙牡汤1A": "普通攻击后对最远的三名敌方造成自身攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害并使其每秒减少10点能量,持续5秒（该效果有8秒的冷却时间）",
+                    "龙牡汤1B": "普通攻击后对最近一名敌方造成自身攻击力<b>70%~400%</b>(<span style='color:#FF0000'>70%</span>|<span style='color:#FF7F00'>92%</span>|<span style='color:#FFD700'>117%</span>|<span style='color:#32CD32'>142%</span>|<span style='color:#1E90FF'>169%</span>|<span style='color:#9370DB'>198%</span>|<span style='color:#FF1493'>234%</span>|<span style='color:#00CED1'>278%</span>|<span style='color:#FF6347'>332%</span>|<span style='color:#8B4513'>400%</span>)的伤害并使自身暴击伤害提高<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>),持续5秒（该效果有8秒的冷却时间）",
+                    "龙牡汤1C": "普通攻击后对全体敌方造成自身攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害并使全体友方回复<b>5~30</b>(<span style='color:#FF0000'>5</span>|<span style='color:#FF7F00'>6</span>|<span style='color:#FFD700'>8</span>|<span style='color:#32CD32'>10</span>|<span style='color:#1E90FF'>12</span>|<span style='color:#9370DB'>14</span>|<span style='color:#FF1493'>17</span>|<span style='color:#00CED1'>20</span>|<span style='color:#FF6347'>24</span>|<span style='color:#8B4513'>30</span>)点能量（该效果有8秒的冷却时间）",
+                    "龙牡汤2A": "暴击后,对距离最近的敌方造成攻击力<b>9%~56%</b>(<span style='color:#FF0000'>9%</span>|<span style='color:#FF7F00'>12%</span>|<span style='color:#FFD700'>16%</span>|<span style='color:#32CD32'>19%</span>|<span style='color:#1E90FF'>23%</span>|<span style='color:#9370DB'>27%</span>|<span style='color:#FF1493'>32%</span>|<span style='color:#00CED1'>39%</span>|<span style='color:#FF6347'>46%</span>|<span style='color:#8B4513'>56%</span>)的伤害，如果他生命值高于50%，则额外造成攻击力<b>19%~110%</b>(<span style='color:#FF0000'>19%</span>|<span style='color:#FF7F00'>25%</span>|<span style='color:#FFD700'>32%</span>|<span style='color:#32CD32'>39%</span>|<span style='color:#1E90FF'>46%</span>|<span style='color:#9370DB'>54%</span>|<span style='color:#FF1493'>64%</span>|<span style='color:#00CED1'>76%</span>|<span style='color:#FF6347'>91%</span>|<span style='color:#8B4513'>110%</span>)的二次伤害",
+                    "龙牡汤2B": "暴击后，如果距离最近的敌方的生命值高于50%，使全体友方在5秒内造成的伤害增加<b>10%~60%</b>(<span style='color:#FF0000'>10%</span>|<span style='color:#FF7F00'>13%</span>|<span style='color:#FFD700'>17%</span>|<span style='color:#32CD32'>21%</span>|<span style='color:#1E90FF'>25%</span>|<span style='color:#9370DB'>29%</span>|<span style='color:#FF1493'>35%</span>|<span style='color:#00CED1'>41%</span>|<span style='color:#FF6347'>49%</span>|<span style='color:#8B4513'>60%</span>)",
+                    "龙牡汤2C": "暴击后,对距离最近的敌方造成攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害，如果他生命值高于50%，驱散全体敌方增益效果",
+                    "龙牡汤3A": "自身攻击力提高<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>)，普通攻击后，有<b>50%~80%</b>(<span style='color:#FF0000'>50%</span>|<span style='color:#FF7F00'>53%</span>|<span style='color:#FFD700'>56%</span>|<span style='color:#32CD32'>59%</span>|<span style='color:#1E90FF'>62%</span>|<span style='color:#9370DB'>65%</span>|<span style='color:#FF1493'>68%</span>|<span style='color:#00CED1'>71%</span>|<span style='color:#FF6347'>74%</span>|<span style='color:#8B4513'>80%</span>)的概率使攻击力最高的两名友方的普通攻击伤害增加<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>)，持续3秒",
+                    "龙牡汤3B": "自身攻击力提高<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>)，普通攻击后，有<b>50%~80%</b>(<span style='color:#FF0000'>50%</span>|<span style='color:#FF7F00'>53%</span>|<span style='color:#FFD700'>56%</span>|<span style='color:#32CD32'>59%</span>|<span style='color:#1E90FF'>62%</span>|<span style='color:#9370DB'>65%</span>|<span style='color:#FF1493'>68%</span>|<span style='color:#00CED1'>71%</span>|<span style='color:#FF6347'>74%</span>|<span style='color:#8B4513'>80%</span>)的概率对全体敌方造成攻击力<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18.5%</span>|<span style='color:#FFD700'>23.5%</span>|<span style='color:#32CD32'>28.4%</span>|<span style='color:#1E90FF'>33.8%</span>|<span style='color:#9370DB'>39.6%</span>|<span style='color:#FF1493'>46.8%</span>|<span style='color:#00CED1'>55.7%</span>|<span style='color:#FF6347'>66.5%</span>|<span style='color:#8B4513'>80%</span>)的伤害",
+                    "龙牡汤3C": "自身攻击力提高<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>)，普通攻击后，有<b>50%~80%</b>(<span style='color:#FF0000'>50%</span>|<span style='color:#FF7F00'>53%</span>|<span style='color:#FFD700'>56%</span>|<span style='color:#32CD32'>59%</span>|<span style='color:#1E90FF'>62%</span>|<span style='color:#9370DB'>65%</span>|<span style='color:#FF1493'>68%</span>|<span style='color:#00CED1'>71%</span>|<span style='color:#FF6347'>74%</span>|<span style='color:#8B4513'>80%</span>)的概率对攻击力最高的两名敌方造成攻击力<b>26%~150%</b>(<span style='color:#FF0000'>26%</span>|<span style='color:#FF7F00'>34%</span>|<span style='color:#FFD700'>44%</span>|<span style='color:#32CD32'>53%</span>|<span style='color:#1E90FF'>63%</span>|<span style='color:#9370DB'>74%</span>|<span style='color:#FF1493'>87%</span>|<span style='color:#00CED1'>104%</span>|<span style='color:#FF6347'>124%</span>|<span style='color:#8B4513'>150%</span>)的伤害",
+                    "龙牡汤4A": "全体友方攻速提高<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>),全体友方释放技能时,对随机一名敌方造成自身攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害并随机驱散一名敌方的增益效果",
+                    "龙牡汤4B": "全体友方攻速提高<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>),全体友方释放技能时,对随机一名敌方造成自身攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害并随机驱散一名友方的减益效果",
+                    "龙牡汤4C": "全体友方攻速提高<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>),攻击力最高的两名友方普通攻击时,对随机一名敌方造成自身攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害",
+                    "龙牡汤5A": "全体友方免疫眩晕,自身普通攻击后,对敌方全体造成攻击力<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18%</span>|<span style='color:#FFD700'>23%</span>|<span style='color:#32CD32'>28%</span>|<span style='color:#1E90FF'>33%</span>|<span style='color:#9370DB'>39%</span>|<span style='color:#FF1493'>46%</span>|<span style='color:#00CED1'>55%</span>|<span style='color:#FF6347'>66%</span>|<span style='color:#8B4513'>80%</span>)的伤害,同时3秒内每秒对攻击力最高的两名敌方角色造成攻击力<b>4.9%~28%</b>(<span style='color:#FF0000'>4.9%</span>|<span style='color:#FF7F00'>6.4%</span>|<span style='color:#FFD700'>8.2%</span>|<span style='color:#32CD32'>9.9%</span>|<span style='color:#1E90FF'>11.8%</span>|<span style='color:#9370DB'>13.8%</span>|<span style='color:#FF1493'>16.3%</span>|<span style='color:#00CED1'>19.5%</span>|<span style='color:#FF6347'>23.2%</span>|<span style='color:#8B4513'>28%</span>)的伤害",
+                    "龙牡汤5B": "全体友方免疫眩晕,自身普通攻击后,对敌方全体造成攻击力<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18%</span>|<span style='color:#FFD700'>23%</span>|<span style='color:#32CD32'>28%</span>|<span style='color:#1E90FF'>33%</span>|<span style='color:#9370DB'>39%</span>|<span style='color:#FF1493'>46%</span>|<span style='color:#00CED1'>55%</span>|<span style='color:#FF6347'>66%</span>|<span style='color:#8B4513'>80%</span>)的伤害,使随机两名敌方角色沉默4秒（沉默效果有3秒的冷却时间）",
+                    "龙牡汤5C": "全体友方免疫眩晕,自身普通攻击后,对敌方全体造成攻击力<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18%</span>|<span style='color:#FFD700'>23%</span>|<span style='color:#32CD32'>28%</span>|<span style='color:#1E90FF'>33%</span>|<span style='color:#9370DB'>39%</span>|<span style='color:#FF1493'>46%</span>|<span style='color:#00CED1'>55%</span>|<span style='color:#FF6347'>66%</span>|<span style='color:#8B4513'>80%</span>)的伤害,同时全体友方的攻击力增加<b>5%~30%</b>(<span style='color:#FF0000'>5%</span>|<span style='color:#FF7F00'>6%</span>|<span style='color:#FFD700'>8%</span>|<span style='color:#32CD32'>10%</span>|<span style='color:#1E90FF'>12%</span>|<span style='color:#9370DB'>14%</span>|<span style='color:#FF1493'>17%</span>|<span style='color:#00CED1'>20%</span>|<span style='color:#FF6347'>24%</span>|<span style='color:#8B4513'>30%</span>),持续4秒（攻击力提高效果有3秒的冷却时间）"
                 }
             },
             "Panel": {
@@ -22442,9 +22442,9 @@
                 "critDamage": "1460 / 7107",
                 "attackRate": "1535 / 6560"
             },
-            "BaseSkill": "无",
-            "EnergySkill": "无",
-            "ConnectSkill": "五"
+            "BaseSkill": "如梦令：龙牡汤操纵游魂，沉默自身，并提高自身造成伤害的30%-70%，持续5秒，对全体敌方造成自身攻击力40%-80%的伤害，附加100-1300点额外伤害。",
+            "EnergySkill": "魂栖龙骨：龙牡汤召回游魂，施展法术，对全体敌方每秒造成攻击力20%-60%的伤害，同时使全体友方攻击力提高25%-37%，持续3秒，使全体友方后5次普通攻击必定暴击。",
+            "ConnectSkill": "魂御龙骸：龙牡汤召回游魂，施展法术，对全体敌方每秒造成攻击力20%-60%的伤害，同时使全体友方攻击力提高30%-70%，持续3秒，使全体友方后8次普通攻击必定暴击。"
         }
     },
     "螺蛳粉": {
@@ -22453,28 +22453,28 @@
             "CardId": "200497",
             "Artifacts": {
                 "Color": {
-                    "1": "无",
-                    "2": "无",
-                    "3": "无",
-                    "4": "无",
-                    "5": "无"
+                    "1": "黄",
+                    "2": "红",
+                    "3": "青",
+                    "4": "紫",
+                    "5": "黄"
                 },
                 "Info": {
-                    "螺蛳粉1A": "无",
-                    "螺蛳粉1B": "无",
-                    "螺蛳粉1C": "无",
-                    "螺蛳粉2A": "无",
-                    "螺蛳粉2B": "无",
-                    "螺蛳粉2C": "无",
-                    "螺蛳粉3A": "无",
-                    "螺蛳粉3B": "无",
-                    "螺蛳粉3C": "无",
-                    "螺蛳粉4A": "无",
-                    "螺蛳粉4B": "无",
-                    "螺蛳粉4C": "无",
-                    "螺蛳粉5A": "无",
-                    "螺蛳粉5B": "无",
-                    "螺蛳粉5C": "无"
+                    "螺蛳粉1A": "最大生命值增加<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>)，普通攻击对最近一名敌方造成自身攻击力<b>7%~40%</b>(<span style='color:#FF0000'>7%</span>|<span style='color:#FF7F00'>9.2%</span>|<span style='color:#FFD700'>11.7%</span>|<span style='color:#32CD32'>14.2%</span>|<span style='color:#1E90FF'>16.9%</span>|<span style='color:#9370DB'>19.8%</span>|<span style='color:#FF1493'>23.4%</span>|<span style='color:#00CED1'>27.8%</span>|<span style='color:#FF6347'>33.2%</span>|<span style='color:#8B4513'>40%</span>)的伤害",
+                    "螺蛳粉1B": "最大生命值增加<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>)，普通攻击有40%的概率降低全体敌方攻速<b>7%~40%</b>(<span style='color:#FF0000'>7%</span>|<span style='color:#FF7F00'>9.2%</span>|<span style='color:#FFD700'>11.7%</span>|<span style='color:#32CD32'>14.2%</span>|<span style='color:#1E90FF'>16.9%</span>|<span style='color:#9370DB'>19.8%</span>|<span style='color:#FF1493'>23.4%</span>|<span style='color:#00CED1'>27.8%</span>|<span style='color:#FF6347'>33.2%</span>|<span style='color:#8B4513'>40%</span>),持续3秒",
+                    "螺蛳粉1C": "最大生命值增加<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>)，普通攻击有20%的概率使自身攻击力提高<b>7%~40%</b>(<span style='color:#FF0000'>7%</span>|<span style='color:#FF7F00'>9.2%</span>|<span style='color:#FFD700'>11.7%</span>|<span style='color:#32CD32'>14.2%</span>|<span style='color:#1E90FF'>16.9%</span>|<span style='color:#9370DB'>19.8%</span>|<span style='color:#FF1493'>23.4%</span>|<span style='color:#00CED1'>27.8%</span>|<span style='color:#FF6347'>33.2%</span>|<span style='color:#8B4513'>40%</span>),持续3秒",
+                    "螺蛳粉2A": "生命高于30%时，受到伤害后，有80%的概率使自身下次普通攻击必然暴击，同时有<b>10%~60%</b>(<span style='color:#FF0000'>10%</span>|<span style='color:#FF7F00'>13%</span>|<span style='color:#FFD700'>17%</span>|<span style='color:#32CD32'>21%</span>|<span style='color:#1E90FF'>25%</span>|<span style='color:#9370DB'>29%</span>|<span style='color:#FF1493'>35%</span>|<span style='color:#00CED1'>41%</span>|<span style='color:#FF6347'>49%</span>|<span style='color:#8B4513'>60%</span>)的概率随机驱散两名友方单位的减益效果",
+                    "螺蛳粉2B": "生命高于30%时，受到伤害后，有80%的概率使自身下次普通攻击必然暴击，同时有<b>10%~60%</b>(<span style='color:#FF0000'>10%</span>|<span style='color:#FF7F00'>13%</span>|<span style='color:#FFD700'>17%</span>|<span style='color:#32CD32'>21%</span>|<span style='color:#1E90FF'>25%</span>|<span style='color:#9370DB'>29%</span>|<span style='color:#FF1493'>35%</span>|<span style='color:#00CED1'>41%</span>|<span style='color:#FF6347'>49%</span>|<span style='color:#8B4513'>60%</span>)的概率在<b>2~3</b>(<span style='color:#FF0000'>2</span>|<span style='color:#FF7F00'>2</span>|<span style='color:#FFD700'>2</span>|<span style='color:#32CD32'>2</span>|<span style='color:#1E90FF'>2</span>|<span style='color:#9370DB'>3</span>|<span style='color:#FF1493'>3</span>|<span style='color:#00CED1'>3</span>|<span style='color:#FF6347'>3</span>|<span style='color:#8B4513'>3</span>)秒内魅惑随机两名敌方",
+                    "螺蛳粉2C": "生命高于30%时，受到伤害后，有80%的概率使自身下次普通攻击必然暴击，同时有<b>10%~60%</b>(<span style='color:#FF0000'>10%</span>|<span style='color:#FF7F00'>13%</span>|<span style='color:#FFD700'>17%</span>|<span style='color:#32CD32'>21%</span>|<span style='color:#1E90FF'>25%</span>|<span style='color:#9370DB'>29%</span>|<span style='color:#FF1493'>35%</span>|<span style='color:#00CED1'>41%</span>|<span style='color:#FF6347'>49%</span>|<span style='color:#8B4513'>60%</span>)的概率减少随机两名敌方<b>5~30</b>(<span style='color:#FF0000'>5</span>|<span style='color:#FF7F00'>6</span>|<span style='color:#FFD700'>8</span>|<span style='color:#32CD32'>10</span>|<span style='color:#1E90FF'>12</span>|<span style='color:#9370DB'>14</span>|<span style='color:#FF1493'>17</span>|<span style='color:#00CED1'>20</span>|<span style='color:#FF6347'>24</span>|<span style='color:#8B4513'>30</span>)点能量",
+                    "螺蛳粉3A": "每过5秒眩晕距离最远的一名敌方3秒，释放技能时3秒内使全体友方攻击速度提高<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>),普通攻击时有30%的几率驱散攻击力最高敌方的增益效果",
+                    "螺蛳粉3B": "每过5秒眩晕距离最远的一名敌方3秒，释放技能时3秒内使全体友方攻击速度提高<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>),普通攻击时有30%的几率驱散随机三名友方的减益效果",
+                    "螺蛳粉3C": "每过5秒眩晕距离最远的一名敌方3秒，释放技能时3秒内使全体友方攻击速度提高<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>),普通攻击时有15%的几率使全体友方无敌2秒",
+                    "螺蛳粉4A": "攻击力最高的两名友方普通攻击或释放技能后,对敌方全体造成攻击力<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18%</span>|<span style='color:#FFD700'>23%</span>|<span style='color:#32CD32'>28%</span>|<span style='color:#1E90FF'>33%</span>|<span style='color:#9370DB'>39%</span>|<span style='color:#FF1493'>46%</span>|<span style='color:#00CED1'>55%</span>|<span style='color:#FF6347'>66%</span>|<span style='color:#8B4513'>80%</span>)的伤害,对攻击力最高的两名敌方角色造成攻击力<b>4.9%~28%</b>(<span style='color:#FF0000'>4.9%</span>|<span style='color:#FF7F00'>6.4%</span>|<span style='color:#FFD700'>8.2%</span>|<span style='color:#32CD32'>9.9%</span>|<span style='color:#1E90FF'>11.8%</span>|<span style='color:#9370DB'>13.8%</span>|<span style='color:#FF1493'>16.3%</span>|<span style='color:#00CED1'>19.5%</span>|<span style='color:#FF6347'>23.2%</span>|<span style='color:#8B4513'>28%</span>)的二次伤害",
+                    "螺蛳粉4B": "攻击力最高的两名友方普通攻击或释放技能后,对敌方全体造成攻击力<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18%</span>|<span style='color:#FFD700'>23%</span>|<span style='color:#32CD32'>28%</span>|<span style='color:#1E90FF'>33%</span>|<span style='color:#9370DB'>39%</span>|<span style='color:#FF1493'>46%</span>|<span style='color:#00CED1'>55%</span>|<span style='color:#FF6347'>66%</span>|<span style='color:#8B4513'>80%</span>)的伤害,使随机两名敌方角色沉默3秒（沉默效果有3秒的冷却时间）",
+                    "螺蛳粉4C": "攻击力最高的两名友方普通攻击或释放技能后,对敌方全体造成攻击力<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18%</span>|<span style='color:#FFD700'>23%</span>|<span style='color:#32CD32'>28%</span>|<span style='color:#1E90FF'>33%</span>|<span style='color:#9370DB'>39%</span>|<span style='color:#FF1493'>46%</span>|<span style='color:#00CED1'>55%</span>|<span style='color:#FF6347'>66%</span>|<span style='color:#8B4513'>80%</span>)的伤害,同时全体友方的攻击力增加<b>5%~30%</b>(<span style='color:#FF0000'>5%</span>|<span style='color:#FF7F00'>6%</span>|<span style='color:#FFD700'>8%</span>|<span style='color:#32CD32'>10%</span>|<span style='color:#1E90FF'>12%</span>|<span style='color:#9370DB'>14%</span>|<span style='color:#FF1493'>17%</span>|<span style='color:#00CED1'>20%</span>|<span style='color:#FF6347'>24%</span>|<span style='color:#8B4513'>30%</span>),持续3秒（攻击力提高效果有3秒的冷却时间）",
+                    "螺蛳粉5A": "攻击力最低的两名友方免疫沉默。攻击力最高的两名角色受到伤害减少<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>)，全体友方释放技能时对随机三名敌方造成自身攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害并恢复随机两名友方<b>5~30</b>(<span style='color:#FF0000'>5</span>|<span style='color:#FF7F00'>6</span>|<span style='color:#FFD700'>8</span>|<span style='color:#32CD32'>10</span>|<span style='color:#1E90FF'>12</span>|<span style='color:#9370DB'>14</span>|<span style='color:#FF1493'>17</span>|<span style='color:#00CED1'>20</span>|<span style='color:#FF6347'>24</span>|<span style='color:#8B4513'>30</span>)点能量",
+                    "螺蛳粉5B": "攻击力最低的两名友方免疫沉默。攻击力最高的两名角色受到伤害减少<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>)，攻击力最高的两名角色暴击时驱散随机三名友方减益效果并对全体敌方造成自身攻击力<b>14%~80%</b>(<span style='color:#FF0000'>14%</span>|<span style='color:#FF7F00'>18%</span>|<span style='color:#FFD700'>23%</span>|<span style='color:#32CD32'>28%</span>|<span style='color:#1E90FF'>33%</span>|<span style='color:#9370DB'>39%</span>|<span style='color:#FF1493'>46%</span>|<span style='color:#00CED1'>55%</span>|<span style='color:#FF6347'>66%</span>|<span style='color:#8B4513'>80%</span>)的伤害（驱散效果有<b>5~1</b>(<span style='color:#FF0000'>5</span>|<span style='color:#FF7F00'>5</span>|<span style='color:#FFD700'>4</span>|<span style='color:#32CD32'>4</span>|<span style='color:#1E90FF'>3</span>|<span style='color:#9370DB'>3</span>|<span style='color:#FF1493'>2</span>|<span style='color:#00CED1'>2</span>|<span style='color:#FF6347'>1</span>|<span style='color:#8B4513'>1</span>)秒冷却时间）",
+                    "螺蛳粉5C": "攻击力最低的两名友方免疫沉默。攻击力最高的两名角色受到伤害减少<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>)，攻击力最高的两名角色暴击时驱散最近两名敌方增益效果并对全体敌方造成自身攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害(驱散效果有<b>5~1</b>(<span style='color:#FF0000'>5</span>|<span style='color:#FF7F00'>5</span>|<span style='color:#FFD700'>4</span>|<span style='color:#32CD32'>4</span>|<span style='color:#1E90FF'>3</span>|<span style='color:#9370DB'>3</span>|<span style='color:#FF1493'>2</span>|<span style='color:#00CED1'>2</span>|<span style='color:#FF6347'>1</span>|<span style='color:#8B4513'>1</span>)秒冷却时间）"
                 }
             },
             "Panel": {
@@ -22488,9 +22488,9 @@
                 "critDamage": "1720 / 8446",
                 "attackRate": "1390 / 5905"
             },
-            "BaseSkill": "无",
-            "EnergySkill": "无",
-            "ConnectSkill": "五"
+            "BaseSkill": "桀魂啸：螺蛳粉冲向敌方，数次挥剑，提高自身20%-60%攻击力和暴击伤害，持续3-5秒，对全体敌方造成攻击力40%-80%的伤害，并附加502-6526点伤害。",
+            "EnergySkill": "狂骨鞭痕：螺蛳粉挥动骨鞭剑，大杀四方，使自身下5次普通攻击每次攻击的攻击力提升213-2769点，使全体敌方受到的伤害增加25%-37%，并使最近的两名敌方眩晕，持续3-5秒。",
+            "ConnectSkill": "狂骨乱舞：螺蛳粉挥动骨鞭剑，大杀四方，使自身下5次普通攻击每次攻击的攻击力提升213-2769点，使全体敌方受到的伤害增加35%-47%，并使最近的两名敌方眩晕，持续3-5秒。"
         }
     },
     "伦教糕": {
@@ -22499,28 +22499,28 @@
             "CardId": "200498",
             "Artifacts": {
                 "Color": {
-                    "1": "无",
-                    "2": "无",
-                    "3": "无",
-                    "4": "无",
-                    "5": "无"
+                    "1": "绿",
+                    "2": "红",
+                    "3": "青",
+                    "4": "紫",
+                    "5": "蓝"
                 },
                 "Info": {
-                    "伦教糕1A": "无",
-                    "伦教糕1B": "无",
-                    "伦教糕1C": "无",
-                    "伦教糕2A": "无",
-                    "伦教糕2B": "无",
-                    "伦教糕2C": "无",
-                    "伦教糕3A": "无",
-                    "伦教糕3B": "无",
-                    "伦教糕3C": "无",
-                    "伦教糕4A": "无",
-                    "伦教糕4B": "无",
-                    "伦教糕4C": "无",
-                    "伦教糕5A": "无",
-                    "伦教糕5B": "无",
-                    "伦教糕5C": "无"
+                    "伦教糕1A": "战斗中,最远两名友方角色攻击力增加<b>2.4%~14%</b>(<span style='color:#FF0000'>2.4%</span>|<span style='color:#FF7F00'>3.2%</span>|<span style='color:#FFD700'>4.1%</span>|<span style='color:#32CD32'>4.9%</span>|<span style='color:#1E90FF'>5.9%</span>|<span style='color:#9370DB'>6.9%</span>|<span style='color:#FF1493'>8.1%</span>|<span style='color:#00CED1'>9.7%</span>|<span style='color:#FF6347'>11.6%</span>|<span style='color:#8B4513'>14%</span>)",
+                    "伦教糕1B": "战斗中,最近两名友方角色攻击力增加<b>2.4%~14%</b>(<span style='color:#FF0000'>2.4%</span>|<span style='color:#FF7F00'>3.2%</span>|<span style='color:#FFD700'>4.1%</span>|<span style='color:#32CD32'>4.9%</span>|<span style='color:#1E90FF'>5.9%</span>|<span style='color:#9370DB'>6.9%</span>|<span style='color:#FF1493'>8.1%</span>|<span style='color:#00CED1'>9.7%</span>|<span style='color:#FF6347'>11.6%</span>|<span style='color:#8B4513'>14%</span>)",
+                    "伦教糕1C": "战斗中,自身攻击力增加<b>1.7%~10%</b>(<span style='color:#FF0000'>1.7%</span>|<span style='color:#FF7F00'>2.3%</span>|<span style='color:#FFD700'>2.9%</span>|<span style='color:#32CD32'>3.5%</span>|<span style='color:#1E90FF'>4.2%</span>|<span style='color:#9370DB'>4.9%</span>|<span style='color:#FF1493'>5.8%</span>|<span style='color:#00CED1'>6.9%</span>|<span style='color:#FF6347'>8.3%</span>|<span style='color:#8B4513'>10%</span>),普通攻击或释放技能有30%概率驱散全体友方身上的减益效果（每6秒最多发动一次）",
+                    "伦教糕2A": "释放技能时有40%概率提升自身<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>)攻击力,持续4秒",
+                    "伦教糕2B": "普通攻击时有10%概率提升自身<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>)攻击力,持续4秒",
+                    "伦教糕2C": "受到治疗时有20%概率提升自身<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>)攻击力,持续4秒",
+                    "伦教糕3A": "自身攻击力增加<b>2.6%~15%</b>(<span style='color:#FF0000'>2.6%</span>|<span style='color:#FF7F00'>3.4%</span>|<span style='color:#FFD700'>4.4%</span>|<span style='color:#32CD32'>5.3%</span>|<span style='color:#1E90FF'>6.3%</span>|<span style='color:#9370DB'>7.4%</span>|<span style='color:#FF1493'>8.7%</span>|<span style='color:#00CED1'>10.4%</span>|<span style='color:#FF6347'>12.4%</span>|<span style='color:#8B4513'>15%</span>);普通攻击或释放技能后,所有敌方的攻速值减少<b>5%~30%</b>(<span style='color:#FF0000'>5%</span>|<span style='color:#FF7F00'>6%</span>|<span style='color:#FFD700'>8%</span>|<span style='color:#32CD32'>10%</span>|<span style='color:#1E90FF'>12%</span>|<span style='color:#9370DB'>14%</span>|<span style='color:#FF1493'>17%</span>|<span style='color:#00CED1'>20%</span>|<span style='color:#FF6347'>24%</span>|<span style='color:#8B4513'>30%</span>),持续6秒（此效果每15秒发动一次）",
+                    "伦教糕3B": "自身攻击力增加<b>2.6%~15%</b>(<span style='color:#FF0000'>2.6%</span>|<span style='color:#FF7F00'>3.4%</span>|<span style='color:#FFD700'>4.4%</span>|<span style='color:#32CD32'>5.3%</span>|<span style='color:#1E90FF'>6.3%</span>|<span style='color:#9370DB'>7.4%</span>|<span style='color:#FF1493'>8.7%</span>|<span style='color:#00CED1'>10.4%</span>|<span style='color:#FF6347'>12.4%</span>|<span style='color:#8B4513'>15%</span>);释放技能时会对随机三名敌方角色造成攻击力<b>29%~170%</b>(<span style='color:#FF0000'>29%</span>|<span style='color:#FF7F00'>39%</span>|<span style='color:#FFD700'>49%</span>|<span style='color:#32CD32'>60%</span>|<span style='color:#1E90FF'>71%</span>|<span style='color:#9370DB'>84%</span>|<span style='color:#FF1493'>99%</span>|<span style='color:#00CED1'>118%</span>|<span style='color:#FF6347'>141%</span>|<span style='color:#8B4513'>170%</span>)的伤害（此效果每9秒发动一次）",
+                    "伦教糕3C": "自身攻击力增加<b>2.6%~15%</b>(<span style='color:#FF0000'>2.6%</span>|<span style='color:#FF7F00'>3.4%</span>|<span style='color:#FFD700'>4.4%</span>|<span style='color:#32CD32'>5.3%</span>|<span style='color:#1E90FF'>6.3%</span>|<span style='color:#9370DB'>7.4%</span>|<span style='color:#FF1493'>8.7%</span>|<span style='color:#00CED1'>10.4%</span>|<span style='color:#FF6347'>12.4%</span>|<span style='color:#8B4513'>15%</span>);普通攻击或释放技能后让最近三名友方受到的伤害减少<b>5%~30%</b>(<span style='color:#FF0000'>5%</span>|<span style='color:#FF7F00'>6%</span>|<span style='color:#FFD700'>8%</span>|<span style='color:#32CD32'>10%</span>|<span style='color:#1E90FF'>12%</span>|<span style='color:#9370DB'>14%</span>|<span style='color:#FF1493'>17%</span>|<span style='color:#00CED1'>20%</span>|<span style='color:#FF6347'>24%</span>|<span style='color:#8B4513'>30%</span>),持续4秒（此效果每12秒发动一次）",
+                    "伦教糕4A": "自身技能伤害增加<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>);释放技能时有40%几率驱散我方全体减益效果,该效果有10秒冷却",
+                    "伦教糕4B": "自身技能伤害增加<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>);释放技能时有40%几率驱散敌方全体增益效果,该效果有10秒冷却",
+                    "伦教糕4C": "自身技能伤害增加<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>);释放技能时有40%几率回复我方全体<b>5~30</b>(<span style='color:#FF0000'>5</span>|<span style='color:#FF7F00'>6</span>|<span style='color:#FFD700'>8</span>|<span style='color:#32CD32'>10</span>|<span style='color:#1E90FF'>12</span>|<span style='color:#9370DB'>14</span>|<span style='color:#FF1493'>17</span>|<span style='color:#00CED1'>20</span>|<span style='color:#FF6347'>24</span>|<span style='color:#8B4513'>30</span>)能量,该效果有10秒冷却",
+                    "伦教糕5A": "释放技能时40%几率使全体友方下2次攻击必定暴击并有40%几率使自身攻击力提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),持续3秒（该效果分别有6秒的冷却时间）",
+                    "伦教糕5B": "释放技能时20%几率使全体友方无敌2秒并有20%几率使自身攻击力提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),持续3秒（该效果分别有6秒的冷却时间）",
+                    "伦教糕5C": "释放技能时对一名随机敌方每秒造成自身攻击力<b>21%~120%</b>(<span style='color:#FF0000'>21%</span>|<span style='color:#FF7F00'>27%</span>|<span style='color:#FFD700'>35%</span>|<span style='color:#32CD32'>42%</span>|<span style='color:#1E90FF'>50%</span>|<span style='color:#9370DB'>59%</span>|<span style='color:#FF1493'>70%</span>|<span style='color:#00CED1'>83%</span>|<span style='color:#FF6347'>99%</span>|<span style='color:#8B4513'>120%</span>)的伤害,持续5秒,并使自身攻击力提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),持续5秒（该效果有6秒的冷却时间）"
                 }
             },
             "Panel": {
@@ -22534,9 +22534,9 @@
                 "critDamage": "988 / 4447",
                 "attackRate": "1433 / 5433"
             },
-            "BaseSkill": "无",
-            "EnergySkill": "无",
-            "ConnectSkill": "五"
+            "BaseSkill": "落笔成章：伦教糕在白玉简上挥毫洒墨，对攻击力最高的一名敌方造成攻击力100%-180%的伤害，并附加312-4056点伤害，3秒内降低其5%-25%攻击速度。",
+            "EnergySkill": "困兽之斗：伦教糕展开白玉简，围困敌方，对攻击力最高的一名敌方造成自身攻击力120%-220%的伤害，并对其每秒造成564-7332点伤害，持续3秒，眩晕其2秒。",
+            "ConnectSkill": "困兽禁缚：伦教糕展开白玉简，围困敌方，对攻击力最高的一名敌方造成自身攻击力200%-3的伤害，并对其每秒造成798-10374点伤害，持续5秒，眩晕其3秒。"
         }
     },
     "甜烧白": {
@@ -22545,28 +22545,28 @@
             "CardId": "200499",
             "Artifacts": {
                 "Color": {
-                    "1": "无",
-                    "2": "无",
-                    "3": "无",
-                    "4": "无",
-                    "5": "无"
+                    "1": "紫",
+                    "2": "红",
+                    "3": "青",
+                    "4": "黄",
+                    "5": "蓝"
                 },
                 "Info": {
-                    "甜烧白1A": "无",
-                    "甜烧白1B": "无",
-                    "甜烧白1C": "无",
-                    "甜烧白2A": "无",
-                    "甜烧白2B": "无",
-                    "甜烧白2C": "无",
-                    "甜烧白3A": "无",
-                    "甜烧白3B": "无",
-                    "甜烧白3C": "无",
-                    "甜烧白4A": "无",
-                    "甜烧白4B": "无",
-                    "甜烧白4C": "无",
-                    "甜烧白5A": "无",
-                    "甜烧白5B": "无",
-                    "甜烧白5C": "无"
+                    "甜烧白1A": "自身攻击速度提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>)",
+                    "甜烧白1B": "自身最大生命值提高<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>)",
+                    "甜烧白1C": "自身受到的伤害降低<b>1.7%~10%</b>(<span style='color:#FF0000'>1.7%</span>|<span style='color:#FF7F00'>2.3%</span>|<span style='color:#FFD700'>2.9%</span>|<span style='color:#32CD32'>3.5%</span>|<span style='color:#1E90FF'>4.2%</span>|<span style='color:#9370DB'>4.9%</span>|<span style='color:#FF1493'>5.8%</span>|<span style='color:#00CED1'>6.9%</span>|<span style='color:#FF6347'>8.3%</span>|<span style='color:#8B4513'>10%</span>)",
+                    "甜烧白2A": "普通攻击时恢复生命值百分比最低的三名友方<b>176~1000</b>(<span style='color:#FF0000'>176</span>|<span style='color:#FF7F00'>232</span>|<span style='color:#FFD700'>293</span>|<span style='color:#32CD32'>355</span>|<span style='color:#1E90FF'>422</span>|<span style='color:#9370DB'>495</span>|<span style='color:#FF1493'>585</span>|<span style='color:#00CED1'>697</span>|<span style='color:#FF6347'>831</span>|<span style='color:#8B4513'>1000</span>)点生命值（该效果有1秒的冷却时间）",
+                    "甜烧白2B": "暴击时恢复生命值百分比最低的三名友方<b>176~1000</b>(<span style='color:#FF0000'>176</span>|<span style='color:#FF7F00'>232</span>|<span style='color:#FFD700'>293</span>|<span style='color:#32CD32'>355</span>|<span style='color:#1E90FF'>422</span>|<span style='color:#9370DB'>495</span>|<span style='color:#FF1493'>585</span>|<span style='color:#00CED1'>697</span>|<span style='color:#FF6347'>831</span>|<span style='color:#8B4513'>1000</span>)点生命值",
+                    "甜烧白2C": "释放技能时恢复全体友方<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点生命值",
+                    "甜烧白3A": "释放基础技后治疗随机一名友方角色<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的已损失生命值,同时对全体敌方角色造成攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害（治疗效果有15秒的冷却时间）",
+                    "甜烧白3B": "释放基础技后恢复随机两名友方角色<b>7~40</b>(<span style='color:#FF0000'>7</span>|<span style='color:#FF7F00'>9</span>|<span style='color:#FFD700'>11</span>|<span style='color:#32CD32'>14</span>|<span style='color:#1E90FF'>16</span>|<span style='color:#9370DB'>19</span>|<span style='color:#FF1493'>23</span>|<span style='color:#00CED1'>27</span>|<span style='color:#FF6347'>33</span>|<span style='color:#8B4513'>40</span>)点能量,每6秒可发动一次",
+                    "甜烧白3C": "释放基础技后使攻击力最高的两名友方角色攻击力提高<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>),持续3秒,每12秒可发动一次",
+                    "甜烧白4A": "自身每秒回复2点能量,释放能量技时全体友方攻击力提高<b>3.5%~20%</b>(<span style='color:#FF0000'>3.5%</span>|<span style='color:#FF7F00'>4.6%</span>|<span style='color:#FFD700'>5.8%</span>|<span style='color:#32CD32'>7.1%</span>|<span style='color:#1E90FF'>8.4%</span>|<span style='color:#9370DB'>9.9%</span>|<span style='color:#FF1493'>11.7%</span>|<span style='color:#00CED1'>13.9%</span>|<span style='color:#FF6347'>16.6%</span>|<span style='color:#8B4513'>20%</span>),持续5秒",
+                    "甜烧白4B": "自身每秒回复2点能量,释放能量技时全体友方攻速提高<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),持续5秒",
+                    "甜烧白4C": "自身每秒回复2点能量,释放能量技时全体友方无敌2秒,同时每秒回复全体友方<b>211~1200</b>(<span style='color:#FF0000'>211</span>|<span style='color:#FF7F00'>278</span>|<span style='color:#FFD700'>352</span>|<span style='color:#32CD32'>426</span>|<span style='color:#1E90FF'>507</span>|<span style='color:#9370DB'>594</span>|<span style='color:#FF1493'>702</span>|<span style='color:#00CED1'>836</span>|<span style='color:#FF6347'>998</span>|<span style='color:#8B4513'>1200</span>)点生命值,持续5秒",
+                    "甜烧白5A": "攻击力最高的友方释放能量技时对全体敌方额外造成自身攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害,并驱散全体友方的减益效果（驱散效果有5秒的冷却时间）",
+                    "甜烧白5B": "攻击力最高的友方暴击时对随机一名敌方额外造成自身攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害,并驱散随机一名敌方的增益效果（驱散效果有5秒的冷却时间）",
+                    "甜烧白5C": "攻击力最高的友方释放能量技时对全体敌方额外造成自身攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害,并回复自身20点能量（回复能量效果有5秒的冷却时间）"
                 }
             },
             "Panel": {
@@ -22580,9 +22580,284 @@
                 "critDamage": "884 / 3824",
                 "attackRate": "1086 / 4126"
             },
-            "BaseSkill": "无",
-            "EnergySkill": "无",
-            "ConnectSkill": "五"
+            "BaseSkill": "风涤尘：甜烧白稍作整理，每秒回复攻击力最高友方112-1456点生命值，同时回复自身10-26点能量，持续3秒。",
+            "EnergySkill": "沁芳宴：甜烧白为大家准备了各种好吃的食物，回复全体友方468-5499点生命值，5秒内使全体友方获得546-7098点护盾，同时提高全体友方15%-35%攻击力。",
+            "ConnectSkill": "沁春宴：甜烧白为大家准备了各种好吃的食物，回复全体友方546-5499点生命值，5秒内使全体友方获得668-8684点护盾，同时提高全体友方20%-60%攻击力。"
+        }
+    },
+    "拉克雷特": {
+        "v0": {
+            "Name": "拉克雷特",
+            "CardId": "200487",
+            "Artifacts": {
+                "Color": {
+                    "1": "无",
+                    "2": "无",
+                    "3": "无",
+                    "4": "无",
+                    "5": "无"
+                },
+                "Info": {
+                    "拉克雷特1A": "无",
+                    "拉克雷特1B": "无",
+                    "拉克雷特1C": "无",
+                    "拉克雷特2A": "无",
+                    "拉克雷特2B": "无",
+                    "拉克雷特2C": "无",
+                    "拉克雷特3A": "无",
+                    "拉克雷特3B": "无",
+                    "拉克雷特3C": "无",
+                    "拉克雷特4A": "无",
+                    "拉克雷特4B": "无",
+                    "拉克雷特4C": "无",
+                    "拉克雷特5A": "无",
+                    "拉克雷特5B": "无",
+                    "拉克雷特5C": "无"
+                }
+            },
+            "Panel": {
+                "career": "魔法系",
+                "pet1": "迦楼罗",
+                "pet2": "土蜘蛛",
+                "attack": "144 / 4616",
+                "defence": "25 / 583",
+                "hp": "621 / 11657",
+                "critRate": "1254 / 6050",
+                "critDamage": "1458 / 7099",
+                "attackRate": "1452 / 6187"
+            },
+            "BaseSkill": "拉克雷特基础技：提高xxx",
+            "EnergySkill": "拉克雷特能量技：提高xxx",
+            "ConnectSkill": "拉克雷特连携技：提高xxx"
+        }
+    },
+    "瑞士薯饼": {
+        "v0": {
+            "Name": "瑞士薯饼",
+            "CardId": "200488",
+            "Artifacts": {
+                "Color": {
+                    "1": "无",
+                    "2": "无",
+                    "3": "无",
+                    "4": "无",
+                    "5": "无"
+                },
+                "Info": {
+                    "瑞士薯饼1A": "无",
+                    "瑞士薯饼1B": "无",
+                    "瑞士薯饼1C": "无",
+                    "瑞士薯饼2A": "无",
+                    "瑞士薯饼2B": "无",
+                    "瑞士薯饼2C": "无",
+                    "瑞士薯饼3A": "无",
+                    "瑞士薯饼3B": "无",
+                    "瑞士薯饼3C": "无",
+                    "瑞士薯饼4A": "无",
+                    "瑞士薯饼4B": "无",
+                    "瑞士薯饼4C": "无",
+                    "瑞士薯饼5A": "无",
+                    "瑞士薯饼5B": "无",
+                    "瑞士薯饼5C": "无"
+                }
+            },
+            "Panel": {
+                "career": "力量系",
+                "pet1": "帝海螺",
+                "pet2": "寄居蟹",
+                "attack": "57 / 1253",
+                "defence": "21 / 407",
+                "hp": "522 / 8311",
+                "critRate": "945 / 4115",
+                "critDamage": "967 / 4348",
+                "attackRate": "1163 / 4353"
+            },
+            "BaseSkill": "瑞士薯饼基础技：提高xxx",
+            "ConnectSkill": "瑞士薯饼连携技：提高xxx"
+        }
+    },
+    "乔皮诺（内特）": {
+        "v0": {
+            "Name": "乔皮诺（内特）",
+            "CardId": "200500",
+            "Artifacts": {
+                "Color": {
+                    "1": "黄",
+                    "2": "红",
+                    "3": "青",
+                    "4": "紫",
+                    "5": "黄"
+                },
+                "Info": {
+                    "乔皮诺（内特）1A": "普通攻击有<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的概率使自身受到的伤害降低<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),持续2秒",
+                    "乔皮诺（内特）1B": "普通攻击有<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的概率使自身获得<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点护盾,持续5秒",
+                    "乔皮诺（内特）1C": "普通攻击有<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的概率使自身回复<b>8~50</b>(<span style='color:#FF0000'>8</span>|<span style='color:#FF7F00'>11</span>|<span style='color:#FFD700'>14</span>|<span style='color:#32CD32'>17</span>|<span style='color:#1E90FF'>21</span>|<span style='color:#9370DB'>24</span>|<span style='color:#FF1493'>29</span>|<span style='color:#00CED1'>34</span>|<span style='color:#FF6347'>41</span>|<span style='color:#8B4513'>50</span>)点能量",
+                    "乔皮诺（内特）2A": "释放技能后对随机一名敌方造成攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害并使随机一名敌方无法受到治疗,持续4秒",
+                    "乔皮诺（内特）2B": "释放技能后对最远的一名敌方造成攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害并使其无法受到治疗,持续4秒",
+                    "乔皮诺（内特）2C": "释放技能后对生命值百分比最低的一名敌方造成攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害并使其无法受到治疗,持续4秒",
+                    "乔皮诺（内特）3A": "释放基础技后治疗随机一名友方角色<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的已损失生命值,同时对全体敌方角色造成攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害（治疗效果有15秒的冷却时间）",
+                    "乔皮诺（内特）3B": "释放基础技后恢复随机两名友方角色<b>7~40</b>(<span style='color:#FF0000'>7</span>|<span style='color:#FF7F00'>9</span>|<span style='color:#FFD700'>11</span>|<span style='color:#32CD32'>14</span>|<span style='color:#1E90FF'>16</span>|<span style='color:#9370DB'>19</span>|<span style='color:#FF1493'>23</span>|<span style='color:#00CED1'>27</span>|<span style='color:#FF6347'>33</span>|<span style='color:#8B4513'>40</span>)点能量,每6秒可发动一次",
+                    "乔皮诺（内特）3C": "释放基础技后使攻击力最高的两名友方角色攻击力提高<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>),持续3秒,每12秒可发动一次",
+                    "乔皮诺（内特）4A": "每6秒回复己方攻击力最高的角色生命值<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点,并使其受到的技能伤害减少<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>21%</span>|<span style='color:#FF6347'>25%</span>|<span style='color:#8B4513'>30%</span>),持续3秒。",
+                    "乔皮诺（内特）4B": "每6秒回复己方攻击力最高的角色生命值<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点,并使其受到的普通攻击伤害减少<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>21%</span>|<span style='color:#FF6347'>25%</span>|<span style='color:#8B4513'>30%</span>),持续3秒。",
+                    "乔皮诺（内特）4C": "每6秒回复防御力最高的友方生命值<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点,并使其无敌3秒。",
+                    "乔皮诺（内特）5A": "普通攻击有50%的概率眩晕当前攻击对象3秒,且有10%的概率减少其攻击力<b>5.2%~30.0%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30.0%</span>),持续3秒。（该效果有3秒的冷却时间）",
+                    "乔皮诺（内特）5B": "普通攻击有30%的概率眩晕当前攻击对象1秒,且有30%的概率减少其暴击值<b>5.2%~30.0%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30.0%</span>),持续3秒。（该效果有3秒的冷却时间）",
+                    "乔皮诺（内特）5C": "普通攻击有30%的概率眩晕当前攻击对象1秒,且有30%的概率减少其暴伤值<b>5.2%~30.0%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30.0%</span>),持续3秒。（该效果有3秒的冷却时间）"
+                }
+            },
+            "Panel": {
+                "career": "力量系",
+                "pet1": "断刀",
+                "pet2": "肉刀",
+                "attack": "60 / 1318",
+                "defence": "24 / 466",
+                "hp": "540 / 8597",
+                "critRate": "940 / 4090",
+                "critDamage": "973 / 4375",
+                "attackRate": "1203 / 4513"
+            },
+            "BaseSkill": "乘风破浪：乔皮诺（内特）踏着风浪迎击敌方，对全体敌方单位造成自身攻击力40%-80%的伤害并附加356-4628点额外伤害。同时提高自己40%的攻击速度，持续4秒。",
+            "EnergySkill": "英雄降临：乔皮诺（内特）以「英雄」之名召唤海浪，对全体敌方造成自身攻击力40%-80%的伤害，并对其每秒造成564-7332点伤害，持续3秒",
+            "ConnectSkill": "英雄裁决：乔皮诺（内特）以「英雄」之名召唤海浪，对全体敌方造成自身攻击力60%-100%的伤害，并对其每秒造成564-7332点伤害，持续3秒"
+        }
+    },
+    "伊德": {
+        "v0": {
+            "Name": "伊德",
+            "CardId": "200501",
+            "Artifacts": {
+                "Color": {
+                    "1": "无",
+                    "2": "无",
+                    "3": "无",
+                    "4": "无",
+                    "5": "无"
+                },
+                "Info": {
+                    "伊德1A": "无",
+                    "伊德1B": "无",
+                    "伊德1C": "无",
+                    "伊德2A": "无",
+                    "伊德2B": "无",
+                    "伊德2C": "无",
+                    "伊德3A": "无",
+                    "伊德3B": "无",
+                    "伊德3C": "无",
+                    "伊德4A": "无",
+                    "伊德4B": "无",
+                    "伊德4C": "无",
+                    "伊德5A": "无",
+                    "伊德5B": "无",
+                    "伊德5C": "无"
+                }
+            },
+            "Panel": {
+                "career": "魔法系",
+                "pet1": "狸猫",
+                "pet2": "暴食（强化型）",
+                "attack": "142 / 4552",
+                "defence": "27 / 630",
+                "hp": "599 / 11244",
+                "critRate": "1322 / 6398",
+                "critDamage": "1045 / 4969",
+                "attackRate": "1425 / 6065"
+            },
+            "BaseSkill": "伊德基础技：对xxx",
+            "EnergySkill": "伊德能量技：对xxx",
+            "ConnectSkill": "伊德连携技：对xxx"
+        }
+    },
+    "小音": {
+        "v0": {
+            "Name": "小音",
+            "CardId": "200502",
+            "Artifacts": {
+                "Color": {
+                    "1": "无",
+                    "2": "无",
+                    "3": "无",
+                    "4": "无",
+                    "5": "无"
+                },
+                "Info": {
+                    "小音1A": "无",
+                    "小音1B": "无",
+                    "小音1C": "无",
+                    "小音2A": "无",
+                    "小音2B": "无",
+                    "小音2C": "无",
+                    "小音3A": "无",
+                    "小音3B": "无",
+                    "小音3C": "无",
+                    "小音4A": "无",
+                    "小音4B": "无",
+                    "小音4C": "无",
+                    "小音5A": "无",
+                    "小音5B": "无",
+                    "小音5C": "无"
+                }
+            },
+            "Panel": {
+                "career": "防御系",
+                "pet1": "尖刺蜗牛",
+                "pet2": "暴饮",
+                "attack": "28 / 615",
+                "defence": "30 / 598",
+                "hp": "711 / 11320",
+                "critRate": "859 / 3709",
+                "critDamage": "702 / 2962",
+                "attackRate": "907 / 3332"
+            },
+            "BaseSkill": "小音基础技：回复xxx",
+            "EnergySkill": "小音能量技：对xxx",
+            "ConnectSkill": "小音连携技：对xxx"
+        }
+    },
+    "SP威士忌": {
+        "v0": {
+            "Name": "SP威士忌",
+            "CardId": "200503",
+            "Artifacts": {
+                "Color": {
+                    "1": "无",
+                    "2": "无",
+                    "3": "无",
+                    "4": "无",
+                    "5": "无"
+                },
+                "Info": {
+                    "SP威士忌1A": "无",
+                    "SP威士忌1B": "无",
+                    "SP威士忌1C": "无",
+                    "SP威士忌2A": "无",
+                    "SP威士忌2B": "无",
+                    "SP威士忌2C": "无",
+                    "SP威士忌3A": "无",
+                    "SP威士忌3B": "无",
+                    "SP威士忌3C": "无",
+                    "SP威士忌4A": "无",
+                    "SP威士忌4B": "无",
+                    "SP威士忌4C": "无",
+                    "SP威士忌5A": "无",
+                    "SP威士忌5B": "无",
+                    "SP威士忌5C": "无"
+                }
+            },
+            "Panel": {
+                "career": "辅助系",
+                "pet1": "土蜘蛛",
+                "pet2": "暴食（强化型）",
+                "attack": "155 / 4969",
+                "defence": "29 / 677",
+                "hp": "799 / 15408",
+                "critRate": "1105 / 5125",
+                "critDamage": "1322 / 6212",
+                "attackRate": "1875 / 8251"
+            },
+            "BaseSkill": "威士忌基础技：提高友方全体xxx",
+            "EnergySkill": "威士忌能量技：提高友方全体",
+            "ConnectSkill": "威士忌光环：提高全体友方xxx"
         }
     }
 }
