@@ -22591,28 +22591,28 @@
             "CardId": "200487",
             "Artifacts": {
                 "Color": {
-                    "1": "无",
-                    "2": "无",
-                    "3": "无",
-                    "4": "无",
-                    "5": "无"
+                    "1": "青",
+                    "2": "绿",
+                    "3": "青",
+                    "4": "绿",
+                    "5": "青"
                 },
                 "Info": {
-                    "拉克雷特1A": "无",
-                    "拉克雷特1B": "无",
-                    "拉克雷特1C": "无",
-                    "拉克雷特2A": "无",
-                    "拉克雷特2B": "无",
-                    "拉克雷特2C": "无",
-                    "拉克雷特3A": "无",
-                    "拉克雷特3B": "无",
-                    "拉克雷特3C": "无",
-                    "拉克雷特4A": "无",
-                    "拉克雷特4B": "无",
-                    "拉克雷特4C": "无",
-                    "拉克雷特5A": "无",
-                    "拉克雷特5B": "无",
-                    "拉克雷特5C": "无"
+                    "拉克雷特1A": "释放普攻后，使自身获得一层护盾，护盾值相当于自身攻击力的50%，护盾最多可叠加3层。",
+                    "拉克雷特1B": "每次释放技能时，有30%几率使下次普攻伤害提升100%，持续3秒。",
+                    "拉克雷特1C": "当自身护盾被击碎时，回复自身攻击力100%的生命值，并使自身获得一层护盾，护盾值相当于自身攻击力的50%，护盾最多可叠加3层。",
+                    "拉克雷特2A": "战斗开始时，提升自身20%攻击力，持续整场战斗。",
+                    "拉克雷特2B": "每损失10%生命值，提升自身5%攻击速度，最多可叠加10次。",
+                    "拉克雷特2C": "每次暴击时，额外造成目标最大生命值3%的伤害。",
+                    "拉克雷特3A": "释放技能后，使自身获得20%的吸血效果，持续5秒。",
+                    "拉克雷特3B": "每3秒对周围敌人造成一次范围伤害，伤害值为自身攻击力的80%。",
+                    "拉克雷特3C": "当生命值低于30%时，立即回复50%最大生命值，每场战斗只能触发一次。",
+                    "拉克雷特4A": "每次受到攻击时，有15%几率反弹受到伤害的50%给攻击者。",
+                    "拉克雷特4B": "战斗中每过10秒，使自身获得一层增益，每层提升5%所有属性，最多可叠加5层。",
+                    "拉克雷特4C": "击败敌人后，回复自身20%最大生命值，并提升10%攻击力，持续5秒。",
+                    "拉克雷特5A": "每次释放技能时，有50%几率立即重置该技能的冷却时间。",
+                    "拉克雷特5B": "战斗开始后，每过15秒对随机一名敌人造成一次真实伤害，伤害值为自身攻击力的200%。",
+                    "拉克雷特5C": "当自身生命值首次低于50%时，进入狂暴状态，攻击力提升50%，但受到的伤害提升20%，持续10秒。"
                 }
             },
             "Panel": {
@@ -22637,28 +22637,28 @@
             "CardId": "200488",
             "Artifacts": {
                 "Color": {
-                    "1": "无",
-                    "2": "无",
-                    "3": "无",
-                    "4": "无",
-                    "5": "无"
+                    "1": "青",
+                    "2": "绿",
+                    "3": "青",
+                    "4": "绿",
+                    "5": "青"
                 },
                 "Info": {
-                    "瑞士薯饼1A": "无",
-                    "瑞士薯饼1B": "无",
-                    "瑞士薯饼1C": "无",
-                    "瑞士薯饼2A": "无",
-                    "瑞士薯饼2B": "无",
-                    "瑞士薯饼2C": "无",
-                    "瑞士薯饼3A": "无",
-                    "瑞士薯饼3B": "无",
-                    "瑞士薯饼3C": "无",
-                    "瑞士薯饼4A": "无",
-                    "瑞士薯饼4B": "无",
-                    "瑞士薯饼4C": "无",
-                    "瑞士薯饼5A": "无",
-                    "瑞士薯饼5B": "无",
-                    "瑞士薯饼5C": "无"
+                    "瑞士薯饼1A": "每3秒对周围敌人造成一次范围伤害，伤害值为自身攻击力的60%。",
+                    "瑞士薯饼1B": "每次受到攻击时，有25%几率使攻击者减速30%，持续2秒。",
+                    "瑞士薯饼1C": "释放技能后，使自身获得一层可吸收伤害的护盾，护盾值相当于自身最大生命值的20%。",
+                    "瑞士薯饼2A": "战斗开始时，使全体友军获得10%的攻击力提升，持续整场战斗。",
+                    "瑞士薯饼2B": "每次攻击有20%几率触发额外攻击，造成50%的伤害。",
+                    "瑞士薯饼2C": "当生命值低于40%时，提升自身30%的防御力，持续10秒。",
+                    "瑞士薯饼3A": "每5秒随机治疗一名友军，治疗量为自身攻击力的80%。",
+                    "瑞士薯饼3B": "释放技能后，使自身移动速度提升40%，持续3秒。",
+                    "瑞士薯饼3C": "每次暴击时，有30%几率使目标眩晕1秒。",
+                    "瑞士薯饼4A": "战斗开始后，每过15秒对随机敌人造成一次真实伤害，伤害值为自身攻击力的150%。",
+                    "瑞士薯饼4B": "击败敌人后，回复自身15%的最大生命值，并提升10%攻击力，持续5秒。",
+                    "瑞士薯饼4C": "每次释放技能时，有40%几率使下次技能伤害提升100%。",
+                    "瑞士薯饼5A": "当自身生命值首次低于30%时，立即回复60%最大生命值，并获得2秒的无敌效果。",
+                    "瑞士薯饼5B": "战斗开始时，使自身获得每秒回复2%最大生命值的效果，持续整场战斗。",
+                    "瑞士薯饼5C": "每次攻击有15%几率使目标陷入灼烧状态，每秒造成攻击力30%的伤害，持续3秒。"
                 }
             },
             "Panel": {
@@ -22673,12 +22673,13 @@
                 "attackRate": "1163 / 4353"
             },
             "BaseSkill": "瑞士薯饼基础技：提高xxx",
+            "EnergySkill": "瑞士薯饼能量技：提高xxx",
             "ConnectSkill": "瑞士薯饼连携技：提高xxx"
         }
     },
-    "乔皮诺（内特）": {
+    "乔皮诺": {
         "v0": {
-            "Name": "乔皮诺（内特）",
+            "Name": "乔皮诺",
             "CardId": "200500",
             "Artifacts": {
                 "Color": {
@@ -22689,21 +22690,21 @@
                     "5": "黄"
                 },
                 "Info": {
-                    "乔皮诺（内特）1A": "普通攻击有<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的概率使自身受到的伤害降低<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),持续2秒",
-                    "乔皮诺（内特）1B": "普通攻击有<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的概率使自身获得<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点护盾,持续5秒",
-                    "乔皮诺（内特）1C": "普通攻击有<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的概率使自身回复<b>8~50</b>(<span style='color:#FF0000'>8</span>|<span style='color:#FF7F00'>11</span>|<span style='color:#FFD700'>14</span>|<span style='color:#32CD32'>17</span>|<span style='color:#1E90FF'>21</span>|<span style='color:#9370DB'>24</span>|<span style='color:#FF1493'>29</span>|<span style='color:#00CED1'>34</span>|<span style='color:#FF6347'>41</span>|<span style='color:#8B4513'>50</span>)点能量",
-                    "乔皮诺（内特）2A": "释放技能后对随机一名敌方造成攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害并使随机一名敌方无法受到治疗,持续4秒",
-                    "乔皮诺（内特）2B": "释放技能后对最远的一名敌方造成攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害并使其无法受到治疗,持续4秒",
-                    "乔皮诺（内特）2C": "释放技能后对生命值百分比最低的一名敌方造成攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害并使其无法受到治疗,持续4秒",
-                    "乔皮诺（内特）3A": "释放基础技后治疗随机一名友方角色<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的已损失生命值,同时对全体敌方角色造成攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害（治疗效果有15秒的冷却时间）",
-                    "乔皮诺（内特）3B": "释放基础技后恢复随机两名友方角色<b>7~40</b>(<span style='color:#FF0000'>7</span>|<span style='color:#FF7F00'>9</span>|<span style='color:#FFD700'>11</span>|<span style='color:#32CD32'>14</span>|<span style='color:#1E90FF'>16</span>|<span style='color:#9370DB'>19</span>|<span style='color:#FF1493'>23</span>|<span style='color:#00CED1'>27</span>|<span style='color:#FF6347'>33</span>|<span style='color:#8B4513'>40</span>)点能量,每6秒可发动一次",
-                    "乔皮诺（内特）3C": "释放基础技后使攻击力最高的两名友方角色攻击力提高<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>),持续3秒,每12秒可发动一次",
-                    "乔皮诺（内特）4A": "每6秒回复己方攻击力最高的角色生命值<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点,并使其受到的技能伤害减少<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>21%</span>|<span style='color:#FF6347'>25%</span>|<span style='color:#8B4513'>30%</span>),持续3秒。",
-                    "乔皮诺（内特）4B": "每6秒回复己方攻击力最高的角色生命值<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点,并使其受到的普通攻击伤害减少<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>21%</span>|<span style='color:#FF6347'>25%</span>|<span style='color:#8B4513'>30%</span>),持续3秒。",
-                    "乔皮诺（内特）4C": "每6秒回复防御力最高的友方生命值<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点,并使其无敌3秒。",
-                    "乔皮诺（内特）5A": "普通攻击有50%的概率眩晕当前攻击对象3秒,且有10%的概率减少其攻击力<b>5.2%~30.0%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30.0%</span>),持续3秒。（该效果有3秒的冷却时间）",
-                    "乔皮诺（内特）5B": "普通攻击有30%的概率眩晕当前攻击对象1秒,且有30%的概率减少其暴击值<b>5.2%~30.0%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30.0%</span>),持续3秒。（该效果有3秒的冷却时间）",
-                    "乔皮诺（内特）5C": "普通攻击有30%的概率眩晕当前攻击对象1秒,且有30%的概率减少其暴伤值<b>5.2%~30.0%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30.0%</span>),持续3秒。（该效果有3秒的冷却时间）"
+                    "乔皮诺1A": "普通攻击有<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的概率使自身受到的伤害降低<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30%</span>),持续2秒",
+                    "乔皮诺1B": "普通攻击有<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的概率使自身获得<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点护盾,持续5秒",
+                    "乔皮诺1C": "普通攻击有<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的概率使自身回复<b>8~50</b>(<span style='color:#FF0000'>8</span>|<span style='color:#FF7F00'>11</span>|<span style='color:#FFD700'>14</span>|<span style='color:#32CD32'>17</span>|<span style='color:#1E90FF'>21</span>|<span style='color:#9370DB'>24</span>|<span style='color:#FF1493'>29</span>|<span style='color:#00CED1'>34</span>|<span style='color:#FF6347'>41</span>|<span style='color:#8B4513'>50</span>)点能量",
+                    "乔皮诺2A": "释放技能后对随机一名敌方造成攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害并使随机一名敌方无法受到治疗,持续4秒",
+                    "乔皮诺2B": "释放技能后对最远的一名敌方造成攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害并使其无法受到治疗,持续4秒",
+                    "乔皮诺2C": "释放技能后对生命值百分比最低的一名敌方造成攻击力<b>35%~200%</b>(<span style='color:#FF0000'>35%</span>|<span style='color:#FF7F00'>46%</span>|<span style='color:#FFD700'>58%</span>|<span style='color:#32CD32'>71%</span>|<span style='color:#1E90FF'>84%</span>|<span style='color:#9370DB'>99%</span>|<span style='color:#FF1493'>117%</span>|<span style='color:#00CED1'>139%</span>|<span style='color:#FF6347'>166%</span>|<span style='color:#8B4513'>200%</span>)的伤害并使其无法受到治疗,持续4秒",
+                    "乔皮诺3A": "释放基础技后治疗随机一名友方角色<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>)的已损失生命值,同时对全体敌方角色造成攻击力<b>17%~100%</b>(<span style='color:#FF0000'>17%</span>|<span style='color:#FF7F00'>23%</span>|<span style='color:#FFD700'>29%</span>|<span style='color:#32CD32'>35%</span>|<span style='color:#1E90FF'>42%</span>|<span style='color:#9370DB'>49%</span>|<span style='color:#FF1493'>58%</span>|<span style='color:#00CED1'>69%</span>|<span style='color:#FF6347'>83%</span>|<span style='color:#8B4513'>100%</span>)的伤害（治疗效果有15秒的冷却时间）",
+                    "乔皮诺3B": "释放基础技后恢复随机两名友方角色<b>7~40</b>(<span style='color:#FF0000'>7</span>|<span style='color:#FF7F00'>9</span>|<span style='color:#FFD700'>11</span>|<span style='color:#32CD32'>14</span>|<span style='color:#1E90FF'>16</span>|<span style='color:#9370DB'>19</span>|<span style='color:#FF1493'>23</span>|<span style='color:#00CED1'>27</span>|<span style='color:#FF6347'>33</span>|<span style='color:#8B4513'>40</span>)点能量,每6秒可发动一次",
+                    "乔皮诺3C": "释放基础技后使攻击力最高的两名友方角色攻击力提高<b>8%~50%</b>(<span style='color:#FF0000'>8%</span>|<span style='color:#FF7F00'>11%</span>|<span style='color:#FFD700'>14%</span>|<span style='color:#32CD32'>17%</span>|<span style='color:#1E90FF'>21%</span>|<span style='color:#9370DB'>24%</span>|<span style='color:#FF1493'>29%</span>|<span style='color:#00CED1'>34%</span>|<span style='color:#FF6347'>41%</span>|<span style='color:#8B4513'>50%</span>),持续3秒,每12秒可发动一次",
+                    "乔皮诺4A": "每6秒回复己方攻击力最高的角色生命值<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点,并使其受到的技能伤害减少<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>21%</span>|<span style='color:#FF6347'>25%</span>|<span style='color:#8B4513'>30%</span>),持续3秒。",
+                    "乔皮诺4B": "每6秒回复己方攻击力最高的角色生命值<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点,并使其受到的普通攻击伤害减少<b>5.2%~30%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>21%</span>|<span style='color:#FF6347'>25%</span>|<span style='color:#8B4513'>30%</span>),持续3秒。",
+                    "乔皮诺4C": "每6秒回复防御力最高的友方生命值<b>352~2000</b>(<span style='color:#FF0000'>352</span>|<span style='color:#FF7F00'>464</span>|<span style='color:#FFD700'>587</span>|<span style='color:#32CD32'>710</span>|<span style='color:#1E90FF'>845</span>|<span style='color:#9370DB'>991</span>|<span style='color:#FF1493'>1170</span>|<span style='color:#00CED1'>1394</span>|<span style='color:#FF6347'>1663</span>|<span style='color:#8B4513'>2000</span>)点,并使其无敌3秒。",
+                    "乔皮诺5A": "普通攻击有50%的概率眩晕当前攻击对象3秒,且有10%的概率减少其攻击力<b>5.2%~30.0%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30.0%</span>),持续3秒。（该效果有3秒的冷却时间）",
+                    "乔皮诺5B": "普通攻击有30%的概率眩晕当前攻击对象1秒,且有30%的概率减少其暴击值<b>5.2%~30.0%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30.0%</span>),持续3秒。（该效果有3秒的冷却时间）",
+                    "乔皮诺5C": "普通攻击有30%的概率眩晕当前攻击对象1秒,且有30%的概率减少其暴伤值<b>5.2%~30.0%</b>(<span style='color:#FF0000'>5.2%</span>|<span style='color:#FF7F00'>6.9%</span>|<span style='color:#FFD700'>8.8%</span>|<span style='color:#32CD32'>10.6%</span>|<span style='color:#1E90FF'>12.6%</span>|<span style='color:#9370DB'>14.8%</span>|<span style='color:#FF1493'>17.5%</span>|<span style='color:#00CED1'>20.9%</span>|<span style='color:#FF6347'>24.9%</span>|<span style='color:#8B4513'>30.0%</span>),持续3秒。（该效果有3秒的冷却时间）"
                 }
             },
             "Panel": {
@@ -22717,9 +22718,9 @@
                 "critDamage": "973 / 4375",
                 "attackRate": "1203 / 4513"
             },
-            "BaseSkill": "乘风破浪：乔皮诺（内特）踏着风浪迎击敌方，对全体敌方单位造成自身攻击力40%-80%的伤害并附加356-4628点额外伤害。同时提高自己40%的攻击速度，持续4秒。",
-            "EnergySkill": "英雄降临：乔皮诺（内特）以「英雄」之名召唤海浪，对全体敌方造成自身攻击力40%-80%的伤害，并对其每秒造成564-7332点伤害，持续3秒",
-            "ConnectSkill": "英雄裁决：乔皮诺（内特）以「英雄」之名召唤海浪，对全体敌方造成自身攻击力60%-100%的伤害，并对其每秒造成564-7332点伤害，持续3秒"
+            "BaseSkill": "乘风破浪：乔皮诺踏着风浪迎击敌方，对全体敌方单位造成自身攻击力40%-80%的伤害并附加356-4628点额外伤害。同时提高自己40%的攻击速度，持续4秒。",
+            "EnergySkill": "英雄降临：乔皮诺以「英雄」之名召唤海浪，对全体敌方造成自身攻击力40%-80%的伤害，并对其每秒造成564-7332点伤害，持续3秒",
+            "ConnectSkill": "英雄裁决：乔皮诺以「英雄」之名召唤海浪，对全体敌方造成自身攻击力60%-100%的伤害，并对其每秒造成564-7332点伤害，持续3秒"
         }
     },
     "伊德": {
@@ -22728,28 +22729,28 @@
             "CardId": "200501",
             "Artifacts": {
                 "Color": {
-                    "1": "无",
-                    "2": "无",
-                    "3": "无",
-                    "4": "无",
-                    "5": "无"
+                    "1": "青",
+                    "2": "绿",
+                    "3": "青",
+                    "4": "绿",
+                    "5": "青"
                 },
                 "Info": {
-                    "伊德1A": "无",
-                    "伊德1B": "无",
-                    "伊德1C": "无",
-                    "伊德2A": "无",
-                    "伊德2B": "无",
-                    "伊德2C": "无",
-                    "伊德3A": "无",
-                    "伊德3B": "无",
-                    "伊德3C": "无",
-                    "伊德4A": "无",
-                    "伊德4B": "无",
-                    "伊德4C": "无",
-                    "伊德5A": "无",
-                    "伊德5B": "无",
-                    "伊德5C": "无"
+                    "伊德1A": "每次释放技能时，有30%几率立即重置该技能的冷却时间。",
+                    "伊德1B": "攻击时有20%几率触发连锁闪电，对最多3个目标造成攻击力60%的伤害。",
+                    "伊德1C": "每次暴击时，额外消耗目标5%的最大法力值，并造成等量伤害。",
+                    "伊德2A": "战斗开始时，使自身获得20%的技能急速，持续整场战斗。",
+                    "伊德2B": "每次施法后，下一次普通攻击变为远程攻击，造成150%的伤害。",
+                    "伊德2C": "当生命值低于50%时，技能伤害提升40%，但技能消耗增加20%。",
+                    "伊德3A": "每4秒在周围释放一次魔法阵，对范围内的敌人造成攻击力80%的伤害并减速20%。",
+                    "伊德3B": "每次受到技能伤害时，有25%几率反弹50%的伤害给施法者。",
+                    "伊德3C": "释放技能后，使自身获得一层魔法护盾，可吸收相当于自身最大生命值25%的伤害。",
+                    "伊德4A": "战斗开始后，每过12秒对随机敌人施放沉默，持续2秒。",
+                    "伊德4B": "击败敌人后，回复自身20%的最大法力值，并减少所有技能1秒冷却时间。",
+                    "伊德4C": "每次释放技能时，有35%几率使下次技能不消耗法力值。",
+                    "伊德5A": "当法力值低于30%时，立即回复50%的最大法力值，并获得3秒的技能急速提升50%。",
+                    "伊德5B": "每过8秒，下一次技能会额外造成目标已损失生命值15%的伤害。",
+                    "伊德5C": "战斗开始时，使自身获得每秒回复1%最大法力值的效果，持续整场战斗。"
                 }
             },
             "Panel": {
@@ -22774,28 +22775,28 @@
             "CardId": "200502",
             "Artifacts": {
                 "Color": {
-                    "1": "无",
-                    "2": "无",
-                    "3": "无",
-                    "4": "无",
-                    "5": "无"
+                    "1": "青",
+                    "2": "绿",
+                    "3": "青",
+                    "4": "绿",
+                    "5": "青"
                 },
                 "Info": {
-                    "小音1A": "无",
-                    "小音1B": "无",
-                    "小音1C": "无",
-                    "小音2A": "无",
-                    "小音2B": "无",
-                    "小音2C": "无",
-                    "小音3A": "无",
-                    "小音3B": "无",
-                    "小音3C": "无",
-                    "小音4A": "无",
-                    "小音4B": "无",
-                    "小音4C": "无",
-                    "小音5A": "无",
-                    "小音5B": "无",
-                    "小音5C": "无"
+                    "小音1A": "每次攻击时释放音波，对目标及周围敌人造成攻击力70%的范围伤害。",
+                    "小音1B": "每3秒释放一次音律波动，为周围友军恢复攻击力50%的生命值。",
+                    "小音1C": "当生命值低于40%时，自动激活守护音律，使自身受到的伤害减少30%，持续5秒。",
+                    "小音2A": "战斗开始时，为全体友军提供15%的攻击速度加成，持续整场战斗。",
+                    "小音2B": "每次释放技能时，有30%几率触发音波共鸣，使所有技能冷却时间减少1秒。",
+                    "小音2C": "每次暴击时，释放和谐音波，使目标陷入沉默状态，持续2秒。",
+                    "小音3A": "每5秒释放一次治愈旋律，为生命值最低的友军恢复最大生命值的15%。",
+                    "小音3B": "释放技能后，使自身获得音速提升，移动速度提升40%，持续3秒。",
+                    "小音3C": "当友军受到伤害时，有20%几率释放保护音波，为其吸收相当于攻击力100%的伤害。",
+                    "小音4A": "每过10秒，释放一次震撼音波，对前方扇形区域内的敌人造成攻击力120%的伤害并击飞1秒。",
+                    "小音4B": "击败敌人后，释放胜利之歌，使全体友军获得10%的攻击力提升，持续5秒。",
+                    "小音4C": "每次释放技能时，有25%几率使下次技能伤害提升100%。",
+                    "小音5A": "当生命值首次低于30%时，激活最终乐章，立即回复50%最大生命值，并在10秒内技能伤害提升50%。",
+                    "小音5B": "战斗开始时，获得持续音律加持，每秒恢复2%最大生命值，持续整场战斗。",
+                    "小音5C": "每次攻击有15%几率触发音符连击，连续释放3次音波，每次造成攻击力40%的伤害。"
                 }
             },
             "Panel": {
@@ -22820,28 +22821,28 @@
             "CardId": "200503",
             "Artifacts": {
                 "Color": {
-                    "1": "无",
-                    "2": "无",
-                    "3": "无",
-                    "4": "无",
-                    "5": "无"
+                    "1": "青",
+                    "2": "绿",
+                    "3": "青",
+                    "4": "绿",
+                    "5": "青"
                 },
                 "Info": {
-                    "SP威士忌1A": "无",
-                    "SP威士忌1B": "无",
-                    "SP威士忌1C": "无",
-                    "SP威士忌2A": "无",
-                    "SP威士忌2B": "无",
-                    "SP威士忌2C": "无",
-                    "SP威士忌3A": "无",
-                    "SP威士忌3B": "无",
-                    "SP威士忌3C": "无",
-                    "SP威士忌4A": "无",
-                    "SP威士忌4B": "无",
-                    "SP威士忌4C": "无",
-                    "SP威士忌5A": "无",
-                    "SP威士忌5B": "无",
-                    "SP威士忌5C": "无"
+                    "SP威士忌1A": "每次攻击时释放烈焰，对目标造成攻击力80%的伤害并附加燃烧效果，每秒造成攻击力20%的伤害，持续3秒。",
+                    "SP威士忌1B": "每次释放技能时，有30%几率触发烈酒爆发，对周围敌人造成攻击力100%的范围伤害。",
+                    "SP威士忌1C": "当生命值低于50%时，进入醉酒状态，攻击力提升40%，但受到的伤害增加20%，持续8秒。",
+                    "SP威士忌2A": "战斗开始时，为自身注入烈酒之力，使所有技能伤害提升25%，持续整场战斗。",
+                    "SP威士忌2B": "每次暴击时，有40%几率使目标陷入醉酒状态，其攻击命中率降低30%，持续3秒。",
+                    "SP威士忌2C": "释放技能后，下一次普通攻击变为烈焰冲击，造成200%的伤害并击飞目标1秒。",
+                    "SP威士忌3A": "每4秒在周围释放一次酒雾，使范围内的敌人减速25%并受到攻击力60%的伤害。",
+                    "SP威士忌3B": "每次受到伤害时，有25%几率释放反击烈焰，对攻击者造成攻击力150%的伤害。",
+                    "SP威士忌3C": "当自身受到致命伤害时，有50%几率触发烈酒重生，回复50%最大生命值，每场战斗只能触发一次。",
+                    "SP威士忌4A": "每过12秒，释放一次威士忌风暴，对前方直线区域内的敌人造成攻击力180%的伤害并点燃3秒。",
+                    "SP威士忌4B": "击败敌人后，释放胜利之酒，使自身攻击力提升15%，移动速度提升30%，持续5秒。",
+                    "SP威士忌4C": "每次释放技能时，有35%几率使下次技能不消耗能量。",
+                    "SP威士忌5A": "当生命值首次低于30%时，激活最终烈焰，立即回复60%最大生命值，并在10秒内所有技能伤害提升60%。",
+                    "SP威士忌5B": "战斗开始时，获得烈酒护体，每秒对周围敌人造成攻击力30%的伤害，持续整场战斗。",
+                    "SP威士忌5C": "每次攻击有20%几率触发连锁烈焰，对最多3个目标造成攻击力80%的伤害。"
                 }
             },
             "Panel": {
