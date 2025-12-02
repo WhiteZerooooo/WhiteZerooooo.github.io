@@ -537,7 +537,7 @@
             let isMobile = window.innerWidth <= 768;
             
             // API URL
-            const apiUrl = `https://yuandu.haoyuexyj.top/wp-json/wp/v2/posts?per_page=100&orderby=date&order=desc&page=1&t=${new Date().getTime()}`;
+            const apiUrl = `https://linfeng.haoyuexyj.top/wp-json/wp/v2/posts?per_page=100&orderby=date&order=desc&page=1&t=${new Date().getTime()}`;
             
             // 加载文章列表
             function loadPosts() {
@@ -617,7 +617,7 @@
             
             // 加载文章内容
             function loadArticle(postId) {
-                const articleUrl = `https://yuandu.haoyuexyj.top/wp-json/wp/v2/posts/${postId}?t=${new Date().getTime()}`;
+                const articleUrl = `https://linfeng.haoyuexyj.top/wp-json/wp/v2/posts/${postId}?t=${new Date().getTime()}`;
                 
                 // 显示加载状态
                 articleTitle.textContent = '加载中...';
