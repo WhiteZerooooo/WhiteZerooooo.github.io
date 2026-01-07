@@ -832,6 +832,7 @@
                 skeletons[cardName] = loadSkeleton(cardId, "静止", true, false);
                 setupUI();
                 requestAnimationFrame(render);
+                canvas.classList.add('loaded');
             } else {
                 requestAnimationFrame(load);
             }
