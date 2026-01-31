@@ -5,20 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="page-title">故事阅读器</title>
-    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/assets/other/ico/storyviewer.ico">
+    <link rel="icon" type="image/x-icon" href="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/assets/other/ico/storyviewer.ico">
     
     <!-- 引入字体和图标 -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     
     <!-- 引入JS库 -->
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/build/jquery-3.1.0.min.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/build/pixi.min.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/build/live2dcubismcore.min.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/build/live2dcubismframework.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/build/live2dcubismpixi.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/build/l2d.js"></script>
-    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/build/main.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/build/jquery-3.1.0.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/build/pixi.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/build/live2dcubismcore.min.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/build/live2dcubismframework.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/build/live2dcubismpixi.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/build/l2d.js"></script>
+    <script src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/build/main.js"></script>
     
     <style>
         :root {
@@ -265,7 +265,7 @@
             height: 350,
             right: '20px',
             bottom: '20px',
-            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/assets/other/Live2dView',
+            basePath: 'https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/assets/other/Live2dView',
             role: 'l2d200132_11',
             background: '',
             opacity: 0,
@@ -293,7 +293,7 @@
         // 加载故事内容
         function loadStoryContent() {
             $.ajax({
-                url: `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/assets/story/${storyTitle}.txt`,
+                url: `https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/assets/story/${storyTitle}.txt`,
                 dataType: "text",
                 success: function(data) {
                     document.getElementById('story-content').textContent = data;
@@ -306,7 +306,7 @@
         
         // 加载角色信息
         function loadCharacters() {
-            fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/assets/json/story.json')
+            fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/assets/json/story.json')
                 .then(response => response.json())
                 .then(stories => {
                     // 查找当前故事
@@ -314,7 +314,7 @@
                     const persons = currentStory ? currentStory.person.split('、') : [];
                     
                     // 加载角色卡片数据
-                    fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/assets/json/card.json')
+                    fetch('https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/assets/json/card.json')
                         .then(response => response.json())
                         .then(cards => {
                             const container = document.getElementById('characters-container');
@@ -325,7 +325,7 @@
                                     const avatar = document.createElement('div');
                                     avatar.className = 'character-avatar';
                                     avatar.innerHTML = `
-                                        <img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.1/assets/cards/head/card_icon_${card.id}.png" 
+                                        <img src="https://gcore.jsdelivr.net/gh/WhiteZerooooo/FoodFantasyResource@2.3.2/assets/cards/head/card_icon_${card.id}.png" 
                                              alt="${personName}" 
                                              class="character-img"
                                              data-character="${personName}">
